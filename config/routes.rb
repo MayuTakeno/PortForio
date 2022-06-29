@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  root to: 'public/homes#top'
 
   namespace :public do
-    root to: 'homes#top'
     get 'homes/about' => 'homes#about', as: 'about'
     # homesのルーティング
     # get 'homes/top'
