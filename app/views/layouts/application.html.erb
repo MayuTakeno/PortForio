@@ -2,7 +2,8 @@
 <html>
   <head>
     <title>ACom</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,8 +12,18 @@
   </head>
 
   <body>
-    <%= render "layouts/header" %>
+    <!--ヘッダーの部分テンプレート-->
+    <header style="margin-bottom: 100px;">
+      <%= render "layouts/header" %>
+    </header>
+
     <%= yield %>
-    <%= render "layouts/footer" %>
+
+    <!--フッターの部分テンプレート-->
+    <footer>
+      <%= render "layouts/footer" %>
+    </footer>
+
   </body>
+
 </html>
