@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-  root to: 'public/homes#top'
+  root to: 'top_pages#top'
 
   namespace :public do
+    # publicのルートパス
+    root to: 'homes#top'
     get 'homes/about' => 'homes#about', as: 'about'
-    # homesのルーティング
-    # get 'homes/top'
+    resources :notices, except: [:new, :create]
+    # get 'notices/index'
+    # get 'notices/show'
+    # get 'notices/edit'
   end
   #社員用URL
   devise_for :employees, skip: [:passwords], controllers: {
