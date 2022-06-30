@@ -11,6 +11,8 @@
           <th>タイトル</th>
           <th>投稿日時</th>
           <th></th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <thead>
@@ -25,25 +27,42 @@
             <% end %>
           </td>
           <td>
-            <%= blog.title %>
+            <%= link_to public_blog_path(blog.id) do %>
+              <%= blog.title %>
+            <% end %>
+            <br>
+            <p>
+            <%= blog.employee.name %>
+            </p>
           </td>
-          <td><%= blog.created_at %></td>
+          <td><%= blog.created_at.strftime("%Y/%m/%d %H:%M") %></td>
           <td>
             <!--詳細ページへのリンク-->
-            <%= link_to public_blog_path(blog.id) do %>
-              詳細
-            <% end %>
+          </td>
+          <% if employee_signed_in? && blog.employee_id == current_employee.id %>
+          <td>
+            <%= link_to "編集", edit_public_blog_path(blog), class: 'btn btn-sm btn-success' %>
           </td>
           <td>
             <!--削除リンク-->
-            <%= link_to public_blog_path(blog), method: :delete do %>
-              削除
-            <% end %>
+            <%= link_to "削除", public_blog_path(blog), method: :delete, class: 'btn btn-sm btn-danger' %>
           </td>
+          <% else %>
+          <td></td>
+          <td></td>
+          <% end %>
         </tr>
       </thead>
       <% end %>
     </table>
+    </div>
+    <% if employee_signed_in? %>
+    <div class="col-md-2" style="text-align: center;">
+      <%= link_to new_public_blog_path, class: 'btn btn-sm btn-info' do %>
+        新規作成
+      <% end %>
+    <% else %>
+    <% end %>
     </div>
   </div>
 </div>
