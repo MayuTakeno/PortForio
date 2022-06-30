@@ -1,7 +1,10 @@
 <h1>Public::Employees#show</h1>
 <p>Find me in app/views/public/employees/show.html.erb</p>
 s
-<%= @employee.email %>
+<%= @employee.first_name %><%= @employee.last_name %><br>
+<%= @employee.email %><br>
+<%= @employee.employee_code %><br>
+<%= @employee.phone_number %><br>
 <%= link_to edit_public_employee_path do %>
 編集
 <% end %>
