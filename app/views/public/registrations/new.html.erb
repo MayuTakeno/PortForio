@@ -1,4 +1,4 @@
-<%= form_with url: employee_registration_path do |f| %>
+<%= form_with model: @employee, url: employee_registration_path do |f| %>
 <div class="container">
   <div class="row">
     <div class="col-md-3" style="text-align: center;">
@@ -17,19 +17,19 @@
       </div>
       <br>
       <div class="field">
-        <%= f.text_field :assigned_to, autofocus: true, autocomplete: "assigned_to", placeholder: "配属先", size: "40" %>
+        <%= f.text_field :assigned_to, autocomplete: "assigned_to", placeholder: "配属先", size: "40" %>
       </div>
       <br>
       <div class="field">
-        <%= f.text_field :employee_code, autofocus: true, autocomplete: "employee_code", placeholder: "社員番号", size: "40" %>
+        <%= f.text_field :employee_code, autocomplete: "employee_code", placeholder: "社員番号", size: "40" %>
       </div>
       <br>
       <div class="field">
-        <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", placeholder: "電話番号", size: "40" %>
+        <%= f.text_field :phone_number, autocomplete: "phone_number", placeholder: "電話番号", size: "40" %>
       </div>
       <br>
       <div class="field">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", size:"40" %>
+        <%= f.email_field :email, autocomplete: "email", placeholder: "メールアドレス", size:"40" %>
       </div>
       <br>
       <div class="field">
