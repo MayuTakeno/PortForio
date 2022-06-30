@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  namespace :public do
+  end
   root to: 'top_pages#top'
 
   namespace :public do
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
     resources :employees, except: [:index, :new, :create]
     # get 'employees/show'
     # get 'employees/edit'
+    resources :blogs
   end
   #社員用URL
   devise_for :employees, skip: [:passwords], controllers: {
