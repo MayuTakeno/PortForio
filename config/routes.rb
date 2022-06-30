@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     # get 'notices/index'
     # get 'notices/show'
     # get 'notices/edit'
+    resources :employees, except: [:index, :new, :create]
+    # get 'employees/show'
+    # get 'employees/edit'
   end
   #社員用URL
   devise_for :employees, skip: [:passwords], controllers: {
