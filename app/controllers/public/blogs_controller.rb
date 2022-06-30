@@ -1,6 +1,6 @@
 class Public::BlogsController < ApplicationController
   before_action :authenticate_employee!, except: [:index]
-  # before_action :set_blog, only: [:show, :edit]
+  before_action :set_blog, only: [:show, :edit, :destroy]
 
   def new
     # 空のmodelオブジェクトの生成
@@ -30,20 +30,18 @@ class Public::BlogsController < ApplicationController
   end
 
   def show
-    @blog = Blog.find(params[:id])
   end
 
   def destroy
-    @blog = Blog.find(params[:id])
     @blog.destroy
     redirect_to public_blogs_path
   end
 
   private
 
-  # def set_blog
-    # @blog = Blog.find(params[:id])
-  # end
+  def set_blog
+    @blog = Blog.find(params[:id])
+  end
 
   def blog_params
     params.require(:blog).permit(:title, :body , :image)

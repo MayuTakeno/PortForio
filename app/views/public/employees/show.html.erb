@@ -1,10 +1,38 @@
-<h1>Public::Employees#show</h1>
-<p>Find me in app/views/public/employees/show.html.erb</p>
-s
-<%= @employee.first_name %><%= @employee.last_name %><br>
-<%= @employee.email %><br>
-<%= @employee.employee_code %><br>
-<%= @employee.phone_number %><br>
-<%= link_to edit_public_employee_path do %>
-編集
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>マイページ</h4>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+      <table class="table">
+        <tr>
+          <th>氏名</th>
+          <td><%= @employee.first_name %><%= @employee.last_name %></td>
+        </tr>
+        <tr>
+          <th>社員番号</th>
+          <td><%= @employee.employee_code %></td>
+        </tr>
+        <tr>
+          <th>配属先</th>
+          <td><%= @employee.assigned_to %></td>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <td><%= @employee.phone_number %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= @employee.email %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2" style="text-align: center;">
+      <%= link_to edit_public_employee_path, class: 'btn btn-sm btn-success' do %>
+        編集
+      <% end %>
+    </div>
+  </div>
+</div>

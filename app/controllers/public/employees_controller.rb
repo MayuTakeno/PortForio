@@ -4,6 +4,9 @@ class Public::EmployeesController < ApplicationController
   def edit
   end
 
+  def updated
+  end
+
   def show
   end
 
