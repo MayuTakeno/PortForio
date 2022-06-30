@@ -4,6 +4,8 @@ class Employee < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :blogs, dependent: :destroy
+
  def name
    first_name + last_name
  end

@@ -1,2 +1,49 @@
-<h1>Public::Blogs#index</h1>
-<p>Find me in app/views/public/blogs/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>社員ブログ<br>一覧</h4>
+    </div>
+    <div class="col-md-8">
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>タイトル</th>
+          <th>投稿日時</th>
+          <th></th>
+        </tr>
+      </thead>
+      <thead>
+      <% @blogs.each do |blog| %>
+        <tr>
+          <td>
+            <!--画像が送信されているかどうか-->
+            <% if blog.image.attached? %>
+              <%= image_tag blog.image, size: "50x50" %>
+            <% else %>
+              <%= image_tag 'flow01.png', size: "50x50" %>
+            <% end %>
+          </td>
+          <td>
+            <%= blog.title %>
+          </td>
+          <td><%= blog.created_at %></td>
+          <td>
+            <!--詳細ページへのリンク-->
+            <%= link_to public_blog_path(blog.id) do %>
+              詳細
+            <% end %>
+          </td>
+          <td>
+            <!--削除リンク-->
+            <%= link_to public_blog_path(blog), method: :delete do %>
+              削除
+            <% end %>
+          </td>
+        </tr>
+      </thead>
+      <% end %>
+    </table>
+    </div>
+  </div>
+</div>
