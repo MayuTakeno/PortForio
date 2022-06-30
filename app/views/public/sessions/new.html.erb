@@ -8,6 +8,10 @@
     <div class="col-md-6" style="text-align: center;">
 
       <div class="field">
+        <%= f.text_field :name ,autofocus: true, autocomplete: "name", placeholder: "氏名", size: "40" %>
+      </div>
+      <br>
+      <div class="field">
         <%= f.text_field :assigned_to, autofocus: true, autocomplete: "assigned_to", placeholder: "配属先", size:"40" %>
       </div>
       <br>
@@ -39,6 +43,8 @@
   </div>
 </div>
 <% end %>
-<div class="link" style="text-align: center; margin-top: 10px;">
+<div class="link" style="text-align: center; margin-top: 20px;">
+  <strong>社員登録がお済みでない方は</strong>
+  <br>
   <%= render "public/shared/links" %>
 </div>

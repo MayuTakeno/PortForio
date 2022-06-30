@@ -1,29 +1,54 @@
-<h2>Sign up</h2>
+<%= form_with url: employee_registration_path do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3" style="text-align: center;">
+      <h4>社員登録</h4>
+      <%= render "public/shared/error_messages", resource: resource %>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
+    <div class="col-md-6" style="text-align: center;">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="field">
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: "氏名(姓)", size: "40" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: "氏名(名)", size: "40" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.text_field :assigned_to, autofocus: true, autocomplete: "assigned_to", placeholder: "配属先", size: "40" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.text_field :employee_code, autofocus: true, autocomplete: "employee_code", placeholder: "社員番号", size: "40" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", placeholder: "電話番号", size: "40" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", size:"40" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "new-password",placeholder: "パスワード(8~36文字)", size: "40" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード(確認)", size: "40" %>
+      </div>
+      <br>
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+</div>
 <% end %>
-
-<%= render "public/shared/links" %>
+<div class="container" style="text-align: center; margin-top: 20px;">
+  <strong>社員登録がお済みの方は</strong>
+  <br>
+  <%= render "public/shared/links" %>
+</div>
