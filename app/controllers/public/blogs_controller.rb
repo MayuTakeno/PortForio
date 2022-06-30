@@ -1,6 +1,6 @@
 class Public::BlogsController < ApplicationController
   before_action :authenticate_employee!, except: [:index]
-  before_action :set_blog, only: [:show, :edit, :destroy]
+  before_action :set_blog, except: [:new, :index, :create]
 
   def new
     # 空のmodelオブジェクトの生成
@@ -27,6 +27,15 @@ class Public::BlogsController < ApplicationController
   end
 
   def edit
+  end
+
+  def updated
+    @blog.employee_id = current_employee.id
+    if @blog.update
+      redirect_to public_blog_path(@blog)
+    else
+      render :edit
+    end
   end
 
   def show
