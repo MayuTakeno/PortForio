@@ -15,12 +15,31 @@
         <% if employee_signed_in? %>
           <li>
             <%= link_to public_employee_path(current_employee), class: 'nav-link text-dark' do%>
-              マイページ
+              MY PAGE
             <% end %>
           </li>
           <li>
-            <%= link_to destroy_employee_session_path, method: :delete, class: 'nav-link text-dark' do %>
-              ログアウト
+            <%= link_to public_notices_path, class: 'nav-link text-dark' do %>
+              NEWS
+            <%end %>
+          </li>
+          <li>
+            EVENTS
+          </li>
+          <li>
+            <%= link_to public_blogs_path, class: 'nav-link text-dark' do %>
+               BLOGS
+            <% end %>
+          </li>
+          <li>
+            PRODUCTS
+          </li>
+          <li>
+            Q & A
+          </li>
+          <li>
+            <%= link_to destroy_employee_session_path, method: :get, class: 'nav-link text-dark' do %>
+              LOG OUT
             <% end %>
 
           </li>
@@ -51,7 +70,7 @@
           </li>
           <li style="padding-left: 20px;">
             <%= link_to new_employee_session_path, class: 'text-dark' do %>
-              ログイン
+              LOG IN
               <i class="fa-regular fa-circle-user"></i>
             <% end %>
           </li>
