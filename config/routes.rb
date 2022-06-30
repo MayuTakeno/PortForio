@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  namespace :public do
-  end
   root to: 'top_pages#top'
 
   namespace :public do
