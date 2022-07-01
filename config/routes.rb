@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'top_pages#top'
 
   namespace :admin do
-    resources :employees, except: [:new, :create, :destroy]
+    resources :employees, except: [:new, :create]
     # get 'employees/index'
     # get 'employees/edit'
     # get 'employees/show'
@@ -21,6 +21,9 @@ Rails.application.routes.draw do
     # get 'products/index'
     # get 'products/edit'
     # get 'products/show'
+    resources :blogs, only: [:show, :index, :destroy]
+    # get 'blogs/index'
+    # get 'blogs/show'
   end
 
   namespace :public do
