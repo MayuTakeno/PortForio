@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     # get 'employees/edit'
     resources :blogs
     resources :events, only: [:index, :show]
+    resources :products, only: [:index, :show]
+    get 'qa_chat/:id' => 'qa_chats#show', as: 'qa_chat'
+    resources :qa_chats, only: [:create]
   end
   #社員用URL
   devise_for :employees, skip: [:passwords], controllers: {

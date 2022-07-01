@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_01_003513) do
+ActiveRecord::Schema.define(version: 2022_07_01_012839) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -62,6 +62,13 @@ ActiveRecord::Schema.define(version: 2022_07_01_003513) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "employee_rooms", force: :cascade do |t|
+    t.integer "employee_id"
+    t.integer "room_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "employees", force: :cascade do |t|
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "", null: false
@@ -84,6 +91,20 @@ ActiveRecord::Schema.define(version: 2022_07_01_003513) do
     t.string "title"
     t.text "body"
     t.text "caption"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "qa_chats", force: :cascade do |t|
+    t.integer "employee_id"
+    t.integer "room_id"
+    t.string "title"
+    t.string "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "rooms", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

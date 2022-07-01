@@ -34,10 +34,14 @@
             <% end %>
           </li>
           <li style="padding: 0px 20px; border-right: 1px solid #000000;">
-            PRODUCTS
+            <%= link_to public_products_path, class: 'nav-link text-dark' do %>
+              PRODUCTS
+            <% end %>
           </li>
           <li style="padding: 0px 20px; border-right: 1px solid #000000;">
-            Q & A
+            <%= link_to public_qa_chat_path(current_employee), class: 'nav-link text-dark' do %>
+              Q & A
+            <% end %>
           </li>
           <li style="padding-left: 20px;">
             <%= link_to destroy_employee_session_path, method: :get, class: 'nav-link text-dark' do %>
