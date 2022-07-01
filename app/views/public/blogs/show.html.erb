@@ -4,7 +4,7 @@
       <h4>ブログ詳細</h4>
     </div>
     <div class="col-md-8" style="text-align: center;">
-      <%= image_tag @blog.image, size: "300x300" %>
+      <%= image_tag @blog.get_image, size: "300x300" %>
       <br>
       <br>
       <strong><%= @blog.title %></strong>
@@ -18,4 +18,13 @@
       </div>
     </div>
   </div>
+  <% if employee_signed_in? && @blog.employee_id == current_employee.id %>
+  <div class="row">
+    <div class="col" style="text-align: center; margin-top: 20px;">
+      <%= link_to edit_public_blog_path(@blog), class: 'btn btn-sm btn-success' do %>
+        編集
+      <% end %>
+    </div>
+  </div>
+  <% end %>
 </div>

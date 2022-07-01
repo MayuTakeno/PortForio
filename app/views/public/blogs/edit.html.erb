@@ -1,4 +1,4 @@
-<%= form_with model: @blog, url: public_blogs_path, method: :post do |f| %>
+<%= form_with model: @blog, url: public_blog_path(@blog.id) do |f| %>
 <div class="container">
   <div class="row">
     <div class="col-md-2" style="text-align: center;">
