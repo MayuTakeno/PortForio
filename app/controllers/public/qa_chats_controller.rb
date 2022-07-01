@@ -1,6 +1,9 @@
 class Public::QaChatsController < ApplicationController
   before_action :authenticate_employee!
 
+  def index
+  end
+
   def show
     # 社員の情報を一つ取り出す
     @employee = Employee.find(params[:id])

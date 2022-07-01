@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center; margin-top: 30px;">
+      <h4>質疑応答</h4>
+    </div>
+    <div class="col-md-8" style="margin-top: 30px;">
+      <% qa_chats.each do |qa_chat| %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>題名</th>
+            <td><%= qa_chat.title %></td>
+            <th>投稿者</th>
+            <td><%= qa_chat.employee.first_name %></td>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th>質問内容</th>
+          <td><%= qa_chat.message %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        </tbody>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>
