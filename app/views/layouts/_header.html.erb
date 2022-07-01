@@ -47,10 +47,39 @@
             <%= link_to destroy_employee_session_path, method: :get, class: 'nav-link text-dark' do %>
               LOG OUT
             <% end %>
-
           </li>
 
         <% elsif admin_signed_in? %>
+          <li style="padding: 0 20px; border-right: 1px solid #000000;">
+            <%= link_to admin_employees_path, class: 'nav-link text-dark' do %>
+              EMPLOYEES
+            <% end %>
+          </li>
+          <li style="padding: 0 20px; border-right: 1px solid #000000;">
+            <%= link_to admin_notices_path, class: 'nav-link text-dark' do %>
+              NEWS
+            <% end %>
+          </li>
+          <li style="padding: 0 20px; border-right: 1px solid #000000;">
+            <%= link_to admin_events_path, class: 'nav-link text-dark' do %>
+              EVENTS
+            <% end %>
+          </li>
+          <li style="padding: 0 20px; border-right: 1px solid #000000;">
+            <%= link_to admin_blogs_path, class: 'nav-link text-dark' do %>
+              BLOGS
+            <% end %>
+          </li>
+          <li style="padding: 0 20px; border-right: 1px solid #000000;">
+            <%= link_to admin_products_path, class: 'nav-link text-dark' do %>
+              PRODUCTS
+            <% end %>
+          </li>
+          <li style="padding-left: 20px;">
+            <%= link_to destroy_admin_session_path, method: :get, class: 'nav-link text-dark' do %>
+              LOG OUT
+            <% end %>
+          </li>
 
         <% else %>
 

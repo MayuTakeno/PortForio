@@ -5,4 +5,8 @@ class QaChat < ApplicationRecord
   belongs_to :employee
   # room_idを主キーとしたテーブルを参照先に指定
   belongs_to :room
+
+  # バリデーション
+  validates :title, presence: true
+  validates :message, presence: true
 end

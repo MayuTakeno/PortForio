@@ -1,4 +1,6 @@
 class Public::QaChatsController < ApplicationController
+  before_action :authenticate_employee!
+
   def show
     # 社員の情報を一つ取り出す
     @employee = Employee.find(params[:id])
@@ -27,9 +29,10 @@ class Public::QaChatsController < ApplicationController
   end
 
   def create
+    # 現在ログインしている社員のチャットを新規作成する
     @qa_chat = current_employee.qa_chats.new(qa_chat_params)
-    @qa_chat.save
-    redirect_to repuest.referer
+    # validatesにかからなければ保存する
+    render :validater unless @qa_chat.save
   end
 
   private
@@ -37,4 +40,5 @@ class Public::QaChatsController < ApplicationController
   def qa_chat_params
     params.require(:qa_chat).permit(:title, :message, :room_id)
   end
+
 end
