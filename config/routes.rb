@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :events, only: [:index, :show]
     resources :products, only: [:index, :show]
     get 'qa_chat/:id' => 'qa_chats#show', as: 'qa_chat'
+    post 'qa_chat/:id' => 'qa_chats#show'
     resources :qa_chats, only: [:create]
   end
   #社員用URL

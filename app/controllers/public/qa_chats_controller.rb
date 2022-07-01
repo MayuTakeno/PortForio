@@ -28,8 +28,9 @@ class Public::QaChatsController < ApplicationController
 
   def create
     @qa_chat = current_employee.qa_chats.new(qa_chat_params)
-    @chat.save
-    redirect_to repuest.refere
+    @qa_chat.employee_id = current_employee.id
+    @qa_chat.save
+    redirect_to repuest.referer
   end
 
   private
