@@ -14,4 +14,8 @@ class Public::EmployeesController < ApplicationController
   def set_employee
     @employee = current_employee
   end
+
+  def employee_params
+    params.require(:employee).permit(:first_name, :last_name, :assigned_to, :employee_code, :phone_number, :is_deleted, :email)
+  end
 end

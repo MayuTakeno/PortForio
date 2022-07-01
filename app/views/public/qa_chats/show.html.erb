@@ -1,1 +1,49 @@
-現在準備中
+<%= form_with model: @qa_chat, url: public_qa_chat_path do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>Q＆A</h4>
+    </div>
+    <div class="col-md-8" style="text-align: center;">
+      <div class="field">
+        <%= f.text_field :title, autofocus: true, autocomplete: "title", placeholder: "題名", size: "50" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.text_area :message, autocomplete: "message", placeholder: "質問", size: "50x5" %>
+      </div>
+      <%= f.hidden_field :room_id %>
+      <br>
+      <div class="field">
+        <%= f.submit "質問", class: 'btn btn-success' %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center; margin-top: 30px;">
+      <h4>質疑応答</h4>
+    </div>
+    <div class="col-md-8" style="margin-top: 30px;">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>投稿者</th>
+            <th>質問内容</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @qa_chats.each do |qa_chat| %>
+          <tr>
+            <td><%= qa_chat.employee.name %></td>
+            <td><%= qa_chat.message %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
