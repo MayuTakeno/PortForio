@@ -1,0 +1,10 @@
+<div class="errors" style="margin-top: 20px;">
+<% if obj.errors.any? %>
+  <%= obj.errors.count %>件のエラー
+  <div>
+    <% obj.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+    <% end %>
+  </div>
+<% end %>
+</div>

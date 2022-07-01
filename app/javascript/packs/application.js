@@ -17,7 +17,7 @@ import "../stylesheets/application"
 
 // fontawesomeのインポート
 import "@fortawesome/fontawesome-free/js/all"
-ここまで
+// ここまで
 
 Rails.start()
 Turbolinks.start()

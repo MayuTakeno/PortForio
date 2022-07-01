@@ -1,2 +1,35 @@
-<h1>Public::Blogs#new</h1>
-<p>Find me in app/views/public/blogs/new.html.erb</p>
+<%= form_with model: @blog, url: public_blogs_path, method: :post do |f| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2" style="text-align: center;">
+        <h4>社員ブログ<br>投稿</h4>
+      </div>
+      <div class="col-md-8" style="text-align: center;">
+
+        <div class="field">
+          <strong>タイトル</strong><br>
+          <%= f.text_field :title, autofocus: true, autocomplete: "title", placeholder: "題名", size: "50" %>
+        </div>
+        <br>
+        <div class="field">
+          <strong>内容</strong><br>
+          <%= f.text_area :body, autocomplete: "body", placeholder: "内容", size: "50x20" %>
+        </div>
+        <br>
+        <div class="field">
+          <strong>画像</strong><br>
+          <%= f.file_field :image, accept: "image/*" %>
+        </div>
+        <br>
+        <div class="field">
+          <%= f.submit "投稿", class: 'btn btn-sm btn-info'  %>
+        </div>
+      </div>
+      <div class="col-md-2" style="text-align: center;">
+      <strong style="font-size: 14px; color: red;">
+        <%= render 'layouts/errors', obj: @blog %>
+      </strong>
+      </div>
+    </div>
+  </div>
+<% end %>

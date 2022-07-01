@@ -1,24 +1,38 @@
-# README
+#Kizuna
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+### <人と人とを繋ぐアプリケーション>
 
-Things you may want to cover:
 
-* Ruby version
+### テーマを選んだ理由
+<前職では、コロナの影響もあり社員同士も関わりが薄く、
+先輩に質問しようとしても遠征に行ったり質問するタイミングが合わないということが
+しばしばありました。
+その経験から、社内でコミュニケーションツールを作れば、
+人と人が離れていても質問したり、コミュニケーションが取れるのでいいなと思いました。>
 
-* System dependencies
 
-* Configuration
+### ターゲットユーザ
+<新入社員や会社員全員>
 
-* Database creation
 
-* Database initialization
+### 主な利用シーン
+<職場内、オフの日>
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## 設計書
+<ゲスト/ログイン、NEWS、HOME、ABOUT、BLOGSが見れる>
+<社員/MY PAGE、NEWS、EVENTS ,BLOGS ,PRODUCTS ,Q&A ,LOG OUT>
+<管理者/EMPLOYEES,NEWS,EVENTS,PRODUCTS>
 
-* Deployment instructions
+## 開発環境
+- OS：UNIX(macOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
+- 今のところ仮で素材を置いてあり、未定です
