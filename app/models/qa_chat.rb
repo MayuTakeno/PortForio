@@ -7,6 +7,6 @@ class QaChat < ApplicationRecord
   belongs_to :room
 
   # バリデーション
-  validates :title, presence: true
-  validates :message, presence: true
+  validates :title, presence: { message: 'は入力必須です'}
+  validates :message, presence: {message: 'は入力必須です'}
 end

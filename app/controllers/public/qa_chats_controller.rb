@@ -1,6 +1,9 @@
 class Public::QaChatsController < ApplicationController
   before_action :authenticate_employee!
 
+  def index
+  end
+
   def show
     # 社員の情報を一つ取り出す
     @employee = Employee.find(params[:id])
@@ -33,6 +36,12 @@ class Public::QaChatsController < ApplicationController
     @qa_chat = current_employee.qa_chats.new(qa_chat_params)
     # validatesにかからなければ保存する
     render :validater unless @qa_chat.save
+  end
+
+  def destroy
+    @qa_chat = QaChat.find(params[:id])
+    @qa_chat.destroy
+    redirect_to public_qa_chat_path(current_employee)
   end
 
   private

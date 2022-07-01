@@ -4,7 +4,7 @@ class CreateQaChats < ActiveRecord::Migration[6.1]
       t.integer :employee_id
       t.integer :room_id
       t.string :title
-      t.string :message
+      t.text :message
 
       t.timestamps
     end
