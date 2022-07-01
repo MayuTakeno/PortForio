@@ -15,10 +15,11 @@ import "bootstrap";
 import "../stylesheets/application"
 // ここまで
 
+
 // fontawesomeのインポート
 import "@fortawesome/fontawesome-free/js/all"
 // ここまで
 
 Rails.start()
-// Turbolinks.start()
+Turbolinks.start()
 ActiveStorage.start()

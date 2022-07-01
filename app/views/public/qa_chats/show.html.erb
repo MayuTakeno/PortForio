@@ -1,8 +1,8 @@
-<%= form_with model: @qa_chat, url: public_qa_chats_path, local: false, remote: true do |f| %>
+<%= form_with model: @qa_chat, url: public_qa_chats_path, local: false, data: {"turbolinks" => false}, remote: true do |f| %>
 <div class="container">
   <div class="row">
     <div class="col-md-2" style="text-align: center;">
-      <h4><%= @employee.first_name %>さんのQ＆A</h4>
+      <h4><%= @employee.first_name %>さんの<br>Q＆A</h4>
     </div>
     <div class="col-md-8" style="text-align: center;">
       <div class="errors">
@@ -25,9 +25,7 @@
 </div>
 <% end %>
 
-
-
-<div id="chats-btn_<% @qa_chat.id %>">
+<div id="chats-buttons_<%= @qa_chat.id %>">
   <%= render "chats", qa_chats: @qa_chats, employee: @employee %>
 </div>
 
