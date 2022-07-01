@@ -27,9 +27,10 @@ class Public::QaChatsController < ApplicationController
   end
 
   def create
+    # 現在ログインしている社員のチャットを新規作成する
     @qa_chat = current_employee.qa_chats.new(qa_chat_params)
-    @qa_chat.save
-    redirect_to repuest.referer
+    # validatesにかからなければ保存する
+    render :validater unless @qa_chat.save
   end
 
   private
