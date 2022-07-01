@@ -6,6 +6,21 @@ Rails.application.routes.draw do
     # get 'employees/index'
     # get 'employees/edit'
     # get 'employees/show'
+    resources :notices
+    # get 'notices/new'
+    # get 'notices/index'
+    # get 'notices/show'
+    # get 'notices/edit'
+    resources :events
+    # get 'events/new'
+    # get 'events/index'
+    # get 'events/show'
+    # get 'events/edit'
+    resources :products
+    # get 'products/new'
+    # get 'products/index'
+    # get 'products/edit'
+    # get 'products/show'
   end
 
   namespace :public do
