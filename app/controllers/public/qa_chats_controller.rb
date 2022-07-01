@@ -4,8 +4,8 @@ class Public::QaChatsController < ApplicationController
     @employee = Employee.find(params[:id])
     # 現在ログインしている社員のemployee_roomsにあるroom_idを配列で取得
     rooms = current_employee.employee_rooms.pluck(:room_id)
-    # userIDがチャット相手の社員のIDと一致する # room_idが、上記のroomsのどれか一つに一致するレコード
-    user_rooms = UserRooms.find_by(user_id: @employee.id, room_id: rooms)
+    # employeeIDがチャット相手の社員のIDと一致する # room_idが、上記のroomsのどれか一つに一致するレコード
+    employee_rooms = EmployeeRoom.find_by(employee_id: @employee.id, room_id: rooms)
     # employee_roomが空でなかった場合
     unless employee_rooms.nil?
       # employee_roomのroomを続行
@@ -21,9 +21,15 @@ class Public::QaChatsController < ApplicationController
       EmployeeRoom.create(employee_id: @employee.id, room_id: @room.id)
     end
     # @room内のchatsを取得
-    @chats = @room.chats
+    @qa_chats = @room.qa_chats
     # room_idにchatを新規作成
-    @chat = Chat.new(room_id: @room.id)
+    @qa_chat = QaChat.new(room_id: @room.id)
+  end
+
+  def create
+    @qa_chat = current_employee.qa_chats.new(qa_chat_params)
+    @chat.save
+    redirect_to repuest.refere
   end
 
   private

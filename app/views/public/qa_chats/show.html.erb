@@ -1,1 +1,18 @@
-現在準備中
+<%= form_with model: @qa_chat, url: public_qa_chat_path do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>Q＆A</h4>
+    </div>
+    <div class="col-md-8" style="text-align: center;">
+      <div class="field">
+        <%= f.text_field :title, autofocus: true, autocomplete: "title", placeholder: "題名", size: "50" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.text_area :message, autocomplete: "message", placeholder: "質問", size: "50x5" %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
