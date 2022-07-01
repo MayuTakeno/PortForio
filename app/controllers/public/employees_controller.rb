@@ -1,4 +1,5 @@
 class Public::EmployeesController < ApplicationController
+  before_action :authenticate_employee!
   before_action :set_employee, only: [:show, :edit]
 
   def edit

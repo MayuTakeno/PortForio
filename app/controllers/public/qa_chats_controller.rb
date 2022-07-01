@@ -1,4 +1,6 @@
 class Public::QaChatsController < ApplicationController
+  before_action :authenticate_employee!
+
   def show
     # 社員の情報を一つ取り出す
     @employee = Employee.find(params[:id])
@@ -38,4 +40,5 @@ class Public::QaChatsController < ApplicationController
   def qa_chat_params
     params.require(:qa_chat).permit(:title, :message, :room_id)
   end
+
 end

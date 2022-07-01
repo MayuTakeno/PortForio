@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-
   root to: 'top_pages#top'
+
+  namespace :admin do
+    resources :employees, except: [:new, :create, :destroy]
+    # get 'employees/index'
+    # get 'employees/edit'
+    # get 'employees/show'
+  end
 
   namespace :public do
     # publicのルートパス
