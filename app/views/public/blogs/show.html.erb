@@ -4,7 +4,7 @@
       <h4>ブログ詳細</h4>
     </div>
     <div class="col-md-8" style="text-align: center;">
-      <%= image_tag @blog.image, size: "300x300" %>
+      <%= image_tag @blog.get_image, size: "300x300" %>
       <br>
       <br>
       <strong><%= @blog.title %></strong>

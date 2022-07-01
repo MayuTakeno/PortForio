@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root to: 'top_pages#top'
 
   namespace :public do
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
     # get 'employees/show'
     # get 'employees/edit'
     resources :blogs
+    resources :events, only: [:index, :show]
   end
   #社員用URL
   devise_for :employees, skip: [:passwords], controllers: {

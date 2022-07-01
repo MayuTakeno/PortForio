@@ -29,13 +29,9 @@ class Public::BlogsController < ApplicationController
   def edit
   end
 
-  def updated
-    @blog.employee_id = current_employee.id
-    if @blog.update
-      redirect_to public_blog_path(@blog)
-    else
-      render :edit
-    end
+  def update
+    @blog.update(blog_params)
+    redirect_to public_blog_path(@blog)
   end
 
   def show
