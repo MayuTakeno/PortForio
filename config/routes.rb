@@ -42,6 +42,7 @@ Rails.application.routes.draw do
     resources :products, only: [:index, :show]
     get 'qa_chat/:id' => 'qa_chats#show', as: 'qa_chat'
     post 'qa_chat/:id' => 'qa_chats#show'
+    delete 'qa_chat/:id' => 'qa_chats#destroy'
     resources :qa_chats, only: [:create, :index]
   end
   #社員用URL

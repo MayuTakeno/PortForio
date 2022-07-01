@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 2022_07_01_012839) do
     t.integer "employee_id"
     t.integer "room_id"
     t.string "title"
-    t.string "message"
+    t.text "message"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

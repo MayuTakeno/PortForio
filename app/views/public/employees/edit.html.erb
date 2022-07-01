@@ -1,2 +1,69 @@
-<h1>Public::Employees#edit</h1>
-<p>Find me in app/views/public/employees/edit.html.erb</p>
+<%= form_with model: @employee, url: public_employee_path, local: false do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4><%= @employee.name %><br>情報編集</h4>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-6">
+      <table class="table">
+        <div class="field">
+          <tr>
+            <th>
+              <%= f.label "氏名(姓)" %>
+            </th>
+            <td>
+              <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: "氏名(姓)", size: "20" %>
+            </td>
+          </tr>
+        </div>
+        <div class="field">
+          <tr>
+            <th>
+              <%= f.label "氏名(名)" %>
+            </th>
+            <th>
+              <%= f.text_field :last_name, autocomplete: "last_name", placeholder: "氏名(名)", size: "20" %>
+            </th>
+          </tr>
+        </div>
+        <div class="field">
+          <tr>
+            <th>
+              <%= f.label "配属先" %>
+            </th>
+            <td>
+              <%= f.text_field :assigned_to, autocomplete: "assigned_to", placeholder: "配属先", size: "40" %>
+            </td>
+          </tr>
+        </div>
+        <div class="field">
+          <tr>
+            <th>
+              <%= f.label "電話番号"%>
+            </th>
+            <td>
+              <%= f.text_field :phone_number, autocomplete: "phone_number", placeholder: "電話番号", size: "40" %>
+            </td>
+          </tr>
+        </div>
+        <div class="field">
+          <tr>
+            <th>
+              <%= f.label "メールアドレス" %>
+            </th>
+            <td>
+              <%= f.text_field :email, autocomplete: "email", placeholder: "メールアドレス", size: "40" %>
+            </td>
+          </tr>
+        </div>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col" style="text-align:center;">
+      <%= f.submit "更新", class: 'btn btn-sm btn-success' %>
+    </div>
+  </div>
+</div>
+<% end %>

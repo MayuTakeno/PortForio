@@ -3,25 +3,25 @@
     <div class="col-md-2" style="text-align: center; margin-top: 30px;">
       <h4>質疑応答</h4>
     </div>
-    <div class="col-md-8" style="margin-top: 30px;">
+    <div class="col-md-9" style="margin-top: 30px;">
       <% qa_chats.each do |qa_chat| %>
-      <table class="table">
-        <thead>
+      <table class="table table-inverse">
           <tr>
             <th>題名</th>
-            <td><%= qa_chat.title %></td>
-            <th>投稿者</th>
-            <td><%= qa_chat.employee.first_name %></td>
+            <td width="450px"><%= simple_format qa_chat.title %></td>
+            <th></th>
+            <th></th>
           </tr>
-        </thead>
-        <tbody>
         <tr>
           <th>質問内容</th>
-          <td><%= qa_chat.message %></td>
-          <td></td>
-          <td></td>
+          <td width="450px"><%= simple_format qa_chat.message %><br></td>
+          <th></th>
+          <th>
+            <%= link_to public_qa_chat_path(qa_chat), local: false, method: :delete, class: 'btn btn-sm btn-danger' do %>
+              削除
+            <% end %>
+          </th>
         </tr>
-        </tbody>
       </table>
       <% end %>
     </div>

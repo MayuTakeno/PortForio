@@ -38,6 +38,12 @@ class Public::QaChatsController < ApplicationController
     render :validater unless @qa_chat.save
   end
 
+  def destroy
+    @qa_chat = QaChat.find(params[:id])
+    @qa_chat.destroy
+    redirect_to public_qa_chat_path(current_employee)
+  end
+
   private
 
   def qa_chat_params
