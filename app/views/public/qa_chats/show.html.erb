@@ -5,21 +5,23 @@
       <h4><%= @employee.first_name %>さんの<br>Q＆A</h4>
     </div>
     <div class="col-md-8" style="text-align: center;">
-      <div class="errors">
-        <%= render 'layouts/errors', obj: @qa_chat %>
-      </div>
-      <div class="field">
-        <%= f.text_field :title, autofocus: true, autocomplete: "title", placeholder: "題名", size: "50" %>
-      </div>
-      <br>
-      <div class="field">
-        <%= f.text_area :message, autocomplete: "message", placeholder: "質問", size: "50x5" %>
-      </div>
-      <%= f.hidden_field :room_id %>
-      <br>
-      <div class="field">
-        <%= f.submit "質問", class: 'btn btn-success' %>
-      </div>
+      <% if @qa_chat.id = @employee.id %>
+        <div class="errors">
+          <%= render 'layouts/errors', obj: @qa_chat %>
+        </div>
+        <div class="field">
+          <%= f.text_field :title, autofocus: true, autocomplete: "title", placeholder: "題名", size: "50" %>
+        </div>
+        <br>
+        <div class="field">
+          <%= f.text_area :message, autocomplete: "message", placeholder: "質問", size: "50x5" %>
+        </div>
+        <%= f.hidden_field :room_id %>
+        <br>
+        <div class="field">
+          <%= f.submit "質問", class: 'btn btn-success' %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
