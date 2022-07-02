@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 2022_07_02_202724) do
     t.text "body"
     t.integer "hold_status"
     t.string "organizer"
-    t.string "date_and_time"
+    t.datetime "date_and_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
