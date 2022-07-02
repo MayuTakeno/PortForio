@@ -4,6 +4,9 @@ class Event < ApplicationRecord
   # バリデーション
   validates :title, presence: true
   validates :body, presence: true
+  validates :organizer, presence: true
+  validates :image, presence: true
+  validates :date_and_time, presence: true
 
   def get_image
     if image.attached?

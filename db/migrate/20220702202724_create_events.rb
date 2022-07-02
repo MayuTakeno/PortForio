@@ -5,6 +5,7 @@ class CreateEvents < ActiveRecord::Migration[6.1]
       t.text :body
       t.integer :hold_status
       t.string :organizer
+      t.string :date_and_time
 
       t.timestamps
     end

@@ -26,10 +26,25 @@
         </div>
       </table>
     </div>
+    <div class="col-md-2">
+      <div class="field">
+        <%= f.label "主催者" %>
+        <br>
+        <%= f.text_field :organizer, autocomplete: "organizer", placeholder: "必ず入力してください", size: "20" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label "開催日時" %>
+        <%= f.text_field :date_and_time, autocomplete: "date_and_time", placeholder: "必ず入力してください", size: "20" %>
+      </div>
+    </div>
   </div>
   <div class="row">
     <div class="col" style="text-align: center; margin-top: 20px;">
       <%= f.submit "投稿", class: 'btn btn-sm btn-success' %>
+      <div class="errors">
+        <%= render 'layouts/errors', obj: @event %>
+      </div>
     </div>
   </div>
 </div>
