@@ -1,10 +1,44 @@
 class Public::QaChatsController < ApplicationController
+  # 閲覧権限
   before_action :authenticate_employee!
+  # privateのset_chatにリファクタリング
+  before_action :set_chat, only: [:show, :create]
 
   def index
+    @qa_chats = QaChat.all
   end
 
   def show
+    # room_idにchatを新規作成
+    @qa_chat = QaChat.new(room_id: @room.id)
+    # @room内のchatsを取得
+    @qa_chats = @room.qa_chats
+  end
+
+  def create
+    # 現在ログインしている社員のチャットを新規作成する
+    @qa_chat = current_employee.qa_chats.new(qa_chat_params)
+    # room内のchatsを取得
+    @qa_chats = @room.qa_chats
+    # validatesにかからなければ保存する
+    render :validater unless @qa_chat.save
+  end
+
+  def destroy
+    # qa_chatを一つ取得
+    @qa_chat = QaChat.find(params[:id])
+    # 取得したqa_chatを削除
+    @qa_chat.destroy
+    redirect_to public_qa_chat_path(current_employee)
+  end
+
+  private
+
+  def qa_chat_params
+    params.require(:qa_chat).permit(:title, :message, :room_id)
+  end
+
+  def set_chat
     # 社員の情報を一つ取り出す
     @employee = Employee.find(params[:id])
     # 現在ログインしている社員のemployee_roomsにあるroom_idを配列で取得
@@ -25,29 +59,6 @@ class Public::QaChatsController < ApplicationController
       EmployeeRoom.create(employee_id: current_employee.id, room_id: @room.id)
       EmployeeRoom.create(employee_id: @employee.id, room_id: @room.id)
     end
-    # @room内のchatsを取得
-    @qa_chats = @room.qa_chats
-    # room_idにchatを新規作成
-    @qa_chat = QaChat.new(room_id: @room.id)
-  end
-
-  def create
-    # 現在ログインしている社員のチャットを新規作成する
-    @qa_chat = current_employee.qa_chats.new(qa_chat_params)
-    # validatesにかからなければ保存する
-    render :validater unless @qa_chat.save
-  end
-
-  def destroy
-    @qa_chat = QaChat.find(params[:id])
-    @qa_chat.destroy
-    redirect_to public_qa_chat_path(current_employee)
-  end
-
-  private
-
-  def qa_chat_params
-    params.require(:qa_chat).permit(:title, :message, :room_id)
   end
 
 end
