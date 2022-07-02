@@ -4,25 +4,25 @@ class Public::QaChatsController < ApplicationController
   # privateのset_chatにリファクタリング
   before_action :set_chat, only: [:show, :create]
 
-  def index
-    # roomごとに検索かけて、一つだけ取り出す
-    @rooms = Room.all
-    # 空の配列を用意する
-    @qa_chats = []
-    # 一つずつ取り出して検索をかける
-    @rooms.each do |room|
-      # room_idの中の最初の投稿だけを取り出す
-      room_search = QaChat.where(room_id: room.id).first
-      # room_searchがnilでなければ
-      if room_search
-        # room_searchで取り出した内容を空の配列に入れる
-        @qa_chats.push(room_search)
-      end
-    end
-    # 重複idを削除
-    # @qa_chats = QaChat.all
-    # debugger
-  end
+  # def index
+  #   # roomごとに検索かけて、一つだけ取り出す
+  #   @rooms = Room.all
+  #   # 空の配列を用意する
+  #   @qa_chats = []
+  #   # 一つずつ取り出して検索をかける
+  #   @rooms.each do |room|
+  #     # room_idの中の最初の投稿だけを取り出す
+  #     room_search = QaChat.where(room_id: room.id).first
+  #     # room_searchがnilでなければ
+  #     if room_search
+  #       # room_searchで取り出した内容を空の配列に入れる
+  #       @qa_chats.push(room_search)
+  #     end
+  #   end
+  #   # 重複idを削除
+  #   # @qa_chats = QaChat.all
+  #   # debugger
+  # end
 
   def show
     # room_idにchatを新規作成

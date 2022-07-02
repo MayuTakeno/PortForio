@@ -43,7 +43,10 @@ Rails.application.routes.draw do
     get 'qa_chat/:id' => 'qa_chats#show', as: 'qa_chat'
     post 'qa_chat/:id' => 'qa_chats#show'
     delete 'qa_chat/:id' => 'qa_chats#destroy'
-    resources :qa_chats, only: [:create, :index]
+    resources :rooms, only: [:index, :show]
+    # get 'rooms/index'
+    # get 'rooms/show'
+    resources :qa_chats, only: [:create]
   end
   #社員用URL
   devise_for :employees, skip: [:passwords], controllers: {

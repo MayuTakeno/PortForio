@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>Q&A</h4>
+    </div>
+    <div class="col-md-8" style="text-align: center;">
+      <table class="table">
+      <thead>
+      <tr>
+        <th>タイトル</th>
+        <th>質問者</th>
+      </tr>
+      </thead>
+        <% @qa_chats.each do |qa_chat| %>
+      <tbody>
+        <tr>
+          <td width="400px"><%= qa_chat.title %></td>
+          <td><%= qa_chat.employee.name %></td>
+        </tr>
+      </tbody>
+      <% end %>
+      </table>
+    </div>
+  </div>
+</div>
