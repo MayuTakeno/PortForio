@@ -19,12 +19,7 @@
       <% @blogs.each do |blog| %>
         <tr>
           <td>
-            <!--画像が送信されているかどうか-->
-            <% if blog.image.attached? %>
-              <%= image_tag blog.image, size: "50x50" %>
-            <% else %>
-              <%= image_tag 'flow01.png', size: "50x50" %>
-            <% end %>
+              <%= image_tag blog.get_image, size: "50x50" %>
           </td>
           <td>
             <%= link_to public_blog_path(blog.id) do %>
