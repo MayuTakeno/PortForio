@@ -13,6 +13,16 @@
             <th>開催日時</th>
           </tr>
         </thead>
+        <tbody>
+          <% @events.each do |event| %>
+          <tr>
+            <td><%= image_tag event.get_image, size: "50x50" %></td>
+            <td><%= event.title %></td>
+            <td><%= event.organizer %></td>
+            <td><%= event.date_and_time.strftime("%Y/%m/%d %H:%M") %></td>
+          </tr>
+          <% end %>
+        </tbody>
       </table>
     </div>
   </div>
