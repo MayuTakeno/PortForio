@@ -20,6 +20,11 @@
         <%= link_to edit_admin_notice_path(@notice.id), class: 'btn btn-sm btn-success' do %>
           編集
         <% end %>
+        <br>
+        <br>
+        <%= link_to admin_notice_path(@notice.id), method: :delete, class: 'btn btn-sm btn-danger' do %>
+          削除
+        <% end %>
       <% end %>
     </div>
   </div>

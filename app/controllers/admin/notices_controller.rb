@@ -1,4 +1,5 @@
 class Admin::NoticesController < ApplicationController
+  before_action :authenticate_admin!
   before_action :set_notice, only: [:show, :edit, :update, :destroy]
 
   def new
@@ -22,6 +23,19 @@ class Admin::NoticesController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    if @notice.update(notices_params)
+      redirect_to admin_notices_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @notice.destroy
+    redirect_to admin_notices_path
   end
 
   private
