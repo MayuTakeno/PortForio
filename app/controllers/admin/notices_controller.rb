@@ -27,7 +27,7 @@ class Admin::NoticesController < ApplicationController
 
   def update
     if @notice.update(notices_params)
-      redirect_to admin_notices_path
+      redirect_to admin_notice_path(@notice)
     else
       render :edit
     end

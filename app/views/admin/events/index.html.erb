@@ -11,15 +11,21 @@
             <th>イベント名</th>
             <th>主催者</th>
             <th>開催日時</th>
+            <th>開催状況</th>
           </tr>
         </thead>
         <tbody>
           <% @events.each do |event| %>
           <tr>
             <td><%= image_tag event.get_image, size: "50x50" %></td>
-            <td><%= event.title %></td>
+            <td>
+              <%= link_to admin_event_path(event) do %>
+                <%= event.title %>
+              <% end %>
+              </td>
             <td><%= event.organizer %></td>
             <td><%= event.date_and_time.strftime("%Y/%m/%d %H:%M") %></td>
+            <td><%= event.hold_status %></td>
           </tr>
           <% end %>
         </tbody>
