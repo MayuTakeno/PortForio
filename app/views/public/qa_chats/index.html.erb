@@ -1,5 +1,15 @@
-<div class="container"
-<% @qa_chats.each do |qa_chat| %>
-  <%= qa_chat.room_id %>
-  <%= qa_chat.title %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>Q&A</h4>
+    </div>
+    <div class="col-md-8" style="text-align: center;">
+      <% @qa_chats.each do |qa_chat| %>
+      <table class="table table-box">
+          <%= qa_chat.room_id %>
+      <%= qa_chat.title %>
+      <% end %>
+      </table>
+    </div>
+  </div>
+</div>

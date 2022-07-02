@@ -9,8 +9,8 @@
           <tr>
             <th>題名</th>
             <td width="450px"><%= simple_format qa_chat.title %></td>
-            <th></th>
-            <th></th>
+            <th>投稿日時</th>
+            <td><%= qa_chat.created_at.strftime("%Y/%m/%d %H:%M") %></td>
           </tr>
         <tr>
           <th>質問内容</th>
