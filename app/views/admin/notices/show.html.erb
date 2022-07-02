@@ -14,6 +14,10 @@
         <br>
         <h6><%= simple_format @notice.body %></h6>
       </div>
+      <div>
+        <br>
+        <span><%= simple_format @notice.caption %></span>
+      </div>
     </div>
     <div class="col-md-2" style="text-align: center;">
       <% if admin_signed_in?%>

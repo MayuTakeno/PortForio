@@ -23,6 +23,11 @@
         <%= f.label "補足" %>
         <%= f.text_area :caption, autocomplete: "caption", size: "20x3" %>
       </div>
+      <br>
+      <div class="field">
+        <%= f.label "イメージ画像" %>
+        <%= f.file_field :image, accept: "image/*" %>
+      </div>
     </div>
   </div>
   <div class="row">
