@@ -1,4 +1,3 @@
-$('#chatform-btn').html("<%= j(render 'form', chat: @chat) %>")
-
-$('input[type=text]').val("")
-$("textarea").val("")
+$('#tbody').html("<%= j(render partial: 'tbody', collection: @chats , as: :chat) %>");
+$('#chat_title').val("")
+$('#chat_body').val("")
