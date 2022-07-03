@@ -14,7 +14,7 @@
       <div class="field">
         <%= f.label "製品説明" %>
         <br>
-        <%= f.text_area :caption, autocomplete: "caption", placeholder: "", size: "50x5" %>
+        <%= f.text_area :caption, autocomplete: "caption", placeholder: "製品詳細を記載してください", size: "50x5" %>
       </div>
       <br>
       <div class="field">
@@ -22,7 +22,13 @@
         <br>
         <%= f.text_field :price, autocomplete: "price", placeholder: "円", size: "10" %>
       </div>
-
+      <br>
+      <div class="field">
+        <%= f.submit "登録", class: 'btn btn-sm btn-success' %>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <%= render 'layouts/errors', obj: @product %>
     </div>
   </div>
 </div>

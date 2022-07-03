@@ -8,6 +8,7 @@ class Event < ApplicationRecord
   validates :image, presence: true
   validates :date_and_time, presence: true
 
+  # 画像情報有無の処理
   def get_image
     if image.attached?
       image
@@ -15,4 +16,5 @@ class Event < ApplicationRecord
       'flow01.png'
     end
   end
+
 end
