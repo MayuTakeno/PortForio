@@ -18,6 +18,8 @@ class Public::ChatsController < ApplicationController
   end
 
   def show
+    @chat_new = Chat.new
+    @chat_new.save
   end
 
   def destroy
