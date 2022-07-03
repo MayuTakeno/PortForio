@@ -1,0 +1,33 @@
+<%= form_with model: chat, url: public_chats_path, method: :post, remote: true, local: false do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>Q＆A</h4>
+    </div>
+    <div class="col-md-8" style="text-align: center;">
+      <table>
+        <div class="field">
+          <%= f.label "題名" %>
+          <br>
+          <%= f.text_field :title, autofocus: true, autocomplete: "title", placeholder: "必ずご入力ください", size: "50" %>
+        </div>
+        <br>
+        <div class="field">
+          <%= f.label "質問内容" %>
+          <br>
+          <%= f.text_area :body, autocomplete: "body", placeholder: "できるだけ詳細にご記入ください", size: "50x5" %>
+        </div>
+        <br>
+        <div class="field">
+          <%= f.submit "投稿", class: 'btn btn-sm btn-success' %>
+        </div>
+      </table>
+    </div>
+    <div class="col-md-2">
+      <div class="errors">
+        <%= render 'layouts/errors', obj: chat %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

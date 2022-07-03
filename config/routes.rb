@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'top_pages#top'
 
   namespace :admin do
+    root to: 'notices#index'
     resources :employees, except: [:new, :create]
     # get 'employees/index'
     # get 'employees/edit'
@@ -40,7 +41,7 @@ Rails.application.routes.draw do
     resources :blogs
     resources :events, only: [:index, :show]
     resources :products, only: [:index, :show]
-    resources :chats, only: [:index, :show]
+    resources :chats, only: [:index, :show, :create]
   end
   #社員用URL
   devise_for :employees, skip: [:passwords], controllers: {
