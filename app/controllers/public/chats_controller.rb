@@ -21,6 +21,7 @@ class Public::ChatsController < ApplicationController
   end
 
   def destroy
+    @chats = Chat.all
     @chat.destroy
   end
 
