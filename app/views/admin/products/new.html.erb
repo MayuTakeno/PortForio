@@ -1,7 +1,29 @@
-<div class="contaiener">
+<%= form_with model: @product, url: admin_products_path do |f| %>
+<div class="container">
   <div class="row">
-    <div class="col-md-2">
-      <h4>商品登録</h4>
+    <div class="col-md-2" style="text-align: center;">
+      <h4>製品登録</h4>
+    </div>
+    <div class="col-md-8" style="text-align: center;">
+      <div class="field">
+        <%= f.label "製品名" %>
+        <br>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "製品名を入力してください", size: "50" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label "製品説明" %>
+        <br>
+        <%= f.text_area :caption, autocomplete: "caption", placeholder: "", size: "50x5" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label "税抜価格" %>
+        <br>
+        <%= f.text_field :price, autocomplete: "price", placeholder: "円", size: "10" %>
+      </div>
+
     </div>
   </div>
 </div>
+<% end %>
