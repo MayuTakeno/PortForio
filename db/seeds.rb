@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Admin.create!(
+  position: 'yakuin',
+  department_code: '43',
   email: 'logadmin@admin',
   password: 'syatyoudesu'
   )

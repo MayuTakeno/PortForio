@@ -2,12 +2,10 @@
 
 one:
   employee_id: 1
-  room_id: 1
   title: MyString
-  message: MyString
+  body: MyText
 
 two:
   employee_id: 1
-  room_id: 1
   title: MyString
-  message: MyString
+  body: MyText

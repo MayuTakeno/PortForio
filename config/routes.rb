@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'top_pages#top'
 
   namespace :admin do
+    root to: 'notices#index'
     resources :employees, except: [:new, :create]
     # get 'employees/index'
     # get 'employees/edit'
@@ -30,7 +31,7 @@ Rails.application.routes.draw do
     # publicのルートパス
     root to: 'homes#top'
     get 'homes/about' => 'homes#about', as: 'about'
-    resources :notices, except: [:new, :create]
+    resources :notices, except: [:new, :create, :edit]
     # get 'notices/index'
     # get 'notices/show'
     # get 'notices/edit'
@@ -40,10 +41,7 @@ Rails.application.routes.draw do
     resources :blogs
     resources :events, only: [:index, :show]
     resources :products, only: [:index, :show]
-    get 'qa_chat/:id' => 'qa_chats#show', as: 'qa_chat'
-    post 'qa_chat/:id' => 'qa_chats#show'
-    delete 'qa_chat/:id' => 'qa_chats#destroy'
-    resources :qa_chats, only: [:create, :index]
+    resources :chats, only: [:index, :show, :create, :destroy]
   end
   #社員用URL
   devise_for :employees, skip: [:passwords], controllers: {

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_01_012839) do
+ActiveRecord::Schema.define(version: 2022_07_03_021703) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -62,9 +62,10 @@ ActiveRecord::Schema.define(version: 2022_07_01_012839) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "employee_rooms", force: :cascade do |t|
+  create_table "chats", force: :cascade do |t|
     t.integer "employee_id"
-    t.integer "room_id"
+    t.string "title"
+    t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -87,24 +88,20 @@ ActiveRecord::Schema.define(version: 2022_07_01_012839) do
     t.index ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.integer "hold_status"
+    t.string "organizer"
+    t.datetime "date_and_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "notices", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.text "caption"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "qa_chats", force: :cascade do |t|
-    t.integer "employee_id"
-    t.integer "room_id"
-    t.string "title"
-    t.text "message"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "rooms", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

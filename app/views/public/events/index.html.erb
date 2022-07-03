@@ -1,1 +1,40 @@
-現在準備中
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>社員Blog<br>一覧</h4>
+    </div>
+    <div class="col-md-8">
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>イベント名</th>
+          <th>主催者</th>
+          <th>開催日時</th>
+          <th>開催状況</th>
+        </tr>
+      </thead>
+      <thead>
+      <% @events.each do |event| %>
+        <tr>
+          <td>
+            <%= image_tag event.get_image, size: "50x50" %>
+          </td>
+          <td>
+            <%= link_to public_event_path(event.id) do %>
+              <%= event.title %>
+            <% end %>
+            <br>
+          </td>
+          <td>
+            <%= event.organizer %>
+          </td>
+          <td><%= event.date_and_time.strftime("%Y/%m/%d %H:%M") %></td>
+          <td><%= event.hold_status %></td>
+        </tr>
+      <% end %>
+      </thead>
+    </table>
+    </div>
+  </div>
+</div>

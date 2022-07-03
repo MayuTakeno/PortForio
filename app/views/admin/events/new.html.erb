@@ -1,2 +1,52 @@
-<h1>Admin::Events#new</h1>
-<p>Find me in app/views/admin/events/new.html.erb</p>
+<%= form_with model: @event, url: admin_events_path do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>イベント<br>新規作成</h4>
+    </div>
+    <div class="col-md-8" style="text-align: center;">
+      <table>
+        <div class="field">
+          <%= f.label "タイトル" %>
+          <br>
+          <%= f.text_field :title, autofocus: true, autocomplete: "title", placeholder: "必ず入力してください", size: "50" %>
+        </div>
+        <br>
+        <div class="field">
+          <%= f.label "投稿内容" %>
+          <br>
+          <%= f.text_area :body, autocomplete: "body", placeholder: "必ず入力してください", size: "50x10" %>
+        </div>
+        <br>
+        <div class="field">
+          <%= f.file_field :image, accept: "image/*" %>
+        </div>
+        <div class="field">
+          <%= f.hidden_field :hold_status, autocomplete: "hold_status" %>
+        </div>
+      </table>
+    </div>
+    <div class="col-md-2">
+      <div class="field">
+        <%= f.label "主催者" %>
+        <br>
+        <%= f.text_field :organizer, autocomplete: "organizer", placeholder: "必ず入力してください", size: "20" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label "開催日時" %>
+        <br><br>
+        <%= f.datetime_field :date_and_time, autocomplete: "date_and_time", size: "20" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col" style="text-align: center; margin-top: 20px;">
+      <%= f.submit "投稿", class: 'btn btn-sm btn-success' %>
+      <div class="errors">
+        <%= render 'layouts/errors', obj: @event %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

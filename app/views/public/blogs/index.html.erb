@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-2" style="text-align: center;">
-      <h4>社員ブログ<br>一覧</h4>
+      <h4>社員Blog<br>一覧</h4>
     </div>
     <div class="col-md-8">
     <table class="table">
@@ -19,12 +19,7 @@
       <% @blogs.each do |blog| %>
         <tr>
           <td>
-            <!--画像が送信されているかどうか-->
-            <% if blog.image.attached? %>
-              <%= image_tag blog.image, size: "50x50" %>
-            <% else %>
-              <%= image_tag 'flow01.png', size: "50x50" %>
-            <% end %>
+              <%= image_tag blog.get_image, size: "50x50" %>
           </td>
           <td>
             <%= link_to public_blog_path(blog.id) do %>
@@ -32,7 +27,7 @@
             <% end %>
             <br>
             <p>
-            <%= blog.employee.name %>
+              <%= blog.employee.name %>
             </p>
           </td>
           <td><%= blog.created_at.strftime("%Y/%m/%d %H:%M") %></td>
