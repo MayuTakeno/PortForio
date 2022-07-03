@@ -41,7 +41,7 @@ Rails.application.routes.draw do
     resources :blogs
     resources :events, only: [:index, :show]
     resources :products, only: [:index, :show]
-    resources :chats, only: [:index, :show, :create]
+    resources :chats, only: [:index, :show, :create, :destroy]
   end
   #社員用URL
   devise_for :employees, skip: [:passwords], controllers: {

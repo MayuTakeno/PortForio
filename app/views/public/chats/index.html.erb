@@ -25,7 +25,11 @@
           <tr>
             <th>質問内容</th>
             <td colspan="4"><%= simple_format chat.body %></td>
-            <td></td>
+            <td>
+              <%= link_to public_chat_path(chat), remote: true, local: false, method: :delete, class: 'btn btn-sm btn-danger' do %>
+                削除
+              <% end %>
+            </td>
           </tr>
       <% end %>
         </tbody>

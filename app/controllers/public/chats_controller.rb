@@ -1,5 +1,6 @@
 class Public::ChatsController < ApplicationController
   before_action :set_chat, except: [:new, :index, :create]
+
   def index
     @chat = Chat.new
     @chats = Chat.all
@@ -28,6 +29,10 @@ class Public::ChatsController < ApplicationController
 
   def chat_params
     params.require(:chat).permit(:title, :body)
+  end
+
+  def set_chat
+    @chat = Chat.find(params[:id])
   end
 
 end
