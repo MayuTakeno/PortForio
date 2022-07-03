@@ -1,0 +1,7 @@
+$('.errors').html("<%= j(render 'layouts/errors', obj: @product) %>")
+
+<!--フォームを空にする-->
+$('#product_name').val("")
+$('#product_caption').val("")
+$('#product_price').val("")
+$( '#product_image').val("")
