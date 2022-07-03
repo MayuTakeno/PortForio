@@ -1,2 +1,23 @@
-<h1>Public::Notices#show</h1>
-<p>Find me in app/views/public/notices/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>News</h4>
+    </div>
+    <div class="col-md-8" style="text-align: center;">
+      <%= image_tag @notice.get_image, size: "300x300" %>
+      <br>
+      <br>
+      <strong><%= @notice.title %></strong>
+      <br>
+      <br>
+      <div style="border-top: 1px solid #000000;">
+        <br>
+        <h6><%= simple_format @notice.body %></h6>
+      </div>
+      <div>
+        <br>
+        <span>※<%= simple_format @notice.caption %></span>
+      </div>
+    </div>
+  </div>
+</div>

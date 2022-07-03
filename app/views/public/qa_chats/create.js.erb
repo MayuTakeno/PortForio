@@ -1,7 +1,0 @@
-<!--$(".table").append("%= @qa_chat.message %>");-->
-
-<!--新規投稿が押されたときにフォームを初期化する処理-->
-$('#chats-buttons').html("<%= j(render partial: "chats", locals: {qa_chats: @qa_chats}) %>");
-<!--$("input").val("");-->
-$('input[type=text]').val("")
-$("textarea").val("")

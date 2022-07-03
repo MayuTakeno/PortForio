@@ -12,10 +12,11 @@ class Employee < ApplicationRecord
   has_many :qa_chats, dependent: :destroy
   has_many :employee_rooms, dependent: :destroy
 
+
 # 氏名（姓+名）の定義
  def name
    first_name + last_name
  end
- 
+
 
 end
