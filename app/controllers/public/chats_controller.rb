@@ -11,7 +11,7 @@ class Public::ChatsController < ApplicationController
     # 投稿した社員を識別するIDを、現在ログインしている社員のIDに指定
     @chat.employee_id = current_employee.id
     if @chat.save
-      redirect_to public_chats_path
+      @chats = Chat.all
     else
       render :validater
     end

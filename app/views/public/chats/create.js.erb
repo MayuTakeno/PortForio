@@ -1,4 +1,5 @@
-$('#chatform-btn').html("<%= j(render 'form', chat: @chat) %>")
+$('#tbody').html("<%= j(render partial: 'tbody', collection: @chats , as: :chat) %>");
 
-$('input[type=text]').val("")
-$("textarea").val("")
+<!--フォームを空にする処理-->
+$('#chat_title').val("")
+$('#chat_body').val("")

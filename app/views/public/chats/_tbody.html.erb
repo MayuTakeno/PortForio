@@ -1,0 +1,13 @@
+<tr>
+  <td><%= chat.title %></td>
+  <td><%= simple_format chat.body %></td>
+  <td><%= chat.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+  <td>
+    <%= link_to public_chat_path(chat) do %>
+      <i class="fa-regular fa-message"></i></td>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to "削除", public_chat_path(chat), remote: true, local: false, method: :delete, class: 'btn btn-sm btn-danger' %>
+  </td>
+</tr>
