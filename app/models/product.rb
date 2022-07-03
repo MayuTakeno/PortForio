@@ -1,12 +1,11 @@
-class Event < ApplicationRecord
-
+class Product < ApplicationRecord
   has_one_attached :image
+
   # バリデーション
-  validates :title, presence: true
-  validates :body, presence: true
-  validates :organizer, presence: true
+  validates :caption, presence: true
+  validates :name, presence: true
+  validates :price, presence: true
   validates :image, presence: true
-  validates :date_and_time, presence: true
 
   # 画像情報有無の処理
   def get_image
@@ -15,6 +14,11 @@ class Event < ApplicationRecord
     else
       'flow01.png'
     end
+  end
+
+  # 税込み価格
+  def price_add_tax
+    (self.price * 1.1).round
   end
 
 end

@@ -18,11 +18,13 @@ class Public::ChatsController < ApplicationController
   end
 
   def show
+    @chat_new = Chat.new
+    @chat_new.save
   end
 
   def destroy
+    @chats = Chat.all
     @chat.destroy
-    redirect_to public_chats_path
   end
 
   private
