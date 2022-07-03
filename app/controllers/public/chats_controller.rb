@@ -22,7 +22,6 @@ class Public::ChatsController < ApplicationController
 
   def destroy
     @chat.destroy
-    redirect_to public_chats_path
   end
 
   private
