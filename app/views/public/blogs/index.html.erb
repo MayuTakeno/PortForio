@@ -12,7 +12,7 @@
           <th>タイトル</th>
           <th>投稿者</th>
           <th>投稿日時</th>
-          <th colspan="2"></th>
+          <th colspan="1"></th>
         </tr>
       </thead>
       <thead>
@@ -28,9 +28,7 @@
           </td>
           <td><%= blog.employee.name %></td>
           <td><%= blog.created_at.strftime("%Y/%m/%d %H:%M") %></td>
-          <td>
             <!--詳細ページへのリンク-->
-          </td>
           <% if employee_signed_in? && blog.employee_id == current_employee.id %>
           <td>
             <%= link_to "編集", edit_public_blog_path(blog), class: 'btn btn-sm btn-success' %>
