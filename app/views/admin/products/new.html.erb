@@ -1,4 +1,4 @@
-<%= form_with model: @product, url: admin_products_path do |f| %>
+<%= form_with model: @product, url: admin_products_path, remote: true, local: false do |f| %>
 <div class="container">
   <div class="row">
     <div class="col-md-2" style="text-align: center;">
@@ -24,11 +24,17 @@
       </div>
       <br>
       <div class="field">
+        <%= f.file_field :image, accept: "image/*" %>
+      </div>
+      <br>
+      <div class="field">
         <%= f.submit "登録", class: 'btn btn-sm btn-success' %>
       </div>
     </div>
     <div class="col-md-2">
-      <%= render 'layouts/errors', obj: @product %>
+      <div class="errors">
+        <%= render 'layouts/errors', obj: @product %>
+      </div>
     </div>
   </div>
 </div>

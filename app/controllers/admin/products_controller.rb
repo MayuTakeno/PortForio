@@ -3,20 +3,21 @@ class Admin::ProductsController < ApplicationController
   before_action :authenticate_admin!
 
   # private以下にリファクタリング
-  before_action :set_new, only: [:new, :create]
   before_action :set_product, except: [:new, :create, :index]
 
   def new
+    @product = Product.new
   end
 
   def create
+    # product_paramsに保存
+    @product = Product.new(product_params)
     # 保存
     if @product.save
       # 保存完了で製品一覧に遷移
       redirect_to admin_products_path
     else
-      # 遷移しない
-      render :new
+      render :validater
     end
   end
 
@@ -32,11 +33,6 @@ class Admin::ProductsController < ApplicationController
   end
 
   private
-
-  def set_new
-    # 商品の新規登録
-    @product = Product.new
-  end
 
   def set_product
     # 新規登録された商品のどれか一つを持ってくる
