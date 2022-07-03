@@ -17,8 +17,8 @@ class Product < ApplicationRecord
   end
 
   # 税込み価格
-  def price_add_tax
-    (self.price * 1.1).round
+  def add_tax_price
+    (self.price * 1.10).round
   end
 
 end

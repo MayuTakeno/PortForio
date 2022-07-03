@@ -4,7 +4,25 @@
       <h4>商品一覧</h4>
     </div>
     <div class="col-md-8">
-
+      <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+        <thead>
+          <tr>
+            <th colspan="2">製品名</th>
+            <th>税抜(込)価格</th>
+            <th>製造日</th>
+            <th>販売状態</th>
+            <th>製造状況</th>
+          </tr>
+        </thead>
+        <% @products.each do |product| %>
+        <tbody>
+          <tr>
+            <td><%= image_tag product.get_image, size: "50x50" %></td>
+            <td><%= product.add_tax_price.to_s(:dalimited) %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
     </div>
     <div class="col-md-2">
       <%= link_to "製品登録", new_admin_product_path(@product), class: 'btn btn-sm btn-success' %>
