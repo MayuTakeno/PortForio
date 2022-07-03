@@ -11,7 +11,8 @@ class Public::ChatsController < ApplicationController
     @chat.employee_id = current_employee.id
     if @chat.save
       redirect_to public_chats_path
-    else render :index
+    else
+      render :validater
     end
   end
 
