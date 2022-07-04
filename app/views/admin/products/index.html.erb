@@ -23,12 +23,7 @@
               <% end %>
               </td>
             <td><%= product.price %>(<%= product.with_tax_price.to_s(:dalimited) %>)円</td>
-            <td>
-              <% if product.is_active = true %>
-                <p style="color: limegreen;">販売中</p>
-              <% else %>
-                <p style="color: red;">販売終了</p>
-              <% end %>
+            <td><%= product.is_active == true ? "販売中" : "非公開" %>
               </td>
           </tr>
         </tbody>
