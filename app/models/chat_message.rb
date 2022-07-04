@@ -5,4 +5,6 @@ class ChatMessage < ApplicationRecord
   # chat_idを主キーにもつモデルに対応したテーブルを参照先に指定
   belongs_to :chat
 
+  validates :messaage, presence: true
+
 end

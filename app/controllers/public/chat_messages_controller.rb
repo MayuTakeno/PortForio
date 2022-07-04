@@ -3,14 +3,18 @@ class Public::ChatMessagesController < ApplicationController
   def create
     # chat_idから一つ取り出す
     @chat = Chat.find(params[:chat_id])
+    # chat_messageをchat_message_paramsに新規作成
     @chat_message = @chat.chat_messages.new(chat_message_params)
+    # 現在ログインしているユーザをchat_messageのemployee_idに指定
     @chat_message.employee_id = current_employee.id
+    # chat_messageの保存ができたら
     if @chat_message.save
-      redirect_to request.referer
-    else
-      @chat_new = Chat.new
       @chat_messages = @chat.chat_messages
-      redirect_to new_public_chat_path
+      redirect_to request.referer
+      # できなければ
+    else
+      # 空のカラムを用意
+      render :validater
     end
 
   end

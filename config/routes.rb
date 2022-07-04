@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     resources :blogs
     resources :events, only: [:index, :show]
     resources :products, only: [:index, :show]
+      post "chats/:id" => "chats#show"
     resources :chats, only: [:index, :show, :create, :destroy] do
       resources :chat_messages, only: [:create, :destroy]
     end
