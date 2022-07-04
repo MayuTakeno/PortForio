@@ -149,7 +149,7 @@ ActiveRecord::Schema.define(version: 2022_07_04_190359) do
     t.string "name"
     t.text "caption"
     t.date "make_day"
-    t.boolean "is_active", default: true
+    t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,4 +1,4 @@
-<%= form_with model: @product, url: admin_products_path, remote: true, local: false do |f| %>
+<%= form_with model: @product, url: admin_products_path, local: false, remote: true  do |f| %>
 <div class="container">
   <div class="row">
     <div class="col-md-2" style="text-align: center;">
@@ -24,14 +24,29 @@
       </div>
       <br>
       <div class="field">
+        <%= f.label "製品画像" %>
+        <br>
         <%= f.file_field :image, accept: "image/*" %>
       </div>
       <br>
+    </div>
+    <div class="col-md-2">
+      <div class="field">
+        <%= f.label "販売ステータス" %>
+        <br>
+        <%= f.radio_button :is_active, :true %>
+        <%= f.label "販売中" %>
+        <br>
+        <%= f.radio_button :is_active, :false %>
+        <%= f.label "販売停止中" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col" style="text-align: center;">
       <div class="field">
         <%= f.submit "登録", class: 'btn btn-sm btn-success' %>
       </div>
-    </div>
-    <div class="col-md-2">
       <div class="errors">
         <%= render 'layouts/errors', obj: @product %>
       </div>

@@ -8,7 +8,7 @@ class Product < ApplicationRecord
   validates :image, presence: true
   validates :name, presence: true
   validates :caption, presence: true
-  validates :with_tax_price, presence: true
+  validates :price, presence: true
   validates :is_active, inclusion: { in: [true, false] }
 
   # 画像情報有無の処理
@@ -19,6 +19,15 @@ class Product < ApplicationRecord
       'flow01.png'
     end
   end
+
+  # 販売状態を求める記述
+  # def get_is_active
+  #   if is_active = true
+  #     "販売中"
+  #   else
+  #     "販売終了"
+  #   end
+  # end
 
   # 税込み価格
   def with_tax_price
