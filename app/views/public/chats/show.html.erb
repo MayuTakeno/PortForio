@@ -23,9 +23,9 @@
         <%= chat_message.created_at.strftime("%Y/%m/%d %H:%M") %><%= chat_message.message %>
       <% end %>
       <div>
-        <%= form_with model: [@chat, @chat_message] do |f| %>
+        <%= form_with model: [@chat, @chat_message], method: :post do |f| %>
           <%= f.text_area :message, rows: "5", placeholder: "応答" %>
-          <%= f.submit "送信" %>
+          <%= f.submit "送信", class: 'btn btn-sm btn-seccess' %>
         <% end %>
       </div>
       </div>

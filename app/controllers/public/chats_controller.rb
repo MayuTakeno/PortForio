@@ -29,12 +29,12 @@ class Public::ChatsController < ApplicationController
 
   private
 
-  def chat_params
-    params.require(:chat).permit(:title, :body)
-  end
-
   def set_chat
     @chat = Chat.find(params[:id])
+  end
+
+  def chat_params
+    params.require(:chat).permit(:title, :body)
   end
 
 end
