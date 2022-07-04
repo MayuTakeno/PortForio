@@ -3,7 +3,7 @@
   <td><%= simple_format chat.body %></td>
   <td><%= chat.created_at.strftime("%Y/%m/%d %H:%M") %></td>
   <td>
-    <%= link_to public_chat_path(chat) do %>
+    <%= link_to public_chat_path(chat.id) do %>
       <i class="fa-regular fa-message"></i></td>
     <% end %>
   </td>

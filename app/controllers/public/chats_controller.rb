@@ -1,6 +1,6 @@
 class Public::ChatsController < ApplicationController
   before_action :authenticate_employee!
-  before_action :set_chat, except: [:new, :index, :create]
+  before_action :set_chat, except: [:new, :index, :create, :show]
 
   def index
     @chat = Chat.new
@@ -19,8 +19,11 @@ class Public::ChatsController < ApplicationController
   end
 
   def show
-    @chat_message = ChatMessage.new
-    # @chat_messages = @chat.chat_messages
+    @chat = Chat.includes(:employee).find(params[:id])
+    # chat_messagesにchatに関連したコメントを格納
+    @chat_messages = @chat.chat_messages.includes(:employee).all
+    # chat_messageにmessageを新規作成するためのインスタンス作成
+    @chat_message = @chat.chat_messages.build(employee_id: current_employee.id) if current_employee
   end
 
   def destroy
