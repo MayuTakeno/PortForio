@@ -17,3 +17,10 @@ ja:
         wait_making: "製造待ち"
         now_making: "製造中"
         complete_making: "製造完了"
+
+    event:
+      hold_status:
+        no_hold: "未開催"
+        now_hold: "開催中"
+        postponed: "延期"
+        hold_complete: "終了"
