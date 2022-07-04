@@ -20,7 +20,7 @@ class Public::ChatsController < ApplicationController
 
   def show
     @chat_message = ChatMessage.new
-    @chat_messages = @chat.chat_messages
+    # @chat_messages = @chat.chat_messages
   end
 
   def destroy
