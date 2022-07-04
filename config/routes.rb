@@ -1,14 +1,5 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'orders/show'
-  end
   namespace :public do
-    get 'cart_items/index'
-  end
-  namespace :public do
-    get 'orders/new'
-    get 'orders/index'
-    get 'orders/show'
   end
   root to: 'top_pages#top'
 
@@ -28,7 +19,6 @@ Rails.application.routes.draw do
     # get 'events/index'
     # get 'events/show'
     # get 'events/edit'
-    resources :products
     # get 'products/new'
     # get 'products/index'
     # get 'products/edit'
@@ -36,6 +26,10 @@ Rails.application.routes.draw do
     resources :blogs, only: [:show, :index, :destroy]
     # get 'blogs/index'
     # get 'blogs/show'
+    resources :products
+    resources :orders, only: [:show, :update]
+    resources :product_orders, only: [:update]
+    # get 'orders/show'
   end
 
   namespace :public do
@@ -51,11 +45,20 @@ Rails.application.routes.draw do
     # get 'employees/edit'
     resources :blogs
     resources :events, only: [:index, :show]
-    resources :products, only: [:index, :show]
     post "chats/:id" => "chats#show"
     resources :chats, only: [:index, :create, :show, :destroy] do
       resources :chat_messages, only: [:create, :destroy]
     end
+    resources :products, only: [:index, :show]
+    post 'orders/confirm' => 'orders#condirm'
+    get 'orders/complete' => 'orders#complete'
+    resources :orders, except: [:edit, :update]
+    # get 'orders/new'
+    # get 'orders/index'
+    # get 'orders/show'
+    delete 'cart_items/destroy_all'
+    resources :cart_items, except: [:new, :show, :edit]
+    # get 'cart_items/index'
   end
   #社員用URL
   devise_for :employees, skip: [:passwords], controllers: {
