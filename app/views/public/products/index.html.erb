@@ -5,16 +5,34 @@
     </div>
     <div class="col-md-8">
       <table class="table" style="table-layout: fixed; word-wrap: break-word;">
-        <tbody>
+        <thead>
           <tr>
             <th></th>
             <th>製品名</th>
             <th>税込価格</th>
             <th>販売状況</th>
-            <th></th>
+            <th>個数</th>
           </tr>
+        </thead>
+        <tbody>
+          <% @products.each do |product| %>
+          <tr>
+            <td><%= image_tag product.get_image, size: "50x50" %></td>
+            <td>
+              <%= link_to public_product_path(product) do %>
+                <%= product.name %>
+              <% end %>
+              </td>
+            <td><%= product.price %>円</td>
+            <td><%= product.is_active %></td>
+            <td>個数<br>カートに入れる</td>
+          </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
+      <div class="col-md-2" style="text-align: center;">
+        注文
+      </div>
   </div>
 </div>
