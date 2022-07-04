@@ -12,6 +12,7 @@
             <th>主催者</th>
             <th>開催日時</th>
             <th>開催状況</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -25,7 +26,8 @@
               </td>
             <td><%= event.organizer %></td>
             <td><%= event.date_and_time.strftime("%Y/%m/%d %H:%M") %></td>
-            <td><%= event.hold_status %></td>
+            <td><%= event.hold_status_i18n %></td>
+            <td><%= link_to "削除", admin_event_path(event.id), method: :delete, class: 'btn btn-sm btn-danger' %></td>
           </tr>
           <% end %>
         </tbody>

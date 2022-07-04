@@ -24,8 +24,8 @@
           <tr>
             <th>イベント日時</th>
             <td><%= @event.date_and_time.strftime("%Y/%m/%d %H:%M") %></td>
-            <th></th>
-            <td></td>
+            <th>開催状況</th>
+            <td><%= @event.hold_status_i18n %></td>
           </tr>
         </tbody>
       </table>
@@ -35,14 +35,10 @@
     </div>
     <div class="col-md-2" style="text-align: center;">
       <% if admin_signed_in?%>
-        <%= link_to edit_admin_event_path(@event.id), class: 'btn btn-sm btn-success' do %>
-          編集
-        <% end %>
+        <%= link_to "編集", edit_admin_event_path(@event.id), class: 'btn btn-sm btn-success' %>
         <br>
         <br>
-        <%= link_to admin_event_path(@event.id), method: :delete, class: 'btn btn-sm btn-danger' do %>
-          削除
-        <% end %>
+        <%= link_to "削除", admin_event_path(@event.id), method: :delete, class: 'btn btn-sm btn-danger' %>
       <% end %>
     </div>
   </div>
