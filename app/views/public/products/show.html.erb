@@ -31,9 +31,9 @@
         </tr>
         <tr>
           <th>製造日</th>
-          <td></td>
+          <td><%= @product.make_day %></td>
           <th>販売状況</th>
-          <td><%= @product.is_active %></td>
+          <td><%= @product.is_active == true ? "販売中" : "非公開" %></td>
         </tr>
       </table>
     </div>

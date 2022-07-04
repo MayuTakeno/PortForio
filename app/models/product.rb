@@ -9,6 +9,7 @@ class Product < ApplicationRecord
   validates :name, presence: true
   validates :caption, presence: true
   validates :price, presence: true
+  validates :make_day, presence: true
   validates :is_active, inclusion: { in: [true, false] }
 
   # 画像情報有無の処理

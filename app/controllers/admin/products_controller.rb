@@ -32,6 +32,11 @@ class Admin::ProductsController < ApplicationController
   def show
   end
 
+  def destroy
+    @product.destroy
+    redirect_to admin_products_path
+  end
+
   private
 
   def set_product
@@ -40,7 +45,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:price, :image, :is_active, :name, :caption)
+    params.require(:product).permit(:price, :image, :is_active, :name, :caption, :make_day)
   end
 
 end
