@@ -1,4 +1,5 @@
 class Public::ChatsController < ApplicationController
+  before_action :authenticate_employee!
   before_action :set_chat, except: [:new, :index, :create]
 
   def index
