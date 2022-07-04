@@ -10,9 +10,7 @@
             <th></th>
             <th>製品名</th>
             <th>税抜(込)価格</th>
-            <th>製造日</th>
             <th>販売状態</th>
-            <th>製造状況</th>
           </tr>
         </thead>
         <% @products.each do |product| %>
@@ -21,12 +19,17 @@
             <td><%= image_tag product.get_image, size: "50x50" %></td>
             <td>
               <%= link_to admin_product_path(product) do %>
-                <%= product.name %>
+                <%= simple_format product.name %>
               <% end %>
               </td>
-            <td><%#= product.add_tax_price.to_s(:dalimited) %></td>
-            <td></td>
-            <td><%= product.is_active %></td>
+            <td><%= product.price %>(<%= product.with_tax_price.to_s(:dalimited) %>)円</td>
+            <td>
+              <% if product.is_active = true %>
+                <p style="color: limegreen;">販売中</p>
+              <% else %>
+                <p style="color: red;">販売終了</p>
+              <% end %>
+              </td>
           </tr>
         </tbody>
         <% end %>

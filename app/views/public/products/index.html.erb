@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-2" style="text-align: center;">
-      <h4>製品一覧</h4>
+      <h4>製品一覧</h4><br>
+      全<%= @product_all.count %>件
     </div>
     <div class="col-md-8">
       <table class="table" style="table-layout: fixed; word-wrap: break-word;">
@@ -23,16 +24,16 @@
                 <%= product.name %>
               <% end %>
               </td>
-            <td><%= product.price %>円</td>
+            <td><%= product.with_tax_price %>円</td>
             <td><%= product.is_active %></td>
-            <td>個数<br>カートに入れる</td>
+            <td></td>
           </tr>
           <% end %>
         </tbody>
       </table>
     </div>
       <div class="col-md-2" style="text-align: center;">
-        注文
+        <%= link_to "注文状況", public_cart_items_path ,class: "btn btn-sm btn-primary" %>
       </div>
   </div>
 </div>
