@@ -6,8 +6,9 @@ class Employee < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  #複数のblogレコードを持っていて、blogsテーブルを参照先に指定
+  #複数のblogレコードを持っていて、blogsテーブルの複数のレコードを参照先に指定
   has_many :blogs, dependent: :destroy
+  # 複数のchatレコードを持っていて、chatsテーブルの複数のレコードを参照先に指定
   has_many :chats, dependent: :destroy
 
 
