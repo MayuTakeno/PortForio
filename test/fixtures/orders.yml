@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee_id: 1
+  payment_method: 1
+  total: 1
+  status: 1
+  name: MyString
+  employee_code: MyString
+  assigned_to: MyString
+
+two:
+  employee_id: 1
+  payment_method: 1
+  total: 1
+  status: 1
+  name: MyString
+  employee_code: MyString
+  assigned_to: MyString
