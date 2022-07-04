@@ -15,7 +15,7 @@ class Admin::ProductsController < ApplicationController
     # 保存
     if @product.save
       # 保存完了で製品一覧に遷移
-      redirect_to admin_products_path
+      redirect_to admin_product_path(@product)
     else
       render :validater
     end
