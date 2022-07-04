@@ -17,18 +17,8 @@
       <p>メッセージ全<%= @chat.chat_messages.count %>件</p>
     </div>
     <div class="col-md-8" style="text-align: center; margin-top: 50px;">
-      <div>
-      <%= @chat.chat_messages.each do |chat_message| %>
-        <%= chat_message.employee.name %>
-        <%= chat_message.created_at.strftime("%Y/%m/%d %H:%M") %><%= chat_message.message %>
-      <% end %>
-      <div>
-        <%= form_with model: [@chat, @chat_message], method: :post do |f| %>
-          <%= f.text_area :message, rows: "5", placeholder: "応答" %>
-          <%= f.submit "送信", class: 'btn btn-sm btn-seccess' %>
-        <% end %>
-      </div>
-      </div>
+      <%= render 'chat_messages/message', chat: @chat, chat_message: @chat_message %>
+    </div>
     </div>
   </div>
 </div>
