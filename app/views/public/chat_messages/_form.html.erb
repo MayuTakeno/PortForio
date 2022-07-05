@@ -4,7 +4,7 @@
   <%= f.hidden_field :chat_id, value: chat.id %>
   <br>
   <%= f.submit "送信", class: 'btn btn-sm btn-info chat-btn' %>
-<% end %>
 <div class="errors">
   <%= render 'layouts/errors', obj: chat_message %>
 </div>
+<% end %>
