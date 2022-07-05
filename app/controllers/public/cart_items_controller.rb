@@ -10,7 +10,7 @@ class Public::CartItemsController < ApplicationController
     @new_cart_item = CartItem.new(cart_item_params)
     p @new_cart_item
     if CartItem.find_by(product_id: @new_cart_item.product_id, employee_id: current_employee.id)
-      @cart_item = CartItem.find_by(product_id: @new_cart_item.product_id, emoloyee_id: current_employee.id)
+      @cart_item = CartItem.find_by(product_id: @new_cart_item.product_id, employee_id: current_employee.id)
       @cart_item.quantity += @new_cart_item.quantity
       @cart_item.save
     else

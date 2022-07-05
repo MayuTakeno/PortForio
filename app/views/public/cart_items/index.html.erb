@@ -3,8 +3,34 @@
     <div class="col-md-2" style="text-align: center;">
       <h4><%= simple_format current_employee.name%>様の注文</h4>
     </div>
-    <div class="col-me-8">
-      <table></table>
+    <div class="col-md-8">
+      <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+        <thead>
+          <tr>
+            <th></th>
+            <th>製品名</th>
+            <th>単価(税込)</th>
+            <th>注文個数</th>
+            <th>個数変更</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cart_items.each do |cart_item| %>
+            <%= form_with model: cart_item, url: public_cart_item_path(cart_item), method: :patch do |f| %>
+          <tr>
+            <td><%= image_tag cart_item.product.image, size: "50x50" %></td>
+            <td><%= cart_item.product.name %></td>
+            <td><%= cart_item.product.with_tax_price %>円</td>
+            <td><%= cart_item.quantity %></td>
+            <%= f.hidden_field :product_id, value: cart_item.product_id %>
+            <td><%= f.select :quantity, *[1..10] %> <%= f.submit "変更", class: 'btn btn-sm btn-secondary' %></td>
+            <td><%= cart_item.sub_total %></td>
+          </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
