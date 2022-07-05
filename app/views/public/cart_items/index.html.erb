@@ -8,7 +8,11 @@
         <thead>
           <tr>
             <th colspan="6"></th>
-            <th>削除</th>
+            <th>
+              <%= link_to public_cart_items_destroy_all_path, method: :delete, class: 'text-dark' do %>
+                削除
+              <% end %>
+            </th>
           </tr>
         </thead>
         <thead>
