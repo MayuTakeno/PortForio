@@ -1,9 +1,4 @@
-<% chat.chat_messages.each do |chat_message| %>
-  <%= chat_message.employee.name %>
-  <%= chat_message.message %>
-  <%#= chat_message.created_at.strftime("%Y/%m/%d %H:%M") %>
-<% end %>
-<%= form_with model: [chat, chat_message], url: public_chat_path(chat), method: :post do |f| %>
+<%= form_with model: [chat, chat_message], url: public_chat_path(chat), local: false, remote: true do |f| %>
   <%= f.text_area :message, autofocus: true, autocomplete: "message", placeholder: "コメント", size: "50" %>
   <%= f.hidden_field :employee_id %>
   <%= f.hidden_field :chat_id %>

@@ -36,7 +36,10 @@
       <div class="field">
         <%= f.label "開催日時" %>
         <br><br>
-        <%= f.datetime_field :date_and_time, autocomplete: "date_and_time", size: "20" %>
+        <%= f.datetime_field :date_and_time, autocomplete: "date_and_time" %>
+      </div>
+      <div class="field">
+        <%= f.hidden_field :hold_status, value: "no_hold" %>
       </div>
     </div>
   </div>

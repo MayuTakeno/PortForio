@@ -1,3 +1,4 @@
+<%= form_with model: @cart_item, url: public_cart_items_path, local: true, method: :post do |f| %>
 <div class="container">
   <div class="row">
     <div class="col-md-2" style="text-align: center;">
@@ -6,13 +7,21 @@
     <div class="col-md-8" style="text-align: center;">
       <%= image_tag @product.get_image, size: "300x300" %>
     </div>
-    <% if employee_signed_in? %>
-    <div class="col-md-2" style="text-align: center; margin-top: 20px;">
-      注文個数<br>
-      注文カゴに入れる
+    <div class="col-md-2" style="margin-top: 20px; text-align: center;">
+      <storng>社内販売</storng><br>
+      <% if employee_signed_in? %>
+        <%= f.hidden_field :employee_id, value: current_employee.id %>
+        <%= f.hidden_field :product_id, value: @product.id %>
+        <%= f.select :quantity, *[1..10] %>
+        <%= f.submit "注文", class: 'btn btn-sm btn-secondary' %>
+      <% else %>
+        <%= f.submit "カートに入れるにはログインが必要です" %>
+      <% end %>
     </div>
-    <% end %>
   </div>
+<% end %>
+</div>
+<div class="container">
   <div class="row">
     <div class="col-md-2" style="text-align: center; margin-top: 50px;">
       <h4>製品概要</h4>
@@ -31,9 +40,9 @@
         </tr>
         <tr>
           <th>製造日</th>
-          <td></td>
+          <td><%= @product.make_day %></td>
           <th>販売状況</th>
-          <td><%= @product.is_active %></td>
+          <td><%= @product.is_active == true ? "販売中" : "非公開" %></td>
         </tr>
       </table>
     </div>

@@ -10,7 +10,7 @@
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-      <table class="table" style="margin-top: 20px; word-wrap: break-word;">
+      <table class="table" style="margin-top: 20px; table-layout: fixed; word-wrap: break-word;">
         <tr>
           <th>イベント名</th>
           <td><%= @event.title %></td>
@@ -26,8 +26,8 @@
         <tr>
           <th>イベント日時</th>
           <td><%= @event.date_and_time.strftime("%Y/%m/%d %H:%M") %></td>
-          <th></th>
-          <td></td>
+          <th>開催状況</th>
+          <td><%= @event.hold_status_i18n %></td>
         </tr>
       </table>
     </div>

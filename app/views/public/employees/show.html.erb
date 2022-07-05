@@ -32,13 +32,11 @@
     </div>
     <div class="col-md-2"></div>
     <div class="col-md-2" style="text-align: center;">
-      <%= link_to edit_public_employee_path, class: 'btn btn-sm btn-success' do %>
-        編集
-      <% end %>
+      <%= link_to "編集", edit_public_employee_path, class: 'btn btn-sm btn-success' %>
       <br><br>
-      <%= link_to public_chats_path, class: 'btn btn-sm btn-secondary' do %>
-        Q&A
-      <% end %>
+      <%= link_to "注文状況", public_cart_items_path, class: 'btn btn-sm btn-info' %>
+      <br><br>
+      <%= link_to "Q&A", public_chats_path, class: 'btn btn-sm btn-secondary' %>
     </div>
   </div>
 </div>

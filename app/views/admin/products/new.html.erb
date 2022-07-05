@@ -36,6 +36,11 @@
         <br>
         <%= f.select :is_active, [['非公開',0], ['販売中', 1]], { include_blank: true, selectde: 0 } %>
       </div>
+      <div class="field">
+        <%= f.label "製造日" %>
+        <br>
+        <%= f.date_field :make_day, autocomplete: "make_day" %>
+      </div>
     </div>
   </div>
   <div class="row">
