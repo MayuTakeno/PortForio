@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-2" style="text-align: center;">
-      <h4><%= simple_format current_employee.name%>様の注文</h4>
+      <h4><%= simple_format current_employee.name%>様の注文</h4><br>
+      <span>全<%= @cart_items.count %>件</span>
     </div>
     <div class="col-md-8">
       <table class="table" style="table-layout: fixed; word-wrap: break-word;">
@@ -61,8 +62,22 @@
         </tbody>
       </table>
     </div>
-    <div class="col-md-2" style="text-align: center;">
-      <%= link_to "発注", public_orders_path, class: 'btn btn-sm btn-info' %>
+  </div>
+  <div class="row">
+    <div class="col" style="text-align: center;">
+      <% if @cart_items.exists? %>
+        <%= link_to "発注", public_orders_path, class: 'btn btn-sm btn-info' %>
+        <br>
+        <br>
+      <% end %>
+      <% if employee_signed_in? %>
+        <%= link_to "注文履歴一覧へ", public_orders_path, class: 'text-dark' %>
+        <br>
+        <%= link_to public_products_path, class: 'text-dark' do %>
+          <i class="fa-solid fa-basket-shopping"></i>
+          買い物を続ける
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
