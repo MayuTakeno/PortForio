@@ -1,4 +1,14 @@
+<table>
 <% chat.chat_messages.each do |chat_message| %>
-  <%= chat_message.employee.name %>
-  <%= chat_message.message %>
+  <tr>
+    <td>
+      <%= chat_message.employee.name %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= chat_message.message %>
+    </td>
+  </tr>
 <% end %>
+</table>

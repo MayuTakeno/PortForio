@@ -12,7 +12,6 @@
             <th>製品名</th>
             <th>税込価格</th>
             <th>販売状況</th>
-            <th>個数</th>
           </tr>
         </thead>
         <tbody>
@@ -26,14 +25,13 @@
               </td>
             <td><%= product.with_tax_price %>円</td>
             <td><%= product.is_active == true ? "販売中" : "非公開" %></td>
-            <td></td>
           </tr>
           <% end %>
         </tbody>
       </table>
     </div>
       <div class="col-md-2" style="text-align: center;">
-        <%= link_to "注文状況", public_cart_items_path ,class: "btn btn-sm btn-primary" %>
+        <%= link_to "注文状況", public_cart_items_path ,class: "btn btn-sm btn-info" %>
       </div>
   </div>
 </div>
