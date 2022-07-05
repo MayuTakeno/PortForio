@@ -4,12 +4,9 @@ class Public::ChatMessagesController < ApplicationController
     # ChatMessage.create!(chat_message_params)
     # chat_idから一つ取り出す
     chat = Chat.find(params[:chat_id])
-    # @chat_message = current_employee.chat_messages.id
     message = ChatMessage.new(chat_message_params)
     message.employee_id = current_employee.id
-    # @message = current_employee.chat_messages.new(chat_message_params)
     message.chat_id = chat.id
-    # @chat_message =
     if message.save
       redirect_to public_chat_path(chat)
     else
