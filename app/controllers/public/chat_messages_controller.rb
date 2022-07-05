@@ -1,19 +1,27 @@
 class Public::ChatMessagesController < ApplicationController
 
   def create
+    # ChatMessage.create!(chat_message_params)
     # chat_idから一つ取り出す
-    @chat = Chat.find(params[:chat_id])
-    @message = current_employee.chat_messages.new(chat_message_params)
-    @message.employee_id = current_employee.id
-    @message.chat_id = @chat.id
-    # chat_messageの保存ができたら
-    if @message.save
-      # 元の画面を遷移先に指定
-      redirect_to public_chat_path(@chat)
-      # できなければ
+    chat = Chat.find(params[:chat_id])
+    # @chat_message = current_employee.chat_messages.id
+    message = ChatMessage.new(chat_message_params)
+    message.employee_id = current_employee.id
+    # @message = current_employee.chat_messages.new(chat_message_params)
+    message.chat_id = chat.id
+    # @chat_message =
+    if message.save
+      redirect_to public_chat_path(chat)
     else
       render :validater
     end
+    # chat_messageの保存ができたら
+      # create.jsに送る
+      # できなければ
+    # else
+      # バリデーション表示
+
+    # end
   end
 
   def destroy
@@ -24,7 +32,7 @@ class Public::ChatMessagesController < ApplicationController
   private
 
   def chat_message_params
-    params.require(:chat_message).permit(:message).merge(chat_id: params[:chat_id])
+    params.require(:chat_message).permit(:message, :employee_id, :chat_id)
   end
 
 end
