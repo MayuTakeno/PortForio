@@ -1,10 +1,11 @@
-<table>
-  <%= current_employee.name %>
+<table class="table" style=" word-wrap: break-word;">
   <tr>
-  <% chat.chat_messages.each do |chat_message| %>
-    <td>
-      <%= chat_message.message %>
-    </td>
-<% end %>
   </tr>
+  <% chat.chat_messages.each do |chat_message| %>
+  <tr>
+    <td><%= chat_message.employee.assigned_to %><br><%= chat_message.employee.first_name %></td>
+    <td width="700px"><%= simple_format chat_message.message %></td>
+    <td><%= chat_message.created_at %></td>
+  </tr>
+<% end %>
 </table>
