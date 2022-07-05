@@ -18,9 +18,11 @@
     </div>
     <div class="col-md-8" style="text-align: center; margin-top: 50px;">
       <div class="new-comment">
+        <!--コメント入力のフォーム-->
         <%= render 'public/chat_messages/form', chat: @chat, chat_message: @chat_message %>
       </div>
       <div id="comments_area">
+        <!--コメントを表示させたいテーブル-->
         <%= render 'public/chat_messages/comments', chat: @chat %>
       </div>
     </div>
