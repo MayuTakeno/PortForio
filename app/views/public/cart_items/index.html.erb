@@ -66,7 +66,7 @@
   <div class="row">
     <div class="col" style="text-align: center;">
       <% if @cart_items.exists? %>
-        <%= link_to "発注", public_orders_path, class: 'btn btn-sm btn-info' %>
+        <%= link_to "発注", new_public_order_path, class: 'btn btn-sm btn-info' %>
         <br>
         <br>
       <% end %>

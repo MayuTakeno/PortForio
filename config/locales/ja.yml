@@ -3,7 +3,7 @@ ja:
     order:
       payment_method:
         receive_counter: "窓口受取"
-        take: "部署受取"
+        delivery: "部署受取"
       status:
         no_payment: "入金待ち"
         confirm_payment: "入金確認"
