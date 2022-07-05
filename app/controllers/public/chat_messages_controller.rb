@@ -3,10 +3,10 @@ class Public::ChatMessagesController < ApplicationController
   def create
     # chat_idから一つ取り出す
     @chat = Chat.find(params[:chat_id])
-    @chat_message = ChatMessage.new
-    # chat_messageをchat_message_paramsに新規作成
     @message = current_employee.chat_messages.new(chat_message_params)
     @message.chat_id = @chat.id
+    # @chat_message = ChatMessage.new
+    # chat_messageをchat_message_paramsに新規作成
     # 現在ログインしているユーザをchat_messageのemployee_idに指定
     # @chat_message.employee_id = current_employee.id
     # chat_messageの保存ができたら
@@ -15,8 +15,7 @@ class Public::ChatMessagesController < ApplicationController
       # @chat = @chat_message.chat
       # @chat_messages = @chat.chat_messages
       # 元の画面を遷移先に指定
-    binding.pry
-      redirect_to request.referer
+      redirect_to public_chat_path(@chat)
       # できなければ
     else
       # 空のカラムを用意
@@ -32,7 +31,7 @@ class Public::ChatMessagesController < ApplicationController
   private
 
   def chat_message_params
-    params.require(:chat_message).permit(:message)
+    params.require(:chat_message).permit(:message).merge(chat_id: params[:chat_id])
   end
 
 end
