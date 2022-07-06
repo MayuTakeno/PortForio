@@ -3,6 +3,21 @@ class Public::OrdersController < ApplicationController
     @order = Order.new
   end
 
+  def confirm
+    @order = Order.new(order_params)
+    @cart_items = current_employee.cart_items
+    @billong_amount = @order.total_items + @order.postage
+    @order_new = Order
+    if params[:order][:contact] == "1"
+      @order = current_employee.email
+    elsif params[:order][:contact] == '2'
+    elsif params[:order][:contact] == '3'
+    else
+      redirect_to new_public_order_path
+      # render :new
+    end
+  end
+
   def create
     @order = Order.new(order_params)
     if @order.save

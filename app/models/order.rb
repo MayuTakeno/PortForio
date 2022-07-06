@@ -20,4 +20,8 @@ class Order < ApplicationRecord
     sum
   end
 
+  def postage
+    200
+  end
+
 end
