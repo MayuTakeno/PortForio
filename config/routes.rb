@@ -50,7 +50,7 @@ Rails.application.routes.draw do
       resources :chat_messages, only: [:create, :destroy]
     end
     resources :products, only: [:index, :show]
-    post 'orders/confirm' => 'orders#condirm'
+    post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
     resources :orders, except: [:edit, :update]
     # get 'orders/new'
