@@ -5,9 +5,9 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @order = Order.new(order_params)
-    @cart_items = current_employee.cart_items
     @billong_amount = @order.total_items + @order.postage
-    @order_new = Order
+    @cart_items = current_employee.cart_items
+    @order_new = Order.new
     if params[:order][:contact] == "1"
       @order = current_employee.email
     elsif params[:order][:contact] == '2'
@@ -35,7 +35,7 @@ class Public::OrdersController < ApplicationController
       current_employee.cart_item.destroy_all
       redirect_to public_orders_conplete_path
     else
-      render :new
+      redirect_to new_public_order_path
     end
   end
 
@@ -48,7 +48,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:billing_amount, :payment_method, :status, :name, :phone_number, :employee_id, :delivery_date)
+    params.require(:order).permit(:billing_amount, :payment_method, :status, :name, :phone_number, :employee_id, :delivery_date, :email, :phone_number)
   end
 
 end

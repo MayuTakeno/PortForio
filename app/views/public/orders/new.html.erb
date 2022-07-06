@@ -29,13 +29,13 @@
           <th>連絡先</th>
           <td>
             <%= f.radio_button :contact, '1' %>
-            <%= f.label :contact, "Email" %> :<%= current_employee.email %>
+            <%= f.label :contact, "Email" %> : <%= current_employee.email %>
             <br>
             <%= f.radio_button :contact, '2' %>
-            <%= f.label :contact, "電話番号" %> :<%= current_employee.phone_number %>
+            <%= f.label :contact, "電話番号" %> : <%= current_employee.phone_number %>
             <br>
             <%= f.radio_button :contact, '3' %>
-            <%= f.label :contact, "その他" %> :<br><%= f.text_field :email, autocomplete: "email",placeholder: "メールアドレス", size: "30" %><br><br><%= f.text_field :phone_number, autocomplete: "phone_number", placeholder: "電話番号", size: "30" %>
+            <%= f.label :contact, "その他" %> : <br><%= f.text_field :email, autocomplete: "email",placeholder: "メールアドレス", size: "30" %><br><br><%= f.text_field :phone_number, autocomplete: "phone_number", placeholder: "電話番号", size: "30" %>
           </td>
         </tr>
         <tr>
@@ -49,13 +49,13 @@
           </td>
         </tr>
         <tr>
-          <th>配達日時指定<br><span></th>
+          <th>配達希望日時<br><span></th>
           <td>
-            <%= f.date_field :delivery_date %><br>
-            <%= f.radio_button :delivery_time, "1" %> <%= f.label :delivery_time, "10:00-12:00" %><br>
-            <%= f.radio_button :delivery_time, "2" %> <%= f.label :delivery_time, "13:00-15:00" %><br>
-            <%= f.radio_button :delivery_time, "3" %> <%= f.label :delivery_time, "15:00-17:00" %><br>
-            ※２営業日以降から承ります<br>
+            <%= f.date_field :delivery_date %>
+            <%= f.select :delivery_time, (["10:00-12:00", "13:00-15:00", "16:00-18:00" ]) %>
+            <br>
+            ※２営業日以降から承ります
+            <br>
             ※配送状況によって、お時間を頂戴することもございます
           </td>
         </tr>

@@ -5,6 +5,8 @@ class Order < ApplicationRecord
   has_many :product_orders, dependent: :destroy
   has_many :product, through: :product_orders
 
+  validates :email, presence: true
+  validates :phone_number, presence: true
   # enum_helper
   # 0: receive_counter, 1: take
   enum payment_method: { receive_counter: 0, delivery: 1 }
