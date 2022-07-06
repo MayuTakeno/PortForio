@@ -13,7 +13,6 @@ class Public::OrdersController < ApplicationController
     @order.email = current_employee.email
     @order.employee_id = current_employee.id
     @order_new = Order.new
-    byebug
     if params[:order][:contact] == "1"
       @order = current_employee.email
     elsif params[:order][:contact] == '2'
@@ -54,7 +53,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:billing_amount, :payment_method, :status, :name, :phone_number, :employee_id, :delivery_date, :delivery_time, :email, :phone_number)
+    params.require(:order).permit(:billing_amount, :payment_method, :status, :name, :phone_number, :employee_id, :delivery_date, :email, :phone_number)
   end
 
 end

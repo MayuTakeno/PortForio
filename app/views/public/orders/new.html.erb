@@ -51,8 +51,7 @@
         <tr>
           <th>配達希望日時<br><span></th>
           <td>
-            <%= f.date_field :delivery_date %>
-            <%= f.select :delivery_time, (["10:00-12:00", "13:00-15:00", "16:00-18:00" ]) %>
+            <%= f.datetime_field :delivery_date %>
             <br>
             ※２営業日以降から承ります
             <br>
