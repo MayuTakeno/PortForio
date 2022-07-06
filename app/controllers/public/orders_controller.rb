@@ -11,6 +11,7 @@ class Public::OrdersController < ApplicationController
     if params[:order][:contact] == "1"
       @order = current_employee.email
     elsif params[:order][:contact] == '2'
+      @order = current_employee.phone_number
     elsif params[:order][:contact] == '3'
     else
       redirect_to new_public_order_path
@@ -47,7 +48,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:billing_amount, :payment_method, :status, :name, :phone_number, :employee_id)
+    params.require(:order).permit(:billing_amount, :payment_method, :status, :name, :phone_number, :employee_id, :delivery_date)
   end
 
 end

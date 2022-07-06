@@ -48,6 +48,17 @@
             <%= f.label :payment_method, "部署配達" %>
           </td>
         </tr>
+        <tr>
+          <th>配達日時指定<br><span></th>
+          <td>
+            <%= f.date_field :delivery_date %><br>
+            <%= f.radio_button :delivery_time, "1" %> <%= f.label :delivery_time, "10:00-12:00" %><br>
+            <%= f.radio_button :delivery_time, "2" %> <%= f.label :delivery_time, "13:00-15:00" %><br>
+            <%= f.radio_button :delivery_time, "3" %> <%= f.label :delivery_time, "15:00-17:00" %><br>
+            ※２営業日以降から承ります<br>
+            ※配送状況によって、お時間を頂戴することもございます
+          </td>
+        </tr>
       </table>
     </div>
   </div>
