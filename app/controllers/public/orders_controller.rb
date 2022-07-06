@@ -9,11 +9,17 @@ class Public::OrdersController < ApplicationController
       @cart_items = current_employee.cart_items
       @cart_items.each do |cart_item|
         ProductOrder.create!(
-          
-        )|
-      redirect_to public_order_path(order)
+          product_id: cart_item.product_id,
+          order_id: @order.id,
+          quantity: cart_item.quantity,
+          price: cart_item.product.product.with_tax_price,
+          making_status: "no_making"
+        )
+      end
+      current_employee.cart_item.destroy_all
+      redirect_to public_orders_conplete_path
     else
-      render :request.referer
+      render :new
     end
   end
 

@@ -1,4 +1,4 @@
-<%= form_with model: @order, url: public_orders_confirm_path, local: false, method: :post do |f| %>
+<%= form_with model: @order, url: public_orders_confirm_path, method: :post do |f| %>
 <div class="container">
   <div class="row">
     <div class="col-md-2" style="text-align: center;">
@@ -41,7 +41,7 @@
         <tr>
           <th>受取方法</th>
           <td>
-            <%= f.radio_button :peyment_method, :receive_counter %>
+            <%= f.radio_button :payment_method, :receive_counter %>
             <%= f.label :payment_method, "窓口受取" %>
             <br>
             <%= f.radio_button :payment_method, :delivery %>
