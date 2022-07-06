@@ -1,2 +1,71 @@
-<h1>Public::Orders#new</h1>
-<p>Find me in app/views/public/orders/new.html.erb</p>
+<%= form_with model: @order, url: public_orders_confirm_path, method: :post do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>注文情報入力</h4><br>
+      <p class="btn-info" style="background-color: #ffad90;">入力</p>
+      <span>↓</span>
+      <p>確認</p>
+      <span>↓</span>
+      <p>完了</p>
+      </ul>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-7">
+      <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+        <tr>
+          <th>社員番号</th>
+          <td><%= current_employee.employee_code %></td>
+        </tr>
+        <tr>
+          <th>社員名</th>
+          <td><%= current_employee.name %></td>
+        </tr>
+        <tr>
+          <th>配属先</th>
+          <td><%= current_employee.assigned_to %></td>
+        </tr>
+        <tr>
+          <th>連絡先</th>
+          <td>
+            <%= f.radio_button :contact, '1' %>
+            <%= f.label :contact, "Email" %> : <%= current_employee.email %>
+            <br>
+            <%= f.radio_button :contact, '2' %>
+            <%= f.label :contact, "電話番号" %> : <%= current_employee.phone_number %>
+            <br>
+            <%= f.radio_button :contact, '3' %>
+            <%= f.label :contact, "その他" %> : <br><%= f.text_field :email, autocomplete: "email",placeholder: "メールアドレス", size: "30" %><br><br><%= f.text_field :phone_number, autocomplete: "phone_number", placeholder: "電話番号", size: "30" %>
+          </td>
+        </tr>
+        <tr>
+          <th>受取方法</th>
+          <td>
+            <%= f.radio_button :payment_method, :receive_counter %>
+            <%= f.label :payment_method, "窓口受取" %>
+            <br>
+            <%= f.radio_button :payment_method, :delivery %>
+            <%= f.label :payment_method, "部署配達" %>
+          </td>
+        </tr>
+        <tr>
+          <th>配達希望日時<br><span></th>
+          <td>
+            <%= f.date_field :delivery_date %>
+            <%= f.select :delivery_time, (["10:00-12:00", "13:00-15:00", "16:00-18:00" ]) %>
+            <br>
+            ※２営業日以降から承ります
+            <br>
+            ※配送状況によって、お時間を頂戴することもございます
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col" style="text-align: center;">
+      <%= f.submit "確認" %>
+    </div>
+  </div>
+</div>
+<% end %>

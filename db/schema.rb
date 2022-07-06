@@ -125,11 +125,12 @@ ActiveRecord::Schema.define(version: 2022_07_04_190359) do
   create_table "orders", force: :cascade do |t|
     t.integer "employee_id"
     t.integer "payment_method"
-    t.integer "total"
+    t.integer "billing_amount"
     t.integer "status"
     t.string "name"
-    t.string "employee_code"
-    t.string "assigned_to"
+    t.string "phone_number"
+    t.string "email"
+    t.date "delivery_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
