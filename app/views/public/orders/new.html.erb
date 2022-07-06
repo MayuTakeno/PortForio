@@ -29,10 +29,10 @@
           <th>連絡先</th>
           <td>
             <%= f.radio_button :contact, '1' %>
-            <%= f.label :contact, "Email" %> : <%= current_employee.email %>
+            <%= f.label :contact, "Email" %> : <%= @order.email %>
             <br>
             <%= f.radio_button :contact, '2' %>
-            <%= f.label :contact, "電話番号" %> : <%= current_employee.phone_number %>
+            <%= f.label :contact, "電話番号" %> : <%= @order.phone_number %>
             <br>
             <%= f.radio_button :contact, '3' %>
             <%= f.label :contact, "その他" %> : <br><%= f.text_field :email, autocomplete: "email",placeholder: "メールアドレス", size: "30" %><br><br><%= f.text_field :phone_number, autocomplete: "phone_number", placeholder: "電話番号", size: "30" %>
@@ -60,6 +60,9 @@
           </td>
         </tr>
       </table>
+    <div class="fidden_form">
+      <%#= f.hidden_field :status, value: "no_payment" %>
+    </div>
     </div>
   </div>
   <div class="row">
