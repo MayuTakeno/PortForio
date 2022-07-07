@@ -2,15 +2,13 @@
   <div class="row">
     <div class="col-md-2" style="text-align: center;">
       <h4>注文情報入力</h4><br>
-      <ul>
         <p>入力</p>
         <span>↓</span>
         <p class="btn-info" style="background-color: #ffad90;">確認</p>
         <span>↓</span>
         <p>完了</p>
-      </ul>
     </div>
-        <div class="col-md-7" style="margin-top: 50px;">
+    <div class="col-md-7" style="margin-top: 50px;">
       <table class="table table-inverse" style="table-layout: fixed; word-wrap: break-word;">
         <thead>
           <tr>
@@ -62,14 +60,17 @@
                 <td><%= current_employee.name %></td>
               </tr>
             <tr>
-              <th>支払い方法</th>
-              <td><%#= @order.payment_method %></td>
+              <th>受取方法</th>
+              <td><%= @order.payment_method_i18n %></td>
             </tr>
             <tr>
               <th>お届け先</th>
               <td><%= current_employee.assigned_to %></td>
-                </td>
-              </tr>
+            </tr>
+            <tr>
+              <th>連絡先</th>
+              <td><%= @order.contact %></td>
+            </tr>
           </table>
         </div>
       </div>
@@ -79,11 +80,11 @@
   <div class="row">
     <div class="col" style="text-align: center; margin-top: 30px;">
     <% if @cart_items.exists? %>
-      <%= f.hidden_field :employee_id, value: current_employee.id %>
-      <%= f.hidden_field :postage, value: 200 %>
-      <%= f.hidden_field :billing_amount, value: @billing_amount %>
-      <%= f.hidden_field :status, value: "no_payment" %>
-      <%= f.submit "注文確定" %>
+      <%#= f.hidden_field :employee_id, value: current_employee.id %>
+      <%#= f.hidden_field :postage, value: 200 %>
+      <%#= f.hidden_field :billing_amount, value: @billing_amount %>
+      <%#= f.hidden_field :status, value: "no_payment" %>
+      <%#= f.submit "注文確定" %>
     <% else %>
       <strong>注文する商品が見つかりません</strong>
     <% end %>

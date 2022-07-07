@@ -8,6 +8,7 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       t.integer :status
       t.string :name
       t.string :phone_number
+      t.string :contact
       t.string :email
       t.string :delivery_time
       t.date :delivery_date
