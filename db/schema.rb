@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(version: 2022_07_04_190359) do
     t.integer "employee_id"
     t.integer "payment_method"
     t.integer "billing_amount"
+    t.integer "postage"
     t.integer "status"
     t.string "name"
     t.string "phone_number"

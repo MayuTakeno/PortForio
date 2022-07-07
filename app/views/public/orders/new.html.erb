@@ -42,10 +42,10 @@
           <th>受取方法</th>
           <td>
             <%= f.radio_button :payment_method, :receive_counter %>
-            <%= f.label :payment_method, "窓口受取" %>
+            <%= f.label "窓口受取" %>
             <br>
             <%= f.radio_button :payment_method, :delivery %>
-            <%= f.label :payment_method, "部署配達" %>
+            <%= f.label "部署配達" %>
           </td>
         </tr>
         <tr>
@@ -56,6 +56,8 @@
             ※２営業日以降から承ります
             <br>
             ※配送状況によって、お時間を頂戴することもございます
+            <br>
+            ※選択時刻によってはご相談の連絡をさせていただくことがございます。
           </td>
         </tr>
       </table>

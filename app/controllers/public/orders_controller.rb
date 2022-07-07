@@ -6,13 +6,16 @@ class Public::OrdersController < ApplicationController
   def confirm
     @order = Order.new(order_params)
     @cart_items = current_employee.cart_items
-    @order.billing_amount = @cart_items.inject(0) {|sum, product| sum + product.sub_total } + @order.postage
+    @total = @cart_items.inject(0) {|sum, product| sum + product.sub_total }
+    @order.postage = 200
+    @billing_amount = @cart_items.inject(0) {|sum, product| sum + product.sub_total } + @order.postage
     @order.name = current_employee.name
     @order.phone_number = current_employee.phone_number
     @order.status = "no_payment"
     @order.email = current_employee.email
     @order.employee_id = current_employee.id
     @order_new = Order.new
+    byebug
     if params[:order][:contact] == "1"
       @order = current_employee.email
     elsif params[:order][:contact] == '2'
