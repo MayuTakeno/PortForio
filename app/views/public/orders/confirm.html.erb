@@ -1,0 +1,93 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>注文情報入力</h4><br>
+      <ul>
+        <p>入力</p>
+        <span>↓</span>
+        <p class="btn-info" style="background-color: #ffad90;">確認</p>
+        <span>↓</span>
+        <p>完了</p>
+      </ul>
+    </div>
+        <div class="col-md-7" style="margin-top: 50px;">
+      <table class="table table-inverse" style="table-layout: fixed; word-wrap: break-word;">
+        <thead>
+          <tr>
+            <th>製品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+          <% @cart_items.each do |cart_item| %>
+        <tbody>
+          <tr>
+            <!--商品画像-->
+            <td><%= image_tag cart_item.product.image, size:"50x50" %><br><%= cart_item.product.name %></td>
+            <!--単価-->
+            <td><%= cart_item.product.with_tax_price %></td>
+            <!--数量-->
+            <td><%= cart_item.quantity %></td>
+            <!--小計-->
+            <td><%= cart_item.sub_total %></td>
+          </tr>
+        </tbody>
+          <% end %>
+      </table>
+    </div>
+    <div class="col-md-3" style="margin-top: 50px;">
+      <table class="table table-inverse" style="table-layout: fixed;">
+        <tr>
+          <th>商品合計</th>
+          <td><%= @total %></td>
+        </tr>
+        <tr>
+        <tr>
+          <th>送料</th>
+          <td>200</td>
+        </tr>
+          <th>請求金額</th>
+          <td><%= @billing_amount %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-5 offset-1">
+          <table class="table table-inverse">
+              <tr>
+                <th>宛名</th>
+                <td><%= current_employee.name %></td>
+              </tr>
+            <tr>
+              <th>支払い方法</th>
+              <td><%#= @order.payment_method %></td>
+            </tr>
+            <tr>
+              <th>お届け先</th>
+              <td><%= current_employee.assigned_to %></td>
+                </td>
+              </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= form_with model: @order_new, url: public_orders_path do |f| %>
+  <div class="row">
+    <div class="col" style="text-align: center; margin-top: 30px;">
+    <% if @cart_items.exists? %>
+      <%= f.hidden_field :employee_id, value: current_employee.id %>
+      <%= f.hidden_field :postage, value: 200 %>
+      <%= f.hidden_field :billing_amount, value: @billing_amount %>
+      <%= f.hidden_field :status, value: "no_payment" %>
+      <%= f.submit "注文確定" %>
+    <% else %>
+      <strong>注文する商品が見つかりません</strong>
+    <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>

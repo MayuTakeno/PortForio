@@ -12,7 +12,10 @@ class Employee < ApplicationRecord
   has_many :chats, dependent: :destroy
 #   複数のchat_messageレコードを持っていて、chatsテーブルの複数のレコードを参照先に指定
   has_many :chat_messages, dependent: :destroy
+  # 複数のcart_itemレコードを持っていて、cart_itemsテーブルの複数のレコードを参照先に指定
   has_many :cart_items, dependent: :destroy
+  # 複数のfavoriteレコードを持っていて、favoritesテーブルの複数のレコードを参照先に指定
+  has_many :favorites, dependent: :destroy
 
 # 氏名（姓+名）の定義
  def name

@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  namespace :public do
-  end
   root to: 'top_pages#top'
 
   namespace :admin do
@@ -43,7 +41,9 @@ Rails.application.routes.draw do
     resources :employees, except: [:index, :new, :create]
     # get 'employees/show'
     # get 'employees/edit'
-    resources :blogs
+    resources :blogs do
+      resource :favorites, only: [:create, :destroy]
+    end
     resources :events, only: [:index, :show]
     post "chats/:id" => "chats#show"
     resources :chats, only: [:index, :create, :show, :destroy] do
