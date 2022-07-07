@@ -1,2 +1,24 @@
-<h1>Public::Orders#index</h1>
-<p>Find me in app/views/public/orders/index.html.erb</p>
+<div class="container" >
+  <div class="row">
+    <div calss="col-md-2" style="text-align: center;">
+      <h4>注文履歴</h4>
+    </div>
+    <div class="col-md-8">
+      <table class="table" style="table-layout: fixed; word-wrap: break-wrap;">
+        <thead>
+          <tr>
+            <th></th>
+            <th>製品名</th>
+            <th>請求額</th>
+            <th>受取方法</th>
+            <th>配送状況</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

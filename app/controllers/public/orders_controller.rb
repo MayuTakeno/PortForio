@@ -3,6 +3,24 @@ class Public::OrdersController < ApplicationController
     @order = Order.new
   end
 
+  def confirm
+    @order = Order.new(order_params)
+    # @order = Order.find(params[:id])
+    @cart_items = current_employee.cart_items
+    @order_new = Order.new
+    @postage = 200
+    @total = @cart_items.inject(0) {|sum, product| sum + product.sub_total }
+    @billing_amount = @cart_items.inject(0) {|sum, product| sum + product.sub_total } + @order.postage
+    if @order.contact == '1'
+      @order.email = current_employee.email
+    elsif @order.contact == '2'
+      @order.phone_number = current_employee.phone_number
+    elsif @order.contact == '3'
+    else
+      render :new
+    end
+  end
+
   def create
     @order = Order.new(order_params)
     @order.employee_id = current_employee.id
@@ -13,43 +31,19 @@ class Public::OrdersController < ApplicationController
       #     product_id: cart_item.product_id,
       #     order_id: @order.id,
       #     quantity: cart_item.quantity,
-      #     price: cart_item.product.product.with_tax_price,
+      #     # price: cart_item.product.product.with_tax_price,
       #     making_status: "no_making"
       #   )
       # end
-      # current_employee.cart_item.destroy_all
-      redirect_to public_confirm_path(@order.id)
+      current_employee.cart_items.destroy_all
+      redirect_to public_orders_complete_path
     else
       render :new
     end
   end
-
-  def confirm
-    @order = Order.find(params[:id])
-    @cart_items = current_employee.cart_items
-    @total = @cart_items.inject(0) {|sum, product| sum + product.sub_total }
-    @order.postage = 200
-    @billing_amount = @cart_items.inject(0) {|sum, product| sum + product.sub_total } + @order.postage
-    # @order.name = current_employee.name
-    # @order.phone_number = current_employee.phone_number
-    # @order.status = "no_payment"
-    # @order.email = current_e  mployee.email
-    # @order.employee_id = current_employee.id
-    @order_new = Order.new
-    # byebug
-    if @order.contact == "1"
-      @order.employee.email = current_employee.email
-    elsif @order.contact == '2'
-      @order.employee.phone_number = current_employee.phone_number
-    elsif @order.contact == '3'
-    else
-      # redirect_to new_public_order_path
-      render :new
-    end
-  end
-
 
   def index
+    @orders = Order.all
   end
 
   def show

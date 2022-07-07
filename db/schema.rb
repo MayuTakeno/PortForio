@@ -132,6 +132,7 @@ ActiveRecord::Schema.define(version: 2022_07_07_060637) do
   create_table "orders", force: :cascade do |t|
     t.integer "employee_id"
     t.integer "payment_method"
+    t.integer "delivery_time"
     t.integer "billing_amount"
     t.integer "postage"
     t.integer "status"
@@ -139,7 +140,6 @@ ActiveRecord::Schema.define(version: 2022_07_07_060637) do
     t.string "phone_number"
     t.string "contact"
     t.string "email"
-    t.string "delivery_time"
     t.date "delivery_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
