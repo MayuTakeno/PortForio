@@ -21,9 +21,8 @@
   <% if employee_signed_in? && @blog.employee_id == current_employee.id %>
   <div class="row">
     <div class="col" style="text-align: center; margin-top: 20px;">
-      <%= link_to edit_public_blog_path(@blog), class: 'btn btn-sm btn-success' do %>
-        編集
-      <% end %>
+      <%= link_to "編集", edit_public_blog_path(@blog), class: 'btn btn-sm btn-success' %>
+      <%= link_to "削除", public_blog_path(@blog), method: :delete, class: 'btn btn-sm btn-danger' %>
     </div>
   </div>
   <% end %>

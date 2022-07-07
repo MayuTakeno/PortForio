@@ -19,4 +19,8 @@ class Blog < ApplicationRecord
     end
   end
 
+  def favorited_by?(employee)
+    favorites.exists?(employee_id: employee.id)
+  end
+
 end
