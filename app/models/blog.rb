@@ -4,6 +4,7 @@ class Blog < ApplicationRecord
 
   # employeeを主キーにもつテーブルを参照先に指定
   belongs_to :employee
+  has_many :favorites, dependent: :destroy
 
   # バリデーション
   validates :title, presence: { message: 'は入力必須です。' }
