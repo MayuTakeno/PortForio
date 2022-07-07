@@ -69,7 +69,23 @@
             </tr>
             <tr>
               <th>連絡先</th>
-              <td><%= @order.contact %></td>
+              <td>
+                <% if @order.contact == "1" %>
+                  <%= @order.employee.email %>
+                <% elsif @order.contact == "2" %>
+                  <%= @order.employee.phone_number %>
+                <% else %>
+                  メールアドレス: <%= @order.email %><br>
+                  電話番号: <%= @order.phone_number %>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <th>配達希望日</th>
+              <td>
+                <%= @order.delivery_date %><br>
+                <%= @order.delivery_time %>
+              </td>
             </tr>
           </table>
         </div>

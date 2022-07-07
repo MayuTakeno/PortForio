@@ -33,14 +33,14 @@ class Public::OrdersController < ApplicationController
     # @order.name = current_employee.name
     # @order.phone_number = current_employee.phone_number
     # @order.status = "no_payment"
-    # @order.email = current_employee.email
+    # @order.email = current_e  mployee.email
     # @order.employee_id = current_employee.id
     @order_new = Order.new
     # byebug
     if @order.contact == "1"
       @order.employee.email = current_employee.email
     elsif @order.contact == '2'
-      @order.phone_number = current_employee.phone_number
+      @order.employee.phone_number = current_employee.phone_number
     elsif @order.contact == '3'
     else
       # redirect_to new_public_order_path
