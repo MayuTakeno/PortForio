@@ -131,7 +131,8 @@ ActiveRecord::Schema.define(version: 2022_07_04_190359) do
     t.string "name"
     t.string "phone_number"
     t.string "email"
-    t.datetime "delivery_date"
+    t.string "delivery_time"
+    t.date "delivery_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -42,16 +42,17 @@
           <th>受取方法</th>
           <td>
             <%= f.radio_button :payment_method, :receive_counter %>
-            <%= f.label "窓口受取" %>
+            <%= f.label :payment_method, "窓口受取" %>
             <br>
             <%= f.radio_button :payment_method, :delivery %>
-            <%= f.label "部署配達" %>
+            <%= f.label :payment_method, "部署配達" %>
           </td>
         </tr>
         <tr>
           <th>配達希望日時<br><span></th>
           <td>
-            <%= f.datetime_field :delivery_date %>
+            <%= f.date_field :delivery_date %>
+            <%= f.select :delivery_time, [['10:00-12:00', 1], ['13:00-15:00', 2], ['16:00-18:00', 3]] %>
             <br>
             ※２営業日以降から承ります
             <br>
