@@ -4,3 +4,5 @@ class ProductTag < ApplicationRecord
    belongs_to :tag
 
 end
+
+efw
