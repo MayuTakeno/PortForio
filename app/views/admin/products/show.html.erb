@@ -33,6 +33,15 @@
           <th>販売状況</th>
           <td><%= @product.is_active == true ? "販売中" : "非公開" %></td>
         </tr>
+        <tr>
+          <th>関連タグ</th>
+          <td colspan="3">
+            <% @product_tags.each do |tag| %>
+              <%= tag.name %>
+              <%= "(#{tag.products.count}})" %>
+            <% end %>
+          </td>
+        </tr>
       </table>
     </div>
   </div>

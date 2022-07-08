@@ -31,10 +31,22 @@ class Admin::ProductsController < ApplicationController
     @tag_list = Tag.all
   end
 
-  def edit
+  def show
+    @product_tags = @product.tags
   end
 
-  def show
+  def edit
+    @tag_list = @product.tags.pluck(:name).join(',')
+  end
+
+  def update
+    tag_list = params[:post][:name].split(',')
+    if @product.update(product_params)
+      @product.save_tag(tag_list)
+      redirect_to admin_product_path(@product)
+    else
+      render :edit
+    end
   end
 
   def destroy
