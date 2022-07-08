@@ -10,12 +10,16 @@ class Admin::ProductsController < ApplicationController
   end
 
   def create
-    # product_paramsに保存
+    # product_paramsに新規登録
     @product = Product.new(product_params)
+    # productのemployee_idは現在ログイン中のemployee.idに一致する
+    @product.admin_id = current_admin.id
+    tag_list = params[:product][:name].split(',')
     # 保存
     if @product.save
+      @product.save_tag(tag_list)
       # 保存完了で製品一覧に遷移
-      redirect_to admin_product_path(@product)
+      redirect_to admin_products_path
     else
       render :validater
     end
@@ -24,6 +28,7 @@ class Admin::ProductsController < ApplicationController
   def index
     # 商品のすべてnのレコードを取得
     @products = Product.all
+    @tag_list = Tag.all
   end
 
   def edit
