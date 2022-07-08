@@ -29,6 +29,7 @@ class Admin::ProductsController < ApplicationController
     # 商品のすべてnのレコードを取得
     @products = Product.all
     @tag_list = Tag.all
+    @tag = Tag.new
   end
 
   def show

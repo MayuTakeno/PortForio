@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  namespace :admin do
+  end
   root to: 'top_pages#top'
 
   namespace :admin do
@@ -25,6 +27,8 @@ Rails.application.routes.draw do
     # get 'blogs/index'
     # get 'blogs/show'
     resources :products
+    resources :tags, except: [:show]
+    # get 'tags/new'
     resources :orders, only: [:show, :update]
     resources :product_orders, only: [:update]
     # get 'orders/show'
