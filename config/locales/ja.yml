@@ -10,6 +10,10 @@ ja:
         production: "製作中"
         ready_to_ship: "発送準備中"
         sent: "発送済み"
+      delivery_time:
+        ten_oclock: "10:00-12:00"
+        thirteen_oclock: "13:00-15:00"
+        sixteen_oclock: "16:00-18:00"
 
     product_order:
       making_status:

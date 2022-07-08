@@ -52,7 +52,7 @@
           <th>配達希望日時<br><span></th>
           <td>
             <%= f.date_field :delivery_date %>
-            <%= f.select :delivery_time, [['10:00-12:00', 1], ['13:00-15:00', 2], ['16:00-18:00', 3]] %>
+            <%= f.select :delivery_time, Order.delivery_times_i18n.invert, {} %>
             <br>
             ※２営業日以降から承ります
             <br>
@@ -62,9 +62,6 @@
           </td>
         </tr>
       </table>
-    <div class="fidden_form">
-      <%#= f.hidden_field :status, value: "no_payment" %>
-    </div>
     </div>
   </div>
   <div class="row">

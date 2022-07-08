@@ -2,15 +2,13 @@
   <div class="row">
     <div class="col-md-2" style="text-align: center;">
       <h4>注文情報入力</h4><br>
-      <ul>
         <p>入力</p>
         <span>↓</span>
         <p class="btn-info" style="background-color: #ffad90;">確認</p>
         <span>↓</span>
         <p>完了</p>
-      </ul>
     </div>
-        <div class="col-md-7" style="margin-top: 50px;">
+    <div class="col-md-7" style="margin-top: 50px;">
       <table class="table table-inverse" style="table-layout: fixed; word-wrap: break-word;">
         <thead>
           <tr>
@@ -56,20 +54,35 @@
       <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-5 offset-1">
-          <table class="table table-inverse">
-              <tr>
-                <th>宛名</th>
-                <td><%= current_employee.name %></td>
-              </tr>
+          <table class="table" style="table-layout: fixed; word-wrap: break-word;">
             <tr>
-              <th>支払い方法</th>
-              <td><%#= @order.payment_method %></td>
+              <th>社員名<br>社員番号<br>配属先</th>
+              <td><%= current_employee.name %><br><%= current_employee.employee_code %><br><%= current_employee.assigned_to %></td>
             </tr>
             <tr>
-              <th>お届け先</th>
-              <td><%= current_employee.assigned_to %></td>
-                </td>
-              </tr>
+              <th>受取方法</th>
+              <td><%= @order.payment_method_i18n %></td>
+            </tr>
+            <tr>
+              <th>連絡先</th>
+              <td>
+                <% if @order.contact == "1" %>
+                  メールアドレス: <%= @order.email %>
+                <% elsif @order.contact == "2" %>
+                  電話番号: <%= @order.phone_number %>
+                <% else %>
+                  メールアドレス: <%= @order.email %><br>
+                  電話番号: <%= @order.phone_number %>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <th>配達希望日</th>
+              <td>
+                <%= @order.delivery_date %><br>
+                <%= @order.delivery_time_i18n %>
+              </td>
+            </tr>
           </table>
         </div>
       </div>
@@ -80,9 +93,16 @@
     <div class="col" style="text-align: center; margin-top: 30px;">
     <% if @cart_items.exists? %>
       <%= f.hidden_field :employee_id, value: current_employee.id %>
-      <%= f.hidden_field :postage, value: 200 %>
-      <%= f.hidden_field :billing_amount, value: @billing_amount %>
+      <%= f.hidden_field :name, value: @order.name %>
       <%= f.hidden_field :status, value: "no_payment" %>
+      <%= f.hidden_field :phone_number, value: @order.phone_number %>
+      <%= f.hidden_field :email, value: @order.email %>
+      <%= f.hidden_field :postage, value: @postage %>
+      <%= f.hidden_field :contact, value: @contact %>
+      <%= f.hidden_field :billing_amount, value: @billing_amount %>
+      <%= f.hidden_field :payment_method, value: @order.payment_method %>
+      <%= f.hidden_field :delivery_time, value: @order.delivery_time %>
+      <%= f.hidden_field :delivery_date, value: @order.delivery_date %>
       <%= f.submit "注文確定" %>
     <% else %>
       <strong>注文する商品が見つかりません</strong>
