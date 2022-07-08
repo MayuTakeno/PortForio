@@ -4,7 +4,7 @@
       <h4>注文履歴</h4>
     </div>
     <div class="col-md-1"></div>
-    <div class="col-md-7">
+    <div class="col-md-8">
       <table class="table" style="table-layout: fixed; word-wrap: break-wrap;">
         <thead>
           <tr>
@@ -28,6 +28,10 @@
               <% end %>
             </td>
           <td><%= order.billing_amount %></td>
+          <td><%= order.status_i18n %></td>
+          <td>
+            <%= link_to "注文詳細", public_order_path(order), class: 'btn btn-sm btn-info' %>
+          </td>
           </tr>
           <% end %>
         </tbody>
