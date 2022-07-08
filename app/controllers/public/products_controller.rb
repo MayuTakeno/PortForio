@@ -4,7 +4,7 @@ class Public::ProductsController < ApplicationController
   def index
     @products = Product.where(is_active: true)
     @product_all = Product.all.where(is_active: true)
-    @tag_lists = Tag.all
+    @tag_list = Tag.all
   end
 
   def show
