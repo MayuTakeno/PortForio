@@ -27,7 +27,7 @@ class Admin::ProductsController < ApplicationController
 
   def index
     # 商品のすべてnのレコードを取得
-    @products = Product.all
+    @products = Product.includes(:admin)
     @tag_list = Tag.all
     @tag = Tag.new
   end

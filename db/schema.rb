@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 2022_07_08_122944) do
     t.integer "hold_status"
     t.string "organizer"
     t.datetime "date_and_time"
+    t.integer "admin_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -125,6 +126,7 @@ ActiveRecord::Schema.define(version: 2022_07_08_122944) do
     t.string "title"
     t.text "body"
     t.text "caption"
+    t.integer "admin_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -168,6 +170,7 @@ ActiveRecord::Schema.define(version: 2022_07_08_122944) do
     t.text "caption"
     t.date "make_day"
     t.boolean "is_active", default: true, null: false
+    t.integer "admin_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

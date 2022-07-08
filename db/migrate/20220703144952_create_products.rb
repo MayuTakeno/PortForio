@@ -6,6 +6,7 @@ class CreateProducts < ActiveRecord::Migration[6.1]
       t.text :caption
       t.date :make_day
       t.boolean :is_active, default: true, null: false
+      t.integer :admin_id
 
       t.timestamps
     end

@@ -16,7 +16,7 @@ class Admin::NoticesController < ApplicationController
   end
 
   def index
-    @notices = Notice.all
+    @notices = Notice.includes(:admin)
   end
 
   def show

@@ -1,6 +1,8 @@
 class Notice < ApplicationRecord
   has_one_attached :image
 
+  belongs_to :admin
+
   validates :title, presence: true
   validates :body, presence: true
 

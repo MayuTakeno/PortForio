@@ -15,7 +15,7 @@ class Admin::EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
+    @events = Event.includes(:admin)
   end
 
   def show
@@ -40,7 +40,7 @@ class Admin::EventsController < ApplicationController
   private
 
   def events_params
-    params.require(:event).permit(:title, :body, :image, :hold_status, :organizer, :date_and_time)
+    params.require(:event).permit(:title, :body, :image, :hold_status, :organizer, :date_and_time, :admin_id)
   end
 
   def set_event
