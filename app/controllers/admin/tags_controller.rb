@@ -16,7 +16,7 @@ class Admin::TagsController < ApplicationController
   end
 
   def index
-    @tags = Tag.new
+    @tags = Tag.all
   end
 
   def edit
@@ -24,6 +24,11 @@ class Admin::TagsController < ApplicationController
 
   def update
     @tag.save
+    redirect_to admin_tags_path
+  end
+
+  def destroy
+    @tag.destroy
     redirect_to admin_tags_path
   end
 

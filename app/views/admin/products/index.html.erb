@@ -12,6 +12,7 @@
             <th>税抜(込)価格</th>
             <th>販売状態</th>
             <th>タグ</th>
+            <th></th>
           </tr>
         </thead>
         <% @products.each do |product| %>
@@ -39,11 +40,17 @@
       <br><br>
       <%= link_to "タグ作成", new_admin_tag_path(@tag), class: "btn btn-sm btn-success" %>
       <br><br>
-      <strong>タグ</strong>
+        <%= link_to admin_tags_path do %>
+          <strong>タグ</strong>
+        <% end %>
+      <table class="table">
       <% @tag_list.each do |list| %>
-        <%= list.name %>
-        <%= "(#{list.products.count}})" %>
+        <tr>
+          <td><%= list.name %></td>
+          <td><%= "(#{list.products.count}})" %></td>
+        </tr>
       <% end %>
+      </table>
     </div>
   </div>
 </div>
