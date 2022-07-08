@@ -35,7 +35,7 @@
         </tr>
         <tr>
           <th>関連タグ</th>
-          <td colspan="3">
+          <td colspan="3">タグで登録したタグを選択表示
             <% @product_tags.each do |tag| %>
               <%= tag.name %>
               <%= "(#{tag.products.count}})" %>

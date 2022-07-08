@@ -41,10 +41,10 @@ class Admin::ProductsController < ApplicationController
   end
 
   def update
-    tag_list = params[:post][:name].split(',')
+    tag_list = params[:product][:name].split(',')
     if @product.update(product_params)
       @product.save_tag(tag_list)
-      redirect_to admin_product_path(@product)
+      redirect_to admin_product_path(@product.id)
     else
       render :edit
     end
