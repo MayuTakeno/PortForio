@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>ブログ詳細</h4>
+    </div>
+    <div class="col-md-8" style="text-align: center;">
+      <%= image_tag @blog.get_image, size: "300x300" %>
+      <br>
+      <br>
+      <strong><%= @blog.title %></strong>
+      <br>
+      <br>
+      <div style="border-top: 1px solid #000000;">
+        <br>
+        <h6>
+          <%= simple_format @blog.body %>
+        </h6>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <%= link_to "削除", admin_blog_path(@blog), method: :delete, class: "btn btn-sm btn-danger" %>
+    </div>
+  </div>
+</div>

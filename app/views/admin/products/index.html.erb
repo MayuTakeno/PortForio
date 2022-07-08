@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>商品一覧</h4>
+    </div>
+    <div class="col-md-8">
+      <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+        <thead>
+          <tr>
+            <th></th>
+            <th>製品名</th>
+            <th>税抜(込)価格</th>
+            <th>販売状態</th>
+            <th>タグ</th>
+            <th></th>
+          </tr>
+        </thead>
+        <% @products.each do |product| %>
+        <tbody>
+          <tr>
+            <td><%= image_tag product.get_image, size: "50x50" %></td>
+            <td>
+              <%= link_to admin_product_path(product) do %>
+                <%= simple_format product.name %>
+              <% end %>
+              </td>
+            <td><%= product.price %>(<%= product.with_tax_price.to_s(:dalimited) %>)円</td>
+            <td><%= product.is_active == true ? "販売中" : "非公開" %></td>
+            <td>
+              <%= product.tags.map(&:name).join(',') %>
+            </td>
+            <td><%= link_to "削除", admin_product_path(product), method: :delete, class: 'btn btn-sm btn-danger' %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+    <div class="col-md-2" style="text-align: center;">
+      <%= link_to "製品登録", new_admin_product_path(@product), class: 'btn btn-sm btn-info' %>
+      <br><br>
+      <%= link_to "タグ作成", new_admin_tag_path(@tag), class: "btn btn-sm btn-success" %>
+      <br><br>
+        <%= link_to admin_tags_path do %>
+          <strong>タグ</strong>
+        <% end %>
+      <table class="table">
+      <% @tag_list.each do |list| %>
+        <tr>
+          <td><%= list.name %></td>
+          <td><%= "(#{list.products.count})" %></td>
+        </tr>
+      <% end %>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>News</h4>
+    </div>
+    <div class="col-md-8">
+      <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+        <thead>
+          <tr>
+            <th></th>
+            <th>題名</th>
+            <th>投稿日時</th>
+          </tr>
+        </thead>
+        <% @notices.each do |notice| %>
+        <tbody>
+          <tr>
+            <td><%= image_tag notice.get_image, size: "50x50" %></td>
+            <td>
+              <%= link_to public_notice_path(notice) do %>
+                <%= notice.title %>
+              <% end %>
+            </td>
+            <td><%= notice.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,117 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light" style="line-height: 40px; background-color: rgba(0,0,0,0.5);">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/" style="font-family:cursive; font-size: 54px;">
+      <span>Kizuna</span>
+    </a>
+    <button class="navbar-toggler" tyle="button" data-toggle="collapse"
+    data-target="#navbarNavList"
+    aria-controls="navbarNavList"
+    aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavList">
+      <ul class="navbar-nav ml-auto" style="list-style: none; font-size: 18px;">
+
+        <% if employee_signed_in? %>
+          <li style="padding-right: 20px; border-right: 1px solid #000000;">
+            <%= link_to public_employee_path(current_employee), class: 'nav-link text-dark' do%>
+              MY PAGE
+            <% end %>
+          </li>
+          <li style="padding: 0px 20px; border-right: 1px solid #000000;">
+            <%= link_to public_notices_path, class: 'nav-link text-dark' do %>
+              NEWS
+            <%end %>
+          </li>
+          <li  style="padding: 0px 20px; border-right: 1px solid #000000;">
+            <%= link_to public_events_path, class: 'nav-link text-dark' do %>
+              EVENTS
+            <% end %>
+          </li>
+          <li  style="padding: 0px 20px; border-right: 1px solid #000000;">
+            <%= link_to public_blogs_path, class: 'nav-link text-dark' do %>
+               BLOGS
+            <% end %>
+          </li>
+          <li style="padding: 0px 20px; border-right: 1px solid #000000;">
+            <%= link_to public_products_path, class: 'nav-link text-dark' do %>
+              PRODUCTS
+            <% end %>
+          </li>
+          <li style="padding: 0px 20px; border-right: 1px solid #000000;">
+            <%= link_to public_chats_path, class: 'nav-link text-dark' do %>
+              Q & A
+            <% end %>
+          </li>
+          <li style="padding-left: 20px;">
+            <%= link_to destroy_employee_session_path, method: :get, class: 'nav-link text-dark' do %>
+              LOG OUT
+            <% end %>
+          </li>
+
+        <% elsif admin_signed_in? %>
+          <li style="padding: 0 20px; border-right: 1px solid #000000;">
+            <%= link_to admin_employees_path, class: 'nav-link text-dark' do %>
+              EMPLOYEES
+            <% end %>
+          </li>
+          <li style="padding: 0 20px; border-right: 1px solid #000000;">
+            <%= link_to admin_notices_path, class: 'nav-link text-dark' do %>
+              NEWS
+            <% end %>
+          </li>
+          <li style="padding: 0 20px; border-right: 1px solid #000000;">
+            <%= link_to admin_events_path, class: 'nav-link text-dark' do %>
+              EVENTS
+            <% end %>
+          </li>
+          <li style="padding: 0 20px; border-right: 1px solid #000000;">
+            <%= link_to admin_blogs_path, class: 'nav-link text-dark' do %>
+              BLOGS
+            <% end %>
+          </li>
+          <li style="padding: 0 20px; border-right: 1px solid #000000;">
+            <%= link_to admin_products_path, class: 'nav-link text-dark' do %>
+              PRODUCTS
+            <% end %>
+          </li>
+          <li style="padding-left: 20px;">
+            <%= link_to destroy_admin_session_path, method: :get, class: 'nav-link text-dark' do %>
+              LOG OUT
+            <% end %>
+          </li>
+
+        <% else %>
+
+          <li style="padding: 0px 20px; border-right: 1px solid #000000;">
+            <%= link_to public_root_path, class: 'text-dark' do %>
+              HOME
+            <% end %>
+          </li>
+          <li style="padding: 0px 20px; border-right: 1px solid #000000;">
+            <%= link_to public_notices_path, class: 'text-dark' do %>
+              NEWS
+            <% end %>
+          </li>
+          <li style="padding:0px 20px; border-right: 1px solid #000000;">
+            <%= link_to public_about_path, class: 'text-dark' do %>
+              ABOUT
+            <% end %>
+          </li>
+          <li style="padding: 0 20px; border-right: 1px solid #000000;">
+            <%= link_to public_blogs_path, class: 'text-dark' do %>
+              BLOGS
+            <% end %>
+          </li>
+          <li style="padding-left: 20px;">
+            <%= link_to new_employee_session_path, class: 'text-dark' do %>
+              LOG IN
+              <i class="fa-regular fa-circle-user"></i>
+            <% end %>
+          </li>
+
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

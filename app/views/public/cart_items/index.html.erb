@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4><%= simple_format current_employee.name%>様の注文</h4><br>
+      <span>全<%= @cart_items.count %>件</span>
+    </div>
+    <div class="col-md-8">
+      <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+        <thead>
+          <tr>
+            <th colspan="6"></th>
+            <th>
+              <%= link_to public_cart_items_destroy_all_path, method: :delete, class: 'text-dark' do %>
+                削除
+              <% end %>
+            </th>
+          </tr>
+        </thead>
+        <thead>
+          <tr>
+            <th></th>
+            <th>製品名</th>
+            <th>単価(税込)</th>
+            <th>注文個数</th>
+            <th>個数変更</th>
+            <th>小計</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cart_items.each do |cart_item| %>
+            <%= form_with model: cart_item, url: public_cart_item_path(cart_item), method: :patch do |f| %>
+          <tr>
+            <td><%= image_tag cart_item.product.image, size: "50x50" %></td>
+            <td><%= cart_item.product.name %></td>
+            <td><%= cart_item.product.with_tax_price %> 円</td>
+            <td><%= cart_item.quantity %></td>
+            <%= f.hidden_field :product_id, value: cart_item.product_id %>
+            <td><%= f.select :quantity, *[1..10] %> <%= f.submit "変更", class: 'btn btn-sm btn-secondary' %></td>
+            <td><%= cart_item.sub_total %> 円</td>
+            <td>
+              <%= link_to public_cart_item_path(cart_item), method: :delete, local: false do %>
+                削除
+              <% end %>
+            </td>
+          </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+        <thead>
+          <tr>
+            <th colspan="6"></th>
+            <th>合計金額</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="5"></td>
+            <td></td>
+            <td><%= @total %> 円</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col" style="text-align: center;">
+      <% if @cart_items.exists? %>
+        <%= link_to "発注", new_public_order_path, class: 'btn btn-sm btn-info' %>
+        <br>
+        <br>
+      <% end %>
+      <% if employee_signed_in? %>
+        <%= link_to "注文履歴一覧へ", public_orders_path, class: 'text-dark' %>
+        <br>
+        <%= link_to public_products_path, class: 'text-dark' do %>
+          <i class="fa-solid fa-basket-shopping"></i>
+          買い物を続ける
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

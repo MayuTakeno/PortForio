@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>Events</h4>
+    </div>
+    <div class="col-md-8" style="text-align: center;">
+      <%= image_tag @event.get_image, size: "300x300" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <table class="table" style="margin-top: 20px; table-layout: fixed; word-wrap: break-word;">
+        <tr>
+          <th>イベント名</th>
+          <td><%= @event.title %></td>
+          <th>主催者</th>
+          <td><%= @event.organizer %></td>
+        </tr>
+        <tr>
+          <th>イベント詳細</th>
+          <td><%= simple_format @event.body %></td>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr>
+          <th>イベント日時</th>
+          <td><%= @event.date_and_time.strftime("%Y/%m/%d %H:%M") %></td>
+          <th>開催状況</th>
+          <td><%= @event.hold_status_i18n %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

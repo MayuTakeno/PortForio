@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>Blog詳細</h4>
+    </div>
+    <div class="col-md-8" style="text-align: center;">
+      <%= image_tag @blog.get_image, size: "300x300" %>
+      <br>
+      <br>
+      <strong><%= @blog.title %></strong>
+      <br>
+      <br>
+      <div style="border-top: 1px solid #000000;">
+        <br>
+        <h6>
+          <%= simple_format @blog.body %>
+        </h6>
+      </div>
+    </div>
+  <% if employee_signed_in? && @blog.employee_id == current_employee.id %>
+    <div class="col-md-2" style="text-align: center; margin-top: 20px;">
+      <%= link_to "編集", edit_public_blog_path(@blog), class: 'btn btn-sm btn-success' %>
+      <br>
+      <br>
+      <%= link_to "削除", public_blog_path(@blog), method: :delete, class: 'btn btn-sm btn-danger' %>
+    </div>
+  <% end %>
+  </div>
+  <div class="row">
+    <div class="col" style="text-align: center;">
+      <div id="favorite-btn_<%= @blog.id %>">
+        <%= render 'public/favorites/favorite', blog: @blog %>
+      </div>
+    </div>
+  </div>
+</div>

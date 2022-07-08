@@ -1,0 +1,39 @@
+<%= form_with model: @employee, url: admin_employees_path do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>社員情報編集</h4>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-6">
+      <table class="table">
+        <tr>
+          <th>氏名</th>
+          <td><%= @employee.first_name %><%= @employee.last_name %></td>
+        </tr>
+        <tr>
+          <th>配属先</th>
+          <td><%= @employee.assigned_to %></td>
+        </tr>
+        <tr>
+          <th>社員コード</th>
+          <td><%= @employee.employee_code %></td>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <td><%= @employee.phone_number %></td>
+        </tr>
+        <tr>
+          <th>在籍状況</th>
+          <td><%= @employee.is_deleted %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col" style="text-align: center;">
+      在籍中or退社済
+    </div>
+  </div>
+</div>
+<% end %>

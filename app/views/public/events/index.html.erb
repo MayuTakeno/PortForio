@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>社内Events</h4>
+      <br>新着順に表示
+    </div>
+    <div class="col-md-8">
+    <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+      <thead>
+        <tr>
+          <th></th>
+          <th>イベント名</th>
+          <th>主催者</th>
+          <th>開催日時</th>
+          <th>開催状況</th>
+        </tr>
+      </thead>
+      <thead>
+      <% @events.each do |event| %>
+        <tr>
+          <td>
+            <%= image_tag event.get_image, size: "50x50" %>
+          </td>
+          <td>
+            <%= link_to public_event_path(event.id) do %>
+              <%= event.title %>
+            <% end %>
+            <br>
+          </td>
+          <td>
+            <%= event.organizer %>
+          </td>
+          <td><%= event.date_and_time.strftime("%Y/%m/%d %H:%M") %></td>
+          <td><%= event.hold_status_i18n %></td>
+        </tr>
+      <% end %>
+      </thead>
+    </table>
+    </div>
+    <div class="col-md-2">
+      タグ検索
+    </div>
+  </div>
+</div>

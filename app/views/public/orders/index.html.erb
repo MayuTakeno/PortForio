@@ -1,0 +1,44 @@
+<div class="container" >
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>注文履歴</h4>
+    </div>
+    <div class="col-md-8">
+      <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+        <thead>
+          <tr>
+            <th>発注日</th>
+            <th>受取方法</th>
+            <th>製品名</th>
+            <th>請求額</th>
+            <th>配送状況</th>
+            <th>注文詳細</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+          <tr>
+            <td><%= order.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+            <td><%= order.payment_method_i18n %></td>
+            <td>
+              <% order.product_orders.each do |product_order| %>
+                <%= image_tag product_order.product.image, size: "50x50" %><br>
+                <%= product_order.product.name %>
+              <% end %>
+            </td>
+          <td><%= order.billing_amount %></td>
+          <td><%= order.status_i18n %></td>
+          <td>
+            <%= link_to "注文詳細", public_order_path(order), class: 'btn btn-sm btn-info' %>
+          </td>
+          <td>
+              <%= link_to "削除", public_order_path(order), method: :delete, class: 'btn btn-sm btn-danger' %>
+          </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

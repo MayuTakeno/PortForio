@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>登録タグ一覧</h4>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-7">
+      <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+        <thead>
+          <th>タグ名</th>
+          <th>登録日</th>
+          <th></th>
+        </thead>
+        <tbody>
+        <% @tags.each do |tag| %>
+          <tr>
+            <td><%= tag.name %></td>
+            <td><%= tag.created_at.strftime("%H/%m/%d %H:%M") %></td>
+            <td><%= link_to "削除", admin_tag_path(tag), method: :delete, class: 'btn btn-sm btn-danger' %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-2" style="text-align: center;">
+      <%= link_to "タグ登録", new_admin_tag_path(tag), class: 'btn btn-sm btn-success' %>
+    </div>
+  </div>
+</div>

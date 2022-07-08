@@ -16,7 +16,7 @@ class DeviseCreateEmployees < ActiveRecord::Migration[6.1]
       # 電話番号
       t.string :phone_number,       null: false, default: ""
       # 退会フラグ
-      t.boolean :is_deleted,        null: false, default: false
+      t.boolean :is_deleted,        null: false, default: true
       ###ここまで###
 
       ## Database authenticatable

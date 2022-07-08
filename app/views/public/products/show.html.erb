@@ -1,0 +1,50 @@
+<%= form_with model: @cart_item, url: public_cart_items_path, local: true, method: :post do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>製品詳細</h4>
+    </div>
+    <div class="col-md-8" style="text-align: center;">
+      <%= image_tag @product.get_image, size: "300x300" %>
+    </div>
+    <div class="col-md-2" style="margin-top: 20px; text-align: center;">
+      <storng>社内販売</storng><br>
+      <% if employee_signed_in? %>
+        <%= f.hidden_field :employee_id, value: current_employee.id %>
+        <%= f.hidden_field :product_id, value: @product.id %>
+        <%= f.select :quantity, *[1..10] %>
+        <%= f.submit "注文", class: 'btn btn-sm btn-secondary' %>
+      <% else %>
+        <%= f.submit "カートに入れるにはログインが必要です" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center; margin-top: 50px;">
+      <h4>製品概要</h4>
+    </div>
+    <div class="col-md-8" style="margin-top: 50px;">
+      <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+        <tr>
+          <th>製品名</th>
+          <td><%= @product.name %></td>
+          <th>税抜(税込)価格</th>
+          <td></td>
+        </tr>
+        <tr>
+          <th>製品詳細</th>
+          <td colspan="3"><%= simple_format @product.caption %></td>
+        </tr>
+        <tr>
+          <th>製造日</th>
+          <td><%= @product.make_day %></td>
+          <th>販売状況</th>
+          <td><%= @product.is_active == true ? "販売中" : "非公開" %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
