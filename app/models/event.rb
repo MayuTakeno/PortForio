@@ -1,6 +1,8 @@
 class Event < ApplicationRecord
 
   has_one_attached :image
+
+  belongs_to :admin
   # バリデーション
   validates :title, presence: true
   validates :body, presence: true

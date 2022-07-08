@@ -1,8 +1,10 @@
 class Product < ApplicationRecord
   has_one_attached :image
 
+  belongs_to :admin
+
   has_many :cart_items, dependent: :destroy
-  has_many :product_order, dependent: :destroy
+  has_many :product_orders, dependent: :destroy
   has_many :product_tags, dependent: :destroy
   has_many :tags, through: :product_tags
 

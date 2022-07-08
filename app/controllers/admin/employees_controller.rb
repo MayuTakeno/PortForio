@@ -3,7 +3,7 @@ class Admin::EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit]
 
   def index
-    @employees = Employee.all
+    @employees = Employee.includes(:admin)
   end
 
   def edit

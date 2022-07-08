@@ -5,6 +5,7 @@ class CreateNotices < ActiveRecord::Migration[6.1]
       t.string :title
       t.text :body
       t.text :caption
+      t.integer :admin_id
 
       t.timestamps
     end

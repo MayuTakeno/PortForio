@@ -23,7 +23,7 @@ class Public::BlogsController < ApplicationController
   end
 
   def index
-    @blogs = Blog.all
+    @blogs = Blog.includes(:employee)
     @blog = Blog.new
   end
 

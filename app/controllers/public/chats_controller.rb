@@ -4,7 +4,7 @@ class Public::ChatsController < ApplicationController
 
   def index
     @chat = Chat.new
-    @chats = Chat.all
+    @chats = Chat.includes(:employee)
   end
 
   def create

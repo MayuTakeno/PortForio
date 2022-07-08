@@ -6,6 +6,7 @@ class CreateEvents < ActiveRecord::Migration[6.1]
       t.integer :hold_status
       t.string :organizer
       t.datetime :date_and_time
+      t.integer :admin_id
 
       t.timestamps
     end
