@@ -25,16 +25,16 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.employee_id = current_employee.id
     if @order.save
-      # @cart_items = current_employee.cart_items
-      # @cart_items.each do |cart_item|
-      #   ProductOrder.create!(
-      #     product_id: cart_item.product_id,
-      #     order_id: @order.id,
-      #     quantity: cart_item.quantity,
-      #     # price: cart_item.product.product.with_tax_price,
-      #     making_status: "no_making"
-      #   )
-      # end
+      @cart_items = current_employee.cart_items
+      @cart_items.each do |cart_item|
+        @product_order = ProductOrder.new
+        @product_order.product_id = cart_item.product_id
+        @product_order.order_id = @order.id
+        @product_order.quantity = cart_item.quantity
+        @product_order.price = cart_item.product.with_tax_price
+        @product_order.making_status = "no_making"
+        @product_order.save
+      end
       current_employee.cart_items.destroy_all
       redirect_to public_orders_complete_path
     else
@@ -47,6 +47,12 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+  end
+
+  def destroy
+    @order = Order.find(params[:id])
+    @order.destroy
+    redirect_to public_orders_path
   end
 
   private

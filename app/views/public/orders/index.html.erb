@@ -1,11 +1,10 @@
 <div class="container" >
   <div class="row">
-    <div calss="col-md-2" style="text-align: center;">
+    <div class="col-md-2" style="text-align: center;">
       <h4>注文履歴</h4>
     </div>
-    <div class="col-md-1"></div>
     <div class="col-md-8">
-      <table class="table" style="table-layout: fixed; word-wrap: break-wrap;">
+      <table class="table" style="table-layout: fixed; word-wrap: break-word;">
         <thead>
           <tr>
             <th>発注日</th>
@@ -14,6 +13,7 @@
             <th>請求額</th>
             <th>配送状況</th>
             <th>注文詳細</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -23,7 +23,7 @@
             <td><%= order.payment_method_i18n %></td>
             <td>
               <% order.product_orders.each do |product_order| %>
-                <%= image_tag product_order.product.image, size: "25x25" %><br>
+                <%= image_tag product_order.product.image, size: "50x50" %><br>
                 <%= product_order.product.name %>
               <% end %>
             </td>
@@ -31,6 +31,9 @@
           <td><%= order.status_i18n %></td>
           <td>
             <%= link_to "注文詳細", public_order_path(order), class: 'btn btn-sm btn-info' %>
+          </td>
+          <td>
+              <%= link_to "削除", public_order_path(order), method: :delete, class: 'btn btn-sm btn-danger' %>
           </td>
           </tr>
           <% end %>
