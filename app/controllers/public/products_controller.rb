@@ -4,11 +4,13 @@ class Public::ProductsController < ApplicationController
   def index
     @products = Product.where(is_active: true)
     @product_all = Product.all.where(is_active: true)
+    @tag_list = Tag.all
   end
 
   def show
     @product = Product.find(params[:id])
     @cart_item = CartItem.new
+    @product_tags = @product.tags
   end
 
   private

@@ -20,7 +20,7 @@ class Blog < ApplicationRecord
   end
 
   def favorited_by?(employee)
-    favorites.exists?(employee_id: employee.id)
+    favorites.exists?
   end
 
 end

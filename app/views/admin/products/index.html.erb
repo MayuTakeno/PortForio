@@ -11,6 +11,7 @@
             <th>製品名</th>
             <th>税抜(込)価格</th>
             <th>販売状態</th>
+            <th>タグ</th>
             <th></th>
           </tr>
         </thead>
@@ -25,6 +26,9 @@
               </td>
             <td><%= product.price %>(<%= product.with_tax_price.to_s(:dalimited) %>)円</td>
             <td><%= product.is_active == true ? "販売中" : "非公開" %></td>
+            <td>
+              <%= product.tags.map(&:name).join(',') %>
+            </td>
             <td><%= link_to "削除", admin_product_path(product), method: :delete, class: 'btn btn-sm btn-danger' %></td>
           </tr>
         </tbody>
@@ -34,7 +38,19 @@
     <div class="col-md-2" style="text-align: center;">
       <%= link_to "製品登録", new_admin_product_path(@product), class: 'btn btn-sm btn-info' %>
       <br><br>
-      タグ検索
+      <%= link_to "タグ作成", new_admin_tag_path(@tag), class: "btn btn-sm btn-success" %>
+      <br><br>
+        <%= link_to admin_tags_path do %>
+          <strong>タグ</strong>
+        <% end %>
+      <table class="table">
+      <% @tag_list.each do |list| %>
+        <tr>
+          <td><%= list.name %></td>
+          <td><%= "(#{list.products.count}})" %></td>
+        </tr>
+      <% end %>
+      </table>
     </div>
   </div>
 </div>

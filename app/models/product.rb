@@ -3,6 +3,8 @@ class Product < ApplicationRecord
 
   has_many :cart_items, dependent: :destroy
   has_many :product_order, dependent: :destroy
+  has_many :product_tags, dependent: :destroy
+  has_many :tags, through: :product_tags
 
   # バリデーション
   validates :image, presence: true
