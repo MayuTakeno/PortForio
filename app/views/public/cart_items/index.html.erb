@@ -71,7 +71,7 @@
         <br>
       <% end %>
       <% if employee_signed_in? %>
-        <%= link_to "注文履歴一覧へ", public_orders_path, class: 'text-dark' %>
+        <%= link_to "注文履歴一覧へ", public_orders_path(current_employee), class: 'text-dark' %>
         <br>
         <%= link_to public_products_path, class: 'text-dark' do %>
           <i class="fa-solid fa-basket-shopping"></i>
