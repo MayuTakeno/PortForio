@@ -12,3 +12,4 @@ Admin.create!(
   email: 'logadmin@admin',
   password: 'syatyoudesu'
   )
+
