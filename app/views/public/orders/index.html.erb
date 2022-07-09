@@ -26,11 +26,11 @@
                 <%= product_order.product.name %>
               <% end %>
             </td>
-          <td><%= order.billing_amount %></td>
-          <td><%= order.status_i18n %></td>
-          <td>
-            <%= link_to "注文詳細", public_order_path(order), class: 'btn btn-sm btn-info' %>
-          </td>
+            <td><%= order.billing_amount %></td>
+            <td><%= order.status_i18n %></td>
+            <td>
+              <%= link_to "注文詳細", public_order_path(order), class: 'btn btn-sm btn-info' %>
+            </td>
           </tr>
           <% end %>
         </tbody>
