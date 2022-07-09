@@ -23,7 +23,7 @@ class Public::BlogsController < ApplicationController
   end
 
   def index
-    @blogs = Blog.includes(:employee)
+    @blogs = Blog.includes(:employee).order(created_at: :desc)
     @blog = Blog.new
   end
 

@@ -43,7 +43,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.includes(:employee).where(employee_id: current_employee.id)
+    @orders = Order.includes(:employee).where(employee_id: current_employee.id).order(created_at: :desc)
   end
 
   def show

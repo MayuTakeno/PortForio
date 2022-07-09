@@ -4,7 +4,7 @@ class Public::ChatsController < ApplicationController
 
   def index
     @chat = Chat.new
-    @chats = Chat.includes(:employee)
+    @chats = Chat.includes(:employee).order(created_at: :desc)
   end
 
   def create
