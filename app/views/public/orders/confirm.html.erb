@@ -50,41 +50,39 @@
         </tr>
       </table>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-5 offset-1">
-          <table class="table" style="table-layout: fixed; word-wrap: break-word;">
-            <tr>
-              <th>社員名<br>社員番号<br>配属先</th>
-              <td><%= current_employee.name %><br><%= current_employee.employee_code %><br><%= current_employee.assigned_to %></td>
-            </tr>
-            <tr>
-              <th>受取方法</th>
-              <td><%= @order.payment_method_i18n %></td>
-            </tr>
-            <tr>
-              <th>連絡先</th>
-              <td>
-                <% if @order.contact == "1" %>
-                  メールアドレス: <%= @order.email %>
-                <% elsif @order.contact == "2" %>
-                  電話番号: <%= @order.phone_number %>
-                <% else %>
-                  メールアドレス: <%= @order.email %><br>
-                  電話番号: <%= @order.phone_number %>
-                <% end %>
-              </td>
-            </tr>
-            <tr>
-              <th>配達希望日</th>
-              <td>
-                <%= @order.delivery_date %><br>
-                <%= @order.delivery_time_i18n %>
-              </td>
-            </tr>
-          </table>
-        </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-5 offset-1">
+        <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+          <tr>
+            <th>社員名<br>社員番号<br>配属先</th>
+            <td><%= current_employee.name %><br><%= current_employee.employee_code %><br><%= current_employee.assigned_to %></td>
+          </tr>
+          <tr>
+            <th>受取方法</th>
+            <td><%= @order.payment_method_i18n %></td>
+          </tr>
+          <tr>
+            <th>連絡先</th>
+            <td>
+              <% if @order.contact == "1" %>
+                メールアドレス: <%= @order.email %>
+              <% elsif @order.contact == "2" %>
+                電話番号: <%= @order.phone_number %>
+              <% else %>
+                メールアドレス: <%= @order.email %><br>
+                電話番号: <%= @order.phone_number %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <th>配達希望日</th>
+            <td>
+              <%= @order.delivery_date %><br>
+              <%= @order.delivery_time_i18n %>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>

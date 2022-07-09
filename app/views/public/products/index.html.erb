@@ -1,3 +1,4 @@
+<%= form_with url: public_products_path, method: :get, class: '自由に' do %>
 <div class="container">
   <div class="row">
     <div class="col-md-2" style="text-align: center;">
@@ -36,15 +37,14 @@
     <div class="col-md-2" style="text-align: center;">
       <%= link_to "注文状況", public_cart_items_path ,class: "btn btn-sm btn-info" %><br><br>
       <table class="table" style="table-layout: fixed; word-wrap: break-word;">
-      <strong>タグ</strong>
-      <!--タグ一覧埋め込み-->
-      <% @tag_list.each do |list| %>
-        <tr>
-          <td><%= list.tag_name %></td>
-          <td><%= "(#{list.products.count})" %></td>
-        </tr>
-      <% end %>
+      <strong>タグ検索</strong>
+          <%= select_tag :tag_id, options_from_collection_for_select(Tag.all, :id, :tag_name, params[:tag_id]), { prompt: '全て', class: 'free', onchange: 'submit(this.form);' } %>
       </table>
+      <!--タグ一覧埋め込み-->
+        <% @tag_list.each do |list| %>
+            <%= list.tag_name %>
+        <% end %>
     </div>
   </div>
 </div>
+<% end %>

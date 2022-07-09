@@ -30,6 +30,7 @@ class Admin::ProductsController < ApplicationController
     @products = Product.includes(:admin)
     @tag_list = Tag.all
     @tag = Tag.new
+
   end
 
   def show

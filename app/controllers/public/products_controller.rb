@@ -2,7 +2,7 @@ class Public::ProductsController < ApplicationController
   before_action :authenticate_employee!
 
   def index
-    @products = Product.where(is_active: true)
+    @products = params[:tag_id].present? ? Tag.find(params[:tag_id]).products : Product.where(is_active: true).order(created_at: :desc)
     @product_all = Product.all.where(is_active: true)
     @tag_list = Tag.all
   end
