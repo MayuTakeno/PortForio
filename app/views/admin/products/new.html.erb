@@ -18,6 +18,12 @@
       </div>
       <br>
       <div class="field">
+        <%= f.label "タグ" %>
+        <br>
+        <%= f.text_field :tag_name, value: @tag_list, placeholder: ",で区切ると複数登録できます", size: "50" %>
+      </div>
+      <br>
+      <div class="field">
         <%= f.label "税抜価格" %>
         <br>
         <%= f.text_field :price, autocomplete: "price", placeholder: "円", size: "10" %>
