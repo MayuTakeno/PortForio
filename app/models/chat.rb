@@ -8,6 +8,6 @@ class Chat < ApplicationRecord
   has_many :chat_messages, dependent: :destroy
 
   # バリデーション
-  validates :title, presence: true
-  validates :body, presence: true
+  validates :title, presence: { message: 'は入力必須項目です。' }
+  validates :body, presence: { message: 'は入力必須項目です。' }
 end

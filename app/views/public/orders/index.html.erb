@@ -13,7 +13,6 @@
             <th>請求額</th>
             <th>配送状況</th>
             <th>注文詳細</th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -31,9 +30,6 @@
           <td><%= order.status_i18n %></td>
           <td>
             <%= link_to "注文詳細", public_order_path(order), class: 'btn btn-sm btn-info' %>
-          </td>
-          <td>
-              <%= link_to "削除", public_order_path(order), method: :delete, class: 'btn btn-sm btn-danger' %>
           </td>
           </tr>
           <% end %>
