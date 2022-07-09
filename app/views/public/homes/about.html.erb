@@ -1,1 +1,18 @@
-会社概要を載せる
+<div class="container">
+  <div class="row">
+    <div class="col" style="text-align: center;">
+      KizunaはACom株式会社専用という体の<br>コミニケーション、及び社内物販ツールです<br>
+      社員間での質問や交流を深めて<br>
+      会社ライフを楽しくしていきましょう♪
+
+      <div class="worning" style="margin-top: 50px;">
+        <strong>※ゲストでもサイトの閲覧はできますが、<br>ログインしないとみれない
+        コンテンツもございます。</strong>
+      </div>
+
+      <div class="admin-path" style="margin-top: 50px;"></div>
+      管理者の方はこちらからログインできます<br>↓<br>
+      <%= link_to "管理者ログイン", new_admin_session_path, class: 'btn btn-success' %>
+    </div>
+  </div>
+</div>

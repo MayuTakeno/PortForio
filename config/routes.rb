@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'top_pages#top'
 
   namespace :admin do
-    root to: 'notices#index'
+    root to: 'blogs#index'
     resources :employees, except: [:new, :create]
     # get 'employees/index'
     # get 'employees/edit'
