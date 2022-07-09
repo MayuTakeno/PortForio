@@ -26,7 +26,8 @@
               </td>
             <td><%= product.with_tax_price %>円</td>
             <td><%= product.is_active == true ? "販売中" : "非公開" %></td>
-            <td>タグ</td>
+            <!--タグの表示-->
+            <td><%= product.tags.map(&:tag_name).join(',') %></td>
           </tr>
           <% end %>
         </tbody>
@@ -35,9 +36,11 @@
     <div class="col-md-2" style="text-align: center;">
       <%= link_to "注文状況", public_cart_items_path ,class: "btn btn-sm btn-info" %><br><br>
       <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+      <strong>タグ</strong>
+      <!--タグ一覧埋め込み-->
       <% @tag_list.each do |list| %>
         <tr>
-          <td><%= list.name %></td>
+          <td><%= list.tag_name %></td>
           <td><%= "(#{list.products.count})" %></td>
         </tr>
       <% end %>
