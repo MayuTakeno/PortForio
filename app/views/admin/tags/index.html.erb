@@ -14,7 +14,7 @@
         <tbody>
         <% @tags.each do |tag| %>
           <tr>
-            <td><%= tag.name %></td>
+            <td><%= tag.tag_name %></td>
             <td><%= tag.created_at.strftime("%H/%m/%d %H:%M") %></td>
             <td><%= link_to "削除", admin_tag_path(tag), method: :delete, class: 'btn btn-sm btn-danger' %></td>
           </tr>
