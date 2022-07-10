@@ -40,23 +40,20 @@ class Product < ApplicationRecord
   end
 
   def save_tag(sent_tags)
-    # タグが存在する場合、タグの名前を配列にして取得
-    current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
-    # current_tagsから送られた新しいタグ以外をold_tags
-    old_tags = current_tags - sent_tags
-    # 送信されたタグから現在存在する古いタグ以外をnew_tags
-    new_tags = sent_tags - current_tags
+    stripped_tag_names = sent_tags.map(&:strip) # sent_tags.map { |tag| tag.strip }
+    puts "============="
+    p sent_tags
+    puts "============="
 
-    # 古いタグを消す
-    old_tags.each do |old|
-      self.tags.delete Tag.find_by(tag_name: old)
-    end
-
+    # 既存タグを消す
+    self.tags.destroy_all
     # 新しいタグを保存
-    new_tags.each do |new|
-      new_product_tag = Tag.find_or_create_by(tag_name: new)
-      self.tags << new_product_tag
-    end
+    # sent_tags.each do |tag|
+    #   product_tag = Tag.find_or_create_by(tag_name: tag)
+    #   self.tags << product_tag
+    # end
+    new_tags = stripped_tag_names.map { |tag_name| Tag.find_or_create_by(tag_name: tag_name) }
+    self.tags = new_tags
   end
 
 end
