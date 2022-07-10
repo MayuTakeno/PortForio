@@ -6,6 +6,8 @@ class Tag < ApplicationRecord
   has_many :event_tags, dependent: :destroy, foreign_key: 'tag_id'
   has_many :events, through: :event_tags
 
-  validates :tag_name, presence: true
+  validates :tag_name, presence: true, uniqueness: true
+
+
 
 end

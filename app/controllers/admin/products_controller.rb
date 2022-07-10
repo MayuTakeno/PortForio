@@ -27,7 +27,7 @@ class Admin::ProductsController < ApplicationController
 
   def index
     # 商品のすべてnのレコードを取得
-    @products = Product.includes(:admin).order(created_at: :desc)
+    @products = params[:tag_id].present? ? Tag.find(params[:tag_id]).products : Product.includes(:admin).order(created_at: :desc)
     @tag_list = Tag.all
     @tag = Tag.new
   end
