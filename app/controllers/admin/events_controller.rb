@@ -19,7 +19,7 @@ class Admin::EventsController < ApplicationController
   end
 
   def index
-    @events = params[:tag_id].present? ? Tag.find(params[:tag_id]).events : Event.all.order(created_at: :desc)
+    @events = params[:tag_id].present? ? Tag.find(params[:tag_id]).events : Event.includes(:admin).order(created_at: :desc)
     @tag_list = Tag.all
   end
 

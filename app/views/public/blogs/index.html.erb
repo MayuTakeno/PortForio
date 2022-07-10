@@ -28,9 +28,13 @@
           <td><%= blog.employee.name %></td>
           <td><%= blog.created_at.strftime("%Y/%m/%d %H:%M") %></td>
           <td>
+            <% if employee_signed_in? %>
             <span id="favorite-btn_<%= blog.id %>">
               <%= render 'public/favorites/favorite', blog: blog, favorites: @favorites %>
             </span>
+            <% else %>
+              ♡<%= blog.favorites.count %>いいね
+            <% end %>
           </td>
         </tr>
       </thead>

@@ -30,6 +30,7 @@ class Event < ApplicationRecord
     stripped_tag_names = sent_tags.map(&:strip)
     # 既存タグを全て消す
     self.tags.destroy_all
+    # 新しいタグを保存
     new_tags = stripped_tag_names.map { |tag_name| Tag.find_or_create_by(tag_name: tag_name) }
     # new_tagsを既存タグに代入する
     self.tags = new_tags
