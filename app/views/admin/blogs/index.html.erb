@@ -11,6 +11,7 @@
             <th>タイトル</th>
             <th>投稿者</th>
             <th>投稿日時</th>
+            <th>いいね数</th>
           </tr>
         </thead>
         <tbody>
@@ -24,6 +25,7 @@
               </td>
             <td><%= blog.employee.name %></td>
             <td><%= blog.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+            <td>♡<%= blog.favorites.count %></td>
           </tr>
           <% end %>
         </tbody>

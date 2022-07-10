@@ -8,6 +8,7 @@ class Admin::NoticesController < ApplicationController
 
   def create
     @notice = Notice.new(notices_params)
+    @notice.admin_id = current_admin.id
     if @notice.save
       redirect_to admin_notices_path
     else
@@ -16,7 +17,7 @@ class Admin::NoticesController < ApplicationController
   end
 
   def index
-    @notices = Notice.includes(:admin)
+    @notices = Notice.includes(:admin).order(created_at: :desc)
   end
 
   def show
