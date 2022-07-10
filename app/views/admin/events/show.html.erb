@@ -5,6 +5,19 @@
     </div>
     <div class="col-md-8" style="text-align: center;">
       <%= image_tag @event.get_image, size: "300x300" %>
+    </div>
+    <div class="col-md-2" style="text-align: center;">
+      <% if admin_signed_in?%>
+        <%= link_to "編集", edit_admin_event_path(@event.id), class: 'btn btn-sm btn-success' %>
+        <br>
+        <br>
+        <%= link_to "削除", admin_event_path(@event.id), method: :delete, class: 'btn btn-sm btn-danger' %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
       <table class="table" style="margin-top: 20px;">
         <thead>
           <tr>
@@ -27,19 +40,16 @@
             <th>開催状況</th>
             <td><%= @event.hold_status_i18n %></td>
           </tr>
+          <tr>
+            <th>関連タグ</th>
+            <td colspan="3">
+              <% @event_tags.each do |tag| %>
+                <%= tag.tag_name %> /
+              <% end %>
+            </td>
+          </tr>
         </tbody>
       </table>
-      <div>
-        <br>
-      </div>
-    </div>
-    <div class="col-md-2" style="text-align: center;">
-      <% if admin_signed_in?%>
-        <%= link_to "編集", edit_admin_event_path(@event.id), class: 'btn btn-sm btn-success' %>
-        <br>
-        <br>
-        <%= link_to "削除", admin_event_path(@event.id), method: :delete, class: 'btn btn-sm btn-danger' %>
-      <% end %>
     </div>
   </div>
 </div>

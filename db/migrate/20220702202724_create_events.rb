@@ -7,6 +7,7 @@ class CreateEvents < ActiveRecord::Migration[6.1]
       t.string :organizer
       t.datetime :date_and_time
       t.integer :admin_id
+      t.string :name_tag
 
       t.timestamps
     end

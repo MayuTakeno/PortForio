@@ -7,7 +7,11 @@ class Admin::EventsController < ApplicationController
 
   def create
     @event = Event.new(events_params)
+    @event.admin_id = current_admin.id
+    tag_list = params[:event][:tag_name].split(',')
     if @event.save
+      @event.save_tag(tag_list)
+      # 保存できたらイベント一覧に遷移
       redirect_to admin_events_path
     else
       render :new
@@ -15,10 +19,12 @@ class Admin::EventsController < ApplicationController
   end
 
   def index
-    @events = Event.includes(:admin)
+    @events = params[:tag_id].present? ? Tag.find(params[:tag_id]).events : Event.all.order(created_at: :desc)
+    @tag_list = Tag.all
   end
 
   def show
+    @event_tags = @event.tags
   end
 
   def edit
@@ -40,7 +46,7 @@ class Admin::EventsController < ApplicationController
   private
 
   def events_params
-    params.require(:event).permit(:title, :body, :image, :hold_status, :organizer, :date_and_time, :admin_id)
+    params.require(:event).permit(:title, :body, :image, :hold_status, :organizer, :date_and_time, :name_tag)
   end
 
   def set_event

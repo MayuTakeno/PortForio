@@ -118,6 +118,7 @@ ActiveRecord::Schema.define(version: 2022_07_09_231306) do
     t.string "organizer"
     t.datetime "date_and_time"
     t.integer "admin_id"
+    t.string "name_tag"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

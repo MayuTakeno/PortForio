@@ -19,10 +19,13 @@
         </div>
         <br>
         <div class="field">
-          <%= f.file_field :image, accept: "image/*" %>
+          <%= f.label "タグ" %>
+          <br>
+          <%= f.text_field :tag_name, value: @tag_list, placeholder: ",で区切ると複数登録できます", size: '50' %>
         </div>
+        <br>
         <div class="field">
-          <%= f.hidden_field :hold_status, autocomplete: "hold_status" %>
+          <%= f.file_field :image, accept: "image/*" %>
         </div>
       </table>
     </div>

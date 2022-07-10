@@ -1,3 +1,4 @@
+<%= form_with url: admin_events_path, method: :get do %>
 <div class="container">
   <div class="row">
     <div class="col-md-2" style="text-align: center;">
@@ -12,6 +13,7 @@
             <th>主催者</th>
             <th>開催日時</th>
             <th>開催状況</th>
+            <th>タグ</th>
             <th></th>
           </tr>
         </thead>
@@ -27,6 +29,7 @@
             <td><%= event.organizer %></td>
             <td><%= event.date_and_time.strftime("%Y/%m/%d %H:%M") %></td>
             <td><%= event.hold_status_i18n %></td>
+            <td><%= event.tags.map(&:tag_name).join(',') %></td>
             <td><%= link_to "削除", admin_event_path(event.id), method: :delete, class: 'btn btn-sm btn-danger' %></td>
           </tr>
           <% end %>
@@ -35,6 +38,21 @@
     </div>
     <div class="col-md-2" style="text-align: center;">
       <%= link_to "記事登録", new_admin_event_path, class: 'btn btn-info btn-sm' %>
+      <br><br>
+      <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+      <%= link_to admin_tags_path do %>
+        <strong>タグ検索</strong>
+      <% end %>
+      <%= select_tag :tag_id, options_from_collection_for_select(Tag.all, :id, :tag_name, params[:tag_id]), { prompt: '全て', class: 'free', onchange: 'submit(this.form)'} %>
+      <br>
+      <% @tag_list.each do |list| %>
+      <tr>
+        <td><%= list.tag_name %></td>
+        <td><%= "(#{list.events.count})" %></td>
+      </tr>
+      <% end %>
+      </table>
     </div>
   </div>
 </div>
+<% end %>
