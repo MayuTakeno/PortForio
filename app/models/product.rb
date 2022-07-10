@@ -40,10 +40,8 @@ class Product < ApplicationRecord
   end
 
   def save_tag(sent_tags)
+    # タグの間にスペースを置いても加算されるようにする処理
     stripped_tag_names = sent_tags.map(&:strip) # sent_tags.map { |tag| tag.strip }
-    puts "============="
-    p sent_tags
-    puts "============="
 
     # 既存タグを消す
     self.tags.destroy_all
