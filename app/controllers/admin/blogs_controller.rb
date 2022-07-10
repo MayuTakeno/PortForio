@@ -3,7 +3,7 @@ class Admin::BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :destroy]
 
   def index
-    @blogs = Blog.all
+    @blogs = Blog.includes(:employee).order(created_at: :desc)
   end
 
   def show

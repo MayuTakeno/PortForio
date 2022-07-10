@@ -26,21 +26,14 @@ class Event < ApplicationRecord
   end
 
   def save_tag(sent_tags)
-    # tagが存在する場合、タグの名前を配列にして取得
-    current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
-    # current_tagsから送られた新しいタグ以外をold_tags
-    old_tags = current_tags - sent_tags
-    # sent_tagsから送られた現在存在するタグ以外をnew_tags
-    new_tags = sent_tags - current_tags
-
-    old_tags.each do |old|
-      self.tags.delete Tag.find_by(tag_name: old)
-    end
-
-    new_tags.each do |new|
-      new_event_tag = Tag.find_or_create_by(tag_name: new)
-      self.tags << new_event_tag
-    end
+    # タグの間にスペースを置いてもタグに加算されるようにする
+    stripped_tag_names = sent_tags.map(&:strip)
+    # 既存タグを全て消す
+    self.tags.destroy_all
+    # 新しいタグを保存
+    new_tags = stripped_tag_names.map { |tag_name| Tag.find_or_create_by(tag_name: tag_name) }
+    # new_tagsを既存タグに代入する
+    self.tags = new_tags
   end
 
 end

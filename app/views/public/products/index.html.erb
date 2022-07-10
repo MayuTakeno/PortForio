@@ -28,7 +28,7 @@
             <td><%= product.with_tax_price %>円</td>
             <td><%= product.is_active == true ? "販売中" : "非公開" %></td>
             <!--タグの表示-->
-            <td><%= product.tags.map(&:tag_name).join(',') %></td>
+            <td><%= product.tags.map(&:tag_name).join('/') %></td>
           </tr>
           <% end %>
         </tbody>
@@ -36,14 +36,17 @@
     </div>
     <div class="col-md-2" style="text-align: center;">
       <%= link_to "注文状況", public_cart_items_path ,class: "btn btn-sm btn-info" %><br><br>
-      <table class="table" style="table-layout: fixed; word-wrap: break-word;">
       <strong>タグ検索</strong>
-          <%= select_tag :tag_id, options_from_collection_for_select(Tag.all, :id, :tag_name, params[:tag_id]), { prompt: '全て', class: 'free', onchange: 'submit(this.form);' } %>
-      </table>
-      <!--タグ一覧埋め込み-->
+      <%= select_tag :tag_id, options_from_collection_for_select(Tag.all, :id, :tag_name, params[:tag_id]), { prompt: '全て', class: 'free', onchange: 'submit(this.form);' } %>
+      <table class="table" style="table-layout: fixed; word-wrap: break-word;">
         <% @tag_list.each do |list| %>
-            <%= list.tag_name %>
+        <tr>
+          <td><%= list.tag_name %></td>
+          <td><%= "(#{list.products.count})" %></td>
+        </tr>
+      <!--タグ一覧埋め込み-->
         <% end %>
+      </table>
     </div>
   </div>
 </div>
