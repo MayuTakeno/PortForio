@@ -2,7 +2,10 @@ class Public::NoticesController < ApplicationController
   # before_action :authenticate_employee!, only: [:show]
 
   def index
-    @notices = Notice.all.order(created_at: :desc)
+    @notices = Notice.includes(:admin).order(created_at: :desc)
+    if params[:word].present?
+      @notices = Notice.where("title LIKE?", "%#{params[:word]}%")
+    end
   end
 
   def show

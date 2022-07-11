@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     root to: 'blogs#index'
     get "search_blog" => 'searches#search_blogs'
     get "search_notice" => 'searches#search_notices'
+    get "search_event" => 'searches#search_events'
     resources :employees, except: [:new, :create]
     # get 'employees/index'
     # get 'employees/edit'
@@ -41,6 +42,8 @@ Rails.application.routes.draw do
     get "search_blog" => 'searches#search_blogs'
     get "search_notice" => 'searches#search_notices'
     get "search_chat" => 'searches#search_chats'
+    get "search_event" => 'searches#search_events'
+    get "search_product" => 'searches#search_products'
     resources :notices, except: [:new, :create, :edit]
     # get 'notices/index'
     # get 'notices/show'

@@ -18,6 +18,9 @@ class Admin::NoticesController < ApplicationController
 
   def index
     @notices = Notice.includes(:admin).order(created_at: :desc)
+    if params[:word].present?
+      @notices = Notice.where("title LIKE?", "%#{params[:word]}%")
+    end
   end
 
   def show

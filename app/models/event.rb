@@ -36,4 +36,11 @@ class Event < ApplicationRecord
     self.tags = new_tags
   end
 
+  # 検索方法(部分一致)
+  # def self.looks(search, word)
+    # if search == "partial_match"
+      # @event = Event.where("title LIKE?", "%#{word}%")
+    # end
+  # end
+
 end

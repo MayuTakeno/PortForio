@@ -5,6 +5,9 @@ class Public::ChatsController < ApplicationController
   def index
     @chat = Chat.new
     @chats = Chat.includes(:employee).order(created_at: :desc)
+    if params[:word].present?
+      @chats = Chat.where("title LIKE?", "%#{params[:word]}%").order(created_at: :desc)
+    end
   end
 
   def create
