@@ -1,2 +1,49 @@
-<h1>Admin::Employees#edit</h1>
-<p>Find me in app/views/admin/employees/edit.html.erb</p>
+<%= form_with model: @employee, url: admin_employee_path(@employee.id) do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>社員情報編集</h4>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-6">
+      <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+        <tr>
+          <th><%= f.label "社員名" %></th>
+          <td>
+            <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: "姓" %>
+            <br><br>
+            <%= f.text_field :last_name, autocomplete: "last_name", placeholder: "名" %>
+          </td>
+        </tr>
+        <tr>
+          <th><%= f.label "配属先" %></th>
+          <td><%= f.text_field :assigned_to, autocomplete: "assigned_to", placeholder: "〇〇部" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label "社員番号" %></th>
+          <td><%= f.text_field :employee_code, autocomplete: "employee_code" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label "電話番号" %></th>
+          <td><%= f.text_field :phone_number, autocomplete: "phone_number" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label "Email" %></th>
+          <td><%= f.text_field :email, autocomplete: "email" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label "在籍状況" %></th>
+          <td>
+            <%= f.select :is_deleted, [['退職済み',0],['在籍',1]], { selected: 0 } %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col" style="text-align: center;">
+      <%= f.submit "更新", class: 'btn btn-sm btn-success' %>
+    </div>
+  </div>
+</div>
+<% end %>
