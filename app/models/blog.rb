@@ -23,4 +23,19 @@ class Blog < ApplicationRecord
      favorites.where(employee_id: employee.id).exists?
   end
 
+  # 検索方法分岐
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @blog = Blog.where("title LIKE?", "#{word}")
+    elsif search == "forword_match"
+      @blog = Blog.where("title LIKE?", "#{word}%")
+    elsif search == "backword_match"
+      @blog = Blog.where("title LIKE?", "%#{word}")
+    elsif search == "partial_match"
+      @blog = Blog.where("title LIKE?", "%#{word}%")
+    else
+      @blog == Blog.includes(:employee)
+    end
+  end
+
 end

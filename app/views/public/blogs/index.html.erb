@@ -1,5 +1,10 @@
 <div class="container">
   <div class="row">
+    <div class="col" style="text-align: center;">
+      <%= render 'public/searches/search_blog' %>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-md-2" style="text-align: center;">
       <h4>社員Blog<br>一覧</h4><br>全<%= @blogs.count %>件<br>
     </div>
@@ -49,7 +54,6 @@
     <% else %>
     <% end %>
     <br>
-    キーワード検索
     </div>
   </div>
 </div>

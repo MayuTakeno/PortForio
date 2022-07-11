@@ -38,6 +38,8 @@ Rails.application.routes.draw do
     # publicのルートパス
     root to: 'homes#top'
     get 'homes/about' => 'homes#about', as: 'about'
+    get "search_blog" => 'searches#search_blogs'
+    get "search_notice" => 'searches#search_notices'
     resources :notices, except: [:new, :create, :edit]
     # get 'notices/index'
     # get 'notices/show'
