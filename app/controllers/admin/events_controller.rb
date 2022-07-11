@@ -31,7 +31,9 @@ class Admin::EventsController < ApplicationController
   end
 
   def update
+    tag_list = params[:event][:tag_name].split(',')
     if @event.update(events_params)
+      @event.save_tag(tag_list)
       redirect_to admin_event_path(@event)
     else
       :edit

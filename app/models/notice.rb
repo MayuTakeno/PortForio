@@ -15,4 +15,11 @@ class Notice < ApplicationRecord
     end
   end
 
+  # 検索方法（部分検索）
+  def self.looks(search, word)
+    if search == "partial_match"
+      @notice = Notice.where("title LIKE?", "%#{word}%")
+    end
+  end
+
 end

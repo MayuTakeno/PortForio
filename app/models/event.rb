@@ -5,7 +5,7 @@ class Event < ApplicationRecord
   belongs_to :admin
 
   has_many :event_tags, dependent: :destroy
-  has_many :tags, through: :event_tags
+  has_many :tags, through: :event_tags, dependent: :destroy
   # バリデーション
   validates :title, presence: { message: "は入力必須項目です" }
   validates :body, presence: { message: "は入力必須項目です" }
@@ -29,7 +29,7 @@ class Event < ApplicationRecord
     # タグの間にスペースを置いてもタグに加算されるようにする
     stripped_tag_names = sent_tags.map(&:strip)
     # 既存タグを全て消す
-    self.tags.destroy_all
+    self.tags.destroy
     # 新しいタグを保存
     new_tags = stripped_tag_names.map { |tag_name| Tag.find_or_create_by(tag_name: tag_name) }
     # new_tagsを既存タグに代入する

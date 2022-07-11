@@ -23,4 +23,11 @@ class Blog < ApplicationRecord
      favorites.where(employee_id: employee.id).exists?
   end
 
+  # 検索方法(部分検索)
+  def self.looks(search, word)
+    if search == "partial_match"
+      @blog = Blog.where("title LIKE?", "%#{word}%")
+    end
+  end
+
 end
