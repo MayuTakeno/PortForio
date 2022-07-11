@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-2" style="text-align: center;">
-      <h4>社員情報編集</h4>
+      <h4>社員情報</h4>
     </div>
     <div class="col-md-1"></div>
     <div class="col-md-6">
@@ -25,14 +25,18 @@
         </tr>
         <tr>
           <th>在籍状況</th>
-          <td><%= @employee.is_deleted %></td>
+          <td>
+            <% if @employee.is_deleted? %>
+              在籍
+            <% else %>
+              退職済み
+            <% end %>
+          </td>
         </tr>
       </table>
     </div>
-  </div>
-  <div class="row">
-    <div class="col" style="text-align: center;">
-      在籍中or退社済
+    <div class="col-md-2" style="text-align: center;">
+      <%=link_to "編集", edit_admin_employee_path(@employee), class: 'btn btn-sm btn-success' %>
     </div>
   </div>
 </div>
