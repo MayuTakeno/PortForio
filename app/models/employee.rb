@@ -23,4 +23,12 @@ class Employee < ApplicationRecord
     first_name + last_name
   end
 
+  def self.guest
+    # データの検索と作成を自動的に判断して処理
+    find_or_create_by!(nickname: 'guestemployee', email: 'guest@exam.com') do |employee|
+      employee.password = SecureRandom.urlsafe_base64
+      employee.name = "guestemployee"
+    end
+  end
+
 end
