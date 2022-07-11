@@ -24,7 +24,13 @@
             <td><%= employee.employee_code %></td>
             <td><%= employee.assigned_to %></td>
             <td><%= employee.created_at.strftime("%Y/%m/%d %H:%M") %></td>
-            <td><%= employee.is_deleted %></td>
+            <td>
+              <% if employee.is_deleted? %>
+                在籍
+              <% else %>
+                退職済み
+              <% end %>
+            </td>
           <% end %>
           </tr>
         </tbody>
