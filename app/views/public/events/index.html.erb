@@ -36,6 +36,8 @@
     </table>
     </div>
     <div class="col-md-2" style="text-align: center;">
+      <%= render 'public/searches/search_event' %>
+      <br>
       <strong>タグ検索</strong>
       <%= select_tag :tag_id, options_from_collection_for_select(Tag.all, :id, :tag_name, params[:tag_id]), { prompt: '全て', class: 'free', onchange: 'submit(this.form)'} %>
       <table class="table" style="table-layout: fixed; word-wrap: break-wrap;">

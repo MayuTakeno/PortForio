@@ -28,6 +28,9 @@ class Admin::ProductsController < ApplicationController
   def index
     # 商品のすべてnのレコードを取得
     @products = params[:tag_id].present? ? Tag.find(params[:tag_id]).products : Product.includes(:admin).order(created_at: :desc)
+    if params[:word]
+      @products = Product.where("name LIKE?", "%#{params[:word]}%")
+    end
     @tag_list = Tag.all
     @tag = Tag.new
   end
