@@ -24,6 +24,9 @@ class Public::BlogsController < ApplicationController
 
   def index
     @blogs = Blog.includes(:employee).order(created_at: :desc)
+    if params[:word].present?
+      @blogs = Blog.where("title LIKE?", "%#{params[:word]}%")
+    end
     @blog = Blog.new
   end
 

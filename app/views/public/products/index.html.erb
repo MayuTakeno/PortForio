@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-2" style="text-align: center;">
       <h4>製品一覧</h4><br>
-      全<%= @product_all.count %>件
+      全<%= @products.count %>件
     </div>
     <div class="col-md-8">
       <table class="table" style="table-layout: fixed; word-wrap: break-word;">
@@ -35,7 +35,10 @@
       </table>
     </div>
     <div class="col-md-2" style="text-align: center;">
-      <%= link_to "注文状況", public_cart_items_path ,class: "btn btn-sm btn-info" %><br><br>
+      <%= link_to "注文状況", public_cart_items_path ,class: "btn btn-sm btn-info" %>
+      <br><br>
+      <%= render 'public/searches/search_product' %>
+      <br><br>
       <strong>タグ検索</strong>
       <%= select_tag :tag_id, options_from_collection_for_select(Tag.all, :id, :tag_name, params[:tag_id]), { prompt: '全て', class: 'free', onchange: 'submit(this.form);' } %>
       <table class="table" style="table-layout: fixed; word-wrap: break-word;">

@@ -50,4 +50,10 @@ class Product < ApplicationRecord
     self.tags = new_tags
   end
 
+  # def self.search(search, word)
+  #   if search == "partial_match"
+  #     @product = Product.where("name LIKE?", "%#{word}%")
+  #   end
+  # end
+
 end

@@ -41,6 +41,8 @@
       <br><br>
       <%= link_to "タグ管理", admin_tags_path, class: "btn btn-sm btn-success" %>
       <br><br>
+      <%= render 'admin/searches/search_product' %>
+      <br><br>
         <%= link_to admin_tags_path do %>
           <strong>タグ検索</strong>
         <% end %>
