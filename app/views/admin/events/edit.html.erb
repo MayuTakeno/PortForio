@@ -25,9 +25,6 @@
         <div class="field">
           <%= f.file_field :image, accept: "image/*" %>
         </div>
-        <div class="field">
-          <%= f.select :hold_status, [["未開催", 0], ["開催中", 1], ["延期", 2], ["終了", 3]] %>
-        </div>
       </table>
     </div>
     <div class="col-md-2">
@@ -39,8 +36,13 @@
       <br>
       <div class="field">
         <%= f.label "開催日時" %>
-        <br><br>
+        <br>
         <%= f.datetime_field :date_and_time, autocomplete: "date_and_time", size: "20" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label "開催状況" %>
+        <%= f.select :hold_status, Event.hold_statuses.keys.map { |k| [I18n.t("enums.event.hold_status.#{k}"), k ]} %>
       </div>
     </div>
   </div>
