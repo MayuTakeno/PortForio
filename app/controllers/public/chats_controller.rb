@@ -12,7 +12,7 @@ class Public::ChatsController < ApplicationController
     # 投稿した社員を識別するIDを、現在ログインしている社員のIDに指定
     @chat.employee_id = current_employee.id
     if @chat.save
-      @chats = Chat.all
+      @chats = Chat.includes(:employee).order(created_at: :desc)
     else
       render :validater
     end

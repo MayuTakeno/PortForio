@@ -10,4 +10,12 @@ class Chat < ApplicationRecord
   # バリデーション
   validates :title, presence: { message: 'は入力必須項目です。' }
   validates :body, presence: { message: 'は入力必須項目です。' }
+
+  # 検索方法（部分検索）
+  def self.looks(search, word)
+    if search == "partial_match"
+      @chat = Chat.where("title LIKE?", "%#{word}%")
+    end
+  end
+
 end

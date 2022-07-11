@@ -1,5 +1,5 @@
 class Public::ProductsController < ApplicationController
-  before_action :authenticate_employee!
+  before_action :authenticate_employee!, except: [:index, :show]
 
   def index
     @products = params[:tag_id].present? ? Tag.find(params[:tag_id]).products : Product.includes(:admin).order(created_at: :desc)
