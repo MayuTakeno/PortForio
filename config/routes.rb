@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get "search_blog" => 'searches#search_blogs'
     get "search_notice" => 'searches#search_notices'
     get "search_event" => 'searches#search_events'
+    get "search_product" => 'searches#search_products'
     resources :employees, except: [:new, :create]
     # get 'employees/index'
     # get 'employees/edit'
