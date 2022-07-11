@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  namespace :admin do
-  end
   root to: 'top_pages#top'
 
   namespace :admin do
     root to: 'blogs#index'
+    get "search_blog" => 'searches#search_blogs'
+    get "search_notice" => 'searches#search_notices'
     resources :employees, except: [:new, :create]
     # get 'employees/index'
     # get 'employees/edit'

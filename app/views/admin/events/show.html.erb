@@ -19,15 +19,12 @@
     <div class="col-md-2"></div>
     <div class="col-md-8">
       <table class="table" style="margin-top: 20px;">
-        <thead>
           <tr>
             <th>イベント名</th>
             <td><%= @event.title %></td>
             <th>主催者</th>
             <td><%= @event.organizer %></td>
           </tr>
-        </thead>
-        <tbody>
           <tr>
             <th>イベント詳細</th>
             <td><%= simple_format @event.body %></td>
@@ -48,7 +45,6 @@
               <% end %>
             </td>
           </tr>
-        </tbody>
       </table>
     </div>
   </div>
