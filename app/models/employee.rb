@@ -23,19 +23,4 @@ class Employee < ApplicationRecord
     first_name + last_name
   end
 
-  # 検索方法分岐
-  def self.looks(search, word)
-    if search == "perfect_match"
-      @employee = Employee.where("name LIKE?", "#{word}")
-    elsif search == "forword_match"
-      @employee = Employee.where("name LIKE?", "%#{word}")
-    elsif search == "backword_match"
-      @employee = Employee.where("name LIKE?", "#{word}%")
-    elsif search == "partial_match"
-      @employee = Employee.where("name LIKE?", "%#{word}%")
-    else
-      @employee = Employee.includes(:employee)
-    end
-  end
-
 end
