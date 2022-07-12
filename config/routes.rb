@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'top_pages#top'
 
   namespace :admin do
-    root to: 'blogs#index'
+    root to: 'employees#index'
     get "search_blog" => 'searches#search_blogs'
     get "search_notice" => 'searches#search_notices'
     get "search_event" => 'searches#search_events'
@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   end
 
   namespace :public do
-    post 'employees/guest_sign_in', to: 'employees/sessions#guest_sign_in'
+    # post 'employees/guest_sign_in', to: 'employees/sessions#guest_sign_in'
     # publicのルートパス
     root to: 'homes#top'
     get 'homes/about' => 'homes#about', as: 'about'
