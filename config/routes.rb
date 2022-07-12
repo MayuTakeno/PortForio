@@ -78,6 +78,7 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
+  # sign_upのsubmitでnilを送った時のルーティングエラー回避
   devise_scope :employees do
     get '/employees', to: redirect("/employees/sign_up")
   end

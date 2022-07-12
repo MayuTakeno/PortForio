@@ -1,5 +1,5 @@
 class Public::NoticesController < ApplicationController
-  # before_action :authenticate_employee!, only: [:show]
+  before_action :authenticate_employee!, except: [:index]
 
   def index
     @notices = Notice.includes(:admin).order(created_at: :desc)
