@@ -12,11 +12,11 @@ class Public::SessionsController < Devise::SessionsController
     public_about_path
   end
 
-  # def guest_sign_in
-  #   employee = Employee.guest
-  #   sign_in employee
-  #   redirect_to public_employee_path(employee), notice: 'guestでログインしました。'
-  # end
+  def guest_sign_in
+    employee = Employee.guest
+    sign_in employee
+    redirect_to public_blogs_path, notice: 'guestでログインしました。'
+  end
 
   # def ensure_noaml_employee
   #   if params[:employee][:email].downcase == 'guest@exam.com'
