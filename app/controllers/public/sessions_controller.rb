@@ -11,6 +11,7 @@ class Public::SessionsController < Devise::SessionsController
   def after_sign_out_path_for(resource)
     public_about_path
   end
+
   # def guest_sign_in
   #   employee = Employee.guest
   #   sign_in employee
