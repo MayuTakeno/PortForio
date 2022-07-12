@@ -9,13 +9,7 @@ class Public::SessionsController < Devise::SessionsController
   end
 
   def after_sign_out_path_for(resource)
-    public_about_path
-  end
-
-  def guest_sign_in
-    employee = Employee.guest
-    sign_in employee
-    redirect_to public_blogs_path, notice: 'guestでログインしました。'
+    new_employee_session_path
   end
 
   # def ensure_noaml_employee
