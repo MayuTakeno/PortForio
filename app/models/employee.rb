@@ -23,8 +23,13 @@ class Employee < ApplicationRecord
     first_name + last_name
   end
 
-  validates :email, presence: true
-  validates :password, presence: true
+  validates :first_name, presence: { message: "は入力必須です" }
+  validates :last_name, presence: { message: "は入力必須です" }
+  validates :assigned_to, presence: { message: "は入力必須です"}
+  validates :employee_code, presence: { message: "は入力必須です"}
+  validates :phone_number, presence: { message: "は入力必須です"}
+
+
 
   # def self.guest
   #   # データの検索と作成を自動的に判断して処理
