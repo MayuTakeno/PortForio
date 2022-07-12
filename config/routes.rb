@@ -37,9 +37,9 @@ Rails.application.routes.draw do
   end
 
   namespace :public do
-    post 'employees/guest_sign_in', to: 'employees/sessions#guest_sign_in'
     # publicのルートパス
     root to: 'homes#top'
+    post 'employees/guest_sign_in', to: 'employees/sessions#guest_sign_in'
     get 'homes/about' => 'homes#about', as: 'about'
     get "search_blog" => 'searches#search_blogs'
     get "search_notice" => 'searches#search_notices'
