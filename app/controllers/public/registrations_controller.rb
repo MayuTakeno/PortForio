@@ -1,9 +1,18 @@
 # frozen_string_literal: true
 
 class Public::RegistrationsController < Devise::RegistrationsController
+  before_action :configure_permitted_parameters, if: :devise_controller?
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  def after_sign_up_path_for(resource)
+      public_employee_path(current_employee)
+  end
 
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :assigned_to, :employee_code, :phone_number])
+  end
   # GET /resource/sign_up
   # def new
   #   super

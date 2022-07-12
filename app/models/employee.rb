@@ -23,4 +23,20 @@ class Employee < ApplicationRecord
     first_name + last_name
   end
 
+  validates :first_name, presence: { message: "は入力必須です" }
+  validates :last_name, presence: { message: "は入力必須です" }
+  validates :assigned_to, presence: { message: "は入力必須です"}
+  validates :employee_code, presence: { message: "は入力必須です"}
+  validates :phone_number, presence: { message: "は入力必須です"}
+
+
+
+  # def self.guest
+  #   # データの検索と作成を自動的に判断して処理
+  #   find_or_create_by!(name: 'guest_employee', email: 'guest@exam.com') do |employee|
+  #     employee.password = SecureRandom.urlsafe_base64
+  #     employee.name = "guestemployee"
+  #   end
+  # end
+
 end

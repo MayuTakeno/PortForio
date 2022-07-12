@@ -1,16 +1,18 @@
-<%= form_with model: @employee, url: employee_session_path do |f| %>
+<%= form_with model: @employee, url: employee_session_path, local: true do |f| %>
 <div class="container">
   <div class="row">
     <div class="col-md-3" style="text-align: center;">
       <h4>ログイン</h4>
+    <%= render "public/shared/error_messages", resource: @employee %>
+    <%= render 'layouts/alert' %>
+    <%= render 'layouts/notice' %>
     </div>
-
     <div class="col-md-6" style="text-align: center;">
       <strong>※当サイトはポートフォリオに使用する作品です。<br>リアルに関する情報は載せないようにお願いします。</strong>
       <br>
       <br>
       <div class="field">
-        <%= f.text_field :assigned_to, autocomplete: "assigned_to", placeholder: "配属先", size:"40" %>
+        <%= f.text_field :assigned_to, autofocus: true, autocomplete: "assigned_to", placeholder: "配属先", size:"40" %>
       </div>
       <br>
       <div class="field">
@@ -36,7 +38,6 @@
       <div class="actions">
         <%= f.submit "Log in" %>
       </div>
-
     </div>
   </div>
 </div>

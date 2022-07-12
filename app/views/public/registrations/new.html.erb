@@ -3,14 +3,16 @@
   <div class="row">
     <div class="col-md-3" style="text-align: center;">
       <h4>社員登録</h4>
-      <%= render "public/shared/error_messages", resource: resource %>
+      <%= render "layouts/errors", obj: @employee %>
+      <%= render 'layouts/alert' %>
+      <%= render 'layouts/notice' %>
     </div>
 
     <div class="col-md-6" style="text-align: center;">
       <strong>
         ※当サイトはポートフォリオに使用する作品です。<br>リアルに関する情報は載せないようにお願いします。
       </strong>
-      <br><br>
+      <br>
       <div class="field">
         <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: "氏名(姓)", size: "40" %>
       </div>
