@@ -78,6 +78,9 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
+  devise_scope :employees do
+    get '/employees', to: redirect("/employees/sign_up")
+  end
 
   #管理者用URL
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
