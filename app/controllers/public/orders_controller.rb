@@ -7,17 +7,17 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     # @order = Order.find(params[:id])
     @cart_items = current_employee.cart_items
-    @order_new = Order.new
     @postage = 200
     @total = @cart_items.inject(0) {|sum, product| sum + product.sub_total }
     @billing_amount = @cart_items.inject(0) {|sum, product| sum + product.sub_total } + @order.postage
+    @order_new = Order.new
     if @order.contact == '1'
       @order.email = current_employee.email
     elsif @order.contact == '2'
       @order.phone_number = current_employee.phone_number
     elsif @order.contact == '3'
     else
-      render :new
+      redirect_to new_public_order_path
     end
   end
 

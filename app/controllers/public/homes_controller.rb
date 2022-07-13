@@ -1,6 +1,6 @@
 class Public::HomesController < ApplicationController
 
-  def homes
+  def top
   end
 
   def about
