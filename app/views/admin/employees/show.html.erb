@@ -5,7 +5,7 @@
       <h4>社員情報</h4>
     </div>
     <div class="col-md-1"></div>
-    <div class="col-md-6">
+    <div class="col-md-6" style="margin-bottom: 30px;">
       <table class="table">
         <tr>
           <th>氏名</th>
@@ -35,7 +35,7 @@
         </tr>
       </table>
     </div>
-    <div class="col-md-2" style="text-align: center;">
+    <div class="col-md-2" style="text-align: center; margin-bottom: 30px;">
       <% if @employee.first_name != "guest" %>
       <%=link_to "編集", edit_admin_employee_path(@employee), class: 'btn btn-sm btn-success' %>
       <% end %>

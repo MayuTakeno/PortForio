@@ -52,3 +52,25 @@ ja:
               blank : "が確認できません"
             password:
               blank: "が確認できません"
+        notice:
+          attributes:
+            title:
+              blank: "が確認できません"
+            body:
+              blank: "が確認できません"
+        product:
+          attributes:
+            image:
+              blank: "が確認できません"
+            name:
+              blank: "が確認できません"
+            caption:
+              blank: "が確認できません"
+            price:
+              blank: "が確認できません"
+            make_day:
+              blank: "が確認できません"
+        tag:
+          attributes:
+            tag_name:
+              blank: "が確認できません"

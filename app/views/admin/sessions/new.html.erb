@@ -4,16 +4,17 @@
     <div class="col-md-2" style="text-align: center;">
       <h4>Log in</h4>
     </div>
-    <div class="col-md-8" style="text-align: center;">
+    <div class="col-md-8" style="text-align: center; margin-bottom: 30px;">
 
   <div class="field">
+    <span style="color: red;">※</span>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", size: "40" %>
   </div>
   <br>
   <div class="field">
+    <span style="color: red;">※</span>
     <%= f.password_field :password, autocomplete: "current-password",placeholder: "パスワード", size: "40" %>
   </div>
-
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
@@ -28,5 +29,5 @@
 
     </div>
   </div>
-</div>
 <%= render "admin/shared/links" %>
+</div>
