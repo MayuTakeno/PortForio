@@ -24,13 +24,13 @@ class Public::ChatsController < ApplicationController
   def show
     @chat = Chat.includes(:employee).find(params[:id])
     # chat_messagesにchatに関連したコメントを格納
-    @chat_messages = @chat.chat_messages.includes(:employee).all
+    @chat_messages = @chat.chat_messages.includes(:employee)
     # chat_messageにmessageを新規作成するためのインスタンス作成
     @chat_message = @chat.chat_messages.build(employee_id: current_employee.id) if current_employee
   end
 
   def destroy
-    @chats = Chat.all
+    @chats = Chat.includes(:employee).order(created_at: :desc)
     @chat.destroy
   end
 

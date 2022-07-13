@@ -1,11 +1,13 @@
-<table class="table" style=" word-wrap: break-word;">
+<table class="table" style="table-layout: fixed; word-wrap: break-word;">
   <tr>
   </tr>
   <% chat.chat_messages.each do |chat_message| %>
   <tr>
-    <td><%= chat_message.employee.first_name %><br><%= chat_message.employee.assigned_to %>部</td>
+    <td colspan="2"><%= chat_message.created_at %></td>
+  </tr>
+  <tr>
+    <td><%= chat_message.employee.first_name %> さん<br><%= chat_message.employee.assigned_to %></td>
     <td width="700px"><%= simple_format chat_message.message %></td>
-    <td><%= chat_message.created_at %></td>
   </tr>
 <% end %>
 </table>
