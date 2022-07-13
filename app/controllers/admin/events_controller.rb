@@ -31,15 +31,17 @@ class Admin::EventsController < ApplicationController
   end
 
   def edit
+    @tag_list = @event.tags.pluck(:tag_name).join(',')
   end
 
   def update
     tag_list = params[:event][:tag_name].split(',')
     if @event.update(events_params)
       @event.save_tag(tag_list)
-      redirect_to admin_event_path(@event)
+      redirect_to admin_event_path(@event.id)
     else
-      :edit
+      @tag_list = @event.tags.pluck(:tag_name).join(',')
+      render :edit
     end
   end
 

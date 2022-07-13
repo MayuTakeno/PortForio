@@ -3,7 +3,7 @@
     <div class="col-md-2" style="text-align: center;">
       <h4>NEWS</h4>
     </div>
-    <div class="col-md-8" style="text-align: center;">
+    <div class="col-md-8" style="text-align: center; margin-bottom: 30px;">
       <%= image_tag @notice.get_image, size: "300x300" %>
       <br>
       <br>
@@ -19,7 +19,7 @@
         <span>※<%= simple_format @notice.caption %></span>
       </div>
     </div>
-    <div class="col-md-2" style="text-align: center;">
+    <div class="col-md-2" style="text-align: center; margin-bottom: 30px;">
       <% if admin_signed_in?%>
         <%= link_to edit_admin_notice_path(@notice.id), class: 'btn btn-sm btn-success' do %>
           編集

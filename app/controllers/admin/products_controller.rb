@@ -47,6 +47,7 @@ class Admin::ProductsController < ApplicationController
       @product.save_tag(tag_list)
       redirect_to admin_product_path(@product.id)
     else
+      @tag_list = @product.tags.pluck(:tag_name).join(',')
       render :edit
     end
   end

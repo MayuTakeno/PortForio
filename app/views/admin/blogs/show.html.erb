@@ -3,7 +3,7 @@
     <div class="col-md-2" style="text-align: center;">
       <h4>ブログ詳細</h4>
     </div>
-    <div class="col-md-8" style="text-align: center;">
+    <div class="col-md-8" style="text-align: center; margin-bottom: 30px;">
       <%= image_tag @blog.get_image, size: "300x300" %>
       <br>
       <br>
@@ -17,7 +17,7 @@
         </h6>
       </div>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-2" style="margin-bottom: 30px; text-align: center;">
       <%= link_to "削除", admin_blog_path(@blog), method: :delete, class: "btn btn-sm btn-danger" %>
     </div>
   </div>

@@ -6,7 +6,7 @@
     <div class="col-md-8" style="text-align: center;">
       <%= image_tag @event.get_image, size: "300x300" %>
     </div>
-    <div class="col-md-2" style="text-align: center;">
+    <div class="col-md-2" style="text-align: center; margin-top: 30px; margin-bottom: center;">
       <% if admin_signed_in?%>
         <%= link_to "編集", edit_admin_event_path(@event.id), class: 'btn btn-sm btn-success' %>
         <br>
@@ -17,7 +17,7 @@
   </div>
   <div class="row">
     <div class="col-md-2"></div>
-    <div class="col-md-8">
+    <div class="col-md-8" style="margin-bottom: 30px;">
       <table class="table" style="margin-top: 20px;">
           <tr>
             <th>イベント名</th>
