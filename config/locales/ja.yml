@@ -40,4 +40,15 @@ ja:
     sessions:
       employee:
         signed_out: "ログアウトしました"
-
+  errors:
+    messages:
+      not_saved: "登録できませんでした。"
+  activerecord:
+    errors:
+      models:
+        employee:
+          attributes:
+            email:
+              blank : "が確認できません"
+            password:
+              blank: "が確認できません"

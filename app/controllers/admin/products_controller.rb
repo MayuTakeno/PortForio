@@ -26,13 +26,11 @@ class Admin::ProductsController < ApplicationController
   end
 
   def index
-    # 商品のすべてnのレコードを取得
     @products = params[:tag_id].present? ? Tag.find(params[:tag_id]).products : Product.includes(:admin).order(created_at: :desc)
-    if params[:word]
-      @products = Product.where("name LIKE?", "%#{params[:word]}%")
+    if params[:word].present?
+      @products = Product.where("name LIKE?", "%#{params[:word]}%").order(created_at: :desc)
     end
     @tag_list = Tag.all
-    @tag = Tag.new
   end
 
   def show
@@ -66,7 +64,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:price, :image, :is_active, :name, :caption, :make_day, :tag_name)
+    params.require(:product).permit(:price, :image, :is_active, :name, :caption, :make_day)
   end
 
 end
