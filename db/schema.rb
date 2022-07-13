@@ -179,7 +179,6 @@ ActiveRecord::Schema.define(version: 2022_07_09_231306) do
     t.date "make_day"
     t.boolean "is_active", default: true, null: false
     t.integer "admin_id"
-    t.string "tag_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -16,8 +16,8 @@
             <th></th>
           </tr>
         </thead>
-        <% @products.each do |product| %>
         <tbody>
+        <% @products.each do |product| %>
           <tr>
             <td><%= image_tag product.get_image, size: "50x50" %></td>
             <td>
@@ -27,13 +27,11 @@
               </td>
             <td><%= product.price %>(<%= product.with_tax_price.to_s(:dalimited) %>)円</td>
             <td><%= product.is_active == true ? "販売中" : "非公開" %></td>
-            <td>
-              <%= product.tags.map(&:tag_name).join('/') %>
-            </td>
+            <td><%= product.tags.map(&:tag_name).join('/') %></td>
             <td><%= link_to "削除", admin_product_path(product), method: :delete, class: 'btn btn-sm btn-danger' %></td>
           </tr>
-        </tbody>
         <% end %>
+        </tbody>
       </table>
     </div>
     <div class="col-md-2" style="text-align: center;">
@@ -43,11 +41,12 @@
       <br><br>
       <%= render 'admin/searches/search_product' %>
       <br><br>
+      <table class="table">
         <%= link_to admin_tags_path do %>
           <strong>タグ検索</strong>
         <% end %>
-          <%= select_tag :tag_id, options_from_collection_for_select(Tag.all, :id, :tag_name, params[:tag_id]), { prompt: '全て', class: 'free', onchange: 'submit(this.form)'} %>
-      <table class="table">
+          <%= select_tag :tag_id, options_from_collection_for_select(Tag.all, :id, :tag_name, params[:tag_id]), { prompt: '全て', class: 'free', onchange: 'submit(this.form);' } %>
+        <br>
       <% @tag_list.each do |list| %>
         <tr>
           <td><%= list.tag_name %></td>

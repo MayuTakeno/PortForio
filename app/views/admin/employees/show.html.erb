@@ -36,7 +36,9 @@
       </table>
     </div>
     <div class="col-md-2" style="text-align: center;">
+      <% if @employee.first_name != "guest" %>
       <%=link_to "編集", edit_admin_employee_path(@employee), class: 'btn btn-sm btn-success' %>
+      <% end %>
     </div>
   </div>
 </div>

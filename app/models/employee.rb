@@ -30,11 +30,11 @@ class Employee < ApplicationRecord
     end
   end
 
-  validates :first_name, presence: { message: "は入力必須です" }
-  validates :last_name, presence: { message: "は入力必須です" }
-  validates :assigned_to, presence: { message: "は入力必須です"}
-  validates :employee_code, presence: { message: "は入力必須です"}
-  validates :phone_number, presence: { message: "は入力必須です"}
+  validates :first_name, presence: { message: "が確認できません" }
+  validates :last_name, presence: { message: "が確認できません" }
+  validates :assigned_to, presence: { message: "が確認できません"}
+  validates :employee_code, presence: { message: "が確認できません"}
+  validates :phone_number, presence: { message: "が確認できません"}
 
 
 

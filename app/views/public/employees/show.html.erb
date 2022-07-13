@@ -42,7 +42,9 @@
     </div>
     <div class="col-md-2"></div>
     <div class="col-md-2" style="text-align: center;">
-      <%= link_to "編集", edit_public_employee_path, class: 'btn btn-sm btn-success' %>
+      <% if @employee.first_name != "guest" && @employee.last_name != "tarou" %>
+        <%= link_to "編集", edit_public_employee_path, class: 'btn btn-sm btn-success' %>
+      <% end %>
       <br><br>
       <%= link_to "注文履歴", public_orders_path, class: 'btn btn-sm btn-info' %>
       <br><br>
