@@ -2,6 +2,7 @@
 <% if obj.errors.any? %>
   <%= obj.errors.count %>件のエラー
   <div>
+
     <% obj.errors.full_messages.each do |message| %>
     <p><%= message %></p>
     <% end %>

@@ -28,3 +28,16 @@ ja:
         now_hold: "開催中"
         postponed: "延期"
         hold_complete: "終了"
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "バリデーションに失敗しました: %{errors}"
+
+  devise:
+    failure:
+      employee:
+        invalid: "ログイン失敗"
+    sessions:
+      employee:
+        signed_out: "ログアウトしました"
+

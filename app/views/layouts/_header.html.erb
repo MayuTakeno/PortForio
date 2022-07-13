@@ -1,6 +1,6 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="line-height: 40px; background-color: rgba(0,0,0,0.5);">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/" style="font-family:cursive; font-size: 54px;">
+    <a class="navbar-brand" href="/public" style="font-family:cursive; font-size: 54px;">
       <span>Kizuna</span>
     </a>
     <button class="navbar-toggler" tyle="button" data-toggle="collapse"
@@ -83,11 +83,6 @@
 
         <% else %>
 
-          <li style="padding: 0px 20px; border-right: 1px solid #000000;">
-            <%= link_to public_root_path, class: 'text-dark' do %>
-              HOME
-            <% end %>
-          </li>
           <li style="padding: 0px 20px; border-right: 1px solid #000000;">
             <%= link_to public_notices_path, class: 'text-dark' do %>
               NEWS

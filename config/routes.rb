@@ -37,7 +37,6 @@ Rails.application.routes.draw do
   end
 
   namespace :public do
-    # post 'employees/guest_sign_in', to: 'employees/sessions#guest_sign_in'
     # publicのルートパス
     root to: 'homes#top'
     get 'homes/about' => 'homes#about', as: 'about'
@@ -72,15 +71,20 @@ Rails.application.routes.draw do
     delete 'cart_items/destroy_all'
     resources :cart_items, except: [:new, :show, :edit]
     # get 'cart_items/index'
+    devise_scope :employee do
+      post 'employees/guest_sign_in', to: 'employees/sessions#guest_sign_in'
+    end
   end
   #社員用URL
   devise_for :employees, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
-  devise_scope :employees do
+  # sign_upのsubmitでnilを送った時のルーティングエラー回避
+  devise_scope :employee do
     get '/employees', to: redirect("/employees/sign_up")
   end
+
 
   #管理者用URL
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
