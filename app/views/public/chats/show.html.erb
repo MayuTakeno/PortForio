@@ -16,7 +16,7 @@
     <div class="col-md-2" style="text-align: center; margin-top: 50px;">
       <p>メッセージ全<%= @chat.chat_messages.count %>件</p>
     </div>
-    <div class="col-md-8" style="text-align: center; margin-top: 50px;">
+    <div class="col-md-8" style="text-align: center; margin-top: 50px; margin-bottom: 30px;">
       <div id="comments_area">
         <!--コメントを表示させたいテーブル-->
         <%= render 'public/chat_messages/comments', chat: @chat %>
