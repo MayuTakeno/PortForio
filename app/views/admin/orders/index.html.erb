@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>製品購入履歴<br>一覧</h4>
+    </div>
+    <div class="col-md-8" style="margin-bottom: 30px;">
+      <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+        <thead>
+          <tr>
+            <th>購入日時</th>
+            <th>受取方法</th>
+            <th>購入者名</th>
+            <th>注文ステータス</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td><%= order.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+            <td><%= order.payment_method_i18n %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
