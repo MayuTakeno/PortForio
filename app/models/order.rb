@@ -21,5 +21,9 @@ class Order < ApplicationRecord
   end
 
   # 一週間ごとの注文数の遷移
-  scope :create_orders_count, ->(n)
+  scope :create_orders_count, ->(n) { where(created_at: n.days.ago.all_day)}
+  # 過去一週間分の投稿数をカウント
+  def self.week_count
+    (0..6).map { |n| create_orders_count(n).count }.reverse
+  end
 end
