@@ -1,4 +1,6 @@
 class Public::OrdersController < ApplicationController
+  before_action :authenticate_employee!
+
   def new
     @order = Order.new
   end

@@ -29,7 +29,7 @@
           <th>製品名</th>
           <td><%= @product.name %></td>
           <th>税抜(税込)価格</th>
-          <td></td>
+          <td><%= @product.with_tax_price %> 円</td>
         </tr>
         <tr>
           <th>製品詳細</th>

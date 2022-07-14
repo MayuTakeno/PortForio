@@ -1,5 +1,7 @@
 ja:
+  # enumの日本語化
   enums:
+    # oeder
     order:
       payment_method:
         receive_counter: "窓口受取"
@@ -14,50 +16,42 @@ ja:
         ten_oclock: "10:00-12:00"
         thirteen_oclock: "13:00-15:00"
         sixteen_oclock: "16:00-18:00"
-
+    # product_order
     product_order:
       making_status:
         no_making: "製造不可"
         wait_making: "製造待ち"
         now_making: "製造中"
         complete_making: "製造完了"
-
+    # event
     event:
       hold_status:
         no_hold: "未開催"
         now_hold: "開催中"
         postponed: "延期"
         hold_complete: "終了"
+
+  # activerecordの日本語化
   activerecord:
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
-
-  devise:
-    failure:
-      employee:
-        invalid: "ログイン失敗"
-    sessions:
-      employee:
-        signed_out: "ログアウトしました"
-  errors:
-    messages:
-      not_saved: "登録できませんでした。"
-  activerecord:
-    errors:
       models:
+        # employee
         employee:
           attributes:
             email:
               blank : "が確認できません"
             password:
               blank: "が確認できません"
+        # notice
         notice:
           attributes:
             title:
               blank: "が確認できません"
             body:
               blank: "が確認できません"
+        # product
         product:
           attributes:
             image:
@@ -70,7 +64,21 @@ ja:
               blank: "が確認できません"
             make_day:
               blank: "が確認できません"
+        # tag
         tag:
           attributes:
             tag_name:
               blank: "が確認できません"
+  # deviseの日本語化
+  devise:
+    failure:
+      employee:
+        invalid: "ログイン失敗"
+        unauthenticated: "ログインが必要です"
+    sessions:
+      employee:
+        signed_out: "ログアウトしました"
+  # errors.html.erbの日本語化
+  errors:
+    messages:
+      not_saved: "登録できませんでした。"

@@ -1,62 +1,55 @@
-<style>
-  .※{
-    color: red;
-  }
-</style>
 <%= form_with model: @employee, url: employee_registration_path do |f| %>
 <div class="container">
   <div class="row">
     <div class="col-md-3" style="text-align: center;">
       <h4>社員登録</h4>
       <%= render "public/shared/error_messages", resource: @employee %>
-      <%= render 'layouts/alert' %>
-      <%= render 'layouts/notice' %>
     </div>
 
     <div class="col-md-6" style="text-align: center;">
       <strong>
         ※当サイトはポートフォリオに使用する作品です。<br>リアルに関する情報は載せないようにお願い申し上げます。<br><br>
-        ※は入力必須項目です
+        <span style="color: red;">*</span>は入力必須項目です
         <br>
       </strong>
       <br>
       <div class="field">
-        <span class="※"><%= f.label "※" %></span>
+        <span style="color: red;"><%= f.label "*" %></span>
         <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: "氏名(姓)", size: "40" %>
       </div>
       <br>
       <div class="field">
-        <span class="※"><%= f.label "※" %></span>
+        <span style="color: red;"><%= f.label "*" %></span>
         <%= f.text_field :last_name,  autocomplete: "last_name", placeholder: "氏名(名)", size: "40" %>
       </div>
       <br>
       <div class="field">
-        <span class="※"><%= f.label "※" %></span>
+        <span style="color: red;"><%= f.label "*" %></span>
         <%= f.text_field :assigned_to, autocomplete: "assigned_to", placeholder: "配属先", size: "40" %>
       </div>
       <br>
       <div class="field">
-        <span class="※"><%= f.label "※" %></span>
+        <span style="color: red;"><%= f.label "*" %></span>
         <%= f.text_field :employee_code, autocomplete: "employee_code", placeholder: "社員番号", size: "40" %>
       </div>
       <br>
       <div class="field">
-        <span class="※"><%= f.label "※" %></span>
+        <span style="color: red;"><%= f.label "*" %></span>
         <%= f.text_field :phone_number, autocomplete: "phone_number", placeholder: "電話番号", size: "40" %>
       </div>
       <br>
       <div class="field">
-        <span class="※"><%= f.label "※" %></span>
+        <span style="color: red;"><%= f.label "*" %></span>
         <%= f.email_field :email, autocomplete: "email", placeholder: "メールアドレス", size:"40" %>
       </div>
       <br>
       <div class="field">
-        <span class="※"><%= f.label "※" %></span>
+        <span style="color: red;"><%= f.label "*" %></span>
         <%= f.password_field :password, autocomplete: "new-password",placeholder: "パスワード(8~36文字)", size: "40" %>
       </div>
       <br>
       <div class="field">
-        <span class="※"><%= f.label "※" %></span>
+        <span style="color: red;"><%= f.label "*" %></span>
         <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード(確認)", size: "40" %>
       </div>
       <br>
