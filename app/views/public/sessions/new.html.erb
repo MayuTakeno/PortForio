@@ -7,23 +7,31 @@
       <%= render 'layouts/alert' %>
       <%= render 'layouts/notice' %>
     </div>
+
     <div class="col-md-6" style="text-align: center;">
-      <strong>※当サイトはポートフォリオに使用する作品です。<br>リアルに関する情報は載せないようにお願い申し上げます。</strong>
-      <br>
-      <br>
+      <strong>
+        ※当サイトはポートフォリオに使用する作品です。<br>リアルに関する情報は載せないようにお願い申し上げます。
+      <br><br>
+      <span style="color: red;">*</span>は入力必須項目です
+      </strong>
+      <br><br>
       <div class="field">
+        <span style="color: red;"><%= f.label "*" %></span>
         <%= f.text_field :assigned_to, autofocus: true, autocomplete: "assigned_to", placeholder: "配属先", size:"40" %>
       </div>
       <br>
       <div class="field">
+        <span style="color: red;"><%= f.label "*" %></span>
         <%= f.text_field :employee_code, autocomplete: "employee_code", placeholder: "社員番号", size: "40" %>
       </div>
       <br>
       <div class="field">
+        <span style="color: red;"><%= f.label "*" %></span>
         <%= f.email_field :email, autocomplete: "email", placeholder: "メールアドレス", size: "40" %>
       </div>
       <br>
       <div class="field">
+        <span style="color: red;"><%= f.label "*" %></span>
         <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", size: "40" %>
       </div>
       <br>
