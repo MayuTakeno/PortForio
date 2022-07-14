@@ -15,8 +15,11 @@ class Order < ApplicationRecord
   # 0: 10:00-12:00, 1: 13:00-15:00, 2: 16:00-18:00
   enum delivery_time: {ten_oclock: 0, thirteen_oclock: 1, sixteen_oclock: 2 }
 
+  # 手数料
   def postage
     200
   end
 
+  # 一週間ごとの注文数の遷移
+  scope :create_orders_count, ->(n)
 end
