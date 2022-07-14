@@ -1,4 +1,5 @@
 class Public::ChatMessagesController < ApplicationController
+  before_action :authenticate_employee!
 
   def create
     # ChatMessage.create!(chat_message_params)

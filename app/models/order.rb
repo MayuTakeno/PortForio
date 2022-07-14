@@ -24,6 +24,6 @@ class Order < ApplicationRecord
   scope :create_orders_count, ->(n) { where(created_at: n.days.ago.all_day)}
   # 過去一週間分の投稿数をカウント
   def self.week_count
-    (0..6).map { |n| create_orders_count(n).count }.reverse
+    (0..6).map { |n| create_orders_count(n).count }
   end
 end
