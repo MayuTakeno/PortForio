@@ -39,6 +39,9 @@ class Public::BlogsController < ApplicationController
   end
 
   def show
+    unless ViewCount.find_by(employee_id: current_employee.id, blog_id: @blog.id)
+      current_employee.view_counts.create(blog_id: @blog.id)
+    end
   end
 
   def destroy
