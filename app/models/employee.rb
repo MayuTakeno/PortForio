@@ -17,6 +17,8 @@ class Employee < ApplicationRecord
   # 複数のfavoriteレコードを持っていて、favoritesテーブルの複数のレコードを参照先に指定
   has_many :favorites, dependent: :destroy
 
+  has_many :view_counts, dependent: :destroy
+
 
 # 氏名（姓+名）の定義
   def name
