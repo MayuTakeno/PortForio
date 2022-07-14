@@ -1,3 +1,44 @@
+<div id="chart">
+  <canvas id="EmployeeOrderBarChart">
+    <script>
+      $(document).on('turbolinks: load', function(){
+        var ctx = document.getElementById("EmployeeOrderBarChart");
+        var EmployeeOrderBarChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['６日前', '５日前', '4日前', '3日前', '2日前', '1日前', '今日'],
+            datesets: [
+              {
+               label: "注文総数",
+               data: <%= @orders.week_count %>,
+               backgroundColor: [
+                 "rgba(255,255,255,255)",
+                 "rgba(255,255,255,255)",
+                 "rgba(255,255,255,255)",
+                 "rgba(255,255,255,255)",
+                 "rgba(255,255,255,255)",
+                 "rgba(255,255,255,255)",
+                 "rgba(255,255,255,255)"
+                 ],
+                borderColor: [
+                  "rgb(255,255,255)",
+                  "rgb(255,255,255)",
+                  "rgb(255,255,255)",
+                  "rgb(255,255,255)",
+                  "rgb(255,255,255)",
+                  "rgb(255,255,255)",
+                  "rgb(255,255,255)",
+                  "rgb(255,255,255)"
+                ],
+              }
+            ]
+          }
+
+        })
+      })
+    </script>
+  </canvas>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-md-2" style="text-align: center;">
