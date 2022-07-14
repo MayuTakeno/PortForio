@@ -19,10 +19,20 @@
           <tr>
             <td><%= order.created_at.strftime("%Y/%m/%d %H:%M") %></td>
             <td><%= order.payment_method_i18n %></td>
+            <td>
+              <% order.product_orders.each do |product_order| %>
+                <%= product_order.product.name %>
+              <% end %>
+            </td>
+            <td><%= order.status_i18n %></td>
+            <td><%= link_to "削除", admin_order_path(order), method: :delete, class: 'btn btn-sm btn-danger' %></td>
           </tr>
         <% end %>
         </tbody>
       </table>
+    </div>
+    <div class="col-md-2" style="text-align: center; margin-bottom: 30px;">
+      <%= link_to "製品一覧", admin_products_path, class: 'btn btn-sm btn-warning' %>
     </div>
   </div>
 </div>

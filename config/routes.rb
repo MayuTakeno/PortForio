@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     resources :products
     resources :tags, except: [:show]
     # get 'tags/new'
-    resources :orders, only: [:show, :update, :index]
+    resources :orders, only: [:show, :update, :index, :destroy]
     resources :product_orders, only: [:update]
     # get 'orders/show'
   end
