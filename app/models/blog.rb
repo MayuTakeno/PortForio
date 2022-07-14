@@ -6,6 +6,8 @@ class Blog < ApplicationRecord
   belongs_to :employee
   has_many :favorites, dependent: :destroy
 
+  has_many :view_counts, dependent: :destroy
+
   # バリデーション
   validates :title, presence: { message: 'は入力必須です。' }
   validates :body, presence: { message: 'は入力必須です。' }
@@ -21,6 +23,13 @@ class Blog < ApplicationRecord
 
   def favorited_by?(employee)
      favorites.where(employee_id: employee.id).exists?
+  end
+
+  # n日前の投稿を取り出す
+  scope :created_days_ago, ->(n) { where(created_at: n.days.ago.all_day) }
+  # 過去一週間分の投稿数
+  def self.week_count
+    (0..6).map { |n| created_days_ago(n).count }.reverse
   end
 
   # 検索方法(部分検索)

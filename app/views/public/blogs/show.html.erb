@@ -30,6 +30,8 @@
     <div class="col" style="text-align: center; margin-bottom: 30px;">
       <div id="favorite-btn_<%= @blog.id %>">
         <%= render 'public/favorites/favorite', blog: @blog %>
+        <br>
+        <span>閲覧数: <%= @blog.view_counts.count %></span>
       </div>
     </div>
   </div>
