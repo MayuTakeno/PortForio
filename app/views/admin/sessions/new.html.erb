@@ -1,33 +1,42 @@
 <%= form_with model: @admin, url: new_admin_session_path do |f| %>
 <div class="container">
   <div class="row">
-    <div class="col-md-2" style="text-align: center;">
-      <h4>Log in</h4>
+    <div class="col-md-3" style="text-align: center;">
+      <h4>管理者ログイン</h4>
+      <%= render "public/shared/error_messages", resource: resource %>
+      <%= render 'layouts/alert' %>
+      <%= render 'layouts/notice' %>
     </div>
-    <div class="col-md-8" style="text-align: center; margin-bottom: 30px;">
+    <div class="col-md-6" style="text-align: center; margin-bottom: 30px;">
+      <strong>
+        こちらは管理者用のログインページでございます。<br>主にユーザーが投稿したものをこちらで管理できるようにしています。
+        <br><br>
+        <span style="color: red;">*</span>は入力必須項目です
+      </strong>
 
-  <div class="field">
-    <span style="color: red;">※</span>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", size: "40" %>
-  </div>
-  <br>
-  <div class="field">
-    <span style="color: red;">※</span>
-    <%= f.password_field :password, autocomplete: "current-password",placeholder: "パスワード", size: "40" %>
-  </div>
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <br><br>
+
+      <div class="field">
+        <span style="color: red;">*</span>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", size: "40" %>
+      </div>
+      <br>
+      <div class="field">
+        <span style="color: red;">*</span>
+        <%= f.password_field :password, autocomplete: "current-password",placeholder: "パスワード", size: "40" %>
+      </div>
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit "Log in" %>
+      </div>
+
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-    </div>
-  </div>
-<%= render "admin/shared/links" %>
 </div>
+<% end %>
