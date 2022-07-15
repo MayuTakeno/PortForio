@@ -10,9 +10,9 @@ class Public::SearchesController < ApplicationController
     @search_events = Event.looks(params[:search], params[:word])
   end
 
-  def search_dates
+  def search_event_dates
     @range = params[:range]
-    @search_date = Event.looks(params[:search],params[:date])
+    @search_event_dates = Event.looks(params[:range], params[:date_and_time])
   end
 
   def search_notices

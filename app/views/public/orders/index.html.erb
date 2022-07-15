@@ -23,7 +23,7 @@
             <td>
               <% order.product_orders.each do |product_order| %>
                 <%= image_tag product_order.product.image, size: "50x50" %><br>
-                <%= product_order.product.name %>
+                <%= product_order.product.name %><br>
               <% end %>
             </td>
             <td><%= order.billing_amount %></td>
