@@ -72,10 +72,15 @@ ja:
   # deviseの日本語化
   devise:
     failure:
+      admin:
+        invalid: "ログイン失敗"
+        unauthenticated: "ログインが必要です"
       employee:
         invalid: "ログイン失敗"
         unauthenticated: "ログインが必要です"
     sessions:
+      admin:
+        signed_out: "ログアウトしました"
       employee:
         signed_out: "ログアウトしました"
   # errors.html.erbの日本語化
