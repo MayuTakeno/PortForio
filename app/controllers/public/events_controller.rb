@@ -6,6 +6,9 @@ class Public::EventsController < ApplicationController
     if params[:word].present?
       @events = Event.where("title LIKE?", "%#{params[:word]}%").order(created_at: :desc)
     end
+    if params[:date].present?
+      @events = Event.where("start_time => ?")
+    end
     @tag_list = Tag.all
   end
 

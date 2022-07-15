@@ -44,6 +44,7 @@ Rails.application.routes.draw do
     get "search_notice" => 'searches#search_notices'
     get "search_chat" => 'searches#search_chats'
     get "search_event" => 'searches#search_events'
+    get "serach_event_date" => 'searches#search_event_dates'
     get "search_product" => 'searches#search_products'
     resources :notices, except: [:new, :create, :edit]
     # get 'notices/index'

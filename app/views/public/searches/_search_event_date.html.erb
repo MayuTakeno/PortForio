@@ -1,0 +1,6 @@
+<%= form_with url: public_events_path, method: :get do |f| %>
+  <div class="search-form">
+    <%= f.date_field :date_and_time, value: @search_event_dates %>
+    <%= f.submit ">" %>
+  </div>
+<% end %>
