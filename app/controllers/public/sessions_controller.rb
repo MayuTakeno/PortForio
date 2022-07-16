@@ -5,12 +5,8 @@ class Public::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
   # before_action :ensure_noaml_employee, only: :destroy
 
-  def after_sign_in_path_for(resource)
+  def after_employee_sign_in_path_for(resource)
     public_employee_path(current_employee)
-  end
-
-  def after_sign_out_path_for(resource)
-    public_root_path
   end
 
   protected

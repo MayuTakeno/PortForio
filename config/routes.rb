@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'top_pages#top'
+  resource :top_pages
 
   namespace :admin do
     root to: 'employees#index'
@@ -97,4 +97,5 @@ Rails.application.routes.draw do
   }
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root to: 'top_pages#top'
 end
