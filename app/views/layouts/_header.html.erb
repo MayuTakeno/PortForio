@@ -75,6 +75,11 @@
               PRODUCTS
             <% end %>
           </li>
+          <li style="padding: 0 20px; border-right: 1px solid #000000;">
+            <%= link_to admin_chats_path, class: 'nav-link text-dark' do %>
+              Q&A
+            <% end %>
+          </li>
           <li style="padding-left: 20px;">
             <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' do %>
               LOG OUT

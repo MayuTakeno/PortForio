@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4>質疑応答一覧</h4>
+    </div>
+    <div class="col-md-8">
+      <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+        <thead>
+          <tr>
+            <th>タイトル</th>
+            <th>質問内容</th>
+            <th>投稿日</th>
+            <th>QAチャット</th>
+            <th></th>
+          </tr>
+        </thead>
+        <% @chats.each do |chat| %>
+        <tbody>
+          <tr>
+            <td><%= simple_format chat.title %></td>
+            <td><%= simple_format chat.body %></td>
+            <td><%= chat.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+            <td>
+              <%= link_to admin_chat_path(chat.id) do %>
+                <i class="fa-regular fa-message"></i></td>
+              <% end %>
+            </td>
+            <td><%= link_to "削除", admin_chat_path(chat), class: 'btn btn-sm btn-danger' %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+  <%= render 'layouts/paginate', obj: @chats %>
+</div>

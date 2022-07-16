@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;">
+      <h4><%= @chat.employee.name %><br>さんとの<br>チャット</h4>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-6">
+      <div class="box" style="text-align: center; border: 1px solid #000000; height: 90px;">
+        <span><%= @chat.title %></span>
+        <br>
+        <strong style="line-height: 50px;"><%= @chat.body %></strong>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2" style="text-align: center; margin-top: 50px;">
+      <p>メッセージ全<%= @chat.chat_messages.count %>件</p>
+    </div>
+    <div class="col-md-8" style="text-align: center; margin-top: 50px; margin-bottom: 30px;">
+      <div id="comments_area">
+        <!--コメントを表示させたいテーブル-->
+        <%= render 'admin/chat_messages/chat_message', chat: @chat, chat_message: @chat_message %>
+      </div>
+      <div class="new-comment">
+      </div>
+    </div>
+  </div>
+</div>

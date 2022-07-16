@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resource :top_pages
 
   namespace :admin do
     root to: 'employees#index'
@@ -25,6 +24,9 @@ Rails.application.routes.draw do
     # get 'products/index'
     # get 'products/edit'
     # get 'products/show'
+    resources :chats, only: [:index, :show, :destroy] do
+      resources :chat_messages, only: [:destroy]
+    end
     resources :blogs, only: [:show, :index, :destroy]
     # get 'blogs/index'
     # get 'blogs/show'
