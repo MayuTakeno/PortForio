@@ -9,9 +9,9 @@ class Admin::ChatsController < ApplicationController
   end
 
   def destroy
-    @chat_message = ChatMessage.find(params[:chat_message_id])
-    @chat_message.destroy
-    redirect_to admin_chat_path(@chat.id)
+    @chat = Chat.find(params[:id])
+    @chat.destroy
+    redirect_to admin_chats_path
   end
 
 end
