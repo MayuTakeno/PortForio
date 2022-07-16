@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
+  before_action :employee_status, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
   # before_action :ensure_noaml_employee, only: :destroy
 
@@ -10,6 +11,20 @@ class Public::SessionsController < Devise::SessionsController
 
   def after_sign_out_path_for(resource)
     public_root_path
+  end
+
+  protected
+
+  def employee_status
+    # 入力されたemailからアカウントを１件取得
+    @employee = Employee.find_by(email: params[:employee][:email])
+    # アカウントを取得できなければメソッド終了
+    return if !@employee
+    # 取得したアカウントのパスワードと入力されたパスワードが一致しているかを判別
+    if @employee.valid_password?(params[:employee][:password])
+      # if @employee.is_deleted == true
+      # end
+    end
   end
 
   # def ensure_noaml_employee

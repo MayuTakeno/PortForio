@@ -26,9 +26,9 @@ class Admin::ProductsController < ApplicationController
   end
 
   def index
-    @products = params[:tag_id].present? ? Tag.find(params[:tag_id]).products : Product.includes(:admin).order(created_at: :desc)
+    @products = params[:tag_id].present? ? Tag.find(params[:tag_id]).products : Product.includes(:admin).page(params[:page]).order(created_at: :desc)
     if params[:word].present?
-      @products = Product.where("name LIKE?", "%#{params[:word]}%").order(created_at: :desc)
+      @products = Product.where("name LIKE?", "%#{params[:word]}%").page(params[:page]).order(created_at: :desc)
     end
     @tag_list = Tag.all
   end

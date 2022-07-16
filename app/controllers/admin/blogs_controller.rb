@@ -3,9 +3,9 @@ class Admin::BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :destroy]
 
   def index
-    @blogs = Blog.includes(:employee).order(created_at: :desc)
+    @blogs = Blog.includes(:employee).page(params[:page]).order(created_at: :desc)
     if params[:word].present?
-      @blogs = Blog.where("title LIKE?", "%#{params[:word]}%").order(created_at: :desc)
+      @blogs = Blog.where("title LIKE?", "%#{params[:word]}%").page(params[:page]).order(created_at: :desc)
     end
   end
 
