@@ -3,10 +3,10 @@ class Public::EventsController < ApplicationController
 
   def index
     # タグidを持つeventsと結びつける/paginate適用
-    @events = params[:tag_id].present? ? Tag.find(params[:tag_id]).events : Event.includes(:admin).page(params[:page]).per(10).order(created_at: :desc)
+    @events = params[:tag_id].present? ? Tag.find(params[:tag_id]).events : Event.includes(:admin).page(params[:page]).order(created_at: :desc)
     # キーワード検索分岐
     if params[:word].present?
-      @events = Event.where("title LIKE?", "%#{params[:word]}%").page(params[:page]).per(10).order(created_at: :desc)
+      @events = Event.where("title LIKE?", "%#{params[:word]}%").page(params[:page]).order(created_at: :desc)
     end
     # 日付検索分岐
     if params[:date_and_time].present?
