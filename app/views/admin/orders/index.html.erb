@@ -1,7 +1,6 @@
 <div id="chart">
   <canvas id="EmployeeOrderBarChart">
     <script>
-      $(document).on('turbolinks:load', function(){
         var ctx = document.getElementById("EmployeeOrderBarChart");
         var EmployeeOrderBarChart = new Chart(ctx, {
           type: 'bar',
@@ -42,7 +41,6 @@
             responsive: true
           }
         });
-      });
     </script>
   </canvas>
 </div>
