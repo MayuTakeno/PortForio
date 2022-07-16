@@ -19,7 +19,8 @@ class Admin::EventsController < ApplicationController
   end
 
   def index
-    @events = params[:tag_id].present? ? Tag.find(params[:tag_id]).events : Event.includes(:admin).page(params[:page]).order(created_at: :desc)
+    @events = params[:tag_id].present? ? Tag.find(params[:tag_id]).events : Event.includes(:admin).order(created_at: :desc)
+    @events_page = Event.includes(:admin).page(params[:page])
     if params[:word].present?
       @events = Event.where("title LIKE?", "%#{params[:word]}%").page(params[:page]).order(created_at: :desc)
     end
