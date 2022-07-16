@@ -26,4 +26,5 @@
       <%= link_to "タグ登録", new_admin_tag_path(tag), class: 'btn btn-sm btn-success' %>
     </div>
   </div>
+  <%= render 'layouts/paginate', obj: @tags %>
 </div>
