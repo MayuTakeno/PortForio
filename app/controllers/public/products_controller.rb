@@ -2,11 +2,12 @@ class Public::ProductsController < ApplicationController
   before_action :authenticate_employee!, except: [:index, :show]
 
   def index
-    @products = params[:tag_id].present? ? Tag.find(params[:tag_id]).products : Product.includes(:admin).where(is_active: true).page(params[:page]).order(created_at: :desc)
+    @products = params[:tag_id].present? ? Tag.find(params[:tag_id]).products : Product.includes(:admin).where(is_active: true).order(created_at: :desc)
+    @products_page = Product.includes(:admin).page(params[:page])
     if params[:word].present?
       @products = Product.where("name LIKE?", "%#{params[:word]}%").page(params[:page]).order(created_at: :desc)
     end
-    @tag_list = Tag.all
+    @tag_list = Tag.all.page(params[:page])
   end
 
   def show
