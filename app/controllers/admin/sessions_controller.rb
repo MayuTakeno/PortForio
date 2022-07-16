@@ -5,10 +5,6 @@ class Admin::SessionsController < Devise::SessionsController
   def after_admin_sign_in_path_for(resource)
     admin_root_path
   end
-
-  def after_admin_sign_out_path_for(resource)
-    public_about_path
-  end
   # GET /resource/sign_in
   # def new
   #   super
