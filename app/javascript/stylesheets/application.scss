@@ -4,9 +4,6 @@
 // fontawesomeのインポート
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-.container{
-  margin-top: 100px;
-}
 #chart {
   margin: auto;
   margin-top: 120px;
@@ -17,4 +14,17 @@
 .pagination{
   justify-content: center;
   margin: 30px 0;
+}
+.background-image-1{
+  width: 100%;
+  background-image: url(../images/sozai13.jpg);
+  background-size: cover;
+}
+.container{
+  padding-top: 100px;
+}
+
+.bord{
+  background-color: rgba(255, 255, 255, 0.6);
+  justify-conten: center;
 }
