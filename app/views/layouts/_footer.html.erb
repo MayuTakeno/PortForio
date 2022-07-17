@@ -1,8 +1,44 @@
+
   <div class="row">
     <div class="col" style="text-align: center; background-color: #000000; color: #fff;">
       <!--アプリロゴ-->
       <h2 style="font-family: cursive;">Kizuna</h2>
-      <!--著作権-->
-      ©CopyRight ACom.inc
+      <h6>ACom.inc</h6>
     </div>
+  </div>
+  <div class="row" style="background-color: #000000;">
+    <div class="col-md-1"></div>
+    <div class="col-md-2" style="font-size: 14px; color: #fff;">
+    <% if employee_signed_in? %>
+      <%= link_to "マイページ", public_employee_path(current_employee), class: 'text-light' %>
+      <br>
+      <%= link_to "お知らせ", public_notices_path, class: 'text-light' %>
+      <br>
+      <%= link_to "イベント", public_events_path, class: 'text-light' %>
+      <br>
+      <%= link_to "ブログ", public_blogs_path, class: 'text-light' %>
+      <br>
+      <%= link_to "製品紹介", public_products_path, class: 'text-light' %>
+      <br>
+      <%= link_to "注文状況", public_cart_items_path, class: 'text-light' %>
+      <br>
+      <%= link_to "注文履歴", public_orders_path, class: 'text-light' %>
+    <% else %>
+      <%= link_to "管理者ログイン", new_admin_session_path, class: 'text-light' %>
+      <br>
+      <%= link_to "ログイン", new_employee_session_path, class: 'text-light' %>
+    <% end %>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2" style="color: #fff; font-size: 14px;">
+      <%= link_to "各種問い合わせ", public_chats_path, class: 'text-light' %>
+      <br>
+      <%= link_to "サイト概要", public_about_path, class: 'text-light' %>
+      <br>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2" style="color: #fff; font-size: 14px;">
+      <%= link_to"ログアウト", destroy_employee_session_path, method: :delete, class: 'text-light' %>
+    </div>
+
   </div>

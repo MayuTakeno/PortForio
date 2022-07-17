@@ -1,19 +1,41 @@
 <div class="container">
   <div class="row">
     <div class="col" style="text-align: center;">
-      KizunaはACom株式会社専用という体の<br>コミニケーション、及び社内物販ツールです<br>
+      KizunaはACom株式会社の<br>コミニケーション、及び社内物販ツールです<br>
       社員間での質問や交流を深めて<br>
       会社ライフを楽しくしていきましょう♪
 
-      <div class="guest-path" style="margin-top: 50px;">
-        ゲストの方はこちらからログインできます。<br>↓<br>
-        <%= link_to "ゲストログイン(閲覧用)", public_employees_guest_sign_in_path, class: 'btn btn-secondary btn-sm sign_in', method: :post %>
-      </div>
+      <% unless employee_signed_in? %>
+        <div class="guest-path" style="margin-top: 50px;">
+          ゲストの方はこちらからログインできます。<br>↓<br>
+          <%= link_to "ゲストログイン(閲覧用)", public_employees_guest_sign_in_path, class: 'btn btn-secondary btn-sm sign_in', method: :post %>
+        </div>
+        <div class="admin-path" style="margin-bottom: 30px;">
+          管理者の方はこちらからログインできます<br>↓<br>
+          <%= link_to "管理者ログイン", new_admin_session_path, class: 'btn btn-info btn-sm' %>
+        </div>
+      <% end %>
 
-      <div class="admin-path" style="margin-top: 50px; margin-bottom: 30px;">
-        管理者の方はこちらからログインできます<br>↓<br>
-        <%= link_to "管理者ログイン", new_admin_session_path, class: 'btn btn-info btn-sm' %>
+        <strong>※必読</strong>
+        <br>
+        <div class="warning" style="font-size: 12px; margin-bottom: 30px;">
+          この作品は学習してきたことを<br>実践するためのフィクションであり、<br>
+          このサイトで扱われているACom.incはポートフォリオ作品中での架空の会社名であり
+          <br>
+          現実の団体、組織、人物とは一切関係がありません。
+          <br>
+          このサイトから個人情報を抜き取ったり、製作者が営利目的で使うことは一切ありません。
+          <br>
+          また、個人が特定される恐れがある投稿は一切しないようお願い申し上げます。
+        </div>
+        <strong>※使用素材</strong>
+        <div class="warning" style="font-size: 12px; margin-bottom: 30px;">
+          セルシス様 CLIP STUDIO PAINT 素材
+          <br>
+          DMM WEBCANP様 教材素材
+        </div>
       </div>
+      <br>
     </div>
   </div>
 </div>

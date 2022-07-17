@@ -25,7 +25,7 @@
                 <i class="fa-regular fa-message"></i></td>
               <% end %>
             </td>
-            <td><%= link_to "削除", admin_chat_path(chat), class: 'btn btn-sm btn-danger' %></td>
+            <td><%= link_to "削除", admin_chat_path(chat), method: :delete, class: 'btn btn-sm btn-danger' %></td>
           </tr>
         </tbody>
         <% end %>
