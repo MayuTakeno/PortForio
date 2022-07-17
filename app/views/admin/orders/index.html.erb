@@ -1,48 +1,52 @@
-<div id="chart">
-  <canvas id="EmployeeOrderBarChart">
-    <script>
-        var ctx = document.getElementById("EmployeeOrderBarChart");
-        var EmployeeOrderBarChart = new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: ['今日', '1日前', '2日前', '3日前', '4日前', '5日前', '6日前'],
-            datasets: [
-              {
-                label: "注文総数",
-                data: <%= @orders.week_count %>,
-                backgroundColor: [
-                  "rgba(250,50,50,0.5)",
-                  "rgba(250,50,50,0.5)",
-                  "rgba(250,50,50,0.5)",
-                  "rgba(250,50,50,0.5)",
-                  "rgba(250,50,50,0.5)",
-                  "rgba(250,50,50,0.5)",
-                  "rgba(250,50,50,0.5)"
+<div class="container">
+  <div class="row">
+    <div id="chart">
+      <canvas id="EmployeeOrderBarChart">
+        <script>
+            var ctx = document.getElementById("EmployeeOrderBarChart");
+            var EmployeeOrderBarChart = new Chart(ctx, {
+              type: 'bar',
+              data: {
+                labels: ['今日', '1日前', '2日前', '3日前', '4日前', '5日前', '6日前'],
+                datasets: [
+                  {
+                    label: "注文総数",
+                    data: <%= @orders.week_count %>,
+                    backgroundColor: [
+                      "rgba(250,50,50,0.5)",
+                      "rgba(250,50,50,0.5)",
+                      "rgba(250,50,50,0.5)",
+                      "rgba(250,50,50,0.5)",
+                      "rgba(250,50,50,0.5)",
+                      "rgba(250,50,50,0.5)",
+                      "rgba(250,50,50,0.5)"
+                    ],
+                    borderColor: [
+                      "rgb(255,255,255)",
+                      "rgb(255,255,255)",
+                      "rgb(255,255,255)",
+                      "rgb(255,255,255)",
+                      "rgb(255,255,255)",
+                      "rgb(255,255,255)",
+                      "rgb(255,255,255)",
+                      "rgb(255,255,255)"
+                    ]
+                  }
                 ],
-                borderColor: [
-                  "rgb(255,255,255)",
-                  "rgb(255,255,255)",
-                  "rgb(255,255,255)",
-                  "rgb(255,255,255)",
-                  "rgb(255,255,255)",
-                  "rgb(255,255,255)",
-                  "rgb(255,255,255)",
-                  "rgb(255,255,255)"
-                ]
+              },
+              options: {
+                title: {
+                  display: true,
+                  text: '7日間の注文数の比較'
+                },
+                // canvasサイズ自動設定
+                responsive: true
               }
-            ],
-          },
-          options: {
-            title: {
-              display: true,
-              text: '7日間の注文数の比較'
-            },
-            // canvasサイズ自動設定
-            responsive: true
-          }
-        });
-    </script>
-  </canvas>
+            });
+        </script>
+      </canvas>
+    </div>
+  </div>
 </div>
 <div class="container">
   <div class="row">
