@@ -59,10 +59,20 @@
   <div class="row">
     <!--表示内容3-->
     <div class="col" style="margin-top: 50px; text-align: center; margin-bottom: 30px;">
-      <!--注文状況-->
+      <!--配送状況-->
       <div class="status">
-        <strong>注文状況</strong><br>
+        <strong>配送状況</strong>
+        <br>
         <%= @order.status_i18n %>
+      </div>
+      <br>
+      <!--製造状況-->
+      <div class="making_status">
+        <strong>製造状況</strong>
+        <br>
+        <% @product_orders.each do |product_order| %>
+          <%= product_order.making_status_i18n %>
+        <% end %>
       </div>
       <br>
       <!--受取方法-->

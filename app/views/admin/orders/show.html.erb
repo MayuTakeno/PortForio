@@ -61,7 +61,8 @@
     <div class="col" style="margin-top: 50px; text-align: center; margin-bottom: 30px;">
       <!--注文状況-->
       <div class="status">
-        <strong>注文状況</strong><br>
+        <strong>注文状況</strong>
+        <br>
         <%= @order.status_i18n %>
         <%= form_with model: @order, url: admin_order_path(@order), method: :patch do |f| %>
         <%= f.select :status, Order.statuses_i18n.invert %>
@@ -69,9 +70,12 @@
         <% end %>
       </div>
       <br>
+      <!--製造状況-->
       <div class="making-status">
         <strong>製造状況</strong>
-        <% @product_orders.each do |product_order| %>
+        <br>
+        <% @order.product_orders.each do |product_order| %>
+          <%= product_order.making_status_i18n %>
           <%= form_with model: product_order, url: admin_product_order_path, method: :patch do |f| %>
           <%= f.select :making_status, ProductOrder.making_statuses_i18n.invert %>
           <%= f.submit "更新" %>

@@ -50,6 +50,7 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @product_orders = @order.product_orders
     @total = @order.billing_amount - @order.postage
   end
 

@@ -14,6 +14,19 @@ class Admin::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
+    @product_orders = @order.product_orders
+    # 注文状況ボタン分岐
+    if @order.status == "no_payment"
+      @product_orders.update(making_status: "no_making")
+    elsif @order.status == "confirm_payment"
+      @product_orders.update(making_status: "wait_making")
+    elsif @order.status == "production"
+      @product_orders.update(making_status: "now_making")
+    elsif @order.status == "ready_to_ship"
+      @product_orders.update(making_status: "complete_making")
+    elsif @order.status == "sent"
+      @product_orders.update(making_status: "complete_making")
+    end
     redirect_to admin_order_path(@order)
   end
 
