@@ -6,6 +6,8 @@ class Admin::OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
+    @total = @order.billing_amount - @order.postage
   end
 
   def destroy

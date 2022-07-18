@@ -1,11 +1,17 @@
+<!--イベント詳細ページ-->
+
 <div class="container">
   <div class="row">
+    <!--見出し-->
     <div class="col-md-2" style="text-align: center;">
       <h4>Events</h4>
     </div>
+    <!--内容表示1-->
     <div class="col-md-8" style="text-align: center;">
+      <!--画像-->
       <%= image_tag @event.get_image, size: "300x300" %>
     </div>
+    <!--編集/削除リンク-->
     <div class="col-md-2" style="text-align: center; margin-top: 30px; margin-bottom: center;">
       <% if admin_signed_in?%>
         <%= link_to "編集", edit_admin_event_path(@event.id), class: 'btn btn-sm btn-success' %>
@@ -17,26 +23,31 @@
   </div>
   <div class="row">
     <div class="col-md-2"></div>
+    <!--内容表示2-->
     <div class="col-md-8" style="margin-bottom: 30px;">
       <table class="table" style="margin-top: 20px;">
+        <!--イベント名/主催者-->
           <tr>
             <th>イベント名</th>
             <td><%= @event.title %></td>
             <th>主催者</th>
             <td><%= @event.organizer %></td>
           </tr>
+          <!--イベント詳細-->
           <tr>
             <th>イベント詳細</th>
             <td><%= simple_format @event.body %></td>
             <th></th>
             <th></th>
           </tr>
+          <!--イベント日時/開催状況-->
           <tr>
             <th>イベント日時</th>
             <td><%= @event.date_and_time.strftime("%Y/%m/%d %H:%M") %></td>
             <th>開催状況</th>
             <td><%= @event.hold_status_i18n %></td>
           </tr>
+          <!--関連タグ-->
           <tr>
             <th>関連タグ</th>
             <td colspan="3">

@@ -1,4 +1,5 @@
-<!--チャット一覧上部に表示するフォームを設置-->
+<!--投稿機能 チャット一覧上部に表示するフォームを設置-->
+
 <%= form_with model: chat, url: public_chats_path, method: :post, remote: true, local: false do |f| %>
   <div class="row">
     <!--見出し-->

@@ -1,38 +1,49 @@
+<!--イベント編集ページ-->
+
 <%= form_with model: @event, url: admin_event_path(@event.id), method: :patch do |f| %>
 <div class="container">
   <div class="row">
+    <!--見出し-->
     <div class="col-md-2" style="text-align: center;">
       <h4>イベント<br>編集</h4>
     </div>
+    <!--入力内容1-->
     <div class="col-md-8" style="text-align: center;">
       <table>
+        <!--title-->
         <div class="field">
           <%= f.label "タイトル" %>
           <br>
           <%= f.text_field :title, autofocus: true, autocomplete: "title", placeholder: "必ず入力してください", size: "50" %>
         </div>
         <br>
+        <!--body-->
         <div class="field">
           <%= f.label "投稿内容" %>
           <br>
           <%= f.text_area :body, autocomplete: "body", placeholder: "必ず入力してください", size: "50x10" %>
         </div>
         <br>
+        <!--tag_name-->
         <div class="field">
           <%= f.text_field :tag_name, value: @tag_list, placeholder: ",で区切ると複数登録できます", size: "50" %>
         </div>
         <br>
+        <!--image-->
         <div class="field">
           <%= f.file_field :image, accept: "image/*" %>
         </div>
       </table>
     </div>
+    <!--入力内容2-->
     <div class="col-md-2">
+      <!--主催者-->
       <div class="field">
         <%= f.label "主催者" %>
         <br>
         <%= f.text_field :organizer, autocomplete: "organizer", placeholder: "必ず入力してください", size: "20" %>
       </div>
+      <!--開催日時-->
       <br>
       <div class="field">
         <%= f.label "開催日時" %>
@@ -40,6 +51,7 @@
         <%= f.datetime_field :date_and_time, autocomplete: "date_and_time", size: "20" %>
       </div>
       <br>
+      <!--開催状況-->
       <div class="field">
         <%= f.label "開催状況" %>
         <%= f.select :hold_status, Event.hold_statuses.keys.map { |k| [I18n.t("enums.event.hold_status.#{k}"), k ]} %>
@@ -47,8 +59,10 @@
     </div>
   </div>
   <div class="row">
+    <!--submit 更新-->
     <div class="col" style="text-align: center; margin-top: 20px;">
       <%= f.submit "更新", class: 'btn btn-sm btn-success' %>
+      <!--エラー内容表示-->
       <div class="errors">
         <%= render 'layouts/errors', obj: @event %>
       </div>

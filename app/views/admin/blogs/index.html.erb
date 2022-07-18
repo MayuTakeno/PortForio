@@ -1,41 +1,48 @@
-<div class="container"></div>
-    <div id="chart">
-      <canvas id="myLineChart">
-        <script>
-            var ctx = document.getElementById("myLineChart");
-            var myLineChart = new Chart(ctx, {
-              type: 'line',
-              data: {
-                labels: ['６日前', '5日前', '4日前', '3日前', '2日前', '1日前', '今日'],
-                datasets: [
-                  {
-                    label: '投稿数',
-                    data: <%= @blogs.week_count %>,
-                    borderColor: "rgba(0,0,255,1)",
-                    backgroundColor: "rgba(0,0,0,0)"
-                  }
-                ],
-              },
-              options: {
-                // タイトルをグラフ状に設置
-                title: {
-                  display: true,
-                  text: '7日間の投稿数の比較'
-                },
-                responsive: true
+<!--ブログ一覧管理-->
+
+<div class="container">
+<!--chart.js-->
+  <div id="chart">
+    <canvas id="myLineChart">
+      <script>
+        var ctx = document.getElementById("myLineChart");
+        var myLineChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ['６日前', '5日前', '4日前', '3日前', '2日前', '1日前', '今日'],
+            datasets: [
+              {
+                label: '投稿数',
+                data: <%= @blogs.week_count %>,
+                borderColor: "rgba(0,0,255,1)",
+                backgroundColor: "rgba(0,0,0,0)"
               }
-            });
-        </script>
-      </canvas>
-    </div>
+            ],
+          },
+          options: {
+            // タイトルをグラフ状に設置
+            title: {
+              display: true,
+              text: '7日間の投稿数の比較'
+            },
+            responsive: true
+          }
+        });
+      </script>
+    </canvas>
+  </div>
+</div>
 
 <div class="container">
   <div class="row">
+    <!--見出し-->
     <div class="col-md-2" style="text-align: center;">
       <h4>社員Blog<br>一覧</h4>
     </div>
+    <!--内容表示-->
     <div class="col-md-8" style="margin-bottom: 30px;">
       <table class="table" style="table-layout: fixed; word-wrap: break-word; ">
+        <!--テーブル見出し-->
         <thead>
           <tr>
             <th></th>
@@ -45,26 +52,34 @@
             <th>いいね数</th>
           </tr>
         </thead>
+        <!--テーブル内容表示-->
         <tbody>
           <% @blogs.each do |blog| %>
           <tr>
+            <!--ブログ画像-->
             <td><%= image_tag blog.get_image, size: "50x50" %></td>
+            <!--リンク付きtitle-->
             <td>
               <%= link_to admin_blog_path(blog) do %>
                 <%= blog.title %>
               <% end %>
               </td>
+            <!--社員名-->
             <td><%= blog.employee.name %></td>
+            <!--投稿日時-->
             <td><%= blog.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+            <!--ブクマ数-->
             <td>♡<%= blog.favorites.count %></td>
           </tr>
           <% end %>
         </tbody>
       </table>
     </div>
+    <!--検索機能リンク-->
     <div class="col-md-2" style="text-align: center; margin-bottom: 30px;">
       <%= render 'admin/searches/search_blog' %>
     </div>
   </div>
+  <!--ページネーション-->
   <%= render 'layouts/paginate', obj: @blogs %>
 </div>

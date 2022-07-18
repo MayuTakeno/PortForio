@@ -1,12 +1,17 @@
+<!--製品一覧ページ-->
+
 <%= form_with url: public_products_path, method: :get do %>
 <div class="container">
   <div class="row">
+    <!--見出し-->
     <div class="col-md-2" style="text-align: center;">
       <h4>製品一覧</h4><br>
       全<%= @products.count %>件
     </div>
+    <!--表示内容1-->
     <div class="col-md-8" style="margin-bottom: 30px;">
       <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+        <!--テーブル見出し-->
         <thead>
           <tr>
             <th></th>
@@ -16,16 +21,21 @@
             <th>タグ</th>
           </tr>
         </thead>
+        <!--テーブル内容表示-->
         <tbody>
           <% @products.each do |product| %>
           <tr>
+            <!--製品画像-->
             <td><%= image_tag product.get_image, size: "50x50" %></td>
+            <!--リンク付き製品名-->
             <td>
               <%= link_to public_product_path(product) do %>
                 <%= product.name %>
               <% end %>
               </td>
+              <!--税込価格-->
             <td><%= product.with_tax_price %>円</td>
+            <!--販売状況-->
             <td><%= product.is_active == true ? "販売中" : "非公開" %></td>
             <!--タグの表示-->
             <td><%= product.tags.map(&:tag_name).join('/') %></td>
@@ -34,13 +44,17 @@
         </tbody>
       </table>
     </div>
+    <!--表示内容2-->
     <div class="col-md-2" style="text-align: center; margin-bottom: 30px;">
+      <!--検索機能リンク-->
       <%= render 'public/searches/search_product' %>
       <br><br>
+      <!--注文状況リンク-->
       <% if employee_signed_in? %>
         <%= link_to "注文状況", public_cart_items_path ,class: "btn btn-sm btn-info" %>
       <% end %>
       <br><br>
+      <!--タグ検索-->
       <strong>タグ検索</strong>
       <%= select_tag :tag_id, options_from_collection_for_select(Tag.all, :id, :tag_name, params[:tag_id]), { prompt: '全て', class: 'free', onchange: 'submit(this.form);' } %>
       <table class="table" style="table-layout: fixed; word-wrap: break-word;">
@@ -49,11 +63,11 @@
           <td><%= list.tag_name %></td>
           <td><%= "(#{list.products.count})" %></td>
         </tr>
-      <!--タグ一覧埋め込み-->
         <% end %>
       </table>
     </div>
   </div>
+  <!--ページネーション-->
   <%= render 'layouts/paginate', obj: @products_page %>
 </div>
 <% end %>

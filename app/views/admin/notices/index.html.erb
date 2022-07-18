@@ -1,10 +1,15 @@
+<!--news一覧管理-->
+
 <div class="container">
   <div class="row">
+    <!--見出し-->
     <div class="col-md-2" style="text-align: center;">
       <h4>News</h4>
     </div>
+    <!--内容表示-->
     <div class="col-md-8" style="margin-bottom: 30px;">
       <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+        <!--テーブル見出し-->
         <thead>
           <tr>
             <th></th>
@@ -14,15 +19,20 @@
           </tr>
         </thead>
         <% @notices.each do |notice| %>
+        <!--テーブル内容表示-->
         <tbody>
           <tr>
+            <!--画像-->
             <td><%= image_tag notice.get_image, size: "50x50" %></td>
+            <!--名前付きtitle-->
             <td>
               <%= link_to admin_notice_path(notice) do %>
               <%= notice.title %>
               <% end %>
             </td>
+            <!--投稿日時-->
             <td><%= notice.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+            <!--削除リンク-->
             <td>
               <% if admin_signed_in? %>
                 <%= link_to admin_notice_path(notice), method: :delete, class: 'btn btn-sm btn-danger' do %>
@@ -35,11 +45,13 @@
         <% end %>
       </table>
     </div>
+    <!--検索機能/記事登録リンク-->
     <div class="col-md-2" style="text-align: center; margin-bottom: 30px;">
       <%= link_to "記事登録", new_admin_notice_path, class: 'btn btn-info btn-sm' %>
       <br><br><br>
       <%= render 'admin/searches/search_notice' %>
     </div>
   </div>
+  <!--ページネーション-->
   <%= render 'layouts/paginate', obj: @notices %>
 </div>

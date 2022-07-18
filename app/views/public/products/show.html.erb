@@ -1,12 +1,17 @@
+<!--製品詳細ページ-->
+
 <%= form_with model: @cart_item, url: public_cart_items_path, local: true, method: :post do |f| %>
 <div class="container">
   <div class="row">
+    <!--見出し1-->
     <div class="col-md-2" style="text-align: center;">
       <h4>製品詳細</h4>
     </div>
+    <!--表示内容1-->
     <div class="col-md-8" style="text-align: center;">
       <%= image_tag @product.get_image, size: "300x300" %>
     </div>
+    <!--表示内容2-->
     <div class="col-md-2" style="margin-top: 20px; text-align: center; margin-bottom: 30px;">
       <storng>社内販売</storng><br>
       <% if employee_signed_in? %>
@@ -20,27 +25,33 @@
     </div>
   </div>
   <div class="row">
+    <!--見出し2-->
     <div class="col-md-2" style="text-align: center; margin-top: 50px;">
       <h4>製品概要</h4>
     </div>
+    <!--表示内容3-->
     <div class="col-md-8" style="margin-top: 50px; margin-bottom: 30px;">
       <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+        <!--製品名/税込価格-->
         <tr>
           <th>製品名</th>
           <td><%= @product.name %></td>
           <th>税抜(税込)価格</th>
           <td><%= @product.with_tax_price %> 円</td>
         </tr>
+        <!--製品説明-->
         <tr>
-          <th>製品詳細</th>
+          <th>製品説明</th>
           <td colspan="3"><%= simple_format @product.caption %></td>
         </tr>
+        <!--製造日/販売状況-->
         <tr>
           <th>製造日</th>
           <td><%= @product.make_day %></td>
           <th>販売状況</th>
           <td><%= @product.is_active == true ? "販売中" : "非公開" %></td>
         </tr>
+        <!--関連タグ-->
         <tr>
           <th>関連タグ</th>
           <td colspan="3">

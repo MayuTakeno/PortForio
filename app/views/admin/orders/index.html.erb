@@ -1,5 +1,8 @@
+<!--注文履歴一覧管理-->
+
 <div class="container">
   <div class="row">
+    <!--chart.js-->
     <div id="chart">
       <canvas id="EmployeeOrderBarChart">
         <script>
@@ -48,42 +51,57 @@
     </div>
   </div>
 </div>
+
 <div class="container">
   <div class="row">
+    <!--見出し-->
     <div class="col-md-2" style="text-align: center;">
       <h4>製品購入履歴<br>一覧</h4>
     </div>
+    <!--内容表示-->
     <div class="col-md-8" style="margin-bottom: 30px;">
       <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+        <!--テーブル見出し-->
         <thead>
           <tr>
             <th>購入日時</th>
             <th>受取方法</th>
             <th>購入者名</th>
-            <th>注文ステータス</th>
+            <th>注文状況</th>
+            <th></th>
             <th></th>
           </tr>
         </thead>
-        <tbody>
         <% @orders.each do |order| %>
+        <!--テーブル内容表示-->
+        <tbody>
           <tr>
+            <!--注文日-->
             <td><%= order.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+            <!--受取方法-->
             <td><%= order.payment_method_i18n %></td>
+            <!--製品名-->
             <td>
               <% order.product_orders.each do |product_order| %>
                 <%= product_order.product.name %>
               <% end %>
             </td>
+            <!--注文状況-->
             <td><%= order.status_i18n %></td>
+            <!--注文詳細リンク-->
+            <td><%= link_to "注文詳細", admin_order_path(order), class: 'btn btn-sm btn-info' %></td>
+            <!--削除リンク-->
             <td><%= link_to "削除", admin_order_path(order), method: :delete, class: 'btn btn-sm btn-danger' %></td>
           </tr>
-        <% end %>
         </tbody>
+        <% end %>
       </table>
     </div>
+    <!--リンク-->
     <div class="col-md-2" style="text-align: center; margin-bottom: 30px;">
       <%= link_to "製品一覧", admin_products_path, class: 'btn btn-sm btn-warning' %>
     </div>
   </div>
+  <!--ページネーション-->
   <%= render 'layouts/paginate', obj: @orders %>
 </div>

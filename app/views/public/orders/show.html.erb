@@ -1,10 +1,15 @@
+<!--注文履歴詳細ページ-->
+
 <div class="container">
   <div class="row">
+    <!--見出し-->
     <div class="col-md-2" style="text-align: center;">
       <h4>注文履歴詳細</h4>
     </div>
+    <!--内容表示1-->
     <div class="col-md-7">
       <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+        <!--テーブル見出し-->
         <thead>
           <tr>
             <th></th>
@@ -13,28 +18,37 @@
             <th>注文個数</th>
           </tr>
         </thead>
-        <thead>
+        <!--テーブル内容表示-->
+        <tbody>
           <% @order.product_orders.each do |product_order| %>
           <tr>
+            <!--製品画像-->
             <td><%= image_tag product_order.product.image, size: "50x50" %></td>
+            <!--製品名-->
             <td><%= product_order.product.name %></td>
+            <!--税込価格-->
             <td><%= product_order.product.with_tax_price %> 円</td>
+            <!--注文数-->
             <td><%= product_order.quantity %></td>
           </tr>
          <% end %>
-        </thead>
+        </tbody>
       </table>
     </div>
+    <!--内容表示2-->
     <div class="col-md-3">
       <table class="table" style="table-layout: fixed; word-wrap: beak-word;">
+        <!--合計金額-->
         <tr>
           <th>合計金額</th>
           <td><%= @total %> 円</td>
         </tr>
+        <!--送料-->
         <tr>
           <th>送料</th>
           <td><%= @order.postage %> 円</td>
         </tr>
+        <!--請求金額-->
         <tr>
           <th>請求金額</th>
           <td><%= @order.billing_amount %> 円</td>
@@ -43,12 +57,15 @@
     </div>
   </div>
   <div class="row">
+    <!--表示内容3-->
     <div class="col" style="margin-top: 50px; text-align: center; margin-bottom: 30px;">
+      <!--注文状況-->
       <div class="status">
         <strong>注文状況</strong><br>
         <%= @order.status_i18n %>
       </div>
       <br>
+      <!--受取方法-->
       <div class="payment_method">
         <strong>受取方法</strong><br>
           <%= @order.payment_method_i18n %>

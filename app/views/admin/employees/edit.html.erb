@@ -1,12 +1,17 @@
+<!--社員情報編集ページ-->
+
 <%= form_with model: @employee, url: admin_employee_path(@employee.id) do |f| %>
 <div class="container">
   <div class="row">
+    <!--見出し-->
     <div class="col-md-2" style="text-align: center;">
       <h4>社員情報編集</h4>
     </div>
     <div class="col-md-1"></div>
+    <!--入力内容-->
     <div class="col-md-6">
       <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+        <!--社員名-->
         <tr>
           <th><%= f.label "社員名" %></th>
           <td>
@@ -15,22 +20,27 @@
             <%= f.text_field :last_name, autocomplete: "last_name", placeholder: "名" %>
           </td>
         </tr>
+        <!--配属先-->
         <tr>
           <th><%= f.label "配属先" %></th>
           <td><%= f.text_field :assigned_to, autocomplete: "assigned_to", placeholder: "〇〇部" %></td>
         </tr>
+        <!--社員番号-->
         <tr>
           <th><%= f.label "社員番号" %></th>
           <td><%= f.text_field :employee_code, autocomplete: "employee_code" %></td>
         </tr>
+        <!--電話番号-->
         <tr>
           <th><%= f.label "電話番号" %></th>
           <td><%= f.text_field :phone_number, autocomplete: "phone_number" %></td>
         </tr>
+        <!--email-->
         <tr>
           <th><%= f.label "Email" %></th>
           <td><%= f.text_field :email, autocomplete: "email" %></td>
         </tr>
+        <!--在籍状況-->
         <tr>
           <th><%= f.label "在籍状況" %></th>
           <td>
@@ -41,6 +51,7 @@
     </div>
   </div>
   <div class="row">
+    <!--submit 更新-->
     <div class="col" style="text-align: center; margin-bottom: 30px;">
       <%= f.submit "更新", class: 'btn btn-sm btn-success' %>
     </div>

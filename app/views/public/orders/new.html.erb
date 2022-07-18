@@ -1,6 +1,9 @@
+<!--注文情報入力ページ-->
+
 <%= form_with model: @order, url: public_orders_confirm_path, method: :post do |f| %>
 <div class="container">
   <div class="row">
+    <!--見出し-->
     <div class="col-md-2" style="text-align: center;">
       <h4>注文情報入力</h4><br>
       <p class="btn-info" style="background-color: #ffad90;">入力</p>
@@ -11,20 +14,25 @@
       </ul>
     </div>
     <div class="col-md-1"></div>
+    <!--入力内容-->
     <div class="col-md-7">
       <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+        <!--社員番号表示-->
         <tr>
           <th>社員番号</th>
           <td><%= current_employee.employee_code %></td>
         </tr>
+        <!--社員名表示-->
         <tr>
           <th>社員名</th>
           <td><%= current_employee.name %></td>
         </tr>
+        <!--配属先表示-->
         <tr>
           <th>配属先</th>
           <td><%= current_employee.assigned_to %></td>
         </tr>
+        <!--連絡先選択-->
         <tr>
           <th>連絡先</th>
           <td>
@@ -38,6 +46,7 @@
             <%= f.label :contact, "その他" %> : <br><%= f.text_field :email, autocomplete: "email",placeholder: "メールアドレス", size: "30" %><br><br><%= f.text_field :phone_number, autocomplete: "phone_number", placeholder: "電話番号", size: "30" %>
           </td>
         </tr>
+        <!--受取方法選択-->
         <tr>
           <th>受取方法</th>
           <td>
@@ -48,23 +57,28 @@
             <%= f.label :payment_method, "部署配達" %>
           </td>
         </tr>
+        <!--配達希望日時選択-->
         <tr>
-          <th>配達希望日時<br><span></th>
+          <th>配達希望日時<br></th>
           <td>
             <%= f.date_field :delivery_date %>
             <%= f.select :delivery_time, Order.delivery_times_i18n.invert, {} %>
             <br>
-            ※２営業日以降から承ります
-            <br>
-            ※配送状況によって、お時間を頂戴することもございます
-            <br>
-            ※選択時刻によってはご相談の連絡をさせていただくことがございます。
+            <!--注意書き-->
+            <span style="font-size: 10px;">
+              ※２営業日以降から承ります
+              <br>
+              ※配送状況によって、お時間を頂戴することもございます
+              <br>
+              ※選択時刻によってはご相談の連絡をさせていただくことがございます。
+            </span>
           </td>
         </tr>
       </table>
     </div>
   </div>
   <div class="row">
+    <!--submit 確認-->
     <div class="col" style="text-align: center; margin-bottom: 30px;">
       <%= f.submit "確認" %>
     </div>

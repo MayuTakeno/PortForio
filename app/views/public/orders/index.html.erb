@@ -1,10 +1,15 @@
+<!--注文履歴一覧(現在ログインしているemployeeのみ)-->
+
 <div class="container" >
   <div class="row">
+    <!--見出し-->
     <div class="col-md-2" style="text-align: center;">
       <h4>注文履歴</h4>
     </div>
+    <!--内容表示-->
     <div class="col-md-8" style="margin-bottom: 30px;">
       <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+        <!--テーブル見出し-->
         <thead>
           <tr>
             <th>発注日</th>
@@ -15,19 +20,26 @@
             <th>注文詳細</th>
           </tr>
         </thead>
+        <!--テーブル内容表示-->
         <tbody>
           <% @orders.each do |order| %>
           <tr>
+            <!--注文日-->
             <td><%= order.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+            <!--受取方法-->
             <td><%= order.payment_method_i18n %></td>
+            <!--製品画像/製品名-->
             <td>
               <% order.product_orders.each do |product_order| %>
                 <%= image_tag product_order.product.image, size: "50x50" %><br>
                 <%= product_order.product.name %><br>
               <% end %>
             </td>
+            <!--請求額合計-->
             <td><%= order.billing_amount %></td>
+            <!--注文状況-->
             <td><%= order.status_i18n %></td>
+            <!--注文詳細リンク-->
             <td>
               <%= link_to "注文詳細", public_order_path(order), class: 'btn btn-sm btn-info' %>
             </td>
@@ -37,5 +49,6 @@
       </table>
     </div>
   </div>
+  <!--ページネーション-->
   <%= render 'layouts/paginate', obj: @orders %>
 </div>
