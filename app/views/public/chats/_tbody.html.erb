@@ -1,12 +1,18 @@
+<!--チャット一覧に表示するテキスト出力-->
 <tr>
+  <!--title-->
   <td><%= simple_format chat.title %></td>
+  <!--body-->
   <td><%= simple_format chat.body %></td>
+  <!--投稿日時-->
   <td><%= chat.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+  <!--チャット詳細リンク-->
   <td>
     <%= link_to public_chat_path(chat.id) do %>
       <i class="fa-regular fa-message"></i></td>
     <% end %>
   </td>
+  <!--削除リンク-->
   <td>
     <% if chat.employee_id == current_employee.id %>
       <%= link_to "削除", public_chat_path(chat), remote:true, method: :delete, class: 'btn btn-sm btn-danger' %>

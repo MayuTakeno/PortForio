@@ -17,8 +17,8 @@ class Public::SessionsController < Devise::SessionsController
     # アカウントを取得できなければメソッド終了
     return if !@employee
     # 取得したアカウントのパスワードと入力されたパスワードが一致しているかを判別
-    if @employee.valid_password?(params[:employee][:password])
-      # if @employee.is_deleted == true
+    if @employee.valid_password?(params[:employee][:password]) && @emoployee.is_deleted == false
+      redirect_to new_employee_registration_path
       # end
     end
   end

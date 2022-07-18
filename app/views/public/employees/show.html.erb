@@ -1,33 +1,43 @@
+<!--社員情報詳細-->
+
 <div class="container">
   <div class="row">
+    <!--見出し-->
     <div class="col-md-2" style="text-align: center;">
       <h4>マイページ</h4>
       <br>
       ブックマーク一覧
     </div>
     <div class="col-md-2"></div>
+    <!--表示内容-->
     <div class="col-md-4" style="margin-bottom: 30px;">
       <table class="table">
+        <!--氏名-->
         <tr>
           <th>氏名</th>
           <td><%= @employee.first_name %><%= @employee.last_name %></td>
         </tr>
+        <!--社員番号-->
         <tr>
           <th>社員番号</th>
           <td><%= @employee.employee_code %></td>
         </tr>
+        <!--配属先-->
         <tr>
           <th>配属先</th>
           <td><%= @employee.assigned_to %></td>
         </tr>
+        <!--電話番号-->
         <tr>
           <th>電話番号</th>
           <td><%= @employee.phone_number %></td>
         </tr>
+        <!--メールアドレス-->
         <tr>
           <th>メールアドレス</th>
           <td><%= @employee.email %></td>
         </tr>
+        <!--在籍状況-->
         <tr>
           <th>在籍状況</th>
           <td>
@@ -41,6 +51,7 @@
       </table>
     </div>
     <div class="col-md-2"></div>
+    <!--注文履歴/Q&A/編集リンク-->
     <div class="col-md-2" style="text-align: center; margin-bottom: 30px;">
       <%= link_to "注文履歴", public_orders_path, class: 'btn btn-sm btn-info' %>
       <br><br>

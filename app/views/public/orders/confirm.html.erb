@@ -1,5 +1,9 @@
+<!--注文確認ページ-->
+
+<%= form_with model: @order_new, url: public_orders_path do |f| %>
 <div class="container">
   <div class="row">
+    <!--見出し-->
     <div class="col-md-2" style="text-align: center;">
       <h4>注文情報入力</h4><br>
         <p>入力</p>
@@ -8,8 +12,10 @@
         <span>↓</span>
         <p>完了</p>
     </div>
+    <!--表示内容1-->
     <div class="col-md-7" style="margin-top: 50px;">
       <table class="table table-inverse" style="table-layout: fixed; word-wrap: break-word;">
+        <!--テーブル見出し-->
         <thead>
           <tr>
             <th>製品名</th>
@@ -18,7 +24,8 @@
             <th>小計</th>
           </tr>
         </thead>
-          <% @cart_items.each do |cart_item| %>
+        <% @cart_items.each do |cart_item| %>
+          <!--テーブル内容表示-->
         <tbody>
           <tr>
             <!--商品画像-->
@@ -31,37 +38,48 @@
             <td><%= cart_item.sub_total %></td>
           </tr>
         </tbody>
-          <% end %>
+        <% end %>
       </table>
     </div>
+    <!--表示内容2-->
     <div class="col-md-3" style="margin-top: 50px;">
+      <!--テーブル内容表示-->
       <table class="table table-inverse" style="table-layout: fixed;">
+        <!--商品合計-->
         <tr>
           <th>商品合計</th>
-          <td><%= @total %></td>
+          <td><%= @total %> 円</td>
         </tr>
-        <tr>
+        <!--送料-->
         <tr>
           <th>送料</th>
-          <td>200</td>
+          <td>200 円</td>
         </tr>
+        <!--請求金額-->
+        <tr>
           <th>請求金額</th>
-          <td><%= @billing_amount %></td>
+          <td><%= @billing_amount %> 円</td>
         </tr>
       </table>
     </div>
-    <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-5 offset-1">
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+      <!--表示内容3-->
+    <div class="col-md-5 offset-1">
+        <!--テーブル内容表示-->
         <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+          <!--社員名/社員番号/配属先-->
           <tr>
             <th>社員名<br>社員番号<br>配属先</th>
             <td><%= current_employee.name %><br><%= current_employee.employee_code %><br><%= current_employee.assigned_to %></td>
           </tr>
+          <!--受取方法-->
           <tr>
             <th>受取方法</th>
             <td><%= @order.payment_method_i18n %></td>
           </tr>
+          <!--連絡先-->
           <tr>
             <th>連絡先</th>
             <td>
@@ -75,6 +93,7 @@
               <% end %>
             </td>
           </tr>
+          <!--配達希望日-->
           <tr>
             <th>配達希望日</th>
             <td>
@@ -84,9 +103,8 @@
           </tr>
         </table>
       </div>
-    </div>
   </div>
-  <%= form_with model: @order_new, url: public_orders_path do |f| %>
+<!--hidden_field内容-->
   <div class="row">
     <div class="col" style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
     <% if @cart_items.exists? %>
@@ -107,5 +125,5 @@
     <% end %>
     </div>
   </div>
-  <% end %>
 </div>
+<% end %>

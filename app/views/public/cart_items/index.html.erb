@@ -1,11 +1,14 @@
 <div class="container">
   <div class="row">
+    <!--見出し-->
     <div class="col-md-2" style="text-align: center;">
       <h4><%= simple_format current_employee.name%>様の注文</h4><br>
       <span>全<%= @cart_items.count %>件</span>
     </div>
+    <!--表示内容-->
     <div class="col-md-8">
-      <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+      <table class="table table-cart_items">
+        <!--全件削除リンク-->
         <thead>
           <tr>
             <th colspan="6"></th>
@@ -16,6 +19,7 @@
             </th>
           </tr>
         </thead>
+        <!--テーブル見出し-->
         <thead>
           <tr>
             <th></th>
@@ -27,17 +31,37 @@
             <th></th>
           </tr>
         </thead>
+        <!--内容表示-->
         <tbody>
           <% @cart_items.each do |cart_item| %>
             <%= form_with model: cart_item, url: public_cart_item_path(cart_item), method: :patch do |f| %>
           <tr>
-            <td><%= image_tag cart_item.product.image, size: "50x50" %></td>
-            <td><%= cart_item.product.name %></td>
-            <td><%= cart_item.product.with_tax_price %> 円</td>
-            <td><%= cart_item.quantity %></td>
+            <!--製品画像-->
+            <td>
+              <%= image_tag cart_item.product.image, size: "50x50" %>
+            </td>
+            <!--製品名-->
+            <td>
+              <%= cart_item.product.name %>
+            </td>
+            <!--税込み価格-->
+            <td>
+              <%= cart_item.product.with_tax_price %> 円
+            </td>
+            <!--数量-->
+            <td>
+              <%= cart_item.quantity %>
+            </td>
             <%= f.hidden_field :product_id, value: cart_item.product_id %>
-            <td><%= f.select :quantity, *[1..10] %> <%= f.submit "変更", class: 'btn btn-sm btn-secondary' %></td>
-            <td><%= cart_item.sub_total %> 円</td>
+            <!--数量変更-->
+            <td>
+              <%= f.select :quantity, *[1..10] %> <%= f.submit "変更", class: 'btn btn-sm btn-secondary' %>
+            </td>
+            <!--小計-->
+            <td>
+              <%= cart_item.sub_total %> 円
+            </td>
+            <!--削除リンク-->
             <td>
               <%= link_to public_cart_item_path(cart_item), method: :delete, local: false do %>
                 削除
@@ -47,12 +71,14 @@
             <% end %>
           <% end %>
         </tbody>
+        <!--合計金額見出し-->
         <thead>
           <tr>
             <th colspan="6"></th>
             <th>合計金額</th>
           </tr>
         </thead>
+        <!--合計金額内容-->
         <tbody>
           <tr>
             <td colspan="5"></td>
@@ -63,6 +89,7 @@
       </table>
     </div>
   </div>
+  <!--リンク-->
   <div class="row">
     <div class="col" style="text-align: center; margin-bottom: 30px;">
       <% if @cart_items.exists? %>

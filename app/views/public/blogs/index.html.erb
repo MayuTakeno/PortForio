@@ -1,8 +1,10 @@
 <div class="container">
   <div class="row">
+    <!--見出し-->
     <div class="col-md-2" style="text-align: center;">
       <h4>Blog一覧</h4><br>全<%= @blogs.count %>件<br>
     </div>
+    <!--内容-->
     <div class="col-md-8" style="margin-bottom: 30px;">
     <table class="table" style="table-layout: fixed; word-wrap: break-word;">
       <thead>
@@ -14,19 +16,28 @@
           <th colspan="1"></th>
         </tr>
       </thead>
-      <thead>
+      <tbody>
       <% @blogs.each do |blog| %>
         <tr>
+          <!--画像-->
           <td>
               <%= image_tag blog.get_image, size: "50x50" %>
           </td>
+          <!--リンク付き文字-->
           <td>
             <%= link_to public_blog_path(blog.id) do %>
               <%= simple_format blog.title %>
             <% end %>
           </td>
-          <td><%= blog.employee.name %></td>
-          <td><%= blog.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+          <!--投稿者の名前-->
+          <td>
+            <%= blog.employee.name %>
+          </td>
+          <!--投稿日時-->
+          <td>
+            <%= blog.created_at.strftime("%Y/%m/%d %H:%M") %>
+          </td>
+          <!--ブックマーク-->
           <td>
             <% if employee_signed_in? %>
             <span id="favorite-btn_<%= blog.id %>" style="font-size: 14px;">
@@ -37,11 +48,12 @@
             <% end %>
           </td>
         </tr>
-      </thead>
+      </tbody>
       <% end %>
     </table>
     </div>
     <% if employee_signed_in? %>
+    <!--新規作成リンク-->
     <div class="col-md-2" style="text-align: center; margin-bottom: 30px;">
       <%= link_to new_public_blog_path, class: 'btn btn-sm btn-info' do %>
         新規作成
@@ -53,5 +65,6 @@
       <%= render 'public/searches/search_blog' %>
     </div>
   </div>
+  <!--ページネーション-->
   <%= render 'layouts/paginate', obj: @blogs %>
 </div>

@@ -1,19 +1,27 @@
+<!--news詳細-->
+
 <div class="container">
   <div class="row">
+    <!--見出し-->
     <div class="col-md-2" style="text-align: center;">
       <h4>News詳細</h4>
     </div>
+    <!--内容表示-->
     <div class="col-md-8" style="text-align: center; margin-bottom: 30px;">
+      <!--画像-->
       <%= image_tag @notice.get_image, size: "300x300" %>
       <br>
       <br>
+      <!--title-->
       <strong><%= @notice.title %></strong>
       <br>
       <br>
+      <!--body-->
       <div style="border-top: 1px solid #000000;">
         <br>
         <h6><%= simple_format @notice.body %></h6>
       </div>
+      <!--caption-->
       <div>
         <br>
         <span>※<%= simple_format @notice.caption %></span>
