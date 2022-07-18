@@ -63,6 +63,20 @@
       <div class="status">
         <strong>注文状況</strong><br>
         <%= @order.status_i18n %>
+        <%= form_with model: @order, url: admin_order_path(@order), method: :patch do |f| %>
+        <%= f.select :status, Order.statuses_i18n.invert %>
+        <%= f.submit "変更" %>
+        <% end %>
+      </div>
+      <br>
+      <div class="making-status">
+        <strong>製造状況</strong>
+        <% @product_orders.each do |product_order| %>
+          <%= form_with model: product_order, url: admin_product_order_path, method: :patch do |f| %>
+          <%= f.select :making_status, ProductOrder.making_statuses_i18n.invert %>
+          <%= f.submit "更新" %>
+          <% end %>
+        <% end %>
       </div>
       <br>
       <!--受取方法-->
