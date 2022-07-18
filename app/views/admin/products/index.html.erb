@@ -1,11 +1,16 @@
+<!--製品一覧管理ページ-->
+
 <%= form_with url: admin_products_path, method: :get do %>
 <div class="container">
   <div class="row">
+    <!--見出し-->
     <div class="col-md-2" style="text-align: center;">
       <h4>商品一覧</h4>
     </div>
+    <!--内容表示-->
     <div class="col-md-8" style="margin-bottom: 30px;">
       <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+        <!--テーブル見出し-->
         <thead>
           <tr>
             <th></th>
@@ -16,48 +21,52 @@
             <th></th>
           </tr>
         </thead>
+        <!--テーブル内容表示-->
         <tbody>
         <% @products.each do |product| %>
           <tr>
+            <!--画像-->
             <td><%= image_tag product.get_image, size: "50x50" %></td>
+            <!--製品名-->
             <td>
               <%= link_to admin_product_path(product) do %>
                 <%= simple_format product.name %>
               <% end %>
               </td>
+            <!--製品価格-->
             <td><%= product.price %>(<%= product.with_tax_price.to_s(:dalimited) %>)円</td>
+            <!--販売状況-->
             <td><%= product.is_active == true ? "販売中" : "非公開" %></td>
+            <!--製品タグ-->
             <td><%= product.tags.map(&:tag_name).join('/') %></td>
+            <!--削除リンク-->
             <td><%= link_to "削除", admin_product_path(product), method: :delete, class: 'btn btn-sm btn-danger' %></td>
           </tr>
         <% end %>
         </tbody>
       </table>
+      <!--ページネーション-->
+      <%= render 'layouts/paginate', obj: @products_page %>
     </div>
+    <!--リンク-->
     <div class="col-md-2" style="text-align: center; margin-bottom: 30px;">
-      <%= link_to "製品登録", new_admin_product_path(@product), class: 'btn btn-sm btn-info' %>
-      <br><br>
-      <%= link_to "タグ管理", admin_tags_path, class: "btn btn-sm btn-success" %>
-      <br><br>
-      <%= link_to "製品購入履歴", admin_orders_path, class: 'btn btn-sm btn-warning' %>
-      <br><br>
-      <%= render 'admin/searches/search_product' %>
-      <br><br>
-      <table class="table">
-        <%= link_to admin_tags_path do %>
-          <strong>タグ検索</strong>
-        <% end %>
-          <%= select_tag :tag_id, options_from_collection_for_select(Tag.all, :id, :tag_name, params[:tag_id]), { prompt: '全て', class: 'free', onchange: 'submit(this.form);' } %>
-        <br>
-      <% @tag_list.each do |list| %>
-        <tr>
-          <td><%= list.tag_name %></td>
-          <td><%= "(#{list.products.count})" %></td>
-        </tr>
-      <% end %>
-      </table>
+      <div class="link">
+        <%= link_to "製品登録", new_admin_product_path(@product), class: 'btn btn-sm btn-info' %>
+        <br><br>
+        <%= link_to "タグ管理", admin_tags_path, class: "btn btn-sm btn-success" %>
+        <br><br>
+        <%= link_to "製品購入履歴", admin_orders_path, class: 'btn btn-sm btn-warning' %>
+        <br><br>
+        <%= render 'admin/searches/search_product' %>
+        <br><br>
+        <table class="table">
+          <%= link_to admin_tags_path do %>
+            <strong>タグ検索</strong>
+          <% end %>
+            <%= select_tag :tag_id, options_from_collection_for_select(Tag.all, :id, :tag_name, params[:tag_id]), { prompt: '全て', class: 'free', onchange: 'submit(this.form);' } %>
+        </table>
+      </div>
     </div>
   </div>
-  <%= render 'layouts/paginate', obj: @products_page %>
 </div>
 <% end %>

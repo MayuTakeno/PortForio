@@ -9,18 +9,23 @@
     </div>
     <!--表示内容1-->
     <div class="col-md-8" style="text-align: center;">
+      <!--画像-->
       <%= image_tag @product.get_image, size: "300x300" %>
     </div>
     <!--表示内容2-->
     <div class="col-md-2" style="margin-top: 20px; text-align: center; margin-bottom: 30px;">
-      <storng>社内販売</storng><br>
-      <% if employee_signed_in? %>
-        <%= f.hidden_field :employee_id, value: current_employee.id %>
-        <%= f.hidden_field :product_id, value: @product.id %>
-        <%= f.select :quantity, *[1..10] %>
-        <%= f.submit "注文", class: 'btn btn-sm btn-secondary' %>
+      <% if @product.is_active? %>
+        <storng>社内販売</storng><br>
+        <% if employee_signed_in? %>
+          <%= f.hidden_field :employee_id, value: current_employee.id %>
+          <%= f.hidden_field :product_id, value: @product.id %>
+          <%= f.select :quantity, *[1..10] %>
+          <%= f.submit "注文", class: 'btn btn-sm btn-secondary' %>
+        <% else %>
+          <%= f.submit "ログインが必要です" %>
+        <% end %>
       <% else %>
-        <%= f.submit "ログインが必要です" %>
+      <%= link_to "この製品は現在取扱いしておりません。", public_products_path, class: "btn btn-sm btn-secondary" %>
       <% end %>
     </div>
   </div>

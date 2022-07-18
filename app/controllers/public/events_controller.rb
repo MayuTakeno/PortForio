@@ -5,16 +5,15 @@ class Public::EventsController < ApplicationController
     # タグidを持つeventsと結びつける/paginate適用
     @events = params[:tag_id].present? ? Tag.find(params[:tag_id]).events : Event.includes(:admin).order(created_at: :desc)
     @events_page = Event.includes(:admin).page(params[:page])
+    @tag_list = Tag.all
     # キーワード検索分岐
     if params[:word].present?
       @events = Event.where("title LIKE?", "%#{params[:word]}%").page(params[:page]).order(created_at: :desc)
-    end
     # 日付検索分岐
-    if params[:date_and_time].present?
+    elsif params[:date_and_time].present?
       date = params[:date_and_time]
-      @events = Event.where(["date_and_time LIKE?", "#{date}%"]).page(params[:page]).per(10).order(created_at: :desc)
+      @events = Event.where(["date_and_time LIKE?", "#{date}%"]).page(params[:page]).order(created_at: :desc)
     end
-    @tag_list = Tag.all
   end
 
   # def search
@@ -30,5 +29,6 @@ class Public::EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @event_tags = @event.tags
   end
 end

@@ -24,7 +24,6 @@ class Admin::EventsController < ApplicationController
     if params[:word].present?
       @events = Event.where("title LIKE?", "%#{params[:word]}%").page(params[:page]).order(created_at: :desc)
     end
-    @tag_list = Tag.all
   end
 
   def show

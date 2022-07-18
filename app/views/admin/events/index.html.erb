@@ -45,6 +45,7 @@
         </tbody>
         <% end %>
       </table>
+    <%= render 'layouts/paginate', obj: @events_page %>
     </div>
     <!--リンク-->
     <div class="col-md-2" style="text-align: center; margin-bottom: 30px;">
@@ -60,17 +61,8 @@
         <strong>タグ検索</strong>
       <% end %>
       <%= select_tag :tag_id, options_from_collection_for_select(Tag.all, :id, :tag_name, params[:tag_id]), { prompt: '全て', class: 'free', onchange: 'submit(this.form)'} %>
-      <br>
-      <% @tag_list.each do |list| %>
-      <tr>
-        <td><%= list.tag_name %></td>
-        <td><%= "(#{list.events.count})" %></td>
-      </tr>
-      <% end %>
       </table>
     </div>
   </div>
-  <!--ページネーション-->
-  <%= render 'layouts/paginate', obj: @events_page %>
 </div>
 <% end %>
