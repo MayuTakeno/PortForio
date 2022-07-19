@@ -71,6 +71,7 @@
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
+- devise使用
 
 ## 使用素材
 セルシス/DMMWEBCAMPの教材用画像素材使用
