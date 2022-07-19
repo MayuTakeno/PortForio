@@ -46,6 +46,7 @@
           <li style="padding-left: 20px;">
             <%= link_to destroy_employee_session_path, method: :delete, class: 'nav-link text-dark' do %>
               LOG OUT
+              <i class="fas fa-sign-out-alt"></i>
             <% end %>
           </li>
 
@@ -83,6 +84,7 @@
           <li style="padding-left: 20px;">
             <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' do %>
               LOG OUT
+              <i class="fas fa-sign-out-alt"></i>
             <% end %>
           </li>
 
@@ -111,7 +113,7 @@
           <li style="padding-left: 20px;">
             <%= link_to new_employee_session_path, class: 'text-dark' do %>
               LOG IN
-              <i class="fa-regular fa-circle-user"></i>
+              <i class="fas fa-sign-in-alt"></i>
             <% end %>
           </li>
 

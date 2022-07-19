@@ -9,7 +9,8 @@
 // mainの背景取扱
 .background-image-1{
   width: 100%;
-  background-image: image-url('sozai13.jpg');
+  // background-image: image-url('sozai13.jpg');
+  background-image: url(../images/sozai13.jpg);
   background-size: cover;
   position: relative;
   z-index: 1;
