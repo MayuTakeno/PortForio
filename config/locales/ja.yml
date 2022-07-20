@@ -76,6 +76,7 @@ ja:
       admin:
         invalid: "ログイン失敗"
         unauthenticated: "ログインが必要です"
+        not_found_in_database: "管理者情報が見つかりません"
       employee:
         invalid: "ログイン失敗"
         unauthenticated: "ログインが必要です"
