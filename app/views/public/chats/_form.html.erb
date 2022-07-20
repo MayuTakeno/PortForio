@@ -15,13 +15,13 @@
           <%= f.text_field :title, autofocus: true, autocomplete: "title", placeholder: "必ずご入力ください", size: "50" %>
         </div>
         <!--body-->
-        <div class="field chat-form-body">
+        <div class="field" style="margin-top: 20px;">
           <%= f.label "質問内容" %>
           <br>
           <%= f.text_area :body, autocomplete: "body", placeholder: "できるだけ詳細にご記入ください", size: "50x5" %>
         </div>
         <!--submit 投稿-->
-        <div class="field chat-form-submit">
+        <div class="field" style="margin-top: 10px;">
           <%= f.submit "投稿", class: 'btn btn-sm btn-success' %>
         </div>
     </div>
