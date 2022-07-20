@@ -15,6 +15,7 @@ class Public::EmployeesController < ApplicationController
   end
 
   def show
+    @employee.blogs = Blog.includes(:employee)
   end
 
   private

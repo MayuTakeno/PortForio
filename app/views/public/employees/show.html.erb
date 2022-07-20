@@ -64,14 +64,22 @@
 
   <!--row2-->
   <div class="row">
-    <div class="col-md-2"></div>
+    <div class="col" style="text-align: center; border-bottom: 1px solid #000000;">
+      <h4>blogs</h4>
+    </div>
+  </div>
+  <div class="row">
     <!--表示内容2-->
-    <div class="col-md-8 employee-show-blogs" style="margin-bottom: 100px;">
-      <% current_employee.blogs.each do |blog| %>
+    <div class="col-md-3"></div>
+    <div class="col-md-6" style="margin-top: 30px; margin-bottom: 100px; text-align: center;">
+      <% @employee.blogs.each do |blog| %>
+      <div class="box">
+        <br>
         <!--画像-->
-        <%= image_tag blog.get_image, size: "150x150" %>
+        <div><%= image_tag blog.get_image, size: "100x100" %></div>
         <!--title-->
-        <%= blog.title %>
+        <%= blog.title %><br><%= blog.created_at.strftime("%Y/%m/%d %H:%M") %>
+      </div>
       <% end %>
     </div>
   </div>
