@@ -2,15 +2,15 @@
 
   <div class="row">
     <!--アプリロゴ-->
-    <div class="col footer-title">
-      <h2 class="footer-title-logo">Kizuna</h2>
+    <div class="col" style="text-align: center; background-color: #000000; color: #fff;">
+      <h2 style="font-family: cursive;">Kizuna</h2>
       <h6>ACom.inc</h6>
     </div>
   </div>
     <!--リンク集-->
-  <div class="row footer-background-color">
+  <div class="row" style="background-color: #000000;">
     <div class="col-md-1"></div>
-    <div class="col-md-2 footer-link">
+    <div class="col-md-2" style="font-size: 14px; color: #fff;">
     <% if employee_signed_in? %>
       <!--マイページ-->
       <%= link_to "マイページ", public_employee_path(current_employee), class: 'text-light' %>
@@ -40,8 +40,8 @@
       <%= link_to "ログイン", new_employee_session_path, class: 'text-light' %>
     <% end %>
     </div>
-    <div class="col-md-2 footer-link"></div>
-    <div class="col-md-2 footer-link">
+    <div class="col-md-2"></div>
+    <div class="col-md-2" style="font-size: 14px; color: #fff;">
       <!--各種問い合わせ-->
       <%= link_to "各種問い合わせ", public_chats_path, class: 'text-light' %>
       <br>
@@ -49,8 +49,8 @@
       <%= link_to "サイト概要", public_about_path, class: 'text-light' %>
       <br>
     </div>
-    <div class="col-md-2 footer-link"></div>
-    <div class="col-md-2 footer-link">
+    <div class="col-md-2"></div>
+    <div class="col-md-2" style="font-size: 14px; color: #fff;">
       <!--ログアウト-->
       <%= link_to"ログアウト", destroy_employee_session_path, method: :delete, class: 'text-light' %>
     </div>
