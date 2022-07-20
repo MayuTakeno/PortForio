@@ -1,48 +1,60 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-light" style="line-height: 40px; background-color: rgba(0,0,0,0.3);">
+<!--ヘッダー-->
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-light" style="line-height: 30px; background-color: rgba(0,0,0,0.3);">
   <div class="container-fluid">
+    <!--ロゴ-->
     <a class="navbar-brand" href="/public" style="font-family:cursive; font-size: 54px;">
       <span>Kizuna</span>
     </a>
-    <button class="navbar-toggler" tyle="button" data-toggle="collapse"
+    <!--ボタン-->
+    <button class="navbar-toggler" style="button" data-toggle="collapse"
     data-target="#navbarNavList"
     aria-controls="navbarNavList"
     aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <!--リンク集-->
     <div class="collapse navbar-collapse" id="navbarNavList">
       <ul class="navbar-nav ml-auto" style="list-style: none; font-size: 18px;">
 
         <% if employee_signed_in? %>
+          <!--マイページリンク-->
           <li style="padding-right: 20px; border-right: 1px solid #000000;">
             <%= link_to public_employee_path(current_employee), class: 'nav-link text-dark' do%>
               MY PAGE
             <% end %>
           </li>
+          <!--NEWSリンク-->
           <li style="padding: 0px 20px; border-right: 1px solid #000000;">
             <%= link_to public_notices_path, class: 'nav-link text-dark' do %>
               NEWS
             <%end %>
           </li>
+          <!--EVENTSリンク-->
           <li  style="padding: 0px 20px; border-right: 1px solid #000000;">
             <%= link_to public_events_path, class: 'nav-link text-dark' do %>
               EVENTS
             <% end %>
           </li>
+          <!--BLOGSリンク-->
           <li  style="padding: 0px 20px; border-right: 1px solid #000000;">
             <%= link_to public_blogs_path, class: 'nav-link text-dark' do %>
                BLOGS
             <% end %>
           </li>
+          <!--PRODUCTSリンク-->
           <li style="padding: 0px 20px; border-right: 1px solid #000000;">
             <%= link_to public_products_path, class: 'nav-link text-dark' do %>
               PRODUCTS
             <% end %>
           </li>
+          <!--Q&Aリンク-->
           <li style="padding: 0px 20px; border-right: 1px solid #000000;">
             <%= link_to public_chats_path, class: 'nav-link text-dark' do %>
               Q & A
             <% end %>
           </li>
+          <!--ログアウトリンク-->
           <li style="padding-left: 20px;">
             <%= link_to destroy_employee_session_path, method: :delete, class: 'nav-link text-dark' do %>
               LOG OUT
@@ -51,36 +63,43 @@
           </li>
 
         <% elsif admin_signed_in? %>
+        <!--社員一覧リンク-->
           <li style="padding: 0 20px; border-right: 1px solid #000000;">
             <%= link_to admin_employees_path, class: 'nav-link text-dark' do %>
               EMPLOYEES
             <% end %>
           </li>
+          <!--NEWSリンク-->
           <li style="padding: 0 20px; border-right: 1px solid #000000;">
             <%= link_to admin_notices_path, class: 'nav-link text-dark' do %>
               NEWS
             <% end %>
           </li>
+          <!--EVENTSリンク-->
           <li style="padding: 0 20px; border-right: 1px solid #000000;">
             <%= link_to admin_events_path, class: 'nav-link text-dark' do %>
               EVENTS
             <% end %>
           </li>
+          <!--BLOGSリンク-->
           <li style="padding: 0 20px; border-right: 1px solid #000000;">
             <%= link_to admin_blogs_path, class: 'nav-link text-dark' do %>
               BLOGS
             <% end %>
           </li>
+          <!--PRODUCTSリンク-->
           <li style="padding: 0 20px; border-right: 1px solid #000000;">
             <%= link_to admin_products_path, class: 'nav-link text-dark' do %>
               PRODUCTS
             <% end %>
           </li>
+          <!--Q&Aリンク-->
           <li style="padding: 0 20px; border-right: 1px solid #000000;">
             <%= link_to admin_chats_path, class: 'nav-link text-dark' do %>
               Q&A
             <% end %>
           </li>
+          <!--ログアウトリンク-->
           <li style="padding-left: 20px;">
             <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' do %>
               LOG OUT
@@ -89,29 +108,33 @@
           </li>
 
         <% else %>
-
+          <!--NEWSリンク-->
           <li style="padding: 0px 20px; border-right: 1px solid #000000;">
-            <%= link_to public_notices_path, class: 'text-dark' do %>
+            <%= link_to public_notices_path, class: 'nav-link text-dark' do %>
               NEWS
             <% end %>
           </li>
+          <!--ABOUTリンク-->
           <li style="padding:0px 20px; border-right: 1px solid #000000;">
-            <%= link_to public_about_path, class: 'text-dark' do %>
+            <%= link_to public_about_path, class: 'nav-link text-dark' do %>
               ABOUT
             <% end %>
           </li>
+          <!--BLOGSリンク-->
           <li style="padding: 0 20px; border-right: 1px solid #000000;">
-            <%= link_to public_blogs_path, class: 'text-dark' do %>
+            <%= link_to public_blogs_path, class: 'nav-link text-dark' do %>
               BLOGS
             <% end %>
           </li>
+          <!--PRODUCTSリンク-->
           <li style="padding: 0 20px; border-right: 1px solid #000000;">
-            <%= link_to public_products_path, class: 'text-dark' do %>
+            <%= link_to public_products_path, class: 'nav-link text-dark' do %>
               PLODUCTS
             <% end %>
           </li>
+          <!--ログインリンク-->
           <li style="padding-left: 20px;">
-            <%= link_to new_employee_session_path, class: 'text-dark' do %>
+            <%= link_to new_employee_session_path, class: 'nav-link text-dark' do %>
               LOG IN
               <i class="fas fa-sign-in-alt"></i>
             <% end %>
