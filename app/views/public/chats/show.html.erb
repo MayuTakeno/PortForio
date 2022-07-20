@@ -23,7 +23,7 @@
       <p>メッセージ全<%= @chat.chat_messages.count %>件</p>
     </div>
     <!--下部表示内容-->
-    <div class="col-md-8 chat-message-body">
+    <div class="col-md-8" style="text-align: center; margin-top: 50px; margin-bottom: 30px;">
       <!--コメントを表示させたいテーブルリンク-->
       <div id="comments_area">
         <%= render 'public/chat_messages/comments', chat: @chat %>
