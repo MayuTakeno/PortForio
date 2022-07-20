@@ -3,12 +3,13 @@
 <div class="container">
   <div class="row">
     <!--見出し-->
-    <div class="col-md-2" style="text-align: center;">
+    <div class="col-md-2 blog-index-title">
       <h4>Blog一覧</h4><br>全<%= @blogs.count %>件<br>
     </div>
     <!--内容-->
-    <div class="col-md-8" style="margin-bottom: 30px;">
+    <div class="col-md-8 blog-index-body">
     <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+      <!--テーブル見出し-->
       <thead>
         <tr>
           <th></th>
@@ -18,6 +19,7 @@
           <th colspan="1"></th>
         </tr>
       </thead>
+      <!--テーブル内容表示-->
       <tbody>
       <% @blogs.each do |blog| %>
         <tr>
@@ -50,18 +52,15 @@
             <% end %>
           </td>
         </tr>
-      </tbody>
       <% end %>
+      </tbody>
     </table>
     </div>
-    <% if employee_signed_in? %>
-    <!--新規作成リンク-->
-    <div class="col-md-2" style="text-align: center; margin-bottom: 30px;">
-      <%= link_to new_public_blog_path, class: 'btn btn-sm btn-info' do %>
-        新規作成
+    <!--リンク-->
+    <div class="col-md-2 blog-index-link">
+      <% if employee_signed_in? %>
+        <%= link_to "新規登録", new_public_blog_path, class: 'btn btn-sm btn-info' %>
       <% end %>
-    <% else %>
-    <% end %>
     <br>
     <br>
       <%= render 'public/searches/search_blog' %>
