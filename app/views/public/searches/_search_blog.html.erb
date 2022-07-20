@@ -1,7 +1,7 @@
 <!--ブログ用検索機能-->
 
 <%= form_with url: public_blogs_path, method: :get do |f| %>
-<div class="search-form">
+<div class="search-blog-form">
   <%= f.text_field :word, size: "10" %>
   <%= f.submit "検索", class: 'btn btn-sm btn-primary' %>
 </div>
