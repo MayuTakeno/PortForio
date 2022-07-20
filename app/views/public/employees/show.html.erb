@@ -6,8 +6,6 @@
     <!--見出し-->
     <div class="col-md-2 employee-show-title">
       <h4>マイページ</h4>
-      <br>
-      ブックマーク一覧
     </div>
     <div class="col-md-2"></div>
     <!--表示内容1-->
@@ -53,7 +51,7 @@
     </div>
     <div class="col-md-2"></div>
     <!--注文履歴/Q&A/編集リンク-->
-    <div class="col-md-2 employee-show-links">
+    <div class="col-md-2" style="text-align: center; margin-bottom: 30px;">
       <%= link_to "注文履歴", public_orders_path, class: 'btn btn-sm btn-info' %>
       <br><br>
       <%= link_to "Q&A", public_chats_path, class: 'btn btn-sm btn-secondary' %>
@@ -69,7 +67,7 @@
     <div class="col-md-2"></div>
     <!--表示内容2-->
     <div class="col-md-8 employee-show-blogs">
-      <% @employee.blogs.each do |blog| %>
+      <% current_employee.blogs.each do |blog| %>
         <!--画像-->
         <%= image_tag blog.get_image, size: "150x150" %>
         <!--title-->

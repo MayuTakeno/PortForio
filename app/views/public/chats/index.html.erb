@@ -2,7 +2,7 @@
 
 <div class="container">
 <!--_formの部分テンプレート-->
-<div id="chatform-btn" style="text-align: center;">
+<div id="chatform-btn" style="text-align: center; margin-bottom: 30px;">
   <%= render 'form', chat: @chat %>
 </div>
 
@@ -31,7 +31,7 @@
       </table>
     </div>
     <!--検索機能リンク-->
-    <div class="col-md-2 chat-index-link">
+    <div class="col-md-2" style="text-align: center; margin-bottom: 30px; margin-top: 30px;">
       <%= render 'public/searches/search_chat' %>
     </div>
   </div>
