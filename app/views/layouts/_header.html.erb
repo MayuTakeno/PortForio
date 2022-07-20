@@ -1,9 +1,9 @@
 <!--ヘッダー-->
 
-<nav class="navbar fixed-top navbar-expand-lg navbar-light">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light header-bar">
   <div class="container-fluid">
     <!--ロゴ-->
-    <a class="navbar-brand" href="/public">
+    <a class="navbar-brand header-logo" href="/public">
       <span>Kizuna</span>
     </a>
     <!--ボタン-->
@@ -15,7 +15,7 @@
     </button>
     <!--リンク集-->
     <div class="collapse navbar-collapse" id="navbarNavList">
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ml-auto header-link">
 
         <% if employee_signed_in? %>
           <!--マイページリンク-->
@@ -85,7 +85,7 @@
 
         <% else %>
           <!--NEWSリンク-->
-          <li class="header-li-1" style=" padding-right: 20px; border-right: 1px solid rgba(0, 0, 0, 0.5);">
+          <li class="header-li-1">
             <%= link_to "NEWS", public_notices_path, class: 'nav-link text-dark' %>
           </li>
           <!--ABOUTリンク-->
