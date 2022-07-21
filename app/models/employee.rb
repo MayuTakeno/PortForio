@@ -18,7 +18,7 @@ class Employee < ApplicationRecord
   has_many :favorites, dependent: :destroy
 
   has_many :view_counts, dependent: :destroy
-
+  has_many :calendars, dependent: :destroy
 
 # 氏名（姓+名）の定義
   def name

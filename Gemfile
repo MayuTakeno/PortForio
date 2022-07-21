@@ -58,6 +58,7 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'enum_help'
 gem 'securerandom'
+gem 'simple_calendar', '~> 2.0'
 gem 'kaminari', '~> 1.2.1'
 # 本番環境
 gem 'dotenv-rails'
