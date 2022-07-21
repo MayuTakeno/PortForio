@@ -1,4 +1,5 @@
 <!--footer-->
+
 <div class="row">
   <!--アプリロゴ-->
   <div class="col" style="text-align: center; background-color: #000000; color: #fff; padding-top: 5px;">
@@ -11,47 +12,80 @@
 <div class="row" style="background-color: #000000; min-height: 60vh; padding-top: 30px;">
   <div class="col-md-2"></div>
   <div class="col-md-2" style="font-size: 14px; color: #fff;">
+  <% if employee_signed_in? %>
     <!--お知らせ-->
     <%= link_to "お知らせ", public_notices_path, class: 'text-light' %>
     <br>
     <!--ブログ-->
     <%= link_to "ブログ", public_blogs_path, class: 'text-light' %>
     <br>
-  <% if employee_signed_in? %>
     <!--イベント-->
     <%= link_to "イベント", public_events_path, class: 'text-light' %>
+    <br>
+    <%= link_to "マイページ", public_employee_path(current_employee), class: 'text-light' %>
+  <% elsif admin_signed_in? %>
+    <!--お知らせ管理-->
+    <%= link_to "社員一覧", admin_employees_path, class: 'text-light' %>
+    <br>
+    <%= link_to "お知らせ一覧", admin_notices_path, class: 'text-light' %>
+    <br>
+    <%= link_to "ブログ一覧", admin_blogs_path, class: 'text-light' %>
+    <br>
+    <%= link_to "イベント一覧", admin_events_path, class: 'text-light' %>
+  <% else %>
+    <%= link_to "お知らせ", public_notices_path, class: 'text-light' %>
+    <br>
+    <%= link_to "ブログ", public_blogs_path, class: 'text-light' %>
   <% end %>
   </div>
   <div class="col-md-2" style="font-size: 14px; color: #fff;">
   <% if employee_signed_in? %>
+    <!--製品一覧-->
+    <%= link_to "製品カタログ", public_products_path, class: 'text-light' %>
+    <br>
     <!--注文状況-->
     <%= link_to "注文状況", public_cart_items_path, class: 'text-light' %>
     <br>
     <!--注文履歴-->
     <%= link_to "注文履歴", public_orders_path, class: 'text-light' %>
-  <% else %>
-    <!--管理者ログイン-->
-    <%= link_to "管理者ログイン", new_admin_session_path, class: 'text-light' %>
+  <% elsif admin_signed_in? %>
+    <%= link_to "製品管理", admin_products_path, class: 'text-light' %>
     <br>
-    <!--ログイン-->
-    <%= link_to "ログイン", new_employee_session_path, class: 'text-light' %>
+    <%= link_to "注文履歴管理", admin_orders_path, class: 'text-light' %>
+  <% else %>
+    <%= link_to "製品カタログ", public_products_path, class: 'text-light' %>
   <% end %>
   </div>
   <div class="col-md-2" style="font-size: 14px; color: #fff;">
+  <% if employee_signed_in? %>
     <!--各種問い合わせ-->
     <%= link_to "各種問い合わせ", public_chats_path, class: 'text-light' %>
     <br>
     <!--サイト概要-->
     <%= link_to "サイト概要", public_about_path, class: 'text-light' %>
+  <% elsif admin_signed_in? %>
+    <%= link_to "チャット履歴管理", admin_chats_path, class: 'text-light' %>
+  <% else %>
+    <%= link_to "各種問い合わせ", public_chats_path, class: 'text-light' %>
     <br>
+    <%= link_to "サイト概要", public_about_path, class: 'text-light' %>
+    <br>
+  <% end %>
   </div>
   <div class="col-md-2" style="font-size: 14px; color: #fff;">
+  <% if employee_signed_in? %>
     <!--ログアウト-->
-    <%= link_to"ログアウト", destroy_employee_session_path, method: :delete, class: 'text-light' %>
+    <%= link_to "ログアウト", destroy_employee_session_path, method: :delete, class: 'text-light' %>
     <br>
-    <% if employee_signed_in? %>
     <!--マイページ-->
-    <%= link_to "マイページ", public_employee_path(current_employee), class: 'text-light' %>
+  <% elsif admin_signed_in? %>
+    <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'text-light' %>
+  <% else %>
+    <!--管理者ログイン-->
+    <%= link_to "管理者ログイン", new_admin_session_path, class: 'text-light' %>
+    <br>
+    <!--ログイン-->
+    <%= link_to "社員ログイン", new_employee_session_path, class: 'text-light' %>
   <% end %>
   </div>
 
