@@ -17,7 +17,6 @@ class Public::EmployeesController < ApplicationController
   def show
     @employee.blogs = Blog.includes(:employee)
     @events = Event.includes(:admin)
-
   end
 
   private
