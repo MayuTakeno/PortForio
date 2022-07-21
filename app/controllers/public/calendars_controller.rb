@@ -1,9 +1,9 @@
 class Public::CalendarsController < ApplicationController
 
   def create
-    calendar_new = current_employee.calendars.new(calendar_params)
-    calendar_new.employee_id = current_employee.id
-    calendar_new.save
+    calendar = current_employee.calendars.new(calendar_params)
+    calendar.employee_id = current_employee.id
+    calendar.save
     redirect_to public_employee_path(current_employee)
   end
 
