@@ -7,18 +7,7 @@
     <div class="col-md-2 employee-show-title">
       <h4>マイページ</h4>
       <br>
-      <%= month_calendar do |date, calendars| %>
-        <%= date.day %>
-        <% calendars.each do |calendar| %>
-          <%= calendar.title %>
-        <% end %>
-      <% end %>
-      <%= form_with model: @calendar, remote: true, method: :post do |f| %>
-      <%= f.text_field :title, autocomplete: "content", placeholder: "予定の題名" %>
-      <%= f.text_field :content, autocomplete: "content", placeholder: "予定を入力してください" %>
-      <%= f.datetime_field :start_time %>
-      <%= f.submit "予定作成", class: 'btn btn-sm btn-success' %>
-      <% end %>
+      <%= render 'public/calendars/calendar', calendar: @calendar, employee: @employee %>
     </div>
     <div class="col-md-2"></div>
     <!--表示内容1-->
