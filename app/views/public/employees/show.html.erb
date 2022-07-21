@@ -63,24 +63,20 @@
   </div>
 
   <!--row2-->
-  <div class="row">
-    <div class="col" style="text-align: center; border-bottom: 1px solid #000000;">
-      <h4>blogs</h4>
-    </div>
+  <div class="row" style="border-bottom: 1px solid #000000;">
   </div>
   <div class="row">
-    <!--表示内容2-->
-    <div class="col-md-3"></div>
-    <div class="col-md-6" style="margin-top: 30px; margin-bottom: 100px; text-align: center;">
+    <!--blogs-->
+    <div class="col" style="margin-top: 30px; margin-bottom: 100px; text-align: center;">
       <% @employee.blogs.each do |blog| %>
-      <div class="box">
         <br>
         <!--画像-->
-        <div><%= image_tag blog.get_image, size: "100x100" %></div>
+        <%= image_tag blog.get_image, size: "250x250" %>
         <!--title-->
-        <%= blog.title %><br><%= blog.created_at.strftime("%Y/%m/%d %H:%M") %>
-      </div>
+        <%= simple_format blog.title %><%= blog.created_at.strftime("%Y/%m/%d %H:%M") %>　閲覧数<%= blog.view_counts.count %>　<i class="fas fa-heart" style="color: red;"></i>︎<%= blog.favorites.count %><br>
       <% end %>
+    </div>
+
     </div>
   </div>
 
