@@ -57,6 +57,8 @@ Rails.application.routes.draw do
     # get 'notices/show'
     # get 'notices/edit'
     resources :employees, except: [:index, :new]
+    resources :calendars, only: [:create]
+    # post 'employees/:id' => 'employees#show'
     # get 'employees/show'
     # get 'employees/edit'
     resources :blogs do
