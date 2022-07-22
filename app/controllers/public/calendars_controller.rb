@@ -5,6 +5,7 @@ class Public::CalendarsController < ApplicationController
     @calendar.employee_id = current_employee.id
     if @calendar.save
       @calendars = Calendar.includes(:employee)
+      redirect_to public_employee_path(current_employee)
     else
       render :validater
     end

@@ -1,12 +1,12 @@
 <%= form_with model: calendar, url: public_calendars_path, remote: true, local: false, method: :post do |f| %>
   <div class="field">
-    <%= f.text_field :title, autocomplete: "content", placeholder: "予定の題名" %>
+    <%= f.text_field :title, value: @calendar.title, autocomplete: "content", placeholder: "予定の題名" %>
   </div>
   <div class="field">
-    <%= f.text_field :content, autocomplete: "content", placeholder: "予定を入力してください" %>
+    <%= f.text_field :content,value: @calendar.content, autocomplete: "content", placeholder: "予定を入力してください" %>
   </div>
   <div class="field">
-    <%= f.datetime_field :start_time %>
+    <%= f.datetime_field :start_time, value: @calendar.start_time %>
   </div>
 <%= f.submit "予定作成", class: 'btn btn-sm btn-success' %>
 <% end %>
