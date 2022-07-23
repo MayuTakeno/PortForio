@@ -10,12 +10,12 @@
       <br>
       <% unless employee_signed_in? || admin_signed_in? %>
       <!--ゲストリンク-->
-        <div class="guest-path">
+        <div class="guest-path" style="padding-top: 50px;">
           ゲストの方はこちらからログインできます。<br>↓<br>
           <%= link_to "ゲストログイン(閲覧用)", public_employees_guest_sign_in_path, class: 'btn btn-secondary btn-sm sign_in', method: :post %>
         </div>
         <!--adminリンク-->
-        <div class="admin-path" style="margin-bottom: 30px;">
+        <div class="admin-path" style="margin-bottom: 30px; padding-top: 50px;">
           管理者の方はこちらからログインできます<br>↓<br>
           <%= link_to "管理者ログイン", new_admin_session_path, class: 'btn btn-info btn-sm' %>
         </div>
@@ -23,7 +23,7 @@
         <br>
         <!--注意書き-->
         <strong>※必読</strong>
-        <div class="warning">
+        <div class="warning" style="margin-bottom: 30px; font-size: 12px;">
           この作品は学習してきたことを<br>実践するためのフィクションであり、<br>
           このサイトで扱われているACom.incはポートフォリオ作品中での架空の会社名であり
           <br>
@@ -35,7 +35,7 @@
         </div>
         <!--使用素材元-->
         <strong>※使用素材</strong>
-        <div class="warning">
+        <div class="warning" style="margin-bottom: 30px; font-size: 12px;">
           セルシス様 CLIP STUDIO PAINT 素材
           <br>
           DMM WEBCANP様 教材素材
