@@ -15,11 +15,11 @@ class Public::EmployeesController < ApplicationController
   end
 
   def show
-    @employee.blogs = Blog.includes(:employee)
     @calendars = Calendar.includes(:employee)
     @calendar = Calendar.new
-    # @calendar = @calendars.build(employee_id: current_employee.id) if current_employee
+    @calendar = @calendars.build(employee_id: current_employee.id) if current_employee
   end
+
 
   private
 

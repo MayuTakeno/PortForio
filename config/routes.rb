@@ -62,7 +62,7 @@ Rails.application.routes.draw do
     # get 'employees/show'
     # get 'employees/edit'
     resources :blogs do
-      resource :favorites, only: [:create, :destroy]
+      resource :favorites, only: [:create, :destroy, :index]
     end
     resources :events, only: [:index, :show]
     post "chats/:id" => "chats#show"

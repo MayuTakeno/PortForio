@@ -1,5 +1,10 @@
 class Public::FavoritesController < ApplicationController
 
+  def index
+    # @favorites = Favorite.includes(:employee)
+    @favorites = Favorite.where(employee_id: @employee.id).pluck(:blog_id)
+  end
+
   def create
     @blog = Blog.find(params[:blog_id])
     @favorite = current_employee.favorites.new(blog_id: @blog.id)
