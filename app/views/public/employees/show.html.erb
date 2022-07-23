@@ -57,7 +57,7 @@
       <br><br>
       <%= link_to "Q&A", public_chats_path, class: 'btn btn-sm btn-secondary' %>
       <br><br>
-      <%= link_to "ブクマ一覧" %>
+      <%= link_to "ブクマ一覧", favorites_public_employee_path(@employee), class: 'btn btn-sm btn-warning' %>
       <br><br>
       <% if @employee.first_name != "guest" && @employee.last_name != "tarou" %>
         <%= link_to "編集", edit_public_employee_path, class: 'btn btn-sm btn-success' %>
@@ -66,8 +66,8 @@
   </div>
 
   <div class="row" style="border-bottom: 1px solid #000000; text-align: center; padding-bottom: 50px;">
-    <div class="col">
       <!--カレンダー機能-->
+    <div class="col">
       <div class="errors">
         <%= render 'layouts/errors', obj: @calendar %>
       </div>
