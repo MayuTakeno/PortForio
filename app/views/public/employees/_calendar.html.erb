@@ -1,6 +1,8 @@
-<%= month_calendar calendars: calendars do |date, calendars| %>
+<%= month_calendar events: calendars do |date, calendars| %>
   <%= date.day %>
   <% calendars.each do |calendar| %>
-    <%= calendar.title %>
+    <%= link_to public_calendar_path(calendar) do %>
+      <%= simple_format calendar.title %>
+    <% end %>
   <% end %>
 <% end %>

@@ -16,9 +16,9 @@ class Public::EmployeesController < ApplicationController
 
   def show
     @employee.blogs = Blog.includes(:employee)
-    @events = Event.includes(:admin)
     @calendars = Calendar.includes(:employee)
     @calendar = Calendar.new
+    # @calendar = @calendars.build(employee_id: current_employee.id) if current_employee
   end
 
   private

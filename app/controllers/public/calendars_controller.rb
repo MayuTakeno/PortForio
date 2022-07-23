@@ -11,6 +11,17 @@ class Public::CalendarsController < ApplicationController
     end
   end
 
+  def show
+    @calendar = Calendar.find(params[:id])
+    @calendars = Calendar.includes(:employee)
+  end
+
+  def destroy
+    @calendar = Calendar.find(params[:id])
+    @calendar.destroy
+    redirect_to public_employee_path(current_employee)
+  end
+
   private
 
   def calendar_params
