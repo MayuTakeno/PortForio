@@ -13,3 +13,9 @@
  *= require simple_calendar
  *= require_tree .
  *= require_self
+*/
+
+
+ html, body{
+  overflow-x: hidden
+}
