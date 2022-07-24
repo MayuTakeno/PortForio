@@ -3,13 +3,42 @@
 // fontawesomeのインポート
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-// CSS
+// publicCSSリンク{
+@import 'public/blogs';
+@import 'public/cart_items';
+@import 'public/chat_messages';
+@import 'public/chats';
+@import 'public/employees';
+@import 'public/events';
+@import 'public/favorites';
+@import 'public/homes';
+@import 'public/notices';
+@import 'public/orders';
+@import 'public/products';
+@import 'public/searches';
+// }
 
+// adminCSSリンク{
+@import 'admin/blogs';
+@import 'admin/chat_messages';
+@import 'admin/chats';
+@import 'admin/employees';
+@import 'admin/events';
+@import 'admin/notices';
+@import 'admin/orders';
+@import 'admin/products';
+@import 'admin/searches';
+@import 'admin/tags';
+// }
+
+// applicationCSS{
+
+// 画面の横軸を固定{
 html{
   overflow-x: hidden;
 }
-
-// main_background_imageCSS
+// }
+// main_background_imageCSS{
 .background-image-1{
   width: 101%;
   // background-image: image-url('sozai13.jpg');
@@ -33,13 +62,13 @@ html{
   position: relative;
   z-index: 3;
 }
-
-// containerCSS
-.container{
-  padding-top: 100px;
-}
-
-// rootCSS
+// }
+// containerCSS{
+// .container{
+  // padding-top: 100px;
+// }
+// }
+// rootCSS{
 .background-image-2{
   width: 101%;
   height: 100%;
@@ -52,8 +81,8 @@ html{
   color: limegreen;
   position: absolute;
 }
-
-// public_rootCSS
+// }
+// public_rootCSS{
 .background-image-3{
   width: 101%;
   height: 100%;
@@ -64,19 +93,20 @@ html{
   padding-top: 150px;
   margin-left: 120px;
 }
-
-// admin_blogs_chart.jsCSS
+// }
+// admin_blogs_chart.jsCSS{
 #chart {
   margin: auto;
   text-align: center;
   width: 600px;
   height: 300px;
 }
-
-// paginationCSS
+// }
+// paginationCSS{
 .pagination{
   justify-content: center;
   margin: 30px 0;
 }
+// }
 
-// CSS終わり
+// }
