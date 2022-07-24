@@ -1,3 +1,60 @@
-// Place all the styles related to the public/employees controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+// containerCSS{
+.employee-container{
+  padding: 100px 0px;
+}
+// }
+
+// showCSS{
+.employee-show-logo{
+  text-align: center;
+}
+.employee-show-body{
+  margin-bottom: 30px;
+}
+.employee-table{
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+.employee-show-link{
+  text-align: center;
+  margin-bottom: 30px;
+}
+.employee-show-calendar{
+  border-bottom: 1px solid #000000;
+  text-align: center;
+  padding-bottom: 50px;
+}
+.employee-show-errors{
+  text-align: center;
+  font-size: 14px;
+  color: red;
+}
+.employee-show-body-2{
+  margin-top: 30px;
+  text-align: center;
+}
+// }
+
+// editCSS{
+.employee-edit-logo{
+  text-align: center;
+}
+.employee-edit-body{
+  margin-bottom: 30px;
+  text-align: center;
+}
+.employee-edit-field{
+  padding-top: 10px;
+}
+// }
+
+// favoritesCSS{
+.employee-favorite-title{
+  text-align: center;
+  margin-bottom: 30px;
+}
+.employee-favorite-table{
+  table-layout: fixed;
+  word-wrap: break-wrap;
+}
+// }
