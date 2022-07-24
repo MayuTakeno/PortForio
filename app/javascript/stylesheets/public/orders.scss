@@ -1,3 +1,79 @@
-// Place all the styles related to the public/orders controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+// containerCSS{
+.order-container{
+  padding: 100px 0px;
+}
+// }
+
+// pCSS{
+.order-btn-info{
+  background-color: #ffad90;
+}
+// }
+
+// newCSS{
+.order-new-logo{
+  text-align: center;
+}
+.order-new-table{
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+.order-new-link{
+  text-align: center;
+  margin-bottom: 30px;
+}
+// }
+
+// indexCSS{
+.order-index-logo{
+  text-align: center;
+}
+.order-index-body{
+  margin-bottom: 30px;
+}
+.order-index-table{
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+// }
+
+// showCSS{
+.order-show-logo{
+  text-align: center;
+}
+.order-show-table{
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+.order-show-body{
+  margin-top: 50px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+// }
+
+// confirmCSS{
+.order-confirm-logo{
+  text-align: center;
+}
+.order-confirm-table{
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+.order-confirm-body{
+  margin-top: 30px;
+}
+.order-confirm-hidden-field{
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+// }
+
+// completeCSS{
+.order-complete-body{
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 80px;
+}
+// }

@@ -1,3 +1,32 @@
-// Place all the styles related to the public/notices controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+// containerCSS{
+.notice-container{
+  padding: 100px 0px;
+}
+// }
+
+// indexCSS{
+.notice-index-logo{
+  text-align: center;
+}
+.notice-index-body{
+  margin-bottom: 30px;
+}
+.notice-index-table{
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+.notice-index-link{
+  text-align: center;
+  margin-bottom: 30px;
+}
+// }
+
+// showCSS{
+.notice-show-logo{
+  text-align: center;
+}
+.notice-show-body{
+  text-align: center;
+  margin-bottom: 30px;
+}
+// }

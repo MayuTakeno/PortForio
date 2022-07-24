@@ -1,7 +1,9 @@
-// bootstrapのインポート
+// @import-list{
+// bootstrap
 @import '~bootstrap/scss/bootstrap';
-// fontawesomeのインポート
+// fontawesome
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+// }
 
 // publicCSSリンク{
 @import 'public/blogs';
@@ -11,7 +13,6 @@
 @import 'public/chats';
 @import 'public/employees';
 @import 'public/events';
-@import 'public/favorites';
 @import 'public/homes';
 @import 'public/notices';
 @import 'public/orders';
@@ -53,7 +54,7 @@ html{
   position: absolute;
   z-index: 2;
   width: 100%;
-  height:100%;
+  height: 100%;
   top: 0;
   left: 0;
   background-color: white;
@@ -81,18 +82,6 @@ html{
   font-size: 32px;
   color: limegreen;
   position: absolute;
-}
-// }
-// public_rootCSS{
-.background-image-3{
-  width: 101%;
-  height: 100%;
-  position: relative;
-}
-.public-root-text{
-  position: absolute;
-  padding-top: 150px;
-  margin-left: 120px;
 }
 // }
 // admin_blogs_chart.jsCSS{

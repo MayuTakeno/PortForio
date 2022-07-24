@@ -1,21 +1,21 @@
 <!--イベント詳細-->
 
-<div class="container">
+<div class="container event-container">
   <div class="row">
     <!--見出し-->
-    <div class="col-md-2" style="text-align: center;">
+    <div class="col-md-2 event-show-logo">
       <h4>Event詳細</h4>
     </div>
     <!--イメージ画像-->
-    <div class="col-md-8" style="text-align: center;">
+    <div class="col-md-8 event-show-image">
       <%= image_tag @event.get_image, size: "300x300" %>
     </div>
   </div>
   <div class="row">
     <div class="col-md-2"></div>
     <!--表示内容-->
-    <div class="col-md-8" style="margin-bottom: 30px;">
-      <table class="table" style="margin-top: 20px; table-layout: fixed; word-wrap: break-word;">
+    <div class="col-md-8 event-show-body">
+      <table class="table event-show-table">
         <!--イベント名/主催者-->
         <tr>
           <th>イベント名</th>
