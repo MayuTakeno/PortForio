@@ -1,3 +1,48 @@
-// Place all the styles related to the public/Products controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+// containerCSS{
+.product-container{
+  padding: 100px 0px;
+}
+// }
+
+// indexCSS{
+.product-index-logo{
+  text-align: center;
+}
+.product-index-body{
+  margin-bottom: 30px;
+}
+.product-index-table{
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+.product-index-link{
+  text-align: center;
+  margin-bottom: 30px;
+}
+// }
+
+// showCSS{
+.product-show-logo{
+  text-align: center;
+}
+.product-show-body{
+  text-align: center;
+}
+.product-show-body-2{
+  margin-top: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.product-show-logo-2{
+  text-align: center;
+  margin-top: 50px;
+}
+.product-show-body-3{
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+.product-show-table{
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+// }
