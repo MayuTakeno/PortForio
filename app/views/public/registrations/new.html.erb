@@ -1,68 +1,66 @@
 <!--employee新規登録ページ-->
 
 <%= form_with model: @employee, url: employee_registration_path do |f| %>
-<div class="container">
+<div class="container registration-container">
   <div class="row">
     <!--エラーメッセージ-->
-    <div class="col-md-3" style="text-align: center;">
+    <div class="col-md-3 registration-new-error">
       <%= render "public/shared/error_messages", resource: @employee %>
-      <%= render 'layouts/alert' %>
-      <%= render 'layouts/notice' %>
     </div>
     <!--入力項目-->
-    <div class="col-md-6" style="text-align: center;">
+    <div class="col-md-6 registration-new-body">
       <!--注意書き-->
       <strong>
         ※当サイトはポートフォリオに使用する作品です。<br>リアルに関する情報は載せないようにお願い申し上げます。<br><br>
-        <span style="color: red;">*</span>は入力必須項目です
+        <span class="registration-new-field">*</span>は入力必須項目です
         <br>
       </strong>
       <br>
       <!--first_name-->
       <div class="field">
-        <span style="color: red;"><%= f.label "*" %></span>
+        <span class="registration-new-field"><%= f.label "*" %></span>
         <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: "氏名(姓)", size: "40" %>
       </div>
       <br>
       <!--last_name-->
       <div class="field">
-        <span style="color: red;"><%= f.label "*" %></span>
+        <span class="registration-new-field"><%= f.label "*" %></span>
         <%= f.text_field :last_name,  autocomplete: "last_name", placeholder: "氏名(名)", size: "40" %>
       </div>
       <br>
       <!--assigned_to-->
       <div class="field">
-        <span style="color: red;"><%= f.label "*" %></span>
+        <span class="registration-new-field"><%= f.label "*" %></span>
         <%= f.text_field :assigned_to, autocomplete: "assigned_to", placeholder: "配属先", size: "40" %>
       </div>
       <br>
       <!--employee_code-->
       <div class="field">
-        <span style="color: red;"><%= f.label "*" %></span>
+        <span class="registration-new-field"><%= f.label "*" %></span>
         <%= f.text_field :employee_code, autocomplete: "employee_code", placeholder: "社員番号", size: "40" %>
       </div>
       <br>
       <!--phone_number-->
       <div class="field">
-        <span style="color: red;"><%= f.label "*" %></span>
+        <span class="registration-new-field"><%= f.label "*" %></span>
         <%= f.text_field :phone_number, autocomplete: "phone_number", placeholder: "電話番号", size: "40" %>
       </div>
       <br>
       <!--email-->
       <div class="field">
-        <span style="color: red;"><%= f.label "*" %></span>
+        <span class="registration-new-field"><%= f.label "*" %></span>
         <%= f.email_field :email, autocomplete: "email", placeholder: "メールアドレス", size:"40" %>
       </div>
       <br>
       <!--password-->
       <div class="field">
-        <span style="color: red;"><%= f.label "*" %></span>
+        <span class="registration-new-field"><%= f.label "*" %></span>
         <%= f.password_field :password, autocomplete: "new-password",placeholder: "パスワード(8~36文字)", size: "40" %>
       </div>
       <br>
       <!--password_confirmation-->
       <div class="field">
-        <span style="color: red;"><%= f.label "*" %></span>
+        <span class="registration-new-field"><%= f.label "*" %></span>
         <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード(確認)", size: "40" %>
       </div>
       <br>
@@ -70,17 +68,13 @@
       <div class="actions">
         <%= f.submit "登録" %>
       </div>
+      <!--ログインリンク-->
+      <div class="registration-new-link">
+        <strong>社員登録がお済みの方は</strong>
+        <br>
+        <%= render "public/shared/links" %>
+      </div>
     </div>
   </div>
 </div>
 <% end %>
-<!--ログインリンク-->
-<div class="link">
-  <div class="row">
-    <div class="col" style="text-align: center; margin: 30px 0;">
-      <strong>社員登録がお済みの方は</strong>
-      <br>
-      <%= render "public/shared/links" %>
-    </div>
-  </div>
-</div>
