@@ -1,28 +1,28 @@
 <%= form_with model: @admin, url: new_admin_session_path do |f| %>
-<div class="container">
+<div class="container sessions-container">
   <div class="row">
-    <div class="col-md-3" style="text-align: center;">
+    <!--見出し-->
+    <div class="col-md-3 sessions-new-logo">
       <h4>管理者ログイン</h4>
       <%= render "public/shared/error_messages", resource: resource %>
-      <%= render 'layouts/alert' %>
-      <%= render 'layouts/notice' %>
     </div>
-    <div class="col-md-6" style="text-align: center; margin-bottom: 30px;">
+    <!--表示内容-->
+    <div class="col-md-6 sessions-new-body">
       <strong>
         こちらは管理者用のログインページでございます。<br>主にユーザーが投稿したものをこちらで管理できるようにしています。
         <br><br>
-        <span style="color: red;">*</span>は入力必須項目です
+        <span class="sessions-field-color">*</span>は入力必須項目です
       </strong>
 
       <br><br>
 
       <div class="field">
-        <span style="color: red;">*</span>
+        <span class="sessions-field-color">*</span>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", size: "40" %>
       </div>
       <br>
       <div class="field">
-        <span style="color: red;">*</span>
+        <span class="sessions-field-color">*</span>
         <%= f.password_field :password, autocomplete: "current-password",placeholder: "パスワード", size: "40" %>
       </div>
       <% if devise_mapping.rememberable? %>
