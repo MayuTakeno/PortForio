@@ -4,10 +4,9 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 // CSS
-
 // main_background_imageCSS
 .background-image-1{
-  width: 100%;
+  width: 101%;
   // background-image: image-url('sozai13.jpg');
   background-image: url(../images/sozai13.jpg);
   background-size: cover;
@@ -76,3 +75,8 @@
 }
 
 // CSS終わり
+
+// 横にスクロールできないようにする
+html, body{
+  overflow-x: hidden
+}
