@@ -4,6 +4,7 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 // CSS
+
 // main_background_imageCSS
 .background-image-1{
   width: 101%;
@@ -75,8 +76,3 @@
 }
 
 // CSS終わり
-
-// 横にスクロールできないようにする
-body{
-  overflow-x: hidden;
-}
