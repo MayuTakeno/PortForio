@@ -1,26 +1,32 @@
-<div class="container">
+<div class="container calendar-container">
   <div class="row">
-    <div class="col-md-2" style="text-align: center;">
+    <!--見出し-->
+    <div class="col-md-2 calendar-show-logo">
       <h4><%= @calendar.start_time.strftime("%Y/%m/%d") %><br>の予定</h4>
     </div>
-    <div class="col-md-8" style="text-align: center;">
-      <div class="box" style="border: 1px solid #fff; background-color: rgba(255,255,255,0.5);">
+    <!--表示内容-->
+    <div class="col-md-8 calendar-show-body">
+      <!--タイトル-->
+      <div class="box calendar-show-box">
         <strong>タイトル</strong>
         <p><%= simple_format @calendar.title %></p>
       </div>
       <br>
-      <div class="box" style="border: 1px solid #fff; background-color: rgba(255,255,255,0.5);">
+      <!--予定内容-->
+      <div class="box calendar-show-box">
         <strong>内容</strong>
         <p><%= simple_format @calendar.content %></p>
       </div>
       <br>
-      <div class="box" style="border: 1px solid #fff; background-color: rgba(255,255,255,0.5);">
+      <!--開始時刻-->
+      <div class="box calendar-show-box">
         <strong>開始時刻</strong>
         <p><%= @calendar.start_time.strftime("%Y/%m/%d %H:%M") %>〜</p>
       </div>
       <br>
     </div>
-    <div class="col-md-2" style="margin-bottom: 30px; text-align: center;">
+    <!--削除リンク-->
+    <div class="col-md-2 calendar-show-link">
       <%= link_to "削除", public_calendar_path(@calendar), method: :delete, class: 'btn btn-sm btn-danger' %>
     </div>
   </div>

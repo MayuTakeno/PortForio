@@ -1,3 +1,22 @@
-// Place all the styles related to the public/calendars controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+// containerCSS{
+.calendar-container{
+  padding: 100px 0px;
+}
+// }
+
+// showCSS{
+.calendar-show-logo{
+  text-align: center;
+}
+.calendar-show-body{
+  text-align: center;
+  margin-bottom: 30px;
+}
+.calendar-show-box{
+  border: 1px solid #fff;
+  background-color: rgba(255,255,255,0.5);
+}
+.calendar-show-link{
+  text-align: center;
+}
+// }

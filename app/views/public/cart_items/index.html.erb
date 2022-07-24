@@ -1,15 +1,15 @@
 <!--カート内製品一覧-->
 
-<div class="container">
+<div class="container cartitem-container">
   <div class="row">
     <!--見出し-->
-    <div class="col-md-2" style="text-align: center;">
+    <div class="col-md-2 cartitem-index-logo">
       <h4><%= simple_format current_employee.name%>様の注文</h4><br>
       <span>全<%= @cart_items.count %>件</span>
     </div>
     <!--表示内容-->
-    <div class="col-md-8">
-      <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+    <div class="col-md-8 cartitem-index-body">
+      <table class="table cartitem-table">
         <!--全件削除リンク-->
         <thead>
           <tr>
@@ -91,9 +91,9 @@
       </table>
     </div>
   </div>
-  <!--リンク-->
   <div class="row">
-    <div class="col" style="text-align: center; margin-bottom: 30px;">
+  <!--リンク-->
+    <div class="col cartitem-index-link">
       <% if @cart_items.exists? %>
         <%= link_to "発注", new_public_order_path, class: 'btn btn-sm btn-info' %>
         <br>
