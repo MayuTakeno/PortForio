@@ -1,0 +1,65 @@
+// containerCSS{
+.blog-container{
+  padding: 100px 0px;
+}
+// }
+
+// newCSS{
+.blog-new-logo{
+  text-align: center;
+}
+.blog-new-body{
+  text-align: center;
+}
+.blog-new-errors{
+  text-align: center;
+  font-size: 14px;
+  color: red;
+}
+// }
+
+// indexCSS{
+.blog-index-logo{
+  text-align: center;
+}
+.blog-index-body{
+  margin-bottom: 30px;
+}
+.blog-table{
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+.blogs-index-link{
+  text-align: center;
+}
+// }
+
+// showCSS{
+.blog-show-logo{
+  text-align: center;
+}
+.blog-show-body{
+  text-align: center;
+}
+.blog-text{
+  border-top: 1px solid #000000;
+  margin-bottom: 30px;
+}
+.blog-show-link{
+  text-align: center;
+  margin-bottom: 30px;
+}
+.blog-show-favorite{
+  text-align: center;
+}
+// }
+
+// editCSS{
+.blog-edit-logo{
+  text-align: center;
+}
+.blog-edit-body{
+  text-align: center;
+  margin-bottom: 30px;
+}
+// }

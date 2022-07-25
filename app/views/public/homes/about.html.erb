@@ -1,9 +1,9 @@
 <!--aboutページ-->
 
-<div class="container">
+<div class="container about-container">
   <div class="row">
     <!--サイト概要-->
-    <div class="col" style="text-align: center;">
+    <div class="col about-body-1">
       KizunaはACom株式会社の<br>コミニケーション、及び社内物販ツールです<br>
       社員間での質問や交流を深めて<br>
       会社ライフを楽しくしていきましょう♪
@@ -15,7 +15,7 @@
           <%= link_to "ゲストログイン(閲覧用)", public_employees_guest_sign_in_path, class: 'btn btn-secondary btn-sm sign_in', method: :post %>
         </div>
         <!--adminリンク-->
-        <div class="admin-path" style="margin-bottom: 30px;">
+        <div class="admin-path">
           管理者の方はこちらからログインできます<br>↓<br>
           <%= link_to "管理者ログイン", new_admin_session_path, class: 'btn btn-info btn-sm' %>
         </div>

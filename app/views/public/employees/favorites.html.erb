@@ -1,0 +1,30 @@
+<div class="container employee-container">
+  <div class="row">
+    <!--見出し-->
+    <div class="col-md-2 employee-favorite-title">
+      <h4>ブックマーク一覧</h4>
+    </div>
+    <div class="col-md-8">
+      <table class="table employee-favorite-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>題名</th>
+            <th>投稿者</th>
+            <th>投稿日時</th>
+          </tr>
+        </thead>
+        <% @favorite_blogs.each do |blog| %>
+        <tr>
+          <td><%= image_tag blog.get_image, size: "50x50" %></td>
+          <td><%= blog.title %></td>
+          <td><%= blog.employee.name %></td>
+          <td><%= blog.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+        </tr>
+        <% end %>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

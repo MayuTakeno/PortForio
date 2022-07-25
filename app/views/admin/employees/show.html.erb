@@ -1,16 +1,16 @@
 <!--社員情報詳細ページ-->
 
 <%= form_with model: @employee, url: admin_employees_path do |f| %>
-<div class="container">
+<div class="container employee-container">
   <div class="row">
     <!--見出し-->
-    <div class="col-md-2" style="text-align: center;">
+    <div class="col-md-2 employee-show-logo">
       <h4>社員情報</h4>
     </div>
     <div class="col-md-1"></div>
     <!--内容表示-->
-    <div class="col-md-6" style="margin-bottom: 30px;">
-      <table class="table">
+    <div class="col-md-6 employee-show-body">
+      <table class="table employee-table">
         <!--氏名-->
         <tr>
           <th>氏名</th>
@@ -45,7 +45,7 @@
       </table>
     </div>
     <!--リンク-->
-    <div class="col-md-2" style="text-align: center; margin-bottom: 30px;">
+    <div class="col-md-2 employee-show-link">
       <% if @employee.first_name != "guest" %>
       <%=link_to "編集", edit_admin_employee_path(@employee), class: 'btn btn-sm btn-success' %>
       <% end %>

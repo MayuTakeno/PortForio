@@ -1,6 +1,6 @@
 <!--ブログ一覧管理-->
 
-<div class="container">
+<div class="blog-index-chart">
 <!--chart.js-->
   <div id="chart">
     <canvas id="myLineChart">
@@ -33,15 +33,15 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container blog-container-2">
   <div class="row">
     <!--見出し-->
-    <div class="col-md-2" style="text-align: center;">
+    <div class="col-md-2 blog-index-logo">
       <h4>社員Blog<br>一覧</h4>
     </div>
     <!--内容表示-->
-    <div class="col-md-8" style="margin-bottom: 30px;">
-      <table class="table" style="table-layout: fixed; word-wrap: break-word; ">
+    <div class="col-md-8 blog-index-body">
+      <table class="table blog-table">
         <!--テーブル見出し-->
         <thead>
           <tr>
@@ -76,10 +76,12 @@
       </table>
     </div>
     <!--検索機能リンク-->
-    <div class="col-md-2" style="text-align: center; margin-bottom: 30px;">
+    <div class="col-md-2 blog-index-link">
       <%= render 'admin/searches/search_blog' %>
     </div>
   </div>
   <!--ページネーション-->
-  <%= render 'layouts/paginate', obj: @blogs %>
+  <div class="pagination">
+    <%= render 'layouts/paginate', obj: @blogs %>
+  </div>
 </div>

@@ -1,16 +1,16 @@
 <!--社員情報編集ページ-->
 
 <%= form_with model: @employee, url: admin_employee_path(@employee.id) do |f| %>
-<div class="container">
+<div class="container employee-container">
   <div class="row">
     <!--見出し-->
-    <div class="col-md-2" style="text-align: center;">
+    <div class="col-md-2 employee-edit-logo">
       <h4>社員情報編集</h4>
     </div>
     <div class="col-md-1"></div>
     <!--入力内容-->
     <div class="col-md-6">
-      <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+      <table class="table employee-table">
         <!--社員名-->
         <tr>
           <th><%= f.label "社員名" %></th>
@@ -52,7 +52,7 @@
   </div>
   <div class="row">
     <!--submit 更新-->
-    <div class="col" style="text-align: center; margin-bottom: 30px;">
+    <div class="col employee-edit-submit">
       <%= f.submit "更新", class: 'btn btn-sm btn-success' %>
     </div>
   </div>

@@ -1,14 +1,51 @@
-// bootstrapのインポート
+// @import-list{
+// bootstrap
 @import '~bootstrap/scss/bootstrap';
-
-// fontawesomeのインポート
+// fontawesome
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+// }
 
-// CSS
+// publicCSSリンク{
+@import 'public/blogs';
+@import 'public/calendars';
+@import 'public/cart_items';
+@import 'public/chat_messages';
+@import 'public/chats';
+@import 'public/employees';
+@import 'public/events';
+@import 'public/homes';
+@import 'public/notices';
+@import 'public/orders';
+@import 'public/products';
+@import 'public/searches';
+@import 'public/sessions';
+@import 'public/registrations';
+// }
 
-// main_background_imageCSS
+// adminCSSリンク{
+@import 'admin/blogs';
+@import 'admin/chat_messages';
+@import 'admin/chats';
+@import 'admin/employees';
+@import 'admin/events';
+@import 'admin/notices';
+@import 'admin/orders';
+@import 'admin/products';
+@import 'admin/searches';
+@import 'admin/tags';
+@import 'admin/sessions';
+// }
+
+// applicationCSS{
+
+// 画面の横軸を固定{
+html{
+  overflow-x: hidden;
+}
+// }
+// main_background_imageCSS{
 .background-image-1{
-  width: 100%;
+  width: 101%;
   // background-image: image-url('sozai13.jpg');
   background-image: url(../images/sozai13.jpg);
   background-size: cover;
@@ -20,7 +57,7 @@
   position: absolute;
   z-index: 2;
   width: 100%;
-  height:100%;
+  height: 100%;
   top: 0;
   left: 0;
   background-color: white;
@@ -30,13 +67,8 @@
   position: relative;
   z-index: 3;
 }
-
-// containerCSS
-.container{
-  padding-top: 100px;
-}
-
-// rootCSS
+// }
+// rootCSS{
 .background-image-2{
   width: 101%;
   height: 100%;
@@ -49,84 +81,12 @@
   color: limegreen;
   position: absolute;
 }
-
-// public_rootCSS
-.background-image-3{
-  width: 101%;
-  height: 100%;
-  position: relative;
-}
-.public-root-text{
-  position: absolute;
-  padding-top: 150px;
-  margin-left: 120px;
-}
-
-// public_aboutCSS
-.bord{
-  background-color: rgba(255, 255, 255, 0.6);
-  justify-conten: center;
-}
-.guest-path{
-  padding-top: 50px;
-}
-.admin-path{
-  padding-top: 50px;
-}
-.warning{
-  margin-bottom: 30px;
-  font-size: 12px;
-}
-
-// public_employee_showCSS
-.employee-show-title{
-  text-align: center;
-}
-.employee-show-body{
-  margin-bottom: 30px;
-}
-
-// public_blogsCSS
-.blog-index-title{
-  text-align: center;
-}
-.blog-index-body{
-  margin-bottom: 30px;
-}
-
-// public_cart_item_indexCSS
-.table-cart_items{
-  table-layout: fixed;
-  word-wrap: break-word;
-}
-
-// public_chat_indexCSS
-.chat-index-title{
-  text-align: center;
-  margin-top: 30px;
-}
-.chat-index-table{
-  table-layout: fixed;
-  word-wrap: break-word;
-}
-
-// public_chat_showCSS
-.chat-show-title{
-  text-align: center;
-}
-
-// admin_blogs_chart.jsCSS
-#chart {
-  margin: auto;
-  text-align: center;
-  width: 600px;
-  height: 300px;
-}
-
-// paginationCSS
+// }
+// paginationCSS{
 .pagination{
   justify-content: center;
   margin: 30px 0;
 }
+// }
 
-// CSS終わり
+// }

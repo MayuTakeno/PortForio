@@ -1,13 +1,13 @@
 <!--ブログ詳細ページ-->
 
-<div class="container">
+<div class="container blog-container">
   <div class="row">
     <!--見出し-->
-    <div class="col-md-2" style="text-align: center;">
+    <div class="col-md-2 blog-show-logo">
       <h4><%= @blog.employee.name %></h4>
     </div>
     <!--詳細内容-->
-    <div class="col-md-8" style="text-align: center;">
+    <div class="col-md-8 blog-show-body">
       <%= image_tag @blog.get_image, size: "300x300" %>
       <br>
       <br>
@@ -18,26 +18,26 @@
       <br>
       <br>
       <!--body-->
-      <div style="border-top: 1px solid #000000;">
+      <div class="blog-text">
         <br>
         <h6>
           <%= simple_format @blog.body %>
         </h6>
       </div>
     </div>
-  <% if employee_signed_in? && @blog.employee_id == current_employee.id %>
-  <!--編集/削除リンク-->
-    <div class="col-md-2" style="text-align: center; margin-top: 20px; margin-bottom: 30px;">
-      <%= link_to "編集", edit_public_blog_path(@blog), class: 'btn btn-sm btn-success' %>
-      <br>
-      <br>
-      <%= link_to "削除", public_blog_path(@blog), method: :delete, class: 'btn btn-sm btn-danger' %>
+    <!--編集/削除リンク-->
+    <div class="col-md-2 blog-show-link">
+      <% if employee_signed_in? && @blog.employee_id == current_employee.id %>
+        <%= link_to "編集", edit_public_blog_path(@blog), class: 'btn btn-sm btn-success' %>
+        <br>
+        <br>
+        <%= link_to "削除", public_blog_path(@blog), method: :delete, class: 'btn btn-sm btn-danger' %>
+      <% end %>
     </div>
-  <% end %>
   </div>
   <div class="row">
     <!--ブックマーク表示-->
-    <div class="col" style="text-align: center; margin-bottom: 30px;">
+    <div class="col blog-show-favorite">
       <div id="favorite-btn_<%= @blog.id %>">
         <%= render 'public/favorites/favorite', blog: @blog %>
         <br>

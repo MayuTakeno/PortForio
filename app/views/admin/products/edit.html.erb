@@ -1,10 +1,12 @@
 <%= form_with model: @product, url: admin_product_path(@product.id) do |f| %>
-<div class="container">
+<div class="container product-container">
   <div class="row">
-    <div class="col-md-2" style="text-align: center;">
+    <!--見出し-->
+    <div class="col-md-2 product-edit-logo">
       <h4>製品情報編集</h4>
     </div>
-    <div class="col-md-8" style="text-align: center;">
+    <!--表示内容-->
+    <div class="col-md-8 product-edit-body">
       <div class="field">
         <%= f.label "製品名" %>
         <br>
@@ -51,11 +53,12 @@
     </div>
   </div>
   <div class="row">
-    <div class="col" style="text-align: center;">
+    <!--submit 更新-->
+    <div class="col product-edit-submit">
       <div class="field">
         <%= f.submit "登録", class: 'btn btn-sm btn-success' %>
       </div>
-      <div class="errors">
+      <div class="product-error">
         <%= render 'layouts/errors', obj: @product %>
       </div>
     </div>

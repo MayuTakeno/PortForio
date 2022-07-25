@@ -1,14 +1,14 @@
 <!--news編集ページ-->
 
 <%=form_with model: @notice, url: admin_notice_path(@notice.id) do |f| %>
-  <div class="container">
+  <div class="container notice-container">
     <div class="row">
       <!--見出し-->
-      <div class="col-md-2" style="text-align: center;">
+      <div class="col-md-2 notice-edit-logo">
         <h4>News編集</h4>
       </div>
       <!--入力内容1-->
-      <div class="col-md-8" style="text-align: center;">
+      <div class="col-md-8 notice-edit-body">
         <table>
           <!--title-->
           <div class="field">
@@ -25,7 +25,7 @@
         </table>
       </div>
       <!--入力内容2-->
-      <div class="col-md-2" style="text-align: left;">
+      <div class="col-md-2 notice-edit-body">
         <!--caption-->
         <div class="field">
           <%= f.label "補足" %>
@@ -35,7 +35,7 @@
     </div>
     <div class="row">
       <!--入力内容3-->
-      <div class="col" style="text-align: center; margin-top: 20px; margin-bottom: 10px;">
+      <div class="col notice-edit-body-3">
       <!--submit 更新-->
         <div class="field">
           <%= f.submit "更新", class: "btn btn-sm btn-success" %>

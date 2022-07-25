@@ -1,29 +1,29 @@
 <!--チャット詳細画面-->
 
-<div class="container">
+<div class="container blog-container">
   <div class="row">
     <!--上部見出し-->
-    <div class="col-md-2" style="text-align: center;">
+    <div class="col-md-2 blog-show-logo">
       <h4><%= @chat.employee.name %><br>さんの<br>チャット</h4>
     </div>
     <!--上部内容表示-->
     <div class="col-md-8">
-      <div class="box" style="padding-top: 10px; text-align: center; border: 1px solid rgba(0 , 0, 0, 0.2); background-color: rgba(255,255,255,0.5);">
+      <div class="box chat-box">
         <!--chat title-->
         <span><%= @chat.title %></span>
         <br>
         <!--chat body-->
-        <strong style="line-height: 50px;"><%= @chat.body %></strong>
+        <strong class="chat-show-text"><%= @chat.body %></strong>
       </div>
     </div>
   </div>
   <div class="row">
     <!--下部見出し-->
-    <div class="col-md-2" style="text-align: center; margin-top: 50px;">
+    <div class="col-md-2 chat-show-logo-2">
       <p>メッセージ全<%= @chat.chat_messages.count %>件</p>
     </div>
     <!--下部内容表示-->
-    <div class="col-md-8" style="text-align: center; margin-top: 50px; margin-bottom: 30px;">
+    <div class="col-md-8 chat-show-body">
         <!--コメント内容表示リンク-->
       <div id="comments_area">
         <%= render 'admin/chat_messages/chat_message', chat: @chat, chat_message: @chat_message %>

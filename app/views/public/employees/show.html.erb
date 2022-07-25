@@ -1,44 +1,19 @@
 <!--社員情報詳細-->
 
-<div class="container">
+<div class="container employee-container">
   <!--row1-->
-  <div class="row" style="border-bottom: 1px solid #000000;">
+  <div class="row">
     <!--見出し-->
-    <div class="col-md-4 employee-show-title">
+    <div class="col-md-2 employee-show-logo">
       <h4>マイページ</h4>
-      <br>
-      <%= render 'public/calendars/calendar', calendar: @calendar, employee: @employee %>
     </div>
     <!--表示内容1-->
-    <div class="col-md-4 employee-show-body">
-      <table class="table">
-        <!--氏名-->
+    <div class="col-md-8 employee-show-body">
+      <table class="table employee-table">
+        <!--氏名/在籍状況-->
         <tr>
           <th>氏名</th>
-          <td><%= @employee.first_name %><%= @employee.last_name %></td>
-        </tr>
-        <!--社員番号-->
-        <tr>
-          <th>社員番号</th>
-          <td><%= @employee.employee_code %></td>
-        </tr>
-        <!--配属先-->
-        <tr>
-          <th>配属先</th>
-          <td><%= @employee.assigned_to %></td>
-        </tr>
-        <!--電話番号-->
-        <tr>
-          <th>電話番号</th>
-          <td><%= @employee.phone_number %></td>
-        </tr>
-        <!--メールアドレス-->
-        <tr>
-          <th>メールアドレス</th>
-          <td><%= @employee.email %></td>
-        </tr>
-        <!--在籍状況-->
-        <tr>
+          <td><%= simple_format @employee.first_name %><%= simple_format @employee.last_name %></td>
           <th>在籍状況</th>
           <td>
             <% if @employee.is_deleted? %>
@@ -48,14 +23,30 @@
             <%end %>
           </td>
         </tr>
+        <!--社員番号/配属先-->
+        <tr>
+          <th>社員番号</th>
+          <td><%= simple_format @employee.employee_code %></td>
+          <th>配属先</th>
+          <td><%= simple_format @employee.assigned_to %></td>
+        </tr>
+        <!--電話番号/メールアドレス-->
+        <tr>
+          <th>電話番号</th>
+          <td><%= simple_format @employee.phone_number %></td>
+          <th>メールアドレス</th>
+          <td><%= simple_format @employee.email %></td>
+        </tr>
       </table>
+      <br>
     </div>
-    <div class="col-md-2"></div>
-    <!--注文履歴/Q&A/編集リンク-->
-    <div class="col-md-2" style="text-align: center; margin-bottom: 30px;">
+    <!--注文履歴ブックマーク一覧/Q&A/編集リンク-->
+    <div class="col-md-2 employee-show-link">
       <%= link_to "注文履歴", public_orders_path, class: 'btn btn-sm btn-info' %>
       <br><br>
       <%= link_to "Q&A", public_chats_path, class: 'btn btn-sm btn-secondary' %>
+      <br><br>
+      <%= link_to "ブクマ一覧", favorites_public_employee_path(@employee), class: 'btn btn-sm btn-warning' %>
       <br><br>
       <% if @employee.first_name != "guest" && @employee.last_name != "tarou" %>
         <%= link_to "編集", edit_public_employee_path, class: 'btn btn-sm btn-success' %>
@@ -64,8 +55,23 @@
   </div>
 
   <div class="row">
+      <!--カレンダー機能-->
+    <div class="col employee-show-calendar">
+      <div class="errors employee-show-errors">
+        <%= render 'layouts/errors', obj: @calendar %>
+      </div>
+      <div id="calendar">
+      <%= render 'calendar', calendars: @calendars %>
+      </div>
+      <div id="calendar-form">
+        <%= render 'calendar_form', calendar: @calendar, employee: @employee %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
     <!--表示内容2-->
-    <div class="col" style="margin-top: 30px; margin-bottom: 100px; text-align: center;">
+    <div class="col employee-show-body-2">
       <% @employee.blogs.each do |blog| %>
         <br>
         <!--画像-->
@@ -73,8 +79,6 @@
         <!--title-->
         <%= simple_format blog.title %><%= blog.created_at.strftime("%Y/%m/%d %H:%M") %>　閲覧数<%= blog.view_counts.count %>　<i class="fas fa-heart" style="color: red;"></i>︎<%= blog.favorites.count %><br>
       <% end %>
-    </div>
-
     </div>
   </div>
 

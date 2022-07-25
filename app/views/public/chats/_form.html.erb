@@ -3,20 +3,20 @@
 <%= form_with model: chat, url: public_chats_path, method: :post, remote: true, local: false do |f| %>
   <div class="row">
     <!--見出し-->
-    <div class="col-md-2">
+    <div class="col-md-2 chat-form-logo">
       <h4>Q＆A</h4>
     </div>
     <!--入力内容-->
-    <div class="col-md-8">
+    <div class="col-md-8 chat-form-body">
         <!--title-->
         <div class="field">
-          <%= f.label "題名" %>
+          <strong><%= f.label "題名" %></strong>
           <br>
           <%= f.text_field :title, autofocus: true, autocomplete: "title", placeholder: "必ずご入力ください", size: "50" %>
         </div>
         <!--body-->
         <div class="field" style="margin-top: 20px;">
-          <%= f.label "質問内容" %>
+          <strong><%= f.label "質問内容" %></strong>
           <br>
           <%= f.text_area :body, autocomplete: "body", placeholder: "できるだけ詳細にご記入ください", size: "50x5" %>
         </div>
@@ -26,7 +26,7 @@
         </div>
     </div>
     <!--エラーメッセージ表示-->
-    <div class="col-md-2">
+    <div class="col-md-2 chat-form-errors">
       <div class="errors">
         <%= render 'layouts/errors', obj: chat %>
       </div>

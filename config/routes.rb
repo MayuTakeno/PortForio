@@ -57,12 +57,16 @@ Rails.application.routes.draw do
     # get 'notices/show'
     # get 'notices/edit'
     resources :employees, except: [:index, :new] do
-      resources :calendars, only: [:create, :destroy]
+      member do
+        get :favorites
+      end
     end
+    resources :calendars, only: [:create, :show, :destroy]
+    # post 'employees/:id' => 'employees#show'
     # get 'employees/show'
     # get 'employees/edit'
     resources :blogs do
-      resource :favorites, only: [:create, :destroy]
+      resource :favorites, only: [:create, :destroy, :index]
     end
     resources :events, only: [:index, :show]
     post "chats/:id" => "chats#show"

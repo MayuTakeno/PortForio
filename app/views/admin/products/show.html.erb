@@ -1,23 +1,28 @@
-<div class="container">
+<div class="container product-container">
   <div class="row">
-    <div class="col-md-2" style="text-align: center;">
+    <!--見出し1-->
+    <div class="col-md-2 product-show-logo">
       <h4>製品詳細</h4>
     </div>
-    <div class="col-md-8" style="text-align: center;">
+    <!--表示内容1-->
+    <div class="col-md-8 product-show-image">
       <%= image_tag @product.get_image, size: "300x300" %>
     </div>
-    <div class="col-md-2" style="text-align: center; margin-top: 20px;">
+    <!--削除/編集リンク-->
+    <div class="col-md-2 product-show-link">
       <%= link_to "編集", edit_admin_product_path(@product), class: 'btn btn-sm btn-success' %>
       <br><br>
       <%= link_to "削除", admin_product_path(@product), method: :delete, class: 'btn btn-sm btn-danger' %>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-2" style="text-align: center; margin-top: 50px; margin-bottom: 30px;">
+    <!--見出し2-->
+    <div class="col-md-2 product-show-logo-2">
       <h4>製品概要</h4>
     </div>
-    <div class="col-md-8" style="margin-top: 50px; margin-bottom: 30px;">
-      <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+    <!--表示内容2-->
+    <div class="col-md-8 product-show-body-2">
+      <table class="table product-table">
         <tr>
           <th>製品名</th>
           <td><%= @product.name %></td>

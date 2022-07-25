@@ -1,19 +1,19 @@
 <!--製品詳細ページ-->
 
 <%= form_with model: @cart_item, url: public_cart_items_path, local: true, method: :post do |f| %>
-<div class="container">
+<div class="container product-container">
   <div class="row">
     <!--見出し1-->
-    <div class="col-md-2" style="text-align: center;">
+    <div class="col-md-2 product-show-logo">
       <h4>製品詳細</h4>
     </div>
     <!--表示内容1-->
-    <div class="col-md-8" style="text-align: center;">
+    <div class="col-md-8 product-show-body">
       <!--画像-->
       <%= image_tag @product.get_image, size: "300x300" %>
     </div>
     <!--表示内容2-->
-    <div class="col-md-2" style="margin-top: 20px; text-align: center; margin-bottom: 30px;">
+    <div class="col-md-2 product-show-body-2">
       <% if @product.is_active? %>
         <storng>社内販売</storng><br>
         <% if employee_signed_in? %>
@@ -31,12 +31,12 @@
   </div>
   <div class="row">
     <!--見出し2-->
-    <div class="col-md-2" style="text-align: center; margin-top: 50px;">
+    <div class="col-md-2 product-show-logo-2">
       <h4>製品概要</h4>
     </div>
     <!--表示内容3-->
-    <div class="col-md-8" style="margin-top: 50px; margin-bottom: 30px;">
-      <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+    <div class="col-md-8 product-show-body-3">
+      <table class="table product-show-table">
         <!--製品名/税込価格-->
         <tr>
           <th>製品名</th>

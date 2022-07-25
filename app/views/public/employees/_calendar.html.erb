@@ -1,0 +1,10 @@
+<%= month_calendar events: calendars do |date, calendars| %>
+  <%= date.day %>
+  <% calendars.each do |calendar| %>
+    <% if calendar.employee_id == current_employee.id %>
+      <%= link_to public_calendar_path(calendar) do %>
+        <%= simple_format calendar.title %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

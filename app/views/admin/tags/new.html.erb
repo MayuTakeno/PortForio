@@ -1,10 +1,10 @@
 <%= form_with model: @tag, url: admin_tags_path, method: :post do |f| %>
-<div class="container">
+<div class="container tag-container">
   <div class="row">
-    <div class="col-md-2" style="text-align:; center margin-bottom: 30px;">
+    <div class="col-md-2 tag-new-logo">
       <h4>タグ登録</h4>
     </div>
-    <div class="col-md-8" style="text-align: center; margin-bottom: 30px;">
+    <div class="col-md-8 tag-new-body">
       <div class="field">
         <%= f.text_field :tag_name, autofocus: true, autocomplete: "name", placeholder: "タグを入力してください", size: "30" %>
       </div>
@@ -13,7 +13,7 @@
         <%= f.submit "登録", class: 'btn btn-sm btn-success' %>
       </div>
     </div>
-    <div class="col-md-2" style="text-align: center; margin-bottom: 30px;">
+    <div class="col-md-2 tag-error">
       <%= render 'layouts/errors', obj: @tag %>
     </div>
   </div>

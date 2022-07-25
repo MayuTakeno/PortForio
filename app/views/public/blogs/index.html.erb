@@ -1,14 +1,14 @@
 <!--ブログ一覧ページ-->
 
-<div class="container">
+<div class="container blog-container">
   <div class="row">
     <!--見出し-->
-    <div class="col-md-2 blog-index-title">
+    <div class="col-md-2 blog-index-logo">
       <h4>Blog一覧</h4><br>全<%= @blogs.count %>件<br>
     </div>
-    <!--内容-->
+    <!--表示内容-->
     <div class="col-md-8 blog-index-body">
-    <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+    <table class="table blog-table">
       <!--テーブル見出し-->
       <thead>
         <tr>
@@ -57,7 +57,7 @@
     </table>
     </div>
     <!--リンク-->
-    <div class="col-md-2" style="text-align: center; margin-bottom: 30px;">
+    <div class="col-md-2 blogs-index-link">
       <% if employee_signed_in? %>
         <%= link_to "新規登録", new_public_blog_path, class: 'btn btn-sm btn-info' %>
       <% end %>

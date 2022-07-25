@@ -15,10 +15,17 @@ class Public::EmployeesController < ApplicationController
   end
 
   def show
-    @employee.blogs = Blog.includes(:employee)
-    @events = Event.includes(:admin)
-
+    @calendars = Calendar.includes(:employee)
+    @calendar = Calendar.new
+    @calendar = @calendars.build(employee_id: current_employee.id) if current_employee
   end
+
+  def favorites
+    @employee = Employee.find(params[:id])
+    favorites = Favorite.where(employee_id: @employee.id).pluck(:blog_id)
+    @favorite_blogs = Blog.find(favorites)
+  end
+
 
   private
 

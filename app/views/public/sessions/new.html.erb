@@ -1,44 +1,42 @@
-<!--employeeログインページ-->
-
 <%= form_with model: @employee, url: employee_session_path, local: true do |f| %>
-<div class="container">
+<div class="container session-container">
   <div class="row">
     <!--エラーメッセージ-->
-    <div class="col-md-3" style="text-align: center;">
+    <div class="col-md-3 session-new-error">
       <%= render "public/shared/error_messages", resource: @employee %>
       <%= render 'layouts/alert' %>
       <%= render 'layouts/notice' %>
     </div>
     <!--入力項目-->
-    <div class="col-md-6" style="text-align: center;">
+    <div class="col-md-6 session-new-body">
       <!--注意書き-->
       <strong>
         ※当サイトはポートフォリオに使用する作品です。<br>リアルに関する情報は載せないようにお願い申し上げます。
       <br><br>
-      <span style="color: red;">*</span>は入力必須項目です
+        <span class="session-field-color">*</span>は入力必須項目です
       </strong>
       <br><br>
       <!--assigned_to-->
       <div class="field">
-        <span style="color: red;"><%= f.label "*" %></span>
+        <span class="session-field-color"><%= f.label "*" %></span>
         <%= f.text_field :assigned_to, autofocus: true, autocomplete: "assigned_to", placeholder: "配属先", size:"40" %>
       </div>
       <br>
       <!--employee_code-->
       <div class="field">
-        <span style="color: red;"><%= f.label "*" %></span>
+        <span class="session-field-color"><%= f.label "*" %></span>
         <%= f.text_field :employee_code, autocomplete: "employee_code", placeholder: "社員番号", size: "40" %>
       </div>
       <br>
       <!--email-->
       <div class="field">
-        <span style="color: red;"><%= f.label "*" %></span>
+        <span class="session-field-color"><%= f.label "*" %></span>
         <%= f.email_field :email, autocomplete: "email", placeholder: "メールアドレス", size: "40" %>
       </div>
       <br>
       <!--password-->
       <div class="field">
-        <span style="color: red;"><%= f.label "*" %></span>
+        <span class="session-field-color"><%= f.label "*" %></span>
         <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", size: "40" %>
       </div>
       <br>
@@ -56,12 +54,12 @@
       </div>
     </div>
   </div>
-</div>
-<% end %>
-<br>
-<!--新規登録リンク-->
-<div class="link" style="text-align: center; padding-bottom: 30px;">
+  <!--新規登録リンク-->
+  <div class="session-new-link">
   <strong>社員登録がお済みでない方は</strong>
   <br>
   <%= render "public/shared/links" %>
 </div>
+</div>
+<% end %>
+<!--新規登録リンク-->

@@ -1,15 +1,15 @@
 <!--Q＆A詳細ページ-->
 
-<div class="container">
+<div class="container chat-container">
   <div class="row">
     <!--上部見出し-->
-    <div class="col-md-2 chat-show-title">
+    <div class="col-md-2 chat-show-logo">
       <h4><%= @chat.employee.name %><br>さんとの<br>チャット</h4>
     </div>
     <!--上部表示内容-->
-    <div class="col-md-8">
+    <div class="col-md-8 chat-show-body">
       <!--詳細見出し-->
-      <div class="box" style="padding-top: 10px; text-align: center; border: 1px solid rgba(0 , 0, 0, 0.2); background-color: rgba(255,255,255,0.5);">
+      <div class="box chat-box">
         <!--chat title-->
         <span><%= simple_format @chat.title %></span>
         <!--chat body-->
@@ -19,11 +19,11 @@
   </div>
   <div class="row">
     <!--下部見出し-->
-    <div class="col-md-2" style="text-align: center; margin-top: 50px;">
+    <div class="col-md-2 chat-show-logo-2">
       <p>メッセージ全<%= @chat.chat_messages.count %>件</p>
     </div>
     <!--下部表示内容-->
-    <div class="col-md-8" style="text-align: center; margin-top: 50px; margin-bottom: 30px;">
+    <div class="col-md-8 chat-show-body-2">
       <!--コメントを表示させたいテーブルリンク-->
       <div id="comments_area">
         <%= render 'public/chat_messages/comments', chat: @chat %>

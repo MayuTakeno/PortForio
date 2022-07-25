@@ -1,78 +1,50 @@
 <!--社員情報編集ページ-->
 
 <%= form_with model: @employee, url: public_employee_path(@employee), method: :patch, local: false do |f| %>
-<div class="container">
+<div class="container employee-container">
   <div class="row">
     <!--見出し-->
-    <div class="col-md-2" style="text-align: center;">
+    <div class="col-md-2 employee-edit-logo">
       <h4><%= @employee.name %><br>情報編集</h4>
     </div>
     <div class="col-md-1"></div>
     <!--入力内容-->
-    <div class="col-md-6" style="margin-bottom: 30px;">
-      <table class="table">
-        <!--first_name-->
-        <div class="field">
-          <tr>
-            <th>
-              <%= f.label "氏名(姓)" %>
-            </th>
-            <td>
-              <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: "氏名(姓)", size: "20" %>
-            </td>
-          </tr>
-        </div>
+    <div class="col-md-6 employee-edit-body">
+      <!--first_name-->
+      <div class="field employee-edit-field">
+        <%= f.label "氏名(姓)" %>
+        <br>
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: "氏名(姓)", size: "50" %>
+      </div>
         <!--last_name-->
-        <div class="field">
-          <tr>
-            <th>
-              <%= f.label "氏名(名)" %>
-            </th>
-            <th>
-              <%= f.text_field :last_name, autocomplete: "last_name", placeholder: "氏名(名)", size: "20" %>
-            </th>
-          </tr>
-        </div>
+      <div class="field employee-edit-field">
+        <%= f.label "氏名(名)" %>
+        <br>
+        <%= f.text_field :last_name, autocomplete: "last_name", placeholder: "氏名(名)", size: "50" %>
+      </div>
         <!--assigned_to-->
-        <div class="field">
-          <tr>
-            <th>
-              <%= f.label "配属先" %>
-            </th>
-            <td>
-              <%= f.text_field :assigned_to, autocomplete: "assigned_to", placeholder: "配属先", size: "40" %>
-            </td>
-          </tr>
-        </div>
+      <div class="field employee-edit-field">
+        <%= f.label "配属先" %>
+        <br>
+        <%= f.text_field :assigned_to, autocomplete: "assigned_to", placeholder: "配属先", size: "50" %>
+      </div>
         <!--phone_number-->
-        <div class="field">
-          <tr>
-            <th>
-              <%= f.label "電話番号"%>
-            </th>
-            <td>
-              <%= f.text_field :phone_number, autocomplete: "phone_number", placeholder: "電話番号", size: "40" %>
-            </td>
-          </tr>
-        </div>
+      <div class="field employee-edit-field">
+        <%= f.label "電話番号"%>
+        <br>
+        <%= f.text_field :phone_number, autocomplete: "phone_number", placeholder: "電話番号", size: "50" %>
+      </div>
         <!--email-->
-        <div class="field">
-          <tr>
-            <th>
-              <%= f.label "メールアドレス" %>
-            </th>
-            <td>
-              <%= f.text_field :email, autocomplete: "email", placeholder: "メールアドレス", size: "40" %>
-            </td>
-          </tr>
-        </div>
-      </table>
-    </div>
-  </div>
-  <div class="row">
-    <!--submit 更新-->
-    <div class="col" style="text-align:center; margin-bottom: 30px;">
-      <%= f.submit "更新", class: 'btn btn-sm btn-success' %>
+      <div class="field employee-edit-field">
+        <%= f.label "メールアドレス" %>
+        <br>
+        <%= f.text_field :email, autocomplete: "email", placeholder: "メールアドレス", size: "50" %>
+      </div>
+      <br>
+        <!--submit 更新-->
+      <div class="field employee-edit-field">
+        <%= f.submit "更新", class: 'btn btn-sm btn-success' %>
+      </div>
     </div>
   </div>
 </div>
