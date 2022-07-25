@@ -1,3 +1,69 @@
-// Place all the styles related to the admin/notices controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+// containerCSS{
+.notice-container{
+  padding: 100px 0px;
+}
+// }
+
+// newCSS{
+.notice-index-logo{
+  text-align: center;
+}
+.notice-index-body{
+  text-align: center;
+}
+.notice-index-body-2{
+  text-align:center;
+}
+.notice-index-body-3{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.notice-error{
+  color: red;
+}
+// }
+
+// indexCSS{
+.notice-index-logo{
+  text-align: center;
+}
+.notice-index-body{
+  margin-bottom: 30px;
+}
+.notice-index-link{
+  text-align: center;
+  margin-bottom: 30px;
+}
+// }
+
+// showCSS{
+.notice-show-logo{
+  text-align: center;
+}
+.notice-show-body{
+  text-align: center;
+  margin-bottom: 30px;
+}
+.notice-show-link{
+  text-align: center;
+  margin-bottom: 30px;
+}
+// }
+
+// editCSS{
+.notice-edit-logo{
+  text-align: center;
+}
+.notice-edit-body{
+  text-align: center;
+}
+.notice-edit-body{
+  text-align: center;
+}
+.notice-edit-body-3{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+// }

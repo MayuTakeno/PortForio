@@ -1,3 +1,41 @@
-// Place all the styles related to the admin/employees controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+// containerCSS{
+.employee-contaiener{
+  padding: 100px 0px;
+}
+// }
+
+// indexCSS{
+.employee-index-logo{
+  text-align: center;
+}
+.employee-index-body{
+  margin-bottom: 30px;
+}
+.employee-table{
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+// }
+
+// showCSS{
+.employee-show-logo{
+  text-align: center;
+}
+.employee-show-body{
+  margin-bottom: 30px;
+}
+.employee-show-link{
+  text-align: center;
+  margin-bottom: 30px;
+}
+// }
+
+// editCSS{
+.employee-edit-logo{
+  text-align: center;
+}
+.employee-edit-submit{
+  text-align: center;
+  margin-bottom: 30px;
+}
+// }

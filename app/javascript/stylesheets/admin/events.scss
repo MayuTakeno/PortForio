@@ -1,3 +1,66 @@
-// Place all the styles related to the admin/events controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+// containerCSS{
+.event-container{
+  padding: 100px 0px;
+}
+// }
+
+// newCSS{
+.event-new-logo{
+  text-align: center;
+}
+.event-new-body{
+  text-align: center;
+}
+.event-new-submit{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.event-error{
+  color: red;
+}
+// }
+
+// indexCSS{
+.event-index-logo{
+  text-align: center;
+}
+.event-index-body{
+margin-bottom: 30px;
+}
+.event-index-link{
+  text-align: center;
+  margin-bottom: 30px;
+}
+.event-table{
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+// }
+
+// showCSS{
+.event-show-logo{
+  text-align: center;
+}
+.event-show-body{
+  text-align: center;
+}
+.event-show-link{
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: center;
+}
+// }
+
+// editCSS{
+.event-edit-logo{
+  text-align: center;
+}
+.event-edit-body{
+  text-align: center;
+}
+.event-edit-submit{
+  text-align: center;
+  margin-top: 20px;
+}
+// }
