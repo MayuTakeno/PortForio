@@ -17,8 +17,8 @@
             <th>投稿日時</th>
           </tr>
         </thead>
-        <% @notices.each do |notice| %>
         <!--テーブル内容-->
+        <% @notices.each do |notice| %>
         <tbody>
           <tr>
             <!--画像-->
@@ -26,7 +26,7 @@
             <!--リンク付きtitle-->
             <td>
               <%= link_to public_notice_path(notice) do %>
-                <%= notice.title %>
+                <%= simple_format notice.title %>
               <% end %>
             </td>
             <!--投稿日時-->
@@ -42,5 +42,7 @@
     </div>
   </div>
   <!--ページネーション-->
-  <%= render 'layouts/paginate', obj: @notices %>
+  <div class="pagination">
+    <%= render 'layouts/paginate', obj: @notices %>
+  </div>
 </div>

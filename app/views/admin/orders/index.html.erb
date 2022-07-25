@@ -1,66 +1,64 @@
 <!--注文履歴一覧管理-->
 
-<div class="container">
-  <div class="row">
+<div class="order-index-chart">
     <!--chart.js-->
-    <div id="chart">
-      <canvas id="EmployeeOrderBarChart">
-        <script>
-            var ctx = document.getElementById("EmployeeOrderBarChart");
-            var EmployeeOrderBarChart = new Chart(ctx, {
-              type: 'bar',
-              data: {
-                labels: ['今日', '1日前', '2日前', '3日前', '4日前', '5日前', '6日前'],
-                datasets: [
-                  {
-                    label: "注文総数",
-                    data: <%= @orders.week_count %>,
-                    backgroundColor: [
-                      "rgba(250,50,50,0.5)",
-                      "rgba(250,50,50,0.5)",
-                      "rgba(250,50,50,0.5)",
-                      "rgba(250,50,50,0.5)",
-                      "rgba(250,50,50,0.5)",
-                      "rgba(250,50,50,0.5)",
-                      "rgba(250,50,50,0.5)"
-                    ],
-                    borderColor: [
-                      "rgb(255,255,255)",
-                      "rgb(255,255,255)",
-                      "rgb(255,255,255)",
-                      "rgb(255,255,255)",
-                      "rgb(255,255,255)",
-                      "rgb(255,255,255)",
-                      "rgb(255,255,255)",
-                      "rgb(255,255,255)"
-                    ]
-                  }
-                ],
+  <div id="chart">
+    <canvas id="EmployeeOrderBarChart">
+      <script>
+          var ctx = document.getElementById("EmployeeOrderBarChart");
+          var EmployeeOrderBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: ['今日', '1日前', '2日前', '3日前', '4日前', '5日前', '6日前'],
+              datasets: [
+                {
+                  label: "注文総数",
+                  data: <%= @orders.week_count %>,
+                  backgroundColor: [
+                    "rgba(250,50,50,0.5)",
+                    "rgba(250,50,50,0.5)",
+                    "rgba(250,50,50,0.5)",
+                    "rgba(250,50,50,0.5)",
+                    "rgba(250,50,50,0.5)",
+                    "rgba(250,50,50,0.5)",
+                    "rgba(250,50,50,0.5)"
+                  ],
+                  borderColor: [
+                    "rgb(255,255,255)",
+                    "rgb(255,255,255)",
+                    "rgb(255,255,255)",
+                    "rgb(255,255,255)",
+                    "rgb(255,255,255)",
+                    "rgb(255,255,255)",
+                    "rgb(255,255,255)",
+                    "rgb(255,255,255)"
+                  ]
+                }
+              ],
+            },
+            options: {
+              title: {
+                display: true,
+                text: '7日間の注文数の比較'
               },
-              options: {
-                title: {
-                  display: true,
-                  text: '7日間の注文数の比較'
-                },
-                // canvasサイズ自動設定
-                responsive: true
-              }
-            });
-        </script>
-      </canvas>
-    </div>
+              // canvasサイズ自動設定
+              responsive: true
+            }
+          });
+      </script>
+    </canvas>
   </div>
 </div>
 
-<div class="container">
+<div class="container order-container-2">
   <div class="row">
     <!--見出し-->
-    <div class="col-md-2" style="text-align: center;">
+    <div class="col-md-2 order-index-logo">
       <h4>製品購入履歴<br>一覧</h4>
     </div>
     <!--内容表示-->
-    <div class="col-md-8" style="margin-bottom: 30px;">
-      <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+    <div class="col-md-8 order-index-body">
+      <table class="table order-table">
         <!--テーブル見出し-->
         <thead>
           <tr>
@@ -98,10 +96,12 @@
       </table>
     </div>
     <!--リンク-->
-    <div class="col-md-2" style="text-align: center; margin-bottom: 30px;">
+    <div class="col-md-2 order-index-link">
       <%= link_to "製品一覧", admin_products_path, class: 'btn btn-sm btn-warning' %>
     </div>
   </div>
   <!--ページネーション-->
-  <%= render 'layouts/paginate', obj: @orders %>
+  <div class="pagination">
+    <%= render 'layouts/paginate', obj: @orders %>
+  </div>
 </div>

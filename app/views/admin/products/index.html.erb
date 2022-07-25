@@ -1,15 +1,15 @@
 <!--製品一覧管理ページ-->
 
 <%= form_with url: admin_products_path, method: :get do %>
-<div class="container">
+<div class="container product-container">
   <div class="row">
     <!--見出し-->
-    <div class="col-md-2" style="text-align: center;">
+    <div class="col-md-2 product-index-logo">
       <h4>商品一覧</h4>
     </div>
     <!--内容表示-->
-    <div class="col-md-8" style="margin-bottom: 30px;">
-      <table class="table" style="table-layout: fixed; word-wrap: break-word;">
+    <div class="col-md-8">
+      <table class="table product-table">
         <!--テーブル見出し-->
         <thead>
           <tr>
@@ -46,26 +46,26 @@
         </tbody>
       </table>
       <!--ページネーション-->
-      <%= render 'layouts/paginate', obj: @products_page %>
+      <div class="pagination">
+        <%= render 'layouts/paginate', obj: @products_page %>
+      </div>
     </div>
     <!--リンク-->
-    <div class="col-md-2" style="text-align: center; margin-bottom: 30px;">
-      <div class="link">
-        <%= link_to "製品登録", new_admin_product_path(@product), class: 'btn btn-sm btn-info' %>
-        <br><br>
-        <%= link_to "タグ管理", admin_tags_path, class: "btn btn-sm btn-success" %>
-        <br><br>
-        <%= link_to "製品購入履歴", admin_orders_path, class: 'btn btn-sm btn-warning' %>
-        <br><br>
-        <%= render 'admin/searches/search_product' %>
-        <br><br>
-        <table class="table">
-          <%= link_to admin_tags_path do %>
-            <strong>タグ検索</strong>
-          <% end %>
-            <%= select_tag :tag_id, options_from_collection_for_select(Tag.all, :id, :tag_name, params[:tag_id]), { prompt: '全て', class: 'free', onchange: 'submit(this.form);' } %>
-        </table>
-      </div>
+    <div class="col-md-2 product-index-link">
+      <%= link_to "製品登録", new_admin_product_path(@product), class: 'btn btn-sm btn-info' %>
+      <br><br>
+      <%= link_to "タグ管理", admin_tags_path, class: "btn btn-sm btn-success" %>
+      <br><br>
+      <%= link_to "製品購入履歴", admin_orders_path, class: 'btn btn-sm btn-warning' %>
+      <br><br>
+      <%= render 'admin/searches/search_product' %>
+      <br><br>
+      <table class="table product-table">
+        <%= link_to admin_tags_path do %>
+          <strong>タグ検索</strong>
+        <% end %>
+          <%= select_tag :tag_id, options_from_collection_for_select(Tag.all, :id, :tag_name, params[:tag_id]), { prompt: '全て', class: 'free', onchange: 'submit(this.form);' } %>
+      </table>
     </div>
   </div>
 </div>

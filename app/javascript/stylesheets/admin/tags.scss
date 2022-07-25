@@ -1,3 +1,39 @@
-// Place all the styles related to the admin/tags controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+// containerCSS{
+.tag-container{
+  padding: 100px 0px;
+}
+// }
+
+// tableCSS{
+.tag-table{
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+// }
+
+// errorCSS{
+.tag-error{
+  color: red;
+  text-align: center;
+}
+// }
+
+// newCSS{
+.tag-new-logo{
+  text-align: center;
+  margin-bottom: 30px;
+}
+.tag-new-body{
+  text-align: center;
+  margin-bottom: 30px;
+}
+// }
+
+// indexCSS{
+.tag-index-logo{
+  text-align: center;
+}
+.tag-index-link{
+  text-align: center;
+}
+// }

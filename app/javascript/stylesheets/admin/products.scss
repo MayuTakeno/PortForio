@@ -1,3 +1,74 @@
-// Place all the styles related to the admin/products controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+// containerCSS{
+.product-container{
+  padding: 100px 0px;
+}
+// }
+
+// tableCSS{
+.product-table{
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+// }
+
+// errorCSS{
+.product-error{
+  color: red;
+}
+// }
+
+// newCSS{
+.product-new-logo{
+  text-align: center;
+}
+.product-new-body{
+  text-align: center;
+}
+.product-new-body-2{
+  text-align: center;
+}
+.product-new-body-3{
+  text-align: center;
+}
+// }
+
+// indexCSS{
+.product-index-logo{
+  text-align: center;
+}
+.product-index-link{
+  text-align: center;
+}
+// }
+
+// showCSS{
+.product-show-logo{
+  text-align: center;
+}
+.product-show-image{
+  text-align: center;
+}
+.product-show-link{
+  text-align: center;
+  margin-top: 20px;
+}
+.product-show-logo-2{
+  text-align: center;
+  margin-top: 50px;
+}
+.product-show-body-2{
+  margin-top: 50px;
+}
+// }
+
+// editCSS{
+.product-edit-logo{
+  text-align: center;
+}
+.product-edit-body{
+  text-align: center;
+}
+.product-edit-submit{
+  text-align: center;
+}
+// }
