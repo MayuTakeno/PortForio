@@ -72,12 +72,13 @@
   <div class="row">
     <!--表示内容2-->
     <div class="col employee-show-body-2">
+      <h4>投稿記事</h4>
       <% @employee.blogs.each do |blog| %>
         <br>
         <!--画像-->
         <%= image_tag blog.get_image, size: "250x250" %>
         <!--title-->
-        <%= simple_format blog.title %><%= blog.created_at.strftime("%Y/%m/%d %H:%M") %>　閲覧数<%= blog.view_counts.count %>　<i class="fas fa-heart" style="color: red;"></i>︎<%= blog.favorites.count %><br>
+        <%= simple_format blog.title %><%= simple_format blog.body %><br><%= blog.created_at.strftime("%Y/%m/%d %H:%M") %>　閲覧数<%= blog.view_counts.count %>　<i class="fas fa-heart" style="color: red;"></i>︎<%= blog.favorites.count %><br>
       <% end %>
     </div>
   </div>
