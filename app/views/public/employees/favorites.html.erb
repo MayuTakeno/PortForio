@@ -17,7 +17,7 @@
         <% @favorite_blogs.each do |blog| %>
         <tr>
           <td><%= image_tag blog.get_image, size: "50x50" %></td>
-          <td><%= blog.title %></td>
+          <td><%= link_to blog.title, public_blog_path(blog) %></td>
           <td><%= blog.employee.name %></td>
           <td><%= blog.created_at.strftime("%Y/%m/%d %H:%M") %></td>
         </tr>
