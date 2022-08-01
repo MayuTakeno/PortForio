@@ -67,3 +67,6 @@ group :production do
 end
 
 gem 'net-smtp'
+gem 'net-imap'
+gem 'net-pop'
+
