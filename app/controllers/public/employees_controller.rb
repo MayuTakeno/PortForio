@@ -3,6 +3,7 @@ class Public::EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update]
 
   def edit
+    redirect_to public_employee_path(@employee) unless current_employee != @employee.id
   end
 
   def update
@@ -36,5 +37,6 @@ class Public::EmployeesController < ApplicationController
   def employee_params
     params.require(:employee).permit(:first_name, :last_name, :assigned_to, :employee_code, :phone_number, :is_deleted, :email)
   end
+
 
 end

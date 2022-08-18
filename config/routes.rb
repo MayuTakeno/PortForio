@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-
   namespace :admin do
+  # scope module: :admin do
     root to: 'employees#index'
     get "search_blog" => 'searches#search_blogs'
     get "search_notice" => 'searches#search_notices'
@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   end
 
   namespace :public do
+  # scope module: :public do
     # publicのルートパス
     root to: 'homes#top'
     # aboutページの名前付きルーティング
