@@ -3,7 +3,7 @@ class Public::EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update]
 
   def edit
-    redirect_to public_employee_path(@employee) unless current_employee != @employee.id
+    redirect_to public_employee_path(current_employee) unless employee_signed_in? && current_employee.id == @employee.id && @employee.first_name != "guest" && @employee.last_name != "tarou"
   end
 
   def update
@@ -31,7 +31,7 @@ class Public::EmployeesController < ApplicationController
   private
 
   def set_employee
-    @employee = current_employee
+    @employee = Employee.find(params[:id])
   end
 
   def employee_params
