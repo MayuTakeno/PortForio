@@ -33,6 +33,17 @@ ja:
 
   # activerecordの日本語化
   activerecord:
+    attributes:
+      employee:
+        email: "メールアドレス"
+        password: "パスワード"
+        first_name: "姓"
+        last_name: "名"
+        assigned_to: "配属先"
+        employee_code: "社員番号"
+        phone_nunmber: "電話番号"
+
+    # errors
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
@@ -40,6 +51,7 @@ ja:
         # employee
         employee:
           attributes:
+            email: "メールアドレス"
             email:
               blank : "が確認できません"
             password:
