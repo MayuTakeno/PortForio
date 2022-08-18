@@ -41,7 +41,7 @@ ja:
         last_name: "名"
         assigned_to: "配属先"
         employee_code: "社員番号"
-        phone_nunmber: "電話番号"
+        phone_number: "電話番号"
 
     # errors
     errors:
