@@ -42,6 +42,26 @@ ja:
         assigned_to: "配属先"
         employee_code: "社員番号"
         phone_number: "電話番号"
+      blog:
+        title: "題名"
+        body: "内容"
+      chat:
+        title: "題名"
+        body: "質問内容"
+      news:
+        title: "タイトル"
+        body: "内容"
+      event:
+        title: "題名"
+        body: "内容"
+        organizer: "主催者"
+        image: "画像"
+      product:
+        image: "画像"
+        name: "製品名"
+        caption: "製品説明"
+        price: "価格"
+        make_day: "製造日"
 
     # errors
     errors:
