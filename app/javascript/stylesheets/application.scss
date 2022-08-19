@@ -68,6 +68,15 @@ html{
   z-index: 3;
 }
 // }
+
+// show-image{
+.img-300-300{
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+// }
+
 // paginationCSS{
 .pagination{
   justify-content: center;
