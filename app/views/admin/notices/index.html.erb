@@ -23,7 +23,7 @@
         <tbody>
           <tr>
             <!--画像-->
-            <td><%= image_tag notice.get_image, size: "50x50" %></td>
+            <td><%= image_tag notice.get_image, class: "img-50-50" %></td>
             <!--名前付きtitle-->
             <td>
               <%= link_to admin_notice_path(notice) do %>
