@@ -26,7 +26,7 @@
           <% @products.each do |product| %>
           <tr>
             <!--製品画像-->
-            <td><%= image_tag product.get_image, size: "50x50" %></td>
+            <td><%= image_tag product.get_image, class: "img-50-50" %></td>
             <!--リンク付き製品名-->
             <td>
               <%= link_to public_product_path(product) do %>
