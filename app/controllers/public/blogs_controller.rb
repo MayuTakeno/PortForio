@@ -23,6 +23,7 @@ class Public::BlogsController < ApplicationController
   end
 
   def index
+    # ブログ情報を全て取得/ページネーション適用/新規順に表示
     @blogs = Blog.includes(:employee).page(params[:page]).order(created_at: :desc)
     if params[:word].present?
       @blogs = Blog.where("title LIKE?", "%#{params[:word]}%").page(params[:page]).order(created_at: :desc)
