@@ -25,6 +25,7 @@ class Public::BlogsController < ApplicationController
   def index
     # ブログ情報を全て取得/ページネーション適用/新規順に表示
     @blogs = Blog.includes(:employee).page(params[:page]).order(created_at: :desc)
+    # キーワード検索
     if params[:word].present?
       @blogs = Blog.where("title LIKE?", "%#{params[:word]}%").page(params[:page]).order(created_at: :desc)
     end
@@ -35,11 +36,13 @@ class Public::BlogsController < ApplicationController
   end
 
   def update
+    # ブログ情報の更新
     @blog.update(blog_params)
     redirect_to public_blog_path(@blog)
   end
 
   def show
+    # 閲覧数のカウント取得
     unless ViewCount.find_by(employee_id: current_employee.id, blog_id: @blog.id)
       current_employee.view_counts.create(blog_id: @blog.id)
     end
